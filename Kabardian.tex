@@ -1,0 +1,140 @@
+\documentclass[a4paper,12pt]{book}
+\usepackage{fontspec}
+\setmainfont{Charis SIL}
+
+\usepackage{tocbasic}
+%\usetocstyle{standard}
+\usepackage{longtable}
+\usepackage{gb4e}
+\usepackage{fullpage}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks = true,
+    linkcolor = blue
+}
+
+\usepackage{nameref}
+
+\usepackage{multirow}% http://ctan.org/pkg/multirow
+\usepackage{multicol}
+\usepackage{hhline}% http://ctan.org/pkg/hhline
+\newsavebox\ltmcbox
+
+\pagestyle{headings}
+\pagestyle{plain}
+
+\newcommand{\1}[1]{\textbf{\emph{#1}}} %at'ik words
+\newcommand{\2}[1]{\textbf{[#1]}} %at'ik phonetics
+\newcommand{\3}[1]{\fontsize{11pt}{0cm}\textbf{\emph{#1}}} %at'ik morphemes
+\newcommand{\4}[1]{\fontsize{10pt}{0cm}\emph{#1}}	%names of morphemes
+\newcommand{\5}[1]{\textbf{/#1/}} %at'ik phoneMics //
+\newcommand{\6}[1]{\textbf{[#1]}} %at'ik phoneTics []
+\newcommand{\7}[1]{\fontsize{12pt}{0cm}\emph{#1}} %emphasis
+\newcommand{\8}[1]{\fontsize{12pt}{0cm}`#1'} %English words
+\newcommand{\9}[1]{\fontsize{12pt}{0cm}(lit. `#1')} %English words
+
+\title{Test}
+
+\begin{document}
+
+\frontmatter
+\maketitle\newpage
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\newpage
+\mainmatter
+
+
+Адыгэ пшынэм щlыгур къыпэджэмэ, \\
+уоирэ, уорирэ, уойра,\\
+Бжэlупэ джэгум къуажэр зэхишэмэ,\\
+Хъуэхъубжьэ усэр псэм зэхидзыжымэ,\\
+Адыгэ нысэ унэ идошэрэ, \\
+уоирэ, уорирэ, уойра.\\
+\\
+Ей жи, адыгэ лъахэ,\\
+Ей жи, ди хабзэ дахэ,\\
+Дарий lэщхьэху, къамэ lэпщэху,\\
+Нэ фlыцlэ нэху, джэгу умыпсэху,\\
+Адыгэ нысэ унэ идошэрэ, уоирэ, уорирэ, уойра.\\
+\\\\
+Хьэзыр lупэхуу ди щауэ уардэхэм, уоирэ, уорирэ, уойра,\\
+Ди лъэпкъ гурыщlэр я уэредадэмэ,\\
+Дыгъэр зэхъуапсэр я дыщэидэмэ,\\
+Адыгэ нысэ унэ идошэрэ, уоирэ, уорирэ, уойра.\\
+\\\\
+Ей жи, адыгэ лъахэ,\\
+Ей жи, ди хабзэ дахэ,\\
+Дарий lэщхьэху, къамэ lэпщэху,\\
+Нэ фlыцlэ нэху, джэгу умыпсэху,\\
+Адыгэ нысэ унэ идошэрэ, уоирэ, уорирэ, уойра.\\
+
+Гъатхэм и дахэр уэрам къыдихьэмэ, уоирэ, уорирэ, уойра,
+Бжьыхьэм и бэвыр жьэгум къыдилъхьэмэ,
+Къалъхуа мазэщlэр и нэмыс щыпкъэмэ,
+Адыгэ нысэ унэ идошэрэ, уоирэ, уорирэ, уойра.
+
+Ей жи, адыгэ лъахэ,
+Ей жи, ди хабзэ дахэ,
+Дарий lэщхьэху, къамэ lэпщэху,
+Нэ фlыцlэ нэху, джэгу умыпсэху,
+Адыгэ нысэ унэ идошэрэ, уоирэ, уорирэ, уойра.
+
+И фоужь матэр дадэ икъутэмэ, уоирэ, уорирэ, уойра,
+Пшэплъыфэ lупэм хуахьыр фоущхьэмэ,
+Фlыгъуэ къепхъыхыр уэшхыу къыттешхэмэ,
+Адыгэ нысэ унэ идошэрэ, уоирэ, уорирэ, уойра.
+
+Ей жи, адыгэ лъахэ,
+Ей жи, ди хабзэ дахэ,
+Дарий lэщхьэху, къамэ lэпщэху,
+Нэ фlыцlэ нэху, джэгу умыпсэху,
+Адыгэ нысэ унэ идошэрэ, уоирэ, уорирэ, уойра.
+
+
+
+\begin{exe}
+\ex
+\1{Адыгэ пшынэм щlыгур къыпэджэмэ}\\
+\2{aːdəɣa pʃənam ɕʼəɡʷər qəpad͡ʒama}\\
+\3{Адыгэ пшынэ-м щlыгу-р къы-пэджэ-мэ}\\
+\4{Circassian bride earth greet.if}\
+\trans \8{If the Earth greets the Circassian bride}
+
+\ex
+\1{Бжэlупэ джэгум къуажэр зэхишэмэ}\\
+\2{bʒaʔʷəpa d͡ʒagʷəm qʷaʒar zaxiʃama}\\
+\3{}\\
+\4{}\
+\trans \8{If the wedding at the gate gathers the village}
+
+
+\ex
+\1{Хъуэхъубжьэ усэр псэм зэхидзыжымэ}\\
+\2{χʷaχʷbʑa wəsar psam zaxiːd͡zəʒəma}\\
+\3{}\\
+\4{}\
+\trans \8{If the wedding at the gate gathers the village}
+
+
+\ex
+\1{Бжэlупэ джэгум къуажэр зэхишэмэ}\\
+\2{bʒaʔʷəpa d͡ʒagʷəm qʷaʒar zaxiːʃama}\\
+\3{}\\
+\4{}\
+\trans \8{If the wedding at the gate gathers the village}
+\end{exe}
+
+
+\begin{exe}
+\ex
+\1{ghatsws'i ghatswgi iktzharta}\\
+\2{}\\
+\3{ghatsw-s'i ghatsw-gi iktzharta}\\
+\4{}\
+\trans \8{18 wolves have (just) attacked us} (lit. eleven wolves and seven wolves attacked us)
+\end{exe}
+
+
+\end{document}
