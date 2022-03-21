@@ -1,4 +1,5 @@
-.aux
-.log
-.out
-.synctex.gz
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.gz
