@@ -1,0 +1,2 @@
+# Etymology
+[[ja-]] + [[dʒan]]

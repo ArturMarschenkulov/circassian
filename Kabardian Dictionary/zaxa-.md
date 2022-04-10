@@ -1,0 +1,2 @@
+# Etymology
+[[za-]] + [[xa-]]

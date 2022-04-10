@@ -1,0 +1,101 @@
+{
+  "main": {
+    "id": "53dbac077a88f28f",
+    "type": "split",
+    "children": [
+      {
+        "id": "6e11402d105439c9",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "ɕəpqa.md",
+            "mode": "source"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "9165b34be3d69d21",
+    "type": "split",
+    "children": [
+      {
+        "id": "dd25ae9724abb5ce",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "acc8670701443fa6",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "f793b083f570948e",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "house",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "1126efa27e6f9eea",
+    "type": "split",
+    "children": [
+      {
+        "id": "03de194ec73f251b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d28829a6e89991e9",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "ɕəpqa.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "active": "6e11402d105439c9",
+  "lastOpenFiles": [
+    "ɕəpqa.md",
+    "daɬħan.md",
+    "dzən.md",
+    "Prefixes/pa-.md",
+    "dəħan.md",
+    "qədəħan.md",
+    "ʃan.md",
+    "-ʑə.md",
+    "qapɕəħən.md",
+    "qaʃənan.md"
+  ]
+}
