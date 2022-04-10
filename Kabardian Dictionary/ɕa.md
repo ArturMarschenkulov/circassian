@@ -5,7 +5,11 @@
 ## Noun
 1. hundred
 
+[[CAT.Number]]
+
 # Etymology 3
 [[ɕə]] + [[-a]]
 ## Numeral
 1. thrice, three times
+
+[[CAT.Number]]

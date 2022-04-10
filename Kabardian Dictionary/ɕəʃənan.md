@@ -3,5 +3,5 @@
 # Etymology
 [[ɕə-]] + [[ʃənan]]
 # Verb
-ɕawʃəna (intransitive)
+ɕawʃəna (2 intr.)
 1. to fear X

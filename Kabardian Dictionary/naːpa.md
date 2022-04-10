@@ -1,7 +1,7 @@
 # Etymology
+[[na]] + [[pa]]
 
 # Noun
-1. heart
-2. center
+1. face
 
 [[CAT.Anatomy]]

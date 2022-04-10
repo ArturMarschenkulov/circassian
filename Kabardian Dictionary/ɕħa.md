@@ -1,7 +1,5 @@
 # Etymology
-
 # Noun
-1. heart
-2. center
+1. head
 
 [[CAT.Anatomy]]
