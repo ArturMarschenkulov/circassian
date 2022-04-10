@@ -7,8 +7,11 @@
         "id": "6e11402d105439c9",
         "type": "leaf",
         "state": {
-          "type": "graph",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "tajɬadan.md",
+            "mode": "source"
+          }
         }
       }
     ],
@@ -66,6 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "tajɬadan.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -84,6 +88,7 @@
   },
   "active": "6e11402d105439c9",
   "lastOpenFiles": [
+    "tajɬadan.md",
     "ɬa.md",
     "naːpa.md",
     "ɬaːqʷa.md",
@@ -92,7 +97,6 @@
     "ʑa.md",
     "dza.md",
     "pɕa.md",
-    "ɕħa.md",
-    "Categories/CAT.Anatomy.md"
+    "ɕħa.md"
   ]
 }
