@@ -7,11 +7,8 @@
         "id": "6e11402d105439c9",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "tajɬadan.md",
-            "mode": "source"
-          }
+          "type": "graph",
+          "state": {}
         }
       }
     ],
@@ -39,7 +36,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "ɬxʷ",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -52,8 +49,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "1126efa27e6f9eea",
@@ -69,7 +65,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "tajɬadan.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,15 +83,15 @@
   },
   "active": "6e11402d105439c9",
   "lastOpenFiles": [
-    "tajɬadan.md",
-    "ɬa.md",
-    "naːpa.md",
-    "ɬaːqʷa.md",
-    "ʔʷəpa.md",
-    "ʔʷə.md",
-    "ʑa.md",
-    "dza.md",
-    "pɕa.md",
-    "ɕħa.md"
+    "ɕʼa.md",
+    "ɕʼaːɮa.md",
+    "ɕəqʷ ɕʼaːɮa.md",
+    "pɬʼə.md",
+    "ɮaʑan.md",
+    "ɮaʑaːkʷʼa.md",
+    "ʁʷə.md",
+    "Untitled 1.md",
+    "jadʒaːkʷʼa.md",
+    "jadʒan.md"
   ]
 }
