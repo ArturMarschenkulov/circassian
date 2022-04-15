@@ -58,9 +58,10 @@
 \contentsline {subsubsection}{On the basic form of the preverb}{25}{section*.27}%
 \contentsline {subsubsection}{Directional preverbs}{25}{section*.28}%
 \contentsline {subsubsection}{Local Preverbs}{26}{section*.29}%
-\contentsline {subsection}{\numberline {3.8.21}Ablauts in verbal word formation}{30}{subsection.3.8.21}%
-\contentsline {section}{\numberline {3.9}Deverbal Formations}{30}{section.3.9}%
-\contentsline {section}{\numberline {3.10}Adverb}{30}{section.3.10}%
-\contentsline {section}{\numberline {3.11}Utility words}{30}{section.3.11}%
-\contentsline {section}{\numberline {3.12}Interjections}{30}{section.3.12}%
-\contentsline {chapter}{\numberline {4}Syntax}{31}{chapter.4}%
+\contentsline {subsubsection}{Complex Preverbs}{30}{section*.30}%
+\contentsline {subsection}{\numberline {3.8.21}Ablauts in verbal word formation}{31}{subsection.3.8.21}%
+\contentsline {section}{\numberline {3.9}Deverbal Formations}{31}{section.3.9}%
+\contentsline {section}{\numberline {3.10}Adverb}{31}{section.3.10}%
+\contentsline {section}{\numberline {3.11}Utility words}{31}{section.3.11}%
+\contentsline {section}{\numberline {3.12}Interjections}{31}{section.3.12}%
+\contentsline {chapter}{\numberline {4}Syntax}{33}{chapter.4}%

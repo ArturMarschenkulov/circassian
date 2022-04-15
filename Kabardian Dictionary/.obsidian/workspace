@@ -7,8 +7,11 @@
         "id": "6e11402d105439c9",
         "type": "leaf",
         "state": {
-          "type": "graph",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "Categories/CAT.GRAM.Verb.md",
+            "mode": "preview"
+          }
         }
       }
     ],
@@ -36,8 +39,8 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "ɬxʷ",
-                "matchingCase": false,
+                "query": "nawba",
+                "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": false,
                 "extraContext": false,
@@ -65,6 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Categories/CAT.GRAM.Verb.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -83,15 +87,15 @@
   },
   "active": "6e11402d105439c9",
   "lastOpenFiles": [
-    "ɕʼa.md",
-    "ɕʼaːɮa.md",
-    "ɕəqʷ ɕʼaːɮa.md",
-    "pɬʼə.md",
-    "ɮaʑan.md",
-    "ɮaʑaːkʷʼa.md",
-    "ʁʷə.md",
-    "Untitled 1.md",
-    "jadʒaːkʷʼa.md",
-    "jadʒan.md"
+    "Categories/CAT.GRAM.Verb.md",
+    "Categories/CAT.Time.md",
+    "Categories/CAT.People.md",
+    "pɕadaj.md",
+    "pɕəpχʷ.md",
+    "aːnaʃxʷa.md",
+    "Categories/CAT.Family.md",
+    "daːda.md",
+    "dəħan.md",
+    "daɬxʷ.md"
   ]
 }
