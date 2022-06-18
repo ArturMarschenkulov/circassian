@@ -1,4 +1,10 @@
 
+
+## 1-personal intr.
+
+|1    |        2   |   Preset | Non-Present|
+|-----|------------|----------|------------|
+|1S | I V | saw
 ## 2-personal intr. dynamic 
 
 |1    |        2   |   Preset | Non-Present|
@@ -104,15 +110,15 @@
 
 |1    |        2   |   Preset | Non-Present|
 |-----|------------|----------|------------|
-|1S 2S|I V you     |wəzaw-  V |wə-P-s-   V|
-|1S 3S|I V him     |saw-    V |P-s-       V|
-|1S 2P|I V y'all   |fəzaw-  V |fə-P-s-      V|
-|1S 3P|I V them    |saw-    V |P-s- 	  V|
+|1S 2S|I V you     |wə-P-s- V |wə-P-s-    V|
+|1S 3S|I V him     |P-s-    V |P-s-       V|
+|1S 2P|I V y'all   |fə-P-s- V |fə-P-s-    V|
+|1S 3P|I V them    |P-s-    V |P-s- 	  V|
 ||||
-|2S 1S|you V me    |səbaw-V |sə-P-p- V|
-|2S 3S|you V him   |waw-    V |P-p-V|
-|2S 1P|you V us    |dəbaw-V |də-P-p- V|
-|2S 3P|you V them  |waw-    V |P-p-V|
+|2S 1S|you V me    |sə-P-p-V  |sə-P-p- V|
+|2S 3S|you V him   |P-p-V     |P-p-V|
+|2S 1P|you V us    |də-P-p-V  |də-P-p- V|
+|2S 3P|you V them  |P-p-V     |P-p-V|
 |     |            |          |            |
 |3S 1S|he V me     |sə-P-aj-  V |sə-P-əj-V|
 |3S 2S|he V you    |wə-P-aj-    V |wə-P-əj-V|
@@ -123,53 +129,55 @@
 
 
 
-## 3-personal
-|1    |        2            |   Preset | Non-Present|
-|-----|---------------------|----------|------------|
-|1S 2S 3S|I V you to him    |wəzaw-  V |wajs- V|
-|1S 2S 3P|I V you to them   |wəzaw-  V |waːs   V|
+## 3-personal tr.
+direct_object-indirect_object-subject
+
+|1       |        2         |   Preset | Non-Present|
+|--------|------------------|----------|------------|
+|1S 2S 3S|I V you to him    |wə∅zaw-V |wajs- V|
+|1S 2S 3P|I V you to them   |wə∅zaw-V |waːs   V|
 |||||
-|1S 3S 2S|I V him to you    |wəzaw-  V |was-   V|
-|1S 3S 3S|I V him to him    |jəzaw-  V |jas-   V|
-|1S 3S 2P|I V him to y'all  |fəzaw- V  |fas-   V|
-|1S 3S 3P|I V him to them   |jaːzaw-  V|jaːs-   V|
+|1S 3S 2S|I V him to you    |∅wəzaw-V |∅was-   V|
+|1S 3S 3S|I V him to him    |∅jəzaw-V |∅jas-   V|
+|1S 3S 2P|I V him to y'all  |∅fəzaw-V  |∅fas-   V|
+|1S 3S 3P|I V him to them   |∅jaːzaw-  V|∅jaːs-   V|
 |||||
-|1S 2P 3S|I V y'all to him  |fəzaw-  V |fajs-   V|
-|1S 2P 3P|I V y'all to them |fəzaw-  V |faːs-   V|
+|1S 2P 3S|I V y'all to him  |fə∅zaw-  V |fajs-   V|
+|1S 2P 3P|I V y'all to them |fə∅zaw-  V |faːs-   V|
 |||||
-|1S 3P 2S|I V them to you   |wəzaw-  V |was-   V|
-|1S 3P 3S|I V them to him   |jəzaw-  V |jas-   V|
-|1S 3P 2P|I V them to y'all |fəzaw-  V |fas-   V|
-|1S 3P 3P|I V them to them  |jaːzaw-  V |jaːs-   V|
+|1S 3P 2S|I V them to you   |∅wəzaw-  V |∅was-   V|
+|1S 3P 3S|I V them to him   |∅jəzaw-  V |∅jas-   V|
+|1S 3P 2P|I V them to y'all |∅fəzaw-  V |∅fas-   V|
+|1S 3P 3P|I V them to them  |∅jaːzaw-  V |∅jaːs-   V|
 ||||
 ||||
-|2S 1S 3S|you V me to him   |səbaw-  V |sajp-   V|
-|2S 1S 3P|you V me to them  |səbaw-  V |saːp-   V|
+|2S 1S 3S|you V me to him   |sə∅baw-  V |sajp-   V|
+|2S 1S 3P|you V me to them  |sə∅baw-  V |saːp-   V|
 ||||
-|2S 3S 1S|you V him to me   |qəzəbaw-  V |qəzap-   V|
-|2S 3S 3S|you V him to him  |jəbaw-  V |jap-   V|
-|2S 3S 1P|you V him to us   |qədəbaw-  V |qədap-   V|
-|2S 3S 3P|you V him to them |jaːbaw-  V|jaːp-   V|
+|2S 3S 1S|you V him to me   |∅qəzəbaw-  V |∅qəzap-   V|
+|2S 3S 3S|you V him to him  |∅jəbaw-  V |∅jap-   V|
+|2S 3S 1P|you V him to us   |∅qədəbaw-  V |∅qədap-   V|
+|2S 3S 3P|you V him to them |∅jaːbaw-  V|∅jaːp-   V|
 ||||
-|2S 1P 3S|you V us to him   |dəbaw-  V |dajp-   V|
-|2S 1P 3P|you V us to them  |dəbaw-  V |daːp-   V|
+|2S 1P 3S|you V us to him   |də∅baw-  V |dajp-   V|
+|2S 1P 3P|you V us to them  |də∅baw-  V |daːp-   V|
 ||||
-|2S 3P 1S|you V them to me  |qəzəbaw-  V |qəzap-   V|
-|2S 3P 3S|you V them to him |jəbaw-  V |jap-   V|
-|2S 3P 1P|you V them to us  |qədəbaw-  V |qədap-   V|
-|2S 3P 3P|you V them to them|jəbaw-  V|jaːp-   V|
-||||
-||||
-|3S 1S 2S|he V me to you    |səqəwaj-V|
-|3S 1S 3S|he V me to him    |sraj-V   |
-|3S 1S 2P|he V me to y'all  |səqəvaj-V|
-|3S 1S 3P|he V me to them   |saːraj-V |
-||||
+|2S 3P 1S|you V them to me  |∅qəzəbaw-  V |∅qəzap-   V|
+|2S 3P 3S|you V them to him |∅jəbaw-  V |∅jap-   V|
+|2S 3P 1P|you V them to us  |∅qədəbaw-  V |∅qədap-   V|
+|2S 3P 3P|you V them to them|∅jəbaw-  V|∅jaːp-   V|
+|||||
+|||||
+|3S 1S 2S|he V me to you    |səqəwaj-V|səqəwərəj-
+|3S 1S 3S|he V me to him    |sraj-V   |sərəj-
+|3S 1S 2P|he V me to y'all  |səqəvaj-V|səqəvərəj-
+|3S 1S 3P|he V me to them   |saːraj-V |saːrəj-
+|||||
 |3S 2S 1S|he V you to me    |wəqəzaj-V|
 |3S 2S 3S|he V you to him   |wəraj-V  |
 |3S 2S 1P|he V you to us    |wəqədaj-V|
 |3S 2S 3P|he V you to them  |waːraj-V |
-||||
+|||||
 |3S 3S 1S|he V him to me    |qəzaj-V|
 |3S 3S 2S|he V him to you   |qəwaj-V|
 |3S 3S 3S|he V him to him   |jəraj-V|

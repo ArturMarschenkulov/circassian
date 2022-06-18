@@ -61,7 +61,14 @@
 \contentsline {subsubsection}{Complex Preverbs}{30}{section*.30}%
 \contentsline {subsection}{\numberline {3.8.21}Ablauts in verbal word formation}{31}{subsection.3.8.21}%
 \contentsline {section}{\numberline {3.9}Deverbal Formations}{31}{section.3.9}%
-\contentsline {section}{\numberline {3.10}Adverb}{31}{section.3.10}%
-\contentsline {section}{\numberline {3.11}Utility words}{31}{section.3.11}%
-\contentsline {section}{\numberline {3.12}Interjections}{31}{section.3.12}%
-\contentsline {chapter}{\numberline {4}Syntax}{33}{chapter.4}%
+\contentsline {subsection}{\numberline {3.9.1}Participle}{31}{subsection.3.9.1}%
+\contentsline {subsubsection}{Types of participles}{31}{section*.31}%
+\contentsline {subsubsection}{Formation of Participles}{32}{section*.32}%
+\contentsline {paragraph}{The formation of subject and object participles}{32}{section*.33}%
+\contentsline {paragraph}{The formation of substantive and instrumental participles}{33}{section*.34}%
+\contentsline {subsubsection}{The word formation of participles}{34}{section*.35}%
+\contentsline {paragraph}{Change by person}{34}{section*.36}%
+\contentsline {section}{\numberline {3.10}Adverb}{34}{section.3.10}%
+\contentsline {section}{\numberline {3.11}Utility words}{34}{section.3.11}%
+\contentsline {section}{\numberline {3.12}Interjections}{34}{section.3.12}%
+\contentsline {chapter}{\numberline {4}Syntax}{35}{chapter.4}%

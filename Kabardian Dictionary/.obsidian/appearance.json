@@ -1,3 +1,8 @@
 {
-  "baseFontSize": 20
+  "baseFontSize": 118,
+  "theme": "moonstone",
+  "enabledCssSnippets": [],
+  "translucency": false,
+  "textFontFamily": "Doulos SIL",
+  "interfaceFontFamily": ""
 }

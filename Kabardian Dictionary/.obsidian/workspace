@@ -4,12 +4,12 @@
     "type": "split",
     "children": [
       {
-        "id": "6e11402d105439c9",
+        "id": "053f16f1e892d562",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Categories/CAT.GRAM.Verb.md",
+            "file": "bɮatʃʼaː.md",
             "mode": "preview"
           }
         }
@@ -39,7 +39,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "nawba",
+                "query": "wolf",
                 "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -52,7 +52,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 301
   },
   "right": {
     "id": "1126efa27e6f9eea",
@@ -68,34 +68,57 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Categories/CAT.GRAM.Verb.md",
+                "file": "bɮatʃʼaː.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
                 "searchQuery": "",
-                "backlinkCollapsed": false,
+                "backlinkCollapsed": true,
                 "unlinkedCollapsed": false
               }
             }
+          },
+          {
+            "id": "96a6b2e420d9daeb",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "8b9bcee9ed8ce895",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "bɮatʃʼaː.md"
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 250.4075927734375,
+    "collapsed": true
   },
-  "active": "6e11402d105439c9",
+  "active": "053f16f1e892d562",
   "lastOpenFiles": [
-    "Categories/CAT.GRAM.Verb.md",
-    "Categories/CAT.Time.md",
-    "Categories/CAT.People.md",
-    "pɕadaj.md",
-    "pɕəpχʷ.md",
-    "aːnaʃxʷa.md",
-    "Categories/CAT.Family.md",
-    "daːda.md",
-    "dəħan.md",
-    "daɬxʷ.md"
+    "bɮatʃʼaː.md",
+    "aːna.md",
+    "aːdaʃxʷa.md",
+    "Lesson/Grammar/Passive Voice.md",
+    "Lesson/Grammar/Interjections.md",
+    "Lesson/Grammar/Interrogative pronouns.md",
+    "Lesson/Grammar/Participles     c.md",
+    "Lesson/Learning Kabardian 5 class/Urok 1.md",
+    "Lesson/Grammar/Ergativity.md",
+    "zapəwəpɕʼən.md"
   ]
 }

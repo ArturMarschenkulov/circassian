@@ -1,1 +1,4 @@
-{}
+{
+  "strictLineBreaks": false,
+  "readableLineLength": false
+}
