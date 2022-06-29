@@ -7,68 +7,69 @@
 \contentsline {section}{\numberline {3.3}Noun}{7}{section.3.3}%
 \contentsline {section}{\numberline {3.4}Pronoun}{7}{section.3.4}%
 \contentsline {section}{\numberline {3.5}Adjective}{7}{section.3.5}%
-\contentsline {section}{\numberline {3.6}Numeral}{7}{section.3.6}%
-\contentsline {section}{\numberline {3.7}Ablaut in Nominal Word Formation}{7}{section.3.7}%
-\contentsline {section}{\numberline {3.8}Verb}{7}{section.3.8}%
-\contentsline {subsection}{\numberline {3.8.1}General characteristics of verb polysynthesis}{7}{subsection.3.8.1}%
+\contentsline {subsection}{\numberline {3.5.1}Adjective as a part of speech}{7}{subsection.3.5.1}%
+\contentsline {section}{\numberline {3.6}Numeral}{8}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Ablaut in Nominal Word Formation}{8}{section.3.7}%
+\contentsline {section}{\numberline {3.8}Verb}{8}{section.3.8}%
+\contentsline {subsection}{\numberline {3.8.1}General characteristics of verb polysynthesis}{8}{subsection.3.8.1}%
 \contentsline {subsection}{\numberline {3.8.2}Transitive and non-transitive verbs}{9}{subsection.3.8.2}%
 \contentsline {subsubsection}{Transposition of non-transitive verbs into transitive verbs}{10}{section*.2}%
-\contentsline {subsection}{\numberline {3.8.3}Dynamic and static verbs}{11}{subsection.3.8.3}%
-\contentsline {subsection}{\numberline {3.8.4}Finite and infinitive verb forms}{15}{subsection.3.8.4}%
-\contentsline {subsection}{\numberline {3.8.5}Face category}{15}{subsection.3.8.5}%
-\contentsline {subsection}{\numberline {3.8.6}Verb paradigms}{15}{subsection.3.8.6}%
-\contentsline {subsubsection}{1-personal intransitive verbs}{15}{section*.3}%
-\contentsline {paragraph}{Preliminary remarks}{15}{section*.4}%
-\contentsline {subsubsection}{2-personal intransitive verbs}{15}{section*.5}%
-\contentsline {paragraph}{Ways to turn singular non-transitive verbs into bifurcated non-transitive verbs}{15}{section*.6}%
-\contentsline {subsubsection}{3-personal intransitive verbs}{17}{section*.7}%
-\contentsline {paragraph}{Types of three-person non-transitive verbs}{17}{section*.8}%
-\contentsline {subsubsection}{4-personal intransitive verbs}{17}{section*.9}%
-\contentsline {subsubsection}{1-personal transitive verbs}{17}{section*.10}%
-\contentsline {subsubsection}{2-personal transitive verbs}{17}{section*.11}%
-\contentsline {subsubsection}{3-personal transitive verbs}{17}{section*.12}%
-\contentsline {paragraph}{Simple three-person transitive verbs}{17}{section*.13}%
-\contentsline {paragraph}{Paradigms of three-person transitive verbs like yeth-n "to give him whom-, sth.}{18}{section*.14}%
+\contentsline {subsection}{\numberline {3.8.3}Dynamic and static verbs}{12}{subsection.3.8.3}%
+\contentsline {subsection}{\numberline {3.8.4}Finite and infinitive verb forms}{16}{subsection.3.8.4}%
+\contentsline {subsection}{\numberline {3.8.5}Face category}{16}{subsection.3.8.5}%
+\contentsline {subsection}{\numberline {3.8.6}Verb paradigms}{16}{subsection.3.8.6}%
+\contentsline {subsubsection}{1-personal intransitive verbs}{16}{section*.3}%
+\contentsline {paragraph}{Preliminary remarks}{16}{section*.4}%
+\contentsline {subsubsection}{2-personal intransitive verbs}{16}{section*.5}%
+\contentsline {paragraph}{Ways to turn singular non-transitive verbs into bifurcated non-transitive verbs}{16}{section*.6}%
+\contentsline {subsubsection}{3-personal intransitive verbs}{18}{section*.7}%
+\contentsline {paragraph}{Types of three-person non-transitive verbs}{18}{section*.8}%
+\contentsline {subsubsection}{4-personal intransitive verbs}{18}{section*.9}%
+\contentsline {subsubsection}{1-personal transitive verbs}{18}{section*.10}%
+\contentsline {subsubsection}{2-personal transitive verbs}{18}{section*.11}%
+\contentsline {subsubsection}{3-personal transitive verbs}{18}{section*.12}%
+\contentsline {paragraph}{Simple three-person transitive verbs}{18}{section*.13}%
+\contentsline {paragraph}{Paradigms of three-person transitive verbs like yeth-n "to give him whom-, sth.}{19}{section*.14}%
 \contentsline {subsubsection}{4-personal transitive verbs}{19}{section*.15}%
 \contentsline {paragraph}{Types of three-person non-transitive verbs}{19}{section*.16}%
-\contentsline {subsection}{\numberline {3.8.7}Tense category}{19}{subsection.3.8.7}%
-\contentsline {subsubsection}{Preliminary Remarks}{19}{section*.17}%
-\contentsline {subsubsection}{Present Tense}{20}{section*.18}%
-\contentsline {subsubsection}{Future 1}{20}{section*.19}%
-\contentsline {subsubsection}{Future 2}{20}{section*.20}%
-\contentsline {subsubsection}{Perfect 1}{21}{section*.21}%
-\contentsline {subsubsection}{Perfect 2}{21}{section*.22}%
-\contentsline {subsubsection}{Plusquamperfect 1}{21}{section*.23}%
-\contentsline {subsubsection}{Plusquamperfect 2}{22}{section*.24}%
-\contentsline {subsubsection}{Aorist}{22}{section*.25}%
-\contentsline {subsection}{\numberline {3.8.8}Inflectional category}{24}{subsection.3.8.8}%
-\contentsline {subsection}{\numberline {3.8.9}Negative forms}{24}{subsection.3.8.9}%
-\contentsline {subsection}{\numberline {3.8.10}Interrogative forms}{24}{subsection.3.8.10}%
-\contentsline {subsection}{\numberline {3.8.11}Ways of Verbal Formation}{24}{subsection.3.8.11}%
-\contentsline {subsection}{\numberline {3.8.12}Factitive Verbs}{24}{subsection.3.8.12}%
-\contentsline {subsection}{\numberline {3.8.13}Causative category}{24}{subsection.3.8.13}%
-\contentsline {subsection}{\numberline {3.8.14}Unionality category}{24}{subsection.3.8.14}%
-\contentsline {subsection}{\numberline {3.8.15}Jointness category}{24}{subsection.3.8.15}%
-\contentsline {subsection}{\numberline {3.8.16}reciprocity}{24}{subsection.3.8.16}%
-\contentsline {subsection}{\numberline {3.8.17}Version category}{24}{subsection.3.8.17}%
-\contentsline {subsection}{\numberline {3.8.18}Category potency (possibility)}{24}{subsection.3.8.18}%
-\contentsline {subsection}{\numberline {3.8.19}Category involuntariness}{24}{subsection.3.8.19}%
-\contentsline {subsection}{\numberline {3.8.20}Directional and local prefixes (preverbs)}{24}{subsection.3.8.20}%
-\contentsline {subsubsection}{Preliminary remarks}{24}{section*.26}%
-\contentsline {subsubsection}{On the basic form of the preverb}{25}{section*.27}%
-\contentsline {subsubsection}{Directional preverbs}{25}{section*.28}%
-\contentsline {subsubsection}{Local Preverbs}{26}{section*.29}%
-\contentsline {subsubsection}{Complex Preverbs}{30}{section*.30}%
-\contentsline {subsection}{\numberline {3.8.21}Ablauts in verbal word formation}{31}{subsection.3.8.21}%
-\contentsline {section}{\numberline {3.9}Deverbal Formations}{31}{section.3.9}%
-\contentsline {subsection}{\numberline {3.9.1}Participle}{31}{subsection.3.9.1}%
-\contentsline {subsubsection}{Types of participles}{31}{section*.31}%
-\contentsline {subsubsection}{Formation of Participles}{32}{section*.32}%
-\contentsline {paragraph}{The formation of subject and object participles}{32}{section*.33}%
-\contentsline {paragraph}{The formation of substantive and instrumental participles}{33}{section*.34}%
-\contentsline {subsubsection}{The word formation of participles}{34}{section*.35}%
-\contentsline {paragraph}{Change by person}{34}{section*.36}%
-\contentsline {section}{\numberline {3.10}Adverb}{34}{section.3.10}%
-\contentsline {section}{\numberline {3.11}Utility words}{34}{section.3.11}%
-\contentsline {section}{\numberline {3.12}Interjections}{34}{section.3.12}%
-\contentsline {chapter}{\numberline {4}Syntax}{35}{chapter.4}%
+\contentsline {subsection}{\numberline {3.8.7}Tense category}{20}{subsection.3.8.7}%
+\contentsline {subsubsection}{Preliminary Remarks}{20}{section*.17}%
+\contentsline {subsubsection}{Present Tense}{21}{section*.18}%
+\contentsline {subsubsection}{Future 1}{21}{section*.19}%
+\contentsline {subsubsection}{Future 2}{21}{section*.20}%
+\contentsline {subsubsection}{Perfect 1}{22}{section*.21}%
+\contentsline {subsubsection}{Perfect 2}{22}{section*.22}%
+\contentsline {subsubsection}{Plusquamperfect 1}{22}{section*.23}%
+\contentsline {subsubsection}{Plusquamperfect 2}{23}{section*.24}%
+\contentsline {subsubsection}{Aorist}{23}{section*.25}%
+\contentsline {subsection}{\numberline {3.8.8}Inflectional category}{25}{subsection.3.8.8}%
+\contentsline {subsection}{\numberline {3.8.9}Negative forms}{25}{subsection.3.8.9}%
+\contentsline {subsection}{\numberline {3.8.10}Interrogative forms}{25}{subsection.3.8.10}%
+\contentsline {subsection}{\numberline {3.8.11}Ways of Verbal Formation}{25}{subsection.3.8.11}%
+\contentsline {subsection}{\numberline {3.8.12}Factitive Verbs}{25}{subsection.3.8.12}%
+\contentsline {subsection}{\numberline {3.8.13}Causative category}{25}{subsection.3.8.13}%
+\contentsline {subsection}{\numberline {3.8.14}Unionality category}{25}{subsection.3.8.14}%
+\contentsline {subsection}{\numberline {3.8.15}Jointness category}{25}{subsection.3.8.15}%
+\contentsline {subsection}{\numberline {3.8.16}reciprocity}{25}{subsection.3.8.16}%
+\contentsline {subsection}{\numberline {3.8.17}Version category}{25}{subsection.3.8.17}%
+\contentsline {subsection}{\numberline {3.8.18}Category potency (possibility)}{25}{subsection.3.8.18}%
+\contentsline {subsection}{\numberline {3.8.19}Category involuntariness}{25}{subsection.3.8.19}%
+\contentsline {subsection}{\numberline {3.8.20}Directional and local prefixes (preverbs)}{25}{subsection.3.8.20}%
+\contentsline {subsubsection}{Preliminary remarks}{25}{section*.26}%
+\contentsline {subsubsection}{On the basic form of the preverb}{26}{section*.27}%
+\contentsline {subsubsection}{Directional preverbs}{26}{section*.28}%
+\contentsline {subsubsection}{Local Preverbs}{27}{section*.29}%
+\contentsline {subsubsection}{Complex Preverbs}{31}{section*.30}%
+\contentsline {subsection}{\numberline {3.8.21}Ablauts in verbal word formation}{32}{subsection.3.8.21}%
+\contentsline {section}{\numberline {3.9}Deverbal Formations}{32}{section.3.9}%
+\contentsline {subsection}{\numberline {3.9.1}Participle}{32}{subsection.3.9.1}%
+\contentsline {subsubsection}{Types of participles}{32}{section*.31}%
+\contentsline {subsubsection}{Formation of Participles}{33}{section*.32}%
+\contentsline {paragraph}{The formation of subject and object participles}{33}{section*.33}%
+\contentsline {paragraph}{The formation of substantive and instrumental participles}{34}{section*.34}%
+\contentsline {subsubsection}{The word formation of participles}{35}{section*.35}%
+\contentsline {paragraph}{Change by person}{35}{section*.36}%
+\contentsline {section}{\numberline {3.10}Adverb}{35}{section.3.10}%
+\contentsline {section}{\numberline {3.11}Utility words}{35}{section.3.11}%
+\contentsline {section}{\numberline {3.12}Interjections}{35}{section.3.12}%
+\contentsline {chapter}{\numberline {4}Syntax}{37}{chapter.4}%

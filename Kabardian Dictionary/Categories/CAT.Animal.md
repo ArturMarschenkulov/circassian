@@ -23,7 +23,7 @@
 **_bʒan_** - _she-goat_
 **_aːʒa_** - _he-goat_
 **_dadʒaːʒa_** - _one years old goat_
-**_dadʒaχʷ_** - _castrated goat_
+**_dadʒaχʷ_** - _castrated goat_:
 **_qʷərʃ aːʒa_**
 **_xəɕʼa_** - _six years old castrated goat/sheep_
 **_ɕəna_** - _lamb_
@@ -116,7 +116,8 @@
 
 
 # Birds
-**_bzəw_** - bird
+**_bzəw_** - _bird_, _sparrow_
+**_qʷaːɮabzəw_** - _wild bird_
 
 **_dʒad_** - _chicken_
 **_aːdaːqa_** - _rooster_
@@ -126,7 +127,7 @@
 
 **_qʷaːrʁ_** - crow
 **_qʷaːɮa_** - jackdaw
-**_qanʒa_** - magpie
+**_qaːnʒa_** - magpie
 **_qʷanɕʼa_**, **qʷaːɮa** - rook
 
 **_vənd_**, **_qʷaːɮaʑ_** - raven
@@ -141,9 +142,24 @@
 
 **_tħarəqʷa_** - dove, pidgeon
 **_ʑəndəw_** _owl_
+**_bʒandaχʷ_** - _startling_
+**_ptsʼaɕχʷa_** - _swallow_
+**_ħarħwəp_** - _hoopoe_
+**_ʒəɣəwəʔʷ_** - _woodpecker_ (cf. **_ʒəɣ_** _tree_ + **_wəʔʷən_**)
+**_tʃʼəgʷəwgʷ_** - _cuckoo_
+
+**_qʷədaːmam qʷaːrʁ  tajsɕ_** - _a crow sits on the branch_
+**_wənaɕħam tħarəqʷa tajsɕ_**- _a pidgeon sits on the roof_
+**_ʒəɣəm ʑəndəw tajsɕ_** - _an owl sits on the tree_
+**_bʁar qʷaːɮabzəw jən dədaɕ_** - _an eagle is a very big bird_
+**_bʁar jəqʷətʃʼa qʷaːɮabzəw jənɕ_** - _an eagle is a very big bird_
+**_ʒəɣəwəʔʷər qʷaːɮabzəw pʼaːɕaɕ_** - __
+
+**_sət xʷada qʷaːɮabzəwxa ʁatxam qaɬataʒra:qq_** - _which birds fly away in spring_
 
 # Fish
-**_bdzaʒaj_** - _fish_
+**_bdzaʑaj_** - _fish_ (cf. orginally meant _small fish_)
+**_bdza_** - _sturgeon_ (cf. in the past it probably meant _big fish_)
 **_aːrʁaj_** - _salmon_
 
 

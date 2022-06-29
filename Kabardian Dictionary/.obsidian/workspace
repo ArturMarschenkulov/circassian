@@ -9,8 +9,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "bɮatʃʼaː.md",
-            "mode": "preview"
+            "file": "Categories/CAT.Animal.md",
+            "mode": "source"
           }
         }
       }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "bɮatʃʼaː.md",
+                "file": "Categories/CAT.Animal.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -96,7 +96,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "bɮatʃʼaː.md"
+                "file": "Categories/CAT.Animal.md"
               }
             }
           }
@@ -105,20 +105,19 @@
       }
     ],
     "direction": "horizontal",
-    "width": 250.4075927734375,
-    "collapsed": true
+    "width": 250.4075927734375
   },
   "active": "053f16f1e892d562",
   "lastOpenFiles": [
-    "bɮatʃʼaː.md",
-    "aːna.md",
-    "aːdaʃxʷa.md",
-    "Lesson/Grammar/Passive Voice.md",
-    "Lesson/Grammar/Interjections.md",
-    "Lesson/Grammar/Interrogative pronouns.md",
-    "Lesson/Grammar/Participles     c.md",
-    "Lesson/Learning Kabardian 5 class/Urok 1.md",
-    "Lesson/Grammar/Ergativity.md",
-    "zapəwəpɕʼən.md"
+    "Categories/CAT.Animal.md",
+    "Categories/CAT.Number.md",
+    "Lesson/CAT.GRAM.Verb.md",
+    "Lesson/Grammar/Adjectives.md",
+    "Lesson/Translations/Conlang Sytax Test.md",
+    "Lesson/Derivation.md",
+    "Lesson/Translations/SharerHythm.md",
+    "Categories/CAT.Color.md",
+    "Categories/CAT.Plant.md",
+    "Lesson/Expressing/causation.md"
   ]
 }

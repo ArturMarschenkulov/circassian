@@ -8,7 +8,7 @@
 **_aː χədʒabzər jətʃʼəj ɬaːʁʷəʁʷaːfʼat jətʃʼəj ʔʷəɕt_** - _This girl was pretty and smart_
 
 Мазагъуэр пшэхэм яуфыхьри, дунейр зэуэ кIыфI хъуат
-**_maːzaʁʷar pʃaxam jaːwəfəħrəj, dəwnajr zawa tʃʼəfʼ χʷaːt_**
+**_maːzaʁʷar pʃaxam jaːwəfəħrəj, dəwnajr zawa tʃʼəfʼ χʷaːt_** - _The clouds covered the moon and the whole world became dark at once_
 
 Къуршхэри, мэзхэри, тафэри — псори нэщхъейт
 **_qʷərʃxarəj, mazxarəj, tafarəj - psawrəj naɕχajt_** - _All were gloomy that day: the mountains, the forests, the plains_

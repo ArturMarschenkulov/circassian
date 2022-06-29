@@ -35,7 +35,6 @@
 УкъыщIесхьэжьар залымыгъэ уэсхыну аракъым, пщыр къызэрыпкIэлъежьэнур сщIэрти аращ
 **_wəqəɕʼajsħaʑaːr zaːɮəməʁa wasxənəw aːraːqəm, pɕər qəzarəptʃʼaɬajʑanəwr sɕʼartəj aːraːɕ_**- _I kidnapped you not because I want to do (you) harm, but because I know that the prince will come for you_
 
-
 **_da dəzapsaːɬawəra qatkʷʼəħərt_** - _we travelled the distance that we had discussed_
 
 **_ɬʼəm wənar jaɕʼ_** - _the man is building the house_
@@ -45,3 +44,6 @@
 **_dʒaːnaxam pɕaːɕar qaːdawa_**
 
 **_ sa jəxastχaː txəɬər_**
+
+
+**_aːbə [jə pɕʼaːntʼa jənəm kʷʼatsʼərətʃʼ] [ʁʷagʷ tsʼəkʷʼəm jə nazəm ɕəjʁatʃʼaː] wədz qaːɕʼəjxʷ jaː japarəma zaxʷamədaxar qʷəɮaːjwa aːqʷəʑ xʷaməm qəpʼəwrəjʁaːwart_**

@@ -1,4 +1,6 @@
 **_psaɬan_** - _to talk_
-**_japsaɬan__** - _to talk with Y_
-**_qapsaɬan__** - __
-**_qapsaɬən__** - __
+**_japsaɬan_** - _to talk with Y_
+**_qapsaɬan_** - __
+**_qapsaɬən_** - __
+**_tajpsaɬəħən_** - _to talk about X_
+**_jərəjpsaɬan_**
