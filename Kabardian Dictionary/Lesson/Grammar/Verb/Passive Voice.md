@@ -11,3 +11,8 @@ the Kabardian language does not have a passive voice per se, but it can be of co
 
 **_wənar tɕʼaː maχʷ_** - _the house is being built by us_
 **_dartʃʼa wənar ɕʼaː maχʷaːɕ_** - _the house was built by us_
+
+
+
+
+**_ħaɕʼaxar ħaɕʼaɕəmtʃʼa jəraːʁabɮaʁaːɕ_** - _guests were invited into the guestroom_

@@ -12,7 +12,7 @@
 **_wədzəfa_** - green
 
 **_mawra_** - brown
-**_ʁʷaːbʒa_** - grey
+**_ʁʷaːbʒa_** - _grey_, _brown_
 **_ɕχʷa_** - _grey_
 **_ɕχʷaːntʼa_** - _green_, _light blue_
 **_xʷəʑ_** - white

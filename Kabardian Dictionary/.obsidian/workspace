@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Categories/CAT.Animal.md",
+            "file": "Categories/CAT.Color.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Categories/CAT.Animal.md",
+                "file": "Categories/CAT.Color.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -96,7 +96,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Categories/CAT.Animal.md"
+                "file": "Categories/CAT.Color.md"
               }
             }
           }
@@ -109,15 +109,15 @@
   },
   "active": "053f16f1e892d562",
   "lastOpenFiles": [
+    "Categories/CAT.Color.md",
+    "Lesson/Grammar/Verb/Passive Voice.md",
+    "Lesson/Grammar/Verb/Verb conjugation paradigm.md",
     "Categories/CAT.Animal.md",
     "Categories/CAT.Number.md",
-    "Lesson/CAT.GRAM.Verb.md",
     "Lesson/Grammar/Adjectives.md",
     "Lesson/Translations/Conlang Sytax Test.md",
     "Lesson/Derivation.md",
     "Lesson/Translations/SharerHythm.md",
-    "Categories/CAT.Color.md",
-    "Categories/CAT.Plant.md",
-    "Lesson/Expressing/causation.md"
+    "Categories/CAT.Plant.md"
   ]
 }
