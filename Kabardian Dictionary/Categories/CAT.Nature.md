@@ -1,6 +1,8 @@
 **_baʃ_** - _stick_
 	**baʃər zapəsɕʼətʃʼ** - _I break a stick_
 	
+	
+**_gʷaɮ_** - _lake_
 # Weather
 уафэгъуагъуэ
 **_waːfaʁʷaːʁʷa_** - _thunder_

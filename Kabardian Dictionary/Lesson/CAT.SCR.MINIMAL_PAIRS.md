@@ -3,6 +3,9 @@
 **_ɕən_** - 1. _to sew Y_ 2. _to measure Y_
 **_ɕʼən_** - _to make X_
 
+**_pʃəħ_** - _evening_
+**_pɕʼəħ_** - _dream_
+
 # x vs χ
 **_χə_** - _fishing net_
 **_xə_** - 1. _six_, 2. _ocean_

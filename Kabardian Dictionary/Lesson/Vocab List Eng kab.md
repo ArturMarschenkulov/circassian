@@ -2,11 +2,44 @@ This list is more for spontaneous ideas.
 
 __ - **__**
 # General adjectives
+_small_ - **_tsʼəkʷʼ_**
+_big_ - **jən**
+
+_short_ - **_tʃʼaɕʼ_**
+_long_ - **_tʃʼəħ_**
+
+_low_ - **_ɬaːχʃa_**
+_tall_ - **_ɬaːɣa_**
+
+_deep_ - **_kʷəw_**
+
+_narrow_ - **_bʁʷəza, zav_**
+_wide_ - **_bʁʷa, bʁʷəfʼa_**
+
+_tight_ - **_zav_**
+_spacious_ - **_bəχʷ_**?
+
+_light_ - **_psənɕʼaːʁʷa_**
+_heavy_ - **_ħaɬa_**
+
+
+
+
+_hard_ - **_bəda_**
+_soft_ - **_ɕaːba_**
+
+
+_thick_ - **_ʁʷəm_**, **_ʔʷəv_**
+
+_easy_ - **_tənʃ_**
+_difficult_ - **_gʷəʁʷ_**
+
 _quiet_ - **_xʷam_**, **_ɕaxʷ_**
 _loud_ - **_maːq jən_**
 
 _fast_ - **_psənsɕʼa_**
 _slow_ - **_xʷam_**
+
 
 
 # Food
@@ -104,6 +137,14 @@ _beach_ - **_psə ʔʷəfa_**, **_dəʁa zajʁawəpʼa_**
 _mountain_ - **_bɣə_**
 _brook_ - **_psətʃʼaːntʼa_**, **_psəjaʒax_**
 _river_ - **_psə_**
+
+_north_ - **_jəɕχara_**
+_south_ - **_jəpɕa_** (cf. **pɕa** _neck_)
+_west_ - **_qʷəħapʼa_** (cf. **_qʷəħan_** _to go beyond Y_)
+_east_ - **_qʷatʃʼəpʼa_** (cf. )
+
+
+
 
 # Occupation
 _smith_ - **_ʁʷətʃʼa_**, **_ʁʷəɕʼəm jaɮaʑ ɮaʑaːkʷʼa_**

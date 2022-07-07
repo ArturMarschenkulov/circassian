@@ -78,8 +78,16 @@ possessing
 **_ħaɕ_** - _doghouse_
 **_gʷaɕ_** - _garage_
 
+
 ## From verbs
 ## From adjectives
+## Composition
+### Productive
+#### Both components are antonyms
+**_məfʼməʔaj_** - _not bad_
+**_məjənmətsʼəkʷʼ_**
+
+### Non-productive
 
 # Usage of **_gʷə_**
 **_gʷəjmətʃʼəʒ_** - _unforgettable_ (cf. )(**_səj gʷəm jətʃʼəʒərqəm_** _I can't forget_ (lit. it does not leave my heart))

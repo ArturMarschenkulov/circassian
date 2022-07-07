@@ -14,14 +14,14 @@
 
 **_nawba_** - today
 **_nəʃadəjba_** - today's morning
-**_nəɕħaba_** - today's evening
+**_nəɕħaba_** - _today's evening_
+**_pɕəħaɕħa_** - _today's evening_
 **_nəʒaba_** - today's night, tonight
 
 **_pɕadaj_** - tomorrow
 **_pɕadaj ʒaɕ_** - tomorrow evening
 
 **_pɕadajməɕtʃ'a_** - 1 day after tomorrow
-:**
 
 **_qaːbəɕtʃʼaʒ_** - 2 days after tomorrow
 
@@ -36,21 +36,26 @@
 **_vasapʃəħ_** - day before yesterday evening
 **_vasaʒaɕ_** - day before yesterday night
 
+**_naʁaːba_** - last year
 
 The combination of **_nə-_** **_-ba_** seems to denote "today", which with the infixes such as **_aw_**, **_ʃadəj_**, **_ɕħa_** and **ʒa**, create "today", "today's morning", "today's evening" and "today's night".
 
-_naʁaːba_ - last year
+The stem **_vasa_** is used to _the day before yesterday_ or _2 days ago_. It is not used independently.
+The stem **_pɕad_** is used to refer to the _morning_.
+The stem **_dəʁʷa_** is used to refer to tomorrow, though only as a dependent root. It has no semantic relation to the independent root **_dəʁʷ a_** _theft_
+
+
 
 # Week
 **_tħamaːxʷa_** - week
 
-**_bɮəɕħa_** - Monday
+**_bɮəɕħa_** - _Monday_
 **_ʁʷəbʒ_** - Tuesday
 **_baraʑaj_** - Wednesday
 **_maːxʷakʷ_** - Thursday
 **_marajm_** - Friday
 **_ɕabat_** - Saturday
-**_tħamaːxʷa_* - Sunday
+**_tħamaːxʷa_** - Sunday
 
 # Seasons
  
@@ -68,7 +73,7 @@ _naʁaːba_ - last year
  
 # Months
  
-ɕʼəʃəɮa - January
+**_ɕʼəʃəɮa_** - January (cf. **_ɕʼə_** _cold_ + )
 maːzajaj - February
 
 ʁaːtxapa - March
@@ -77,12 +82,12 @@ naːqəʁa - May
 
 
 **_maqʷaːwaʁʷa_** - June (cf. **_waʁʷa_** _hit_)
-**_baːdzawaʁʷa_** - July
+**_baːdzawaʁʷa_** - July (cf. **baːdza** _fly_ + **_waʁʷa_** _hit_)
 **_ʃəɕħaʔʷ_** - August
-**_fawtʃʼaːda_** - September
+**_fawtʃʼaːda_** - September (cf. **faw** _honey_ + **tʃʼaːda** _tub_)
  - october
-ɕakʷʼaʁʷa - November
-dəʁaʁaːza - December
+**_ɕakʷʼaʁʷa_** - November (cf. **_ɕakʷʼa_** _hunter, hunting_ + **_ʁʷa_** _time_)
+**_dəʁaʁaːza_** - December (cf. **_dəʁa_** _sun_ + **_ʁaːza_** _turning_)
 
 Another way to form the month names is to use the season names and _pa_, _kʷ_ and _tʃʼa_, to denote the beginning, middle and end ofa seasons.
 
