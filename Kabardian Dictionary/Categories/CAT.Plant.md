@@ -20,3 +20,15 @@
 
 **_gʷadz_** - _wheat_
 **_xʷəgʷ_** - _millet_
+**_xʷə_** - _millet_
+**_maʃə_** - _millet_
+**_ʁaxʷ_** - _late variety millet_
+**_aːʃaxʷ_** - _white millet_
+**_xʷəʁʷa_** - _yellow millet_
+**_aːʃapɬ_** - _red millet_
+**_ʁaːva_** - _sort of millet_
+**_xʷəfʼətsʼa_** - _black millet_
+**_ʃərdza_** - _sort of millet_
+**_tsʼəraːməɕ_** - _chumisa_
+**_dʒagʷara_** - _sorghum_
+**_vaːʁʷapɬ_** - _sort of millet_

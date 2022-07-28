@@ -1,5 +1,25 @@
 
 
+**_ɬʼəxar ɕʼawpχʷaʒ_** - _the men flee_
+**_ɕʼapχʷaʒ ɬʼəxar_** - _the fleeing men_, _the men who flee_
+**_ɕʼapχʷaʒxar tɬətarqəm_** - _we do not honor the ones fleeing_
+**_ɕʼapχʷaʒ ɬʼəxar tɬətarqəm_** - _we do not honor the fleeing men_
+
+**_waraːməm qrajkʷʼa pɕʼaːɕa_** - _girl waking down the street_
+**_wədzəfa χʷə ʒəɣ_** - _the green turning tree_
+
+
+**_ħar sət ɕəʁʷəj mabaːna_** - _the dog always barks_
+**_sət ɕəʁʷəj bana ħa_** - _the dog that always barks_
+
+
+
+
+
+**ɬʼər bdzaʑaj jənxam qajɕaxʷ_** - _the man buys only big fish_
+**_bdzaʑaj jənxam qʷədajwa ɕaxʷaː ɬʼər_** - _man who only bought big fish_
+**_bdzaʑaj jənxam qʷədajwa ɕaxʷanəw ɬʼər_** - _man who will only buy big fish_
+
 
 # Paradigm
 ## Intrasitive monopersonal
@@ -26,6 +46,12 @@
 **_ɬəχʷan_**
 	**_jaɬəχʷa_** - _who sees Y_
 	**_zaɬəχʷa_** - _whom X sees_
+	
+**_jəʔan_**
+	**_jəʔa_** - _who has Y_
+	**_zəjʔa_** - _whom X has_
+
+
 ## Intransitive two-personal with preverb
 **_P-V-n_**
 	**__**
@@ -53,9 +79,16 @@
 **fəzəxʷakʷʼar** - _for whom y'all go_
 **zəxʷakʷʼar** - _for whom they go_
 
+**_jəʔan_** - _to have Y_
+**_jəʔar_** - _who has Y_ 
+**_zəjʔar_** - _whom X has_
+
+**_ʁʷəɕʼ kʷabʒa zəjʔar_** - _one who has an iron gate_
+**_ʁʷəɕʼ kʷabʒa zəjʔar_** - _one whom an iron gate has_
 
 
-## Transitive twopersonal
+
+## Transitive 2-personal
 **_V-n_**
 	**_zə-V-r_** - _who Vs Y_
 	**_jə-V-r_** - _whom X Vs_
@@ -63,7 +96,14 @@
 **_ʃan_**
 	**_zəʃar_** - _who leads Y_
 	**_jəʃar_** - _whom he leads_
+
+**_ɕʼan_** - _to build_ Y
+	**_zəɕʼar_** - _who builds Y_
+	**_jəɕʼar_** - _whom X builds_
+	
 ## Transitive two-personal with preverb
+**_qaɕaxʷən_**
+	**_zəqaɕaxʷ_**
 ## Transitive three-personal with preverb
 **_xʷaʃan_** - _to lead Y to Z_
 **_qəsxəjʃar_** - _who X leads to me_

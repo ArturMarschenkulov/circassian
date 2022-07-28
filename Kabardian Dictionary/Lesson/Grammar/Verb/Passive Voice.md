@@ -1,6 +1,8 @@
 the Kabardian language does not have a passive voice per se, but it can be of course expressed
 
 
+
+
 **_ɬʼəm məɕar jəwətʃʼaːɕ_** - _the man killed the bear_
 **_məɕar ɬʼəmtʃʼa wətʃʼaːɕ_** - _the bear was killed by the man_
 **_məɕar jaːwətʃʼaːɕ_** - _the wolf was killed_ (lit. _they killed the wolf_)

@@ -1,15 +1,48 @@
 
 
-**_ma-_** occurs in 1-personal intr. verbs in the 3rd person.
-**_jaw-_** occurs in 1-personal intr. verbs in the 3rd person.
+The Kabardian verb conjugation paradigm is very complex.
+
+The verb can be divided into several group, which determine how the verb is to be conjugated.
+
+The most important overarching category, is transitivity. Both transitive and intransitive verbs can have multiple persons marked. The main difference is the order of the personal prefixes and what case the subject and object take. 
+In case of intranstive verbs, the subject has the absolutive **_-r_** case, while object the ergative **_-m_** case. With transitive verbs it's the other way around, the subject takes the ergative case **_-m_**, while the object takes the absolutive case **_-r_**.
+2-personal intransitive verbs have the order "subject object", while 2-personal transitive verbs have the order "object subject".
 
 
-## 1-personal intr.
+**_sa wa sənawpɬ_** - _I watch you_
+**_sa wa wəsɬaːʁʷ_** - _I see you_
+
+**_səj aːdar səj aːnam jawpɬ_** - _my father watches my mother_
+**_səj aːdam səj aːnar jaɬaːʁʷ_** - _my father sees my mother_
+
+
+Other than that, the other rather important distinction is whether the verb is static or dynamic. If it is dynamic it takes the prefix **_aw-_** in the present indicative positive form.
+
+**_sawpɬa_** - _I watch_
+**_səpɬarqəm_** - _I don't watch_
+**_səpɬanəw_** - _I'll watch_
+
+Another thing, is also whether the verb is simple or whether it has some sort of prefix, preverb, causative etc attached to it.
+
+
+Dynamic verbs get the **_aw-_** prefix in the present indicative.
+
+**_ma-_** occurs in simple 1-personal intr. verbs in the 3rd person.
+**_jaw-_** occurs in simple 2-personal intr. verbs in the 3rd person.
+
+Only transitive preverbless verbs can have a distinct plural 3rd person.
+
+## intr. 1-pers.
 
 |1    |        2   |   Preset | Non-Present|
 |-----|------------|----------|------------|
-|1S | I V | saw
-## 2-personal intr. dynamic 
+|1S | I V | saw-V | sə-V
+|2S | I V | waw-V | wə-V
+|3S | I V | ma-V | V
+|1P | I V | daw-V | də-V
+|2P | I V | faw-V | fə-V
+|3P | I V | ma-V | V
+## intr. 2-pers. dynamic
 
 |1    |        2   |   Preset | Non-Present|
 |-----|------------|----------|------------|
@@ -47,8 +80,7 @@
 |3P 2P|they V y'all|qəvaw-  V |qəva-
 |3P 3P|they V them |jaw-    V |ja-
 
-
-## 2-personal through preverb intr. dynamic 
+## intr. 2-pers. dynamic preverb
 
 
 |1    |        2     |   Preset | Non-Present|
@@ -89,7 +121,7 @@
 
 
 
-## 2-personal tr.
+## tr. 2-pers.
 |1    |        2   |   Preset | Non-Present|
 |-----|------------|----------|------------|
 |1S 2S|I V you     |wəzaw-  V |wəs-     V|
@@ -110,7 +142,7 @@
 |3S 3P|he V them   |ja-    V |jə-V|
 
 
-## 2-personal tr. through preverb
+## tr. 2-pers. preverb
 
 |1    |        2   |   Preset | Non-Present|
 |-----|------------|----------|------------|
@@ -133,7 +165,7 @@
 
 
 
-## 3-personal tr.
+## tr. 3-pers.
 direct_object-indirect_object-subject
 
 |1       |        2         |   Preset | Non-Present|
