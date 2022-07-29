@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.remote.webelement import WebElement
 
 from webdriver_auto_update import check_driver
 
@@ -61,6 +62,15 @@ def handle_sec_frame():
     pass
 
 
+# word entry
+# - entry: str
+# - subentry: [
+#   - type: str
+#   - meanings: [
+#     - meaning: str
+#   ]
+# ]
+
 class DictionaryEntry:
     class Etymology:  # Kind of like a subentry. There is always at least one
         word_class: str  # noun, verb, adjective
@@ -71,23 +81,35 @@ class DictionaryEntry:
 
     pass
 
+def to_dictionary_entry(nodes) -> DictionaryEntry:
+    pass
 
 def handle_entry() -> DictionaryEntry:
+    print("---\nhandle_entry:\n---\n\n")
     wdw = WebDriverWait(G_DRIVER, 1)
     xpath_base = "//*[@id='fragment-3']"
+    xpath_list_elem = "//div[@id='fragment-3']/li"
+    # //*[@id="fragment-3"]/li/text()[2]
+
     try:
         wdw.until(EC.presence_of_element_located((By.XPATH, xpath_base)))
     except Exception as e:
-        print(e)
+        print("EXCEPTION 0: ", e)
 
-    try:
-        oo = G_DRIVER.find_elements((By.XPATH, "//div[@id='fragment-3']"))
-        print("len: ", len(oo))
-    except Exception as e:
-        print("EXCEPTION: ", e)
+    list_elem = G_DRIVER.find_element(By.XPATH, xpath_list_elem)
+    nodes = G_DRIVER.execute_script("return arguments[0].childNodes", list_elem)
+    text_nodes = []
+    for node in nodes:
+        if not isinstance(node, WebElement):
+            _text = node['textContent'].strip()
+            if _text:
+                text_nodes.append(_text)
+        else:
+            node: WebElement
+            text_nodes.append(f"<{node.tag_name}>{node.text}")
+    print(text_nodes)
 
-
-    pass
+    return to_dictionary_entry(text_nodes)
 
 
 def main():

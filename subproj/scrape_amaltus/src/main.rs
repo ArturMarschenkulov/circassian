@@ -5,11 +5,12 @@ async fn handle_sec_frame(driver: &WebDriver) {
     // Because amaltus is not secure we have to do some extra stuff.
     // Right now, the assumption is that it appears every time.
     // Maybe later, we can make this more robust.
-    let private_text = driver
-        .find(By::XPath(
-            "//*[@id='main-message']/h1[contains(text(), 'Your connection is not private')]",
-        ))
-        .await;
+
+    let xpath_base =
+        "//*[@id='main-message']/h1[contains(text(), 'Your connection is not private')]";
+    let xpath_button_advanced = "//button[contains(@id, 'details-button')]";
+    let xpath_button_final = "//*[@id='proceed-link']";
+    let private_text = driver.find(By::XPath(xpath_base)).await;
 
     let _sec_window_exists = if private_text.is_ok() {
         println!("The security window is being handled");
@@ -20,13 +21,11 @@ async fn handle_sec_frame(driver: &WebDriver) {
         false
     };
 
-    let advanced_button = driver
-        .find(By::XPath("//button[contains(@id, 'details-button')]"))
-        .await;
+    let advanced_button = driver.find(By::XPath(xpath_button_advanced)).await;
     //*[@id="details-button"]
     advanced_button.unwrap().click().await;
 
-    let final_paragraph = driver.find(By::XPath("//*[@id='proceed-link']")).await;
+    let final_paragraph = driver.find(By::XPath(xpath_button_final)).await;
     final_paragraph.unwrap().click().await;
 }
 #[tokio::main]
@@ -45,11 +44,11 @@ async fn main() -> WebDriverResult<()> {
         let sb_button = driver.find(By::XPath("//*[@id='sb_butt']")).await;
         let _ = sb_button.unwrap().click().await;
 
-        let xpath_elem = "//*[@id='fragment-2']/li/ul/li[1]/a";
-        let css_elem = "div[id='fragment-2'] > li > ul > li:nth-child(1) > a";
-        let s = driver.find_all(By::Css(css_elem)).await;
-        let s = s.unwrap();
-        println!("s: {:#?}", s);
+        // let xpath_elem = "//*[@id='fragment-2']/li/ul/li[1]/a";
+        let xpath_elem = "//*[@id='fragment-2']/li/ul";
+        let elem_list = driver.find(By::XPath(xpath_elem)).await;
+        let elem_list = elem_list.unwrap();
+        println!("s: {:#?}", elem_list);
         driver.quit().await?;
     }
 
