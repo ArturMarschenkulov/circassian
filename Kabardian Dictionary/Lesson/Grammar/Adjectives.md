@@ -14,9 +14,9 @@ The word **_naχ_** is put before the adjective to give a comparative meaning.
 
 Comparions have the form **_O naχra naχ A_** to express _more A than O_
 
-**_səj wənar wəj wənam naχra  naχ jənɕ_** - _my house is bigger than your house_
-**_pɕaːɕar ɕʼaɮam naχra naχ jənɕ_** - _the girl is bigger than the boy_
-**_ħar wa naχra naχ gʷəbzəʁaɕ_** - _the dog is smarter than you_
+**_səj wənar [wəj wənam naχra] naχ jənɕ_** - _my house is bigger than your house_
+**_pɕaːɕar [ɕʼaɮam naχra] naχ jənɕ_** - _the girl is bigger [than the boy]_
+**_ħar [wa naχra] naχ gʷəbzəʁaɕ_** - _the dog is smarter [than you]_
 
 **_sa aːbə naχra naχəfʼəw sawdʒa_** - _I read better than he does_
 **_aːr sa naχra naχ psənɕʼaw maːʒa_** - _he runs faster than I do_

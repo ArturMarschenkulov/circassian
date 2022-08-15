@@ -47,3 +47,22 @@
 
 
 **_aːbə [jə pɕʼaːntʼa jənəm kʷʼatsʼərətʃʼ] [ʁʷagʷ tsʼəkʷʼəm jə nazəm ɕəjʁatʃʼaː] wədz qaːɕʼəjxʷ jaː japarəma zaxʷamədaxar qʷəɮaːjwa aːqʷəʑ xʷaməm qəpʼəwrəjʁaːwart_**
+
+**_sa wa abə fʼatʃʼa wəsɬaːʁʷəʒənəwqəm_** - _I won't see you again_
+Сэ нартхэ с-ырапхъущ.
+**_sa naːrtxa səraːpχʷəɕ_** - _I am a daughter of the Narts_
+
+Сэ уэ ны-б-же-с-Iэнщ дунейм зыщIиуфIыцIар (М. З.) – «Я тебе скажу почему мир потемнел»
+**_sa wa nəbʒajsʔanɕ dəwnajm zəɕʼəjwəfʼətsʼaːr_** - _I'll tell you why the world has gone dark_
+
+Фэ хъыбарыр сэ къы-з-же-ф-Iэ (А. З.) – «Известие вы мне передайте»
+**_fa χəbaːrər sa qəzʒajfʔa_** - _tell me the news_
+
+Дэбэч и кIыщыбжэр сытым дежи хэт щхьэкIи зэIухат. (Ш. А.) – «Двери кузни Дабеча всегда были открыты для всех
+**_dabatʃ jə tʃʼəɕəbʒar sətəm dajʒəj xat ɕħatʃʼəj zaʔʷəxaːt_** - _dabech's forge doors were always open for all_
+
+Бжэр Iусхрэ сыщIэплъэмэ, пэшым щIэзу хьэщIэ щIэсхэт, ефэ-ешхэми щIадзат «Я открыл дверь и заглянул (в темноту) – было полно гостей и они уже пили».
+**_bʒar ʔʷəsxra səɕʼapɬama, paʃəm ɕʼazəw ħaɕʼa ɕʼasxat, jafa jaʃxaməj ɕʼaːdzaːt_** - _I opened the door and looked in, It was full of guests and they were already drinking_
+
+Сэ къалэм сокIуэ, къысщIэупщIэIарэ, пщыхьэщхьэ хуэкIуэу сыкъэкIуэжынущ (Хь. Хь) «Я в город еду, если кто спросит, приеду к вечеру»;
+**_sa qaːɮam sawkʷʼa, qəsɕʼawəpɕʼaʔaːra, pɕəħaɕħa xʷakʷʼawə səqakʷʼaʒənəwɕ_**

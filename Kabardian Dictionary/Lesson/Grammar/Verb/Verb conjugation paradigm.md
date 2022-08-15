@@ -15,7 +15,6 @@ In case of intranstive verbs, the subject has the absolutive **_-r_** case, whil
 **_səj aːdar səj aːnam jawpɬ_** - _my father watches my mother_
 **_səj aːdam səj aːnar jaɬaːʁʷ_** - _my father sees my mother_
 
-
 Other than that, the other rather important distinction is whether the verb is static or dynamic. If it is dynamic it takes the prefix **_aw-_** in the present indicative positive form.
 
 **_sawpɬa_** - _I watch_

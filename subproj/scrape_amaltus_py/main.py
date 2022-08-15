@@ -81,8 +81,16 @@ class DictionaryEntry:
 
     pass
 
+
 def to_dictionary_entry(nodes) -> DictionaryEntry:
+    entry = {
+        "entry": "ll",
+        "subentry": [
+
+        ],
+    }
     pass
+
 
 def handle_entry() -> DictionaryEntry:
     print("---\nhandle_entry:\n---\n\n")
@@ -97,7 +105,8 @@ def handle_entry() -> DictionaryEntry:
         print("EXCEPTION 0: ", e)
 
     list_elem = G_DRIVER.find_element(By.XPATH, xpath_list_elem)
-    nodes = G_DRIVER.execute_script("return arguments[0].childNodes", list_elem)
+    nodes = G_DRIVER.execute_script(
+        "return arguments[0].childNodes", list_elem)
     text_nodes = []
     for node in nodes:
         if not isinstance(node, WebElement):

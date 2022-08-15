@@ -83,13 +83,14 @@ Adyghean: Chemgui/Temirgoy
 |ʂʰ|ʃ|ɕ|
 
 
-**_v_** - **_dzʷ_**
-**_v_** - **_tsʷ_**
-**_v_** - **_ʒʷ_**
 
-**_f_** - **_tsʷ_**
-**_f_** - **_ʃʷ_**
-**_fʼ_** - **_ʃʷʼ_**
+**_v_** becomes **_dzʷ_** if from **_dʑʷ_**
+**_v_** becomes **_tsʷ_** if from **_tɕʷ_**
+**_v_** becomes **_ʒʷ_** if from **_ʑʷ_**
+
+**_f_** becomes **_ʃʷ_** if from **_ɕʷ_**
+**_f_** becomes **_tsʷ_** if from **_tɕʰʷ_**
+**_fʼ_** becomes **_ʃʷʼ_** if from **_ɕʷʼ_**
 
 **_ʒ_** - **_tʃ_**
 **_ʒ_** - **_dʒ_**

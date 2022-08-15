@@ -15,11 +15,11 @@ Happy people often shout. **_tsʼəxʷ nasəpəfʼaxar ɕʼaxɕʼaxəwra matʃʼ
 The kitten jumped up. **_dʒadəw ʃər daɬajaːɕ_**
 The kitten jumped onto the table. **_dʒadəw ʃərər stʼawɮəm tajɬaːɕ_**
 My little kitten walked away. **_səj dʒadəw ʃərər tsʼəkʷʼ  kʷʼaːɕ_**
-It's raining.
-The rain came down.
-The kitten is playing in the rain.
-The rain has stopped.
-Soon the rain will stop.
+It's raining. - **_waʃx qawʃx_**
+The rain came down. - **_waʃx qajʃxaːɕ_**
+The kitten is playing in the rain. - **_dʒadəw ʃər waʃxəm ɕawdʒagʷ_**
+The rain has stopped. - **_waʃx wəxaːɕ_**
+Soon the rain will stop. - **_waʃx ɕʼaxəw wəxənəw_**
 I hope the rain stops soon.
 Once wild animals lived here.
 Slowly she looked around.
@@ -31,10 +31,10 @@ He will arrive soon.
 The baby's ball has rolled away.
 The two boys are working together.
 This mist will probably clear away. - **_pʃaːʁʷar ... zatʃʼaɕʼatʃʼaːɕ_**
-Lovely flowers are growing everywhere.
-We should eat more slowly.
+Lovely flowers are growing everywhere. - **_danəj wədz ʁaʁaː daːxa dəda qawtʃʼ_**
+We should eat more slowly. - **_da naχ xʷaməw dəʃxan xʷaj_**
 You have come too soon.
 You must write more neatly.
 Directly opposite stands a wonderful palace.
-Henry's dog is lost.
+Henry's dog is lost. **_xajnrəj jə ħar kʷʼadaːɕ_**
 My cat is black.
