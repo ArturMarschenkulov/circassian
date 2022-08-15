@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Kabardian Dictionary/Lesson/Grammar/Derivation.md",
+            "file": "Kabardian Dictionary/Lesson/Grammar/Clause, Adjective clause.md",
             "mode": "source",
             "source": false
           }
@@ -40,7 +40,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "dol",
+                "query": "tag:#NOTE",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Kabardian Dictionary/Lesson/Grammar/Derivation.md",
+                "file": "Kabardian Dictionary/Lesson/Grammar/Clause, Adjective clause.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -86,7 +86,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Kabardian Dictionary/Lesson/Grammar/Derivation.md"
+                "file": "Kabardian Dictionary/Lesson/Grammar/Clause, Adjective clause.md"
               }
             }
           }
@@ -97,17 +97,17 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "3852d7eac54f1be7",
+  "active": "a71fa42c18efeec4",
   "lastOpenFiles": [
+    "Kabardian Dictionary/Lesson/Grammar/Clause, Adverbial clause.md",
+    "Kabardian Dictionary/Lesson/Grammar/Function words.md",
+    "Kabardian Dictionary/Lesson/Grammar/Derivation.md",
     "Kabardian Dictionary/Lesson/Grammar/Clause, Adjective clause.md",
     "Kabardian Dictionary/Lesson/Grammar/Clause, Content clause.md",
-    "Kabardian Dictionary/Lesson/Grammar/Clause, Adverbial clause.md",
     "Kabardian Dictionary/Lesson/Grammar/Verb/Participles     c.md",
     "Kabardian Dictionary/Lesson/Grammar/modal.md",
     "Kabardian Dictionary/Lesson/Grammar/Interjections.md",
     "Kabardian Dictionary/Lesson/Grammar/Adjectives.md",
-    "Kabardian Dictionary/Lesson/Grammar/Conjunctions.md",
-    "Kabardian Dictionary/Lesson/Grammar/Clause, Subordinate clause.md",
-    "Kabardian Dictionary/Lesson/Own attempts for expressions.md"
+    "Kabardian Dictionary/Lesson/Grammar/Conjunctions.md"
   ]
 }

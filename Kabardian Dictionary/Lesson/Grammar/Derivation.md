@@ -100,10 +100,10 @@ possessing
 # **_-ɕʼa_**
 
 # **_-zajħa_**
-**_baraːqzajħa_** - _flag bearer_
-**_nəpzajħa_** - _flag bearer_
-**_ɕaːkʷʼazajħa_** - _servant_
-**_ħaɬazajħa_** - _loader_
-**_bzagʷəzajħa_** - _snitch, gossip_
-**_ɮajzajħa_**
+- **_baraːqzajħa_** - _flag bearer_
+- **_nəpzajħa_** - _flag bearer_
+- **_ɕaːkʷʼazajħa_** - _servant_
+- **_ħaɬazajħa_** - _loader_
+- **_bzagʷəzajħa_** - _snitch, gossip_
+- **_ɮajzajħa_**
 # **_-zajʃa_**

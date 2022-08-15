@@ -3,10 +3,9 @@ This article talks about adjective clauses. These are clauses which can be regar
 
 
 # Participles
-NOTE: maybe discuss this in the **_Particles_** article.
+//NOTE: maybe discuss this in the **_Particles_** article.
 
-If the verb in question only has 1-personal, then there is only one place where the participle can be placed. That is before the noun.
-
+Particles can be placed before and after the noun they are describing.
 - **_ɕʼaːɮar ɕəsɕ_** - _the boy sits_
 - **_ɕəs ɕʼaːɮar_** - _the boy who sits_
 - **_ɕʼaːɮa ɕəsər_** - _the boy who sits_
