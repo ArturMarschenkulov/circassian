@@ -1,0 +1,2 @@
+# Etymology
+[[pa-]] + [[jadʒaʒən]]

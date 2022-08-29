@@ -1,5 +1,6 @@
 {
-  "baseFontSize": 28,
+  "baseFontSize": 26,
   "theme": "moonstone",
-  "textFontFamily": "Doulos SIL"
+  "textFontFamily": "Doulos SIL",
+  "cssTheme": ""
 }
