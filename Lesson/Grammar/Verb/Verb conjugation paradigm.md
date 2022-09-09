@@ -44,7 +44,19 @@ Only transitive preverbless verbs can have a distinct plural 3rd person.
 - m
 - 
 
-## intr. 1-pers.
+## intr. 1-pers. base
+Verbs which use that conjugation are:
+>- **_ʒan_** (**_maːʒa_**) - _to run_
+>- **_ʒajjən_** (**_maʒaj_**) - _to sleep_
+>- **_ʁən_** (**_maːʁ_**) - _to cry_
+>- **_psaːɬan_** (**_mapsaːɬa_**) - _to speak_
+>- **_gʷəpsəsan_** (**_magʷəpsəsa_**) - _to think_
+>- **_txan_** (**_maːtxa_**) - _to write_
+>- **_ɕətən_** (**_ɕətɕ_**) - _to stand_
+>- **_ɕəsən_** (**_ɕəsɕ_**) - _to stand_
+>- **_ɮaʑan_** (**_maɮaːʑa_**) - _to work_
+>- **_dəħaʃxən_** (**_madəħaʃx_**) - _to laugh_
+
 intransitive 1-person
 |1    |        2   |   Preset | Non-Present|
 |-----|------------|----------|------------|
@@ -54,15 +66,26 @@ intransitive 1-person
 |1P | I V | daw-V | də-V
 |2P | I V | faw-V | fə-V
 |3P | I V | ma-V | V
+The subject (absolutive -r) markers are: **_sə-_**, **_wə-_**, **_∅-_**, **_də-_**, **_fə-_**, **_∅-_**.
 
-**_ma-_** seems to be a development of the same prefix **_aw-_**, which orginally probably had the form **_wa-_**, there the **_w_** hardened to **_m_**. This means that the "true" personal marker for the third person is a null morpheme ∅- in both cases.
+The **_aw-_** prefix is a regular sound change from **_əwa_**. Meaning the actual prefix is **_*wa-_**, but it has sound changed beyond recognition and is only found through analysis. **_ma-_** seems also to be a development of **_*wa-_**, wher the **_w_** got hardened to **_m_**. This makes sense since **_ma-_** is used everywhere where **_aw-_** is used, but only in the third person.
 
+To summerize, **_saw-_**, **_waw-_**, **_ma-_**, **_daw-_**, **_faw-_** come from **_*səwa-_**, **_*wəwa-_**, **_*wa-_**, **_*dəwa-_**, **_*fəwa-_**, respectively.
+
+## intr. 1-pers. prefix
+Verbs which use that conjugation are:
+>- **_qafan_** (**_qawfa_**) - _to dance_
 
 ## intr. 2-pers. base
 
 Verbs which use that conjugation are:
 >- **_japɬən_** (**_jawpɬ_**) - _to look at Y_
 >- **_jaʑan_** (**_jawʑa_**) - _to wait for Y_
+>- **_jafan_** (**_jawfa_**) - _to drink Y_
+>- **_jadʒan_** (**_jawdʒa_**) - _to study Y_
+>- **_daʔʷan_** (**_jawdaːʔʷa_**) - _to listen to Y_
+>- **_xʷajjən_** (**_xʷaj_**) - _to want Y_
+>- **_jəʔan_** (**_jəʔa_**) - _to have Y_
 >- **__**
 
 Below is the basic table for this conjugation. That is the table without the **_aw-_** taken into account.
@@ -84,9 +107,9 @@ Whenever the subject has a "higher" person than the object or (only in case of t
 
 This was probably initially motivated to differentiate between the reflexive verb form, which uses the prefix **_za-_**, and when the verb has the first personal singular as its object, which also uses **_za-_** (originally **_sa-_**). Later on it also spread to other persons where it was not ambiguous.
 
-Something similar we also have when the subject is the first person and the object is second person singular, there instead of having the expected **_*saw-_** or **_*səwa-_** and **_*daw-_** or **_*dəwa-_**, we have **_sənaw-_** and **_dənaw-_**. There the same happened as above, only that a **_na-_** preverb got inserted. This was also maybe motivated to reduce ambiguity, with first person forms with the prefix **_aw-_**.
+Something similar we also have when the subject is the first person and the object is second person singular, there instead of having the expected **_*saw-_** and **_*daw-_** (which are regular sound changes from **_*səwa-_** and **_*dəwa-_**), we have **_sənaw-_** and **_dənaw-_**. There the same happened as above, only that a **_na-_** preverb got inserted. This was also maybe motivated to reduce ambiguity, with first person forms with the prefix **_aw-_**.
 
-Also, instead of the expected form **_*qəwa-_**, one has **_qaw-_**. This is mostly a regular sound change, as frequently **_əwa_** becomes simply **_aw_**. The same we also have with **_sənaw-**, where one would have expected **_sənawa_** or maybe **_sənəwa_**
+Also, **_qaw-_** comes from the regular sound change from **_*qəwa-_**. The same with, **_sənaw-_** and **_dənaw-_** which come from **_*sənəwa-_** and **_*dənəwa-_**.
 
 
 To get the positive present tense form, we add replace the last vowel/diphthong with **aw-**.
@@ -126,6 +149,11 @@ Those verbs are:
 
 
 ## intr. 2-pers. preverb
+Verbs which use that conjugation are:
+>- **_qajdʒan_** (**_qawdʒa_**) - _to call Y_, _to read Y_
+>- **_gərəʔʷan_** (**_gʷərawʔʷa_**) - _to agree with Y_
+>- 
+
 
 Intransitivie 2-person with prefix
 |     |me   |you |him/her/it|us   |y'all |them|
@@ -143,6 +171,17 @@ The object (ergative -m) markers are: **_s-_**, **_p-_**, **_∅-_**, **_d-_**, 
 
 
 ## tr. 2-pers.
+Verbs which use that conjugation are:
+>- **_xʷən_** (**_jaxʷ_**) - _to chase Y_
+>- **_ħən_** (**_jaħ_**) - _to carry Y_
+>- **_ɬaʁʷən_** (**_jeɬaʁʷ_**) - _to see Y_
+>- **_ɕʼan_** (**_jaɕʼa_**) - _to know Y_
+>- **_jatən_** (**_jat_**) - _to give Y_
+>- **_qaɕtan_** (**_qajɕta_**) - _to take Y_
+>- **_wəxən_** (**_jawəx_**) - _to finish Y_
+>- **_tħaɕʼən_** (**_jatħaɕʼ_**) - _to wash Y_
+>- **__** - __
+
 Transitive 2 person
 |     |me   |you |him/her/it|us   |y'all |them|
 |-----|-----|----|----------|-----|------|----|
@@ -183,6 +222,10 @@ For reflexives one uses **_zə-_**.
 >- **zəjwətʃʼaːɕ** - _he killed himself_
 
 ## tr. 2-pers. preverb   
+Verbs which use that conjugation are:
+>- **_zaxaxən_** (**_zaxajx_**) - _to hear Y_
+>- **_ɕʼadzan_** (**_ɕʼajdza_**) - _to begin Y_
+>- **_ʒəʔan_** (**_ʒajʔa_**) - _to say Y_
 
 |1    |        2   |   Preset | Non-Present|
 |-----|------------|----------|------------|

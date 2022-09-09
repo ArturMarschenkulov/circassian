@@ -29,6 +29,10 @@ Now however if one adds a prefix. It get's little bit more complex. Let's now co
 
 This is actually a frequent pattern in Kabardian. The subject markers in transitive verbs come after the prefix, while in intransitive verbs it comes before the prefix.
 
+To denote the object in the imperative
+
+
+
 
 # base
 ## intransitive
