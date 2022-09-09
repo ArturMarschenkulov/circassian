@@ -4,19 +4,29 @@ The verb can be divided into several group, which determine how the verb is to b
 
 The most important overarching category is transitivity. Both transitive and intransitive verbs can have multiple persons marked. The main difference is the order of the personal prefixes and what case the subject and object take. 
 In case of intranstive verbs, the subject has the absolutive **_-r_** case, while object the ergative **_-m_** case. With transitive verbs it's the other way around, the subject takes the ergative case **_-m_**, while the object takes the absolutive case **_-r_**.
+
 2-personal intransitive verbs have the order "subject object", while 2-personal transitive verbs have the order "object subject".
+A good example of this are the two verbs **_gʷərəʔʷan_** and **_qəgʷərəʔʷan_**, the former is intransitive, the latter is transitive.
+>- **_səgʷərawʔʷa_** vs **_qəzgʷərawʔʷa_** - _I agree with Y_ vs _I understand Y_
+>- **_zgʷərawʔʷa_** vs **_səqəgʷərawʔʷa_** - _X agrees with me_ vs _X understands me_
+>- **_səbgʷərawʔʷa_** vs **_wəqəzgʷərawʔʷa_** - _I agree with you_ vs _I understand you_
+>- **_wəzgʷərawʔʷa_** vs **_səqəbgʷərawʔʷa_** - _you agree with me_ vs _you understand me_
+>- **_səbgʷərəʔʷarqəm_** vs **_wəqəzgʷərəʔʷarqəm_** - _I don't agree with you_ vs _I don't understand you_
+>- **_zgʷərəʔʷa_** vs **_səqəgʷərəʔʷa_** - _agree with me!_ vs _understand me!_
+>- **_zgʷərəwməʔʷa_** vs **_səqəgʷərəwməʔʷa_** - _don't agree with me!_ vs _don't understand me!
 
+As you can see, the personal prefixes are switched
 
-- **_sa wa sənawpɬ_** - _I look at you_
-- **_sa wa wəsɬaːʁʷ_** - _I see you_
-- **_səj aːdar səj aːnam jawpɬ_** - _my father looked at my mother_
-- **_səj aːdam səj aːnar jaɬaːʁʷ_** - _my father sees my mother_
+>- **_sa wa sənawpɬ_** - _I look at you_
+>- **_sa wa wəsɬaːʁʷ_** - _I see you_
+>- **_səj aːdar səj aːnam jawpɬ_** - _my father looked at my mother_
+>- **_səj aːdam səj aːnar jaɬaːʁʷ_** - _my father sees my mother_
 
 Other than that, the other rather important distinction is whether the verb is static or dynamic. If it is dynamic it takes the prefix **_aw-_** in the present indicative positive form.
 
-**_sawpɬa_** - _I watch_
-**_səpɬarqəm_** - _I don't watch_
-**_səpɬanəw_** - _I'll watch_
+>- **_sawpɬa_** - _I watch_
+>- **_səpɬarqəm_** - _I don't watch_
+>- **_səpɬanəw_** - _I'll watch_
 
 Another thing, is also whether the verb is simple or whether it has some sort of prefix, preverb, causative etc attached to it.
 
@@ -28,6 +38,12 @@ Dynamic verbs get the **_aw-_** prefix in the present indicative.
 
 Only transitive preverbless verbs can have a distinct plural 3rd person.
 
+## %
+- abs/S sə-, wə-, ∅-, də-, fə, ∅-
+- erg/O za-, wa-, ja-, da-, va-, ja
+- m
+- 
+
 ## intr. 1-pers.
 intransitive 1-person
 |1    |        2   |   Preset | Non-Present|
@@ -38,111 +54,78 @@ intransitive 1-person
 |1P | I V | daw-V | də-V
 |2P | I V | faw-V | fə-V
 |3P | I V | ma-V | V
-**_ma-_** seems to be a development of the same prefix **_aw-_**, which orginally probably had the form **_wa-_**, there the **_w_** hardened to **_m_**.
-## intr. 2-pers. dynamic
-In the present the finite present prefix **_aw-_** is used.
 
-|1    |        2   |   Preset | Non-Present|
-|-----|------------|----------|------------|
-|1S 2S|I V you     |sənaw-  V |sənaw-     V|
-|1S 3S|I V him     |saw-    V |saj-       V|
-|1S 2P|I V y'all   |səvaw-  V |səva-      V|
-|1S 3P|I V them    |saw-    V |saj- 	  V|
-|     |            |          |
-|2S 1S|you V me    |wəqəzaw-V |wəqəza- V|
-|2S 3S|you V him   |waw-    V |waj-|
-|2S 1P|you V us    |wəqədaw-V |wəqəda- V|
-|2S 3P|you V them  |waw-    V |waj-|
-|     |            |          |            |
-|3S 1S|he V me     |qəzaw-  V |qəza-|
-|3S 2S|he V you    |qaw-    V |qaw-|
-|3S 3S|he V him    |jaw-    V |ja-|
-|3S 1P|he V us     |qədaw-  V |qəda-|
-|3S 2P|he V y'all  |qəvaw-  V |qəva-|
-|3S 3P|he V them   |jaw-    V |ja-|
-|     |            |          |            |
-|1P 2S|I V you     |dənaw-  V |dənaw-     V|
-|1P 3S|I V him     |daw-    V |daj-       V|
-|1P 2P|I V y'all   |dəvaw-  V |dəva- 		V|
-|1P 3P|I V them    |daw-    V |daj-       V|
-|     |            |          |
-|2P 1S|y'all V me  |fəqəzaw-V |fəqəza- V
-|2P 3S|y'all V him |faw-    V |faj-
-|2P 1P|y'all V us  |fəqədaw-V |fəqəda- V
-|2P 3P|y'all V them|faw-    V |faj-
-|     |            |          |
-|3P 1S|they V me   |qəzaw-  V |qəza-
-|3P 2S|they V you  |qaw-    V |qaw-
-|3P 3S|they V him  |jaw-    V |ja-
-|3P 1P|they V us   |qədaw-  V |qəda-
-|3P 2P|they V y'all|qəvaw-  V |qəva-
-|3P 3P|they V them |jaw-    V |ja-
+**_ma-_** seems to be a development of the same prefix **_aw-_**, which orginally probably had the form **_wa-_**, there the **_w_** hardened to **_m_**. This means that the "true" personal marker for the third person is a null morpheme ∅- in both cases.
 
-As you can see, the non-present conjugation is the base form, where the present conjugation simply replaces the last vowel with present prefix **_aw-_**.
 
-Intransitive 2-person:
+## intr. 2-pers.
+
+Verbs which use that conjugation are:
+>- **_japɬən_** (**_jawpɬ_**) - _to look at Y_
+>- **_jaʑan_** (**_jawʑa_**) - _to wait for Y_
+>- **__**
+
+Below is the basic table for this conjugation. That is the table without the **_aw-_** taken into account.
+
 |     |me   |you |him/her/it|us   |y'all |them|
 |-----|-----|----|----------|-----|------|----|
-|I    |%|sənaw-|saj-|%|səva-|saj-|
-|you  |wəqəza-|%|waj-|wəqəda-|%|waj-|
-|he   |qəza-|qaw-|ja-|qəda-|qəva-|ja-|
-|we   |%|dənaw-|daj-|%|dəva-|daj-|
-|y'all|fəqəza-|%|faj-|fəqəda-|%|faj-|
-|they |qəza-|qaw-|ja-|qəda-|qəva-|ja-|
+|I    |(səza-)|sənaw-|saj-|%|səva-|saj-|
+|you  |wəqəza-|(wəza-)|waj-|wəqəda-|%|waj-|
+|he   |qəza-|qaw-|ja-(/za-)|qəda-|qəva-|ja-|
+|we   |%|dənaw-|daj-|(dəza-)|dəva-|daj-|
+|y'all|fəqəza-|%|faj-|fəqəda-|(fəza-)|faj-|
+|they |qəza-|qaw-|ja-|qəda-|qəva-|ja-(/za-)|
+
+The subject markers are: **_sə-_**, **_wə-_**, **_∅-_**, **_də-_**, **_fə-_**, **_∅-_**.
+
+The object markers are: **_za-_**, **_wa-_**, **_ja-_**, **_da-_**, **_va-_**, **_ja-_**. **za-** and **va-** come originally from **sa-** and **fa-**, respectively. The consonants simply get voiced in their intervocalic position.
+
+Whenever the subject has a "higher" person than the object or (only in case of the third person) equal to the object, then a **_qə-_** is inserted. This is a fossilized cislocative preverb **_qa-/qə-_** which is now required in preverbless intransitive verbs. 
+
+This was probably initially motivated to differentiate between the reflexive verb form, which uses the prefix **_za-_**, and when the verb has the first personal singular as its object, which also uses **_za-_** (originally **_sa-_**). Later on it also spread to other persons where it was not ambiguous.
+
+Something similar we also have when the subject is the first person and the object is second person singular, there instead of having the expected **_*saw-_** or **_*səwa-_** and **_*daw-_** or **_*dəwa-_**, we have **_sənaw-_** and **_dənaw-_**. There the same happened as above, only that a **_na-** preverb got inserted. This was also maybe motivated to reduce ambiguity, with first person forms with the prefix **_aw-_**.
+
+Also, instead of the expected form **_*qəwa-_**, one has **_qaw-_**. This is mostly a regular sound change, as frequently **_əwa_** becomes simply **_aw_**. The same we also have with **_sənaw-**, where one would have expected **_sənawa_** or maybe **_sənəwa_**
+
 
 To get the positive present tense form, we add replace the last vowel/diphthong with **aw-**.
 
 |     |me   |you |him/her/it|us   |y'all |them|
 |-----|-----|----|----------|-----|------|----|
-|I    |%|sənaw-|saw-|%|səvaw-|saw-|
-|you  |wəqəzaw-|%|waw-|wəqədaw-|%|waw-|
-|he   |qəzaw-|qaw-|jaw-|qədaw-|qəva-|jaw-|
-|we   |%|dənaw-|daw-|%|dəva-|daw-|
-|y'all|fəqəzaw-|%|faw-|fəqəda-|%|faw-|
-|they |qəzaw-|qaw-|jaw-|qəda-|qəvaw-|jaw-|
+|I    |(səzaw)|sənaw-|saw-|%|səvaw-|saw-|
+|you  |wəqəzaw-|(wəzaw)|waw-|wəqədaw-|%|waw-|
+|he   |qəzaw-|qaw-|jaw-(/zaw-)|qədaw-|qəvaw-|jaw-|
+|we   |%|dənaw-|daw-|(dəzaw-)|dəvaw-|daw-|
+|y'all|fəqəzaw-|%|faw-|fəqədaw-|(fəzaw)|faw-|
+|they |qəzaw-|qaw-|jaw-|qədaw-|qəvaw-|jaw-(/zaw-)|
 
 Orginally **_saw-_**, **waw-** etc, probably came from **_s-jaw_**, **_w-jaw-_** but were simplified. **jaw** on the other hand seems to be the fusion of **_ja-_** and **aw-**.
 
+One might note, that for a 1st person marker, plural or singular, as a subject and the 2nd person singular as the object, there is no change, whether with or wihout the **_aw-_** prefix.
+
+### Reflexives
+For the reflexive, one uses **_za-_** plus frequently with the suffix **_-ʒə_** (which is usually only done with intransitive verbs).
+>- **_səzawpɬəʒ_**, **_səzapɬəʒərqəm_** - _I look at myself_, _I don't look at myself_
+>- **_wəzawpɬəʒ_**, **_wəzapɬəʒərqəm_** - _you look at yourself_, _yu don't look at yourself_
+>- **_zawpɬəʒ_**, **_zapɬəʒərqəm_** - _he looks at himself_, _he doesn't look at himself_
+>- **_səzawpɬ_**, **_səzapɬərqəm_** - _I look at myself_, _I don't look at myself_
+>- **_wəzawpɬ_**, **_wəzapɬərqəm_** - _you look at yourself_, _yu don't look at yourself_
+>- **_zawpɬ_**, **_zapɬərqəm_** - _he looks at himself_, _he doesn't look at himself_
 
 
-## intr. 2-pers. dynamic preverb
+### Fake 2-pers verbs
+There are some verbs which morphologically look like 2-personal intransitive verbs, but actually are only 1-personal verbs, in the sense that they can only conjugate for the subject, which normally would require them to use the conjugation of 1-personal intransitive verbs.
+
+Those verbs are:
+>- **_jasən_** (**_jaws_**) - _to swim_
+>- **_jatʼəsaxən_** (**_jawtʼəsax_**) - _to sit down_
+>- **_jaʃən_** (**_jawʃ_**) - _to get tired_
+>- **_japɬatʃʼən_** (**_jawpɬatʃʼ_**) - _to look around_
 
 
-|1    |        2     |   Preset | Non-Present|
-|-----|--------------|----------|------------|
-|1S 2S|I V P you     |səp-P-aw-V|səp-P-V|
-|1S 3S|I V P him     |sə-P-aw-V |sə-P-V|
-|1S 2P|I V P y'all   |səf-P-aw-V|səf-P-V|
-|1S 3P|I V P them    |saː-P-aw-V|saː-P-V|
-|     |              |          |
-|2S 1S|you V P me    |wəs-P-aw-V|wəs-P-V|
-|2S 3S|you V P him   |wə-P-aw-V |wə-P-V|
-|2S 1P|you V P us    |wət-P-aw-V|wət-P-V|
-|2S 3P|you V P them  |waː-P-aw-V|waː-P-V|
-|     |              |          |            |
-|3S 1S|he V P me     |s-P-aw-V|s-P-V
-|3S 2S|he V P you    |p-P-aw-V|p-P-V
-|3S 3S|he V P him    |P-aw-V|P-V
-|3S 1P|he V P us     |t-P-aw-V|t-P-V
-|3S 2P|he V P y'all  |f-P-aw-V|f-P-V
-|3S 3P|he V P them   |jaː-P-aw-V|jaː-P-V
-|     |              |          |            |
-|1P 2S|we V P you    |dəp-P-aw-V|dəp-P-V|
-|1P 3S|we V P him    |də-P-aw-V|də-P-V|
-|1P 2P|we V P y'all  |dəf-P-aw-V|dəf-P-V|
-|1P 3P|we V P them   |daː-P-aw-V|daː-P-V|
-|     |              |          |
-|2P 1S|y'all V P me  |fəs-P-aw-V|fəs-P-V|
-|2P 3S|y'all V P him |fə-P-aw-V|fə-P-V|
-|2P 1P|y'all V P us  |fət-P-aw-V|fət-P-V|
-|2P 3P|y'all V P them|faː-P-aw-V|faː-P-V|
-|     |              |          |
-|3P 1S|they V P me   |s-P-aw-V|s-P-V
-|3P 2S|they V P you  |p-P-aw-V|p-P-V
-|3P 3S|they V P him  |P-aw-V|P-V
-|3P 1P|they V P us   |t-P-aw-V|t-P-V
-|3P 2P|they V P y'all|f-P-aw-V|f-P-V
-|3P 3P|they V P them |jaː-P-aw-V|jaː-P-V
+
+## intr. 2-pers. preverb
 
 Intransitivie 2-person with prefix
 |     |me   |you |him/her/it|us   |y'all |them|
@@ -154,49 +137,41 @@ Intransitivie 2-person with prefix
 |y'all|fəz-P-|%|fə-P-|fəd-P-|%|faː-P-|
 |they |s-P-|p-P-|P-|d-P-|f-P-|jaː-P-|
 
-## tr. 2-pers.
-|1    |        2   |   Preset | Non-Present|
-|-----|------------|----------|------------|
-|1S 2S|I V you     |wəzaw-  V |wəs-     V|
-|1S 3S|I V him     |saw-    V |s-       V|
-|1S 2P|I V y'all   |fəzaw-  V |fəs-      V|
-|1S 3P|I V them    |saw-    V |s- 	  V|
-||||
-|2S 1S|you V me    |səbaw-V |səp- V|
-|2S 3S|you V him   |waw-    V |p-V|
-|2S 1P|you V us    |dəbaw-V |dəp- V|
-|2S 3P|you V them  |waw-    V |p-V|
-|     |            |          |            |
-|3S 1S|he V me     |saj-  V |səj-V|
-|3S 2S|he V you    |waj-    V |wəj-V|
-|3S 3S|he V him    |ja-    V |jə-V|
-|3S 1P|he V us     |daj-  V |dəj-V|
-|3S 2P|he V y'all  |faj-  V |fəj-V|
-|3S 3P|he V them   |ja-    V |jə-V|
 
+
+## tr. 2-pers.
 Transitive 2 person
-|     |me   |you |him/her/it|we   |y'all |them|
+|     |me   |you |him/her/it|us   |y'all |them|
 |-----|-----|----|----------|-----|------|----|
-|I    |%|wəz-|s-|%|fəs-|s-|
-|you  |səb-|%|b/w-|dəb-|%|b-|
-|he   |səj-|wəj-|jə-|dəj-|fəj-|jə-|
-|we   |%|wəd-|d-|%|fəd-|d-|
-|y'all|səv-|%|f-|dəv-|%|f-|
-|they |saː-|waː-|jaː-|daː-|faː-|jaː-|
+|I    |(zəz-)|wəz-|s-|%|fəs-|s-|
+|you  |səb-|(zəb-)|b/w-|dəb-|%|b-|
+|he   |səj-|wəj-|jə-(/zəj-)|dəj-|fəj-|jə-|
+|we   |%|wəd-|d-|(zəd-)|fəd-|d-|
+|y'all|səv-|%|f-|dəv-|(zəv-)|f-|
+|they |saː-|waː-|jaː-|daː-|faː-|jaː-(/-zaː)|
+
 To create the present tense form, replaces **_əj_** with **_aj_**,  and **aː** stays **_aː_**, everywhere else one adds **aw**. **_baw-_** has the various **_waw-_**.
 The above table is only a simplified table. One has to transform the given prefixes, depending on the form of the verb.
 
 If the verb, starts with a **_wə_**, one adds a schwa **_ə_** to the last consontant. Like **_wəbədən_** (_to hold/grab Y_), **_wəxən_** (_to end Y_), **_wəbɮan_** (to begin Y).
-- **_səwəbədaːɕ_** - _I grabbed it_
-- **_bəwəxaːɕ_** - _you ended it_
-- **_dəwəbɮaːɕ_** - _we started it_
-- **_fəwəbɮaːɕ_** - _y'all started it_
+>- **_səwəbədaːɕ_** - _I grabbed it_
+>- **_bəwəxaːɕ_** - _you ended it_
+>- **_dəwəbɮaːɕ_** - _we started it_
+>- **_fəwəbɮaːɕ_** - _y'all started it_
 
 If the verb starts with a voiced consonant, ending consontant becomes or stays voiced.
 	
 If the verb starts with a voiceless consonant, ending consontant becomes or stays voiceless.
 
 
+### Reflexives
+For reflexives one uses **_zə-_**.
+
+>- **_zəzawtħaɕʼ_**, **_zəstħaɕʼərqəm_** - _I wash myself_, _I don't wash myself_
+>- **_zəbawtħaɕʼ_**, **_zəptħaɕʼərqəm_** - _you wash yourself_, _you don't wash yourself_
+>- **_zajtħaɕʼ_**, **_zəjtħaɕʼərqəm_** - _he washes himself_, _he doesn't wash himself_
+
+>- **zəjwətʃʼaːɕ** - _he killed himself_
 
 ## tr. 2-pers. preverb   
 

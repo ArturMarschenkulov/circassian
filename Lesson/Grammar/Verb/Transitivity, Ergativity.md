@@ -2,9 +2,12 @@ intransitive
 S O V
 -r -m V
 
+
 transitive
 S O V
 -m -r V
+
+absolutive/nominative (-r) ergative (-m)
 
 # Labile/neutral/diffuse verbs
 Those are verbs which can be treated as transitive and intransitive verbs without any derivation morphology. One has to however use the appropriate conjugation paradigm.

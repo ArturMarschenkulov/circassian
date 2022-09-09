@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Lesson/CAT.Verbs.md",
+            "file": "Lesson/Grammar/Verb/Verb conjugation paradigm.md",
             "mode": "source",
             "source": false
           }
@@ -40,7 +40,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "understand",
+                "query": "wətʃʼ",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -49,8 +49,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -70,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Lesson/CAT.Verbs.md",
+                "file": "Lesson/Grammar/Verb/Verb conjugation paradigm.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,7 +86,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Lesson/CAT.Verbs.md"
+                "file": "Lesson/Grammar/Verb/Verb conjugation paradigm.md"
               }
             }
           }
@@ -98,17 +97,17 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "818c050d83b9f9c8",
+  "active": "a71fa42c18efeec4",
   "lastOpenFiles": [
-    "Lesson/Expressing/Cognitive verbs.md",
-    "Lesson/Expressing/Expressing because.md",
-    "Lesson/Expressing/Expressing communication.md",
+    "Lesson/Learning Kabardian 5 class/Urok 1.md",
+    "Lesson/Dialectal Variation.md",
+    "guide/0. introduction.md",
+    "Lesson/Grammar/Clause, Complement clause.md",
     "Lesson/Grammar/Verb/Verb conjugation paradigm.md",
-    "Lesson/Grammar/Verb/Transitivity, Ergativity.md",
-    "Lesson/Grammar/Verb/Tense.md",
-    "Lesson/Grammar/Verb/-tʃʼa.md",
-    "Lesson/Grammar/Verb/Passive Voice.md",
     "Lesson/Grammar/Verb/Preverbs.md",
-    "Lesson/Grammar/Verb/Imperative.md"
+    "Lesson/Grammar/Verb/Tense.md",
+    "resources/README.md.md",
+    "README.md",
+    "Lesson/Grammar/Verb/Transitivity, Ergativity.md"
   ]
 }

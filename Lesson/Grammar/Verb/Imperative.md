@@ -1,5 +1,5 @@
 
-
+- **_qəɕʼəħa_**
 # base
 ## intransitive
 ### 1-personal
@@ -13,17 +13,16 @@
 	- **_fəfəj_** - _whistle!_
 	- **_wəməfəj_** - _whistle!_
 	- **_fəməfəj_** - _whistle!_
+- **_ɬəχʷan_** (**_maɬəχʷa_**) - _to search_
+	- **_ɬəχʷa_** - _search!_
+	- **_fəɬəχʷa_** - _search_!
+	- **_wəməɬəχʷa_** - _don't search!_
+	- **_fəməɬəχʷa_** - _don't search!_
 ### 2-personal
-- **_ɬəχʷan_** (**_maɬəχʷa_**) - _to look for Y_
-	- **_ɬəχʷa_** - _look for it!_
-	- **_fəɬəχʷa_** - _look for it!
-	- **_wəməɬəχʷa_** - _look for it!
-	- **_fəməɬəχʷa_** - _look for it!
-	- **_səɬəχʷa_** - _look for me!_
-	- **_səqavməɬəχʷa_** - _don't look for me!_
-- **_pɬən_** (**_jawpɬ_**) - _to look at Y_
+
+- **_japɬən_** (**_jawpɬ_**) - _to look at Y_
 	- **_pɬə** - _look at it!_
-	- **_fəpɬ_** - _look at it!_
+	- **_fpɬə_** - _look at it!_
 	- **_wəməpɬ_** - _look at it!
 	- **_fəməpɬ_** - _look at it!_
 	- **_səpɬ_** - _look at me!_
@@ -39,8 +38,13 @@
 - **_ɕʼən_** (**_jaɕʼ_**) _to do Y_
 	- **_ɕʼə_** - _do it!_
 	- **_fəɕʼ_** - _do it!_
-	- **_wəməɕʼ_** - _don't do it_
-	- **_fəməɕʼ_** - _don't do it
+	- **_wəməɕʼ_** - _don't do it!_
+	- **_fəməɕʼ_** - _don't do it!_
+- **_qaɬəχʷan_** (**_qajɬəχʷa_**) - _to search_
+	- **_səqaɬəχʷa_** - _look for me!_
+	- **_səqafɬəχʷa_** - _look for me!_
+	- **_səqawməɬəχʷa_** - _look for me!_
+	- **_səqavməɬəχʷa_** - _don't look for me!_
 
 ## %
 
