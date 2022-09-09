@@ -58,7 +58,7 @@ intransitive 1-person
 **_ma-_** seems to be a development of the same prefix **_aw-_**, which orginally probably had the form **_wa-_**, there the **_w_** hardened to **_m_**. This means that the "true" personal marker for the third person is a null morpheme ∅- in both cases.
 
 
-## intr. 2-pers.
+## intr. 2-pers. base
 
 Verbs which use that conjugation are:
 >- **_japɬən_** (**_jawpɬ_**) - _to look at Y_
@@ -76,15 +76,15 @@ Below is the basic table for this conjugation. That is the table without the **_
 |y'all|fəqəza-|%|faj-|fəqəda-|(fəza-)|faj-|
 |they |qəza-|qaw-|ja-|qəda-|qəva-|ja-(/za-)|
 
-The subject markers are: **_sə-_**, **_wə-_**, **_∅-_**, **_də-_**, **_fə-_**, **_∅-_**.
+The subject (absolutive -r) markers are: **_sə-_**, **_wə-_**, **_∅-_**, **_də-_**, **_fə-_**, **_∅-_**.
 
-The object markers are: **_za-_**, **_wa-_**, **_ja-_**, **_da-_**, **_va-_**, **_ja-_**. **za-** and **va-** come originally from **sa-** and **fa-**, respectively. The consonants simply get voiced in their intervocalic position.
+The object (ergative -m) markers are: **_za-_**, **_wa-_**, **_ja-_**, **_da-_**, **_va-_**, **_ja-_**. **za-** and **va-** come originally from **sa-** and **fa-**, respectively. The consonants simply get voiced in their intervocalic position. In fact, those markers mark the indirect object.
 
 Whenever the subject has a "higher" person than the object or (only in case of the third person) equal to the object, then a **_qə-_** is inserted. This is a fossilized cislocative preverb **_qa-/qə-_** which is now required in preverbless intransitive verbs. 
 
 This was probably initially motivated to differentiate between the reflexive verb form, which uses the prefix **_za-_**, and when the verb has the first personal singular as its object, which also uses **_za-_** (originally **_sa-_**). Later on it also spread to other persons where it was not ambiguous.
 
-Something similar we also have when the subject is the first person and the object is second person singular, there instead of having the expected **_*saw-_** or **_*səwa-_** and **_*daw-_** or **_*dəwa-_**, we have **_sənaw-_** and **_dənaw-_**. There the same happened as above, only that a **_na-** preverb got inserted. This was also maybe motivated to reduce ambiguity, with first person forms with the prefix **_aw-_**.
+Something similar we also have when the subject is the first person and the object is second person singular, there instead of having the expected **_*saw-_** or **_*səwa-_** and **_*daw-_** or **_*dəwa-_**, we have **_sənaw-_** and **_dənaw-_**. There the same happened as above, only that a **_na-_** preverb got inserted. This was also maybe motivated to reduce ambiguity, with first person forms with the prefix **_aw-_**.
 
 Also, instead of the expected form **_*qəwa-_**, one has **_qaw-_**. This is mostly a regular sound change, as frequently **_əwa_** becomes simply **_aw_**. The same we also have with **_sənaw-**, where one would have expected **_sənawa_** or maybe **_sənəwa_**
 
@@ -130,13 +130,16 @@ Those verbs are:
 Intransitivie 2-person with prefix
 |     |me   |you |him/her/it|us   |y'all |them|
 |-----|-----|----|----------|-----|------|----|
-|I    |%|səb-P-|sə-P-|%|səv-P-|saː-P-|
-|you  |wəz-P-|%|wə-P-|wəd-P-|%|waː-P-|
-|he   |s-P-|p-P-|P-|d-P-|f-P-|jaː-P-|
-|we   |%|dəv-P-|də-P-|%|dəv-P-|daː-P-|
+|I    |(zəz-P-)|səb-P-|sə-P-|%|səv-P-|saː-P-|
+|you  |wəz-P-|(zəb-P-)|wə-P-|wəd-P-|%|waː-P-|
+|he   |s-P-|p-P-|P-(/zə-P-)|d-P-|f-P-|jaː-P-|
+|we   |%|dəv-P-|də-P-|(zə)|dəv-P-|daː-P-|
 |y'all|fəz-P-|%|fə-P-|fəd-P-|%|faː-P-|
 |they |s-P-|p-P-|P-|d-P-|f-P-|jaː-P-|
 
+The subject (absolutive -r) markers are: **_sə-_**, **_wə-_**, **_∅-_**, **_də-_**, **_fə-_**, **_∅-_**.
+
+The object (ergative -m) markers are: **_s-_**, **_p-_**, **_∅-_**, **_d-_**, **_f-_**, **_jaː-_**.
 
 
 ## tr. 2-pers.
@@ -149,6 +152,12 @@ Transitive 2 person
 |we   |%|wəd-|d-|(zəd-)|fəd-|d-|
 |y'all|səv-|%|f-|dəv-|(zəv-)|f-|
 |they |saː-|waː-|jaː-|daː-|faː-|jaː-(/-zaː)|
+
+
+The subject (ergative -m) markers are: **_s-_**, **_w-/p-_**, **_jə-_**, **_d-_**, **_f-_**, **_jaː-_**.
+
+The object (absolutive -r) markers are: **_sə-_**, **_wə-_**, **_∅-_**, **_də-_**, **_fə-_**, **_∅-_**.
+
 
 To create the present tense form, replaces **_əj_** with **_aj_**,  and **aː** stays **_aː_**, everywhere else one adds **aw**. **_baw-_** has the various **_waw-_**.
 The above table is only a simplified table. One has to transform the given prefixes, depending on the form of the verb.

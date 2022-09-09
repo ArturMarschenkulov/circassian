@@ -1,5 +1,35 @@
 
-- **_qəɕʼəħa_**
+The imperative seems on the first glance easily formed, however it has quite many quirks.
+
+First of, let's only consider easy verbs without any prefixes. Let's take **_ʃxan_** _to eat_ and **_ʃxən_** _to eat Y_, the former is intransitive, the latter is transitive.
+
+To get the singular imperative, one simply takes their stem, that is **_ʃxa_** and **ʃxə**, respectively. There is no second person marker to be seen.
+>- **_ʃxa_** - _eat!_
+>- **_ʃxə_** - _eat it!_
+
+To get the plural imperative, one has to actually use a second person plural marker. In case of intransitive verbs, that's **_fə-_**, and in case of transitive verbs, that's **_f-_**.
+>- **_fəʃxa_** - _eat!_
+>- **_fʃxə_** - _eat it!_
+
+And to get the negative imperative, one uses the negation prefix **_mə-_**. The catch however is that now, one has to use the second person singular marker. Also there is no distinction in the plural anymore, it's only **_fə-_**.
+>- **_wəməʃxa_** - _don't eat!_
+>- **_wəməʃx_** - _don't eat it!_
+>- **_fəməʃxa_** - _don't eat!_
+>- **_fəməʃx_** - _don't eat it!_
+
+Now however if one adds a prefix. It get's little bit more complex. Let's now consider **_ɕəʃxan_** _to eat in Y_ and **ɕəʃxən** _to eat Y in Z_.
+>- **_ɕəʃxa_** - _eat there!_
+>- **_fəɕəʃxa_** - _eat there!_
+>- **_wəɕəməʃxa_** - _don't eat there!_
+>- **_fəɕəməʃxa_** - _don't eat there!_
+>- **_ɕəʃx_** - _eat it there!_
+>- **_ɕəfʃx_** - _eat it there!_
+>- **_ɕəwməʃx_** - _don't eat it there!_
+>- **_ɕəvməʃx_** - _don't eat it there!_
+
+This is actually a frequent pattern in Kabardian. The subject markers in transitive verbs come after the prefix, while in intransitive verbs it comes before the prefix.
+
+
 # base
 ## intransitive
 ### 1-personal
