@@ -109,7 +109,16 @@ _ear_ - **_tħakʷʼəma_**
 _eye_ - **_na_**
 __ - **__**
 
-
+**_kʷʼətʼqʷaps_** - _tubae fallopii_
+**_ɬxʷaːɬa_** - _uterus_
+**_gʷədəkʷ_** - _vagina_
+**_kʷʼətʼ ʔʷəpɕʼaːtʃʼa_** - _labia majora pudendi_
+**_ɬəq_** - _clitoris_
+**_ʃaʒəʁa_** - _ovarium_
+**_maːna_** - _penis_
+**_ħamaːʃa_** - _penis_
+**_ħaməʃəwtʼ_** - _penis_
+**_ħapʼətʼa_** - _penis_
 
 _thin_ - **_tʃʼaːntʼa_**
 

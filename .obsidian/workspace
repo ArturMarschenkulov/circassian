@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Lesson/Grammar/Verb/Verb conjugation paradigm.md",
+            "file": "Lesson/Expressing/purpose.md",
             "mode": "source",
             "source": false
           }
@@ -40,7 +40,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "wətʃʼ",
+                "query": "paːp",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -53,8 +53,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 240.5,
-    "collapsed": true
+    "width": 240.5
   },
   "right": {
     "id": "91ac3f9085a0b7b4",
@@ -70,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Lesson/Grammar/Verb/Verb conjugation paradigm.md",
+                "file": "Lesson/Expressing/purpose.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,7 +86,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Lesson/Grammar/Verb/Verb conjugation paradigm.md"
+                "file": "Lesson/Expressing/purpose.md"
               }
             }
           }
@@ -96,19 +95,20 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "active": "818c050d83b9f9c8",
   "lastOpenFiles": [
-    "Lesson/Grammar/Verb/Imperative.md",
-    "Lesson/Grammar/Verb/Verb conjugation paradigm.md",
-    "Lesson/Grammar/Verb/Transitivity, Ergativity.md",
-    "Lesson/Grammar/Verb/Tense.md",
-    "Lesson/Grammar/Verb/Passive Voice.md",
-    "Lesson/Learning Kabardian 5 class/Urok 1.md",
-    "Lesson/Dialectal Variation.md",
-    "guide/0. introduction.md",
-    "Lesson/Grammar/Clause, Complement clause.md",
-    "Lesson/Grammar/Verb/Preverbs.md"
+    "Lesson/Expressing/reason.md",
+    "Kabardian Dictionary/Lemmas/paːpɕʼa.md",
+    "Lesson/Expressing/nature.md",
+    "Lesson/vocab/Vocab List Eng kab.md",
+    "Lesson/vocab/Swadesh List.md",
+    "Lesson/vocab/roots.md",
+    "Kabardian Dictionary/Categories/CAT.Family.md",
+    "Kabardian Dictionary/Categories/CAT.Animal.md",
+    "Kabardian Dictionary/Categories/CAT.Anatomy.md",
+    "Lesson/Grammar/Verb/Verb conjugation paradigm.md"
   ]
 }
