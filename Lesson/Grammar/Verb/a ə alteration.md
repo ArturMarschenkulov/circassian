@@ -1,0 +1,1 @@
+**_jədzən_** (**_jərajdz_**) _to throw Y from within Z_ -   **_jədzan_** (**_jərajdza_**) _to throw Y to/into Z_

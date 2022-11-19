@@ -10,7 +10,7 @@ Complement clauses in Kabaridan are frequently expressed with the infinitive
 
 Сэ ар кIуэуэ зэхэсхыркъым 
 **_sa [aːr kʷʼawa] zaxasxərqəm _** - I don't hear [that he walks]_
-**_sa [aːr məkʷʼawə] sɕʼarqəm _** - I don't know [that he doesn't ]_
+**_sa [aːr məkʷʼawə] sɕʼarqəm _** - I don't know [that he doesn't go]_
 **_sa [aːr məʃxawə] sɬaʁʷaːqəm _** - I didn't see [that he doesn't eat]_
 СызэригугъэмкIэ ар мыахъшэншэ
 **_aːr məaːχʃanʃa səzarəjgʷəʁamtʃʼa_** - _I think, that he is without money_
@@ -48,22 +48,30 @@ Complement clauses in Kabaridan are frequently expressed with the infinitive
 ## Participial
 Used with predicates of knowledge, speech:
 
-- **_aːdam [jəqʷam wəna zarəjɕʼər] zaxəjxaːɕ_** - _father heard that his son is building a house_
+
 - **_wa wəjgʷəʁaːɕ [sa səkʷʼaː]_** - _you thought [that I went]_
 - **_[wa dəpħ] tfʼaɕʼt_** - _it seemed to us, that you carry us_
+
+- **_aːdam [jəqʷam wəna zarəjɕʼər] zaxəjxaːɕ_** - _father heard that his son is building a house_
 - **_ɕʼaːɮam qəjɕʼaʒaːɕ [zarəsəmaːdʒaʁaːɕ]_** - _the_
 - **_sa sɕəʁʷəpɕanqəm [wəzarəɮaʑanəwr]_** - _I won't forget [that you'll work]_
 - **_aːnam jaɕʼa [jə qʷar qəzarəkʷʼaʒənəwr]_** - _mother knows [that her son will return]_
+- **_wa qəzʒəbawʔar [aːr zərəsəmaːdʒar]_** - _you tell me [that he is ill]_
 ## Gerundive
 - **_[fa ʃər fɕaːwa] səjgʷəʁaːɕ_** - _I thought [that you had sold the horse]_
 - **_[fa ʃər fɕaxʷaːwa] səjgʷəʁaːɕ_** - _I thought [that you had bought the horse]_
+- **_sa sɕʼarqəm [aːr qakʷʼaːwa]_** - _I didn't know that he came_
 ## Infinitive
 - **_sa wa abəxam waːdazʁakʷʼan_**
 - **_pɕaːɕar [qʷaːʒam kʷʼan] xʷajaːɕ_** - _the girl had to [go to the village]_
 - **_pɕaːɕam [pəjsmaw jətxən] xʷajaːɕ_**
+- **_aːbə [txan] qəjwəbɮaːɕ_** - _he started writing_
+
+- _**daʁʷaɕ ʁamaːxʷam [zəbʁapstʃʼəntʃʼa]**_ - _it's fantastic to bathe in summer_
 
 The order is very much fixed
 ## Masdar
+**_gʷəʁʷət [wənam jəɕʼənər]_** - _[the building of a house] was difficult_
 ## Alternative
 - **_wa wawɕʼa [sa səkʷʼara səməkʷʼara]_** - _you know [whether I go or not]_
 **_fa da fəqədawəpɕʼaːɕ [dətxanra dəmətxanra]_** - _you ask asked us [whether we write or not]_

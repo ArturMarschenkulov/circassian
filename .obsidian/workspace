@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Lesson/Expressing/purpose.md",
+            "file": "Lesson/Grammar/Verb/Verb conjugation paradigm.md",
             "mode": "source",
             "source": false
           }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Lesson/Expressing/purpose.md",
+                "file": "Lesson/Grammar/Verb/Verb conjugation paradigm.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -86,7 +86,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Lesson/Expressing/purpose.md"
+                "file": "Lesson/Grammar/Verb/Verb conjugation paradigm.md"
               }
             }
           }
@@ -95,20 +95,19 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "active": "818c050d83b9f9c8",
   "lastOpenFiles": [
-    "Lesson/Expressing/reason.md",
-    "Kabardian Dictionary/Lemmas/paːpɕʼa.md",
-    "Lesson/Expressing/nature.md",
-    "Lesson/vocab/Vocab List Eng kab.md",
-    "Lesson/vocab/Swadesh List.md",
-    "Lesson/vocab/roots.md",
-    "Kabardian Dictionary/Categories/CAT.Family.md",
-    "Kabardian Dictionary/Categories/CAT.Animal.md",
-    "Kabardian Dictionary/Categories/CAT.Anatomy.md",
-    "Lesson/Grammar/Verb/Verb conjugation paradigm.md"
+    "Kabardian Dictionary/Lemmas/padzəʒən.md",
+    "Kabardian Dictionary/Lemmas/padʒan.md",
+    "Kabardian Dictionary/Lemmas/naxʷ.md",
+    "Kabardian Dictionary/Lemmas/nəbʑ.md",
+    "Kabardian Dictionary/Lemmas/na.md",
+    "Lesson/Translations/Istanbylikwa.md",
+    "Lesson/Grammar/Verb/a ə alteration.md",
+    "Lesson/Grammar/Verb/Verb conjugation paradigm.md",
+    "Lesson/Grammar/Verb/Transitivity, Ergativity.md",
+    "Lesson/Grammar/Conjunctions.md"
   ]
 }

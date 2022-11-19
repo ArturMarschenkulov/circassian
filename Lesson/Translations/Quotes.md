@@ -1,3 +1,14 @@
+# Random
+- the child who is not embraced by the village will burn it down to feel its warmth
+- the child that is cast out by his village will burn it to the ground just to feel it's warmth
+
+- If you want to go fast, go alone. If you want to go far, go together.
+- 
+
+# Mark Twain
+- Everybody is a moon and has a dark side which he never shows to anybody.
+
+- Only two things we'll regret on deathbed - that we are little loved and little traveled.
 # Assassin's Creed
 _Nothing is true. Everything is permitted._
 **_zajətʃʼ paʒqəm. psawrəj _**

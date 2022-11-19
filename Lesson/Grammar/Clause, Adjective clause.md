@@ -1,6 +1,43 @@
 This article talks about adjective clauses. These are clauses which can be regarded as adjectives to a noun.
 
 
+# Frequent use of participles
+Where in English one would frequent use simple verbs, Kabardian prefers to use participles.
+Let's look at few senteces:
+>- **_aːr zədapsaɬaːr naːɮʃəkɕ_** _he called Nalchik_ (lit. Where he called to is Nalchik)
+
+
+# Examples
+- **_ɕʼaːɮam ʃər jəʔaɕ_** - _the boy has the horse_ (lit. the horse belongs to the boy)
+	- **_ʃər zəjʔa ɕʼaːɮa(r)_** - _the boy, who has a horse_ (lit. the boy, to whom money belongs)
+		- **_ɕʼaːɮawə ʃər zəjʔa(r)_**
+		- **_ɕʼaːɮa ʃər zəjʔa(r)_**
+	- **_ɕʼaːɮam jəʔa ʃə(r)_** - _the horse, the boy has_ (lit. the horse, who belongs to the boy)
+		- **_ʃəraːwa ɕʼaːɮa jəʔa(r)_**
+		- **_aːχʃa ɕʼaːɮa jəʔa(r)_**
+
+- **_ɕʼaːɮam ʃə daːxar jəʔaɕ_** - _the boy has the pretty horse_ (lit. the pretty horse belongs to the boy)
+	- **_ɕʼaːɮam jəʔa ʃər daːxaɕ_** - _the horse, the boy has, is pretty_
+		- **_ʃəwa ɕʼaːɮam jəʔar daːxaɕ_**
+
+- **_pɕaːɕar qəddawpsawə_** - _the girl lives with us_
+	- **_pɕaːɕa qəddapsawər_** - _the girl living with us_
+- **_sət ɕəʁʷəj ħar mabaːna_** - _the dog always barks_
+	- **_sət ɕəʁʷəj ħa baːnar_** - _the dog which always barks_
+- **_ɕʼaːɮam dajɬaʁʷ_** - _the boy looks at us_
+	- **_ɕʼaːɮa dəzəɬaʁʷər_** - _the boy looking at us_
+- **_ɕʼaːɮaʁʷaːɮar ɣazajtəm jawdʒa_** - _the youth reads newspaper_
+	- **_ɕʼaːɮaʁʷaːɮa ɣazajtəm jadʒar_** - _the youth who reads newspaper_
+	- **_ɣazajt ɕʼaːɮaʁʷaːɮar zadʒar_** - _the newspaper whom the youth reads
+- **_ɕʼaːɮaʁʷaːɮam ɣazajtər qawdʒa_** - _the youth reads newspaper_
+	- **_ɕʼaːɮaʁʷaːɮa ɣazajtər zəqadʒar_** - _the youth who reads newspaper_
+	- **_ɣazajt ɕʼaːɮaʁʷaːɮam qadʒar_** - _the newspaper whom the youth reads
+
+
+
+- **_ɕʼaːɮam aːχʃa kʷad jəʔaɕ_** - _the boy has little money_ (lit. little money belongs to the boy)
+	- **_ɕʼaɮam jəʔa aːχʃar məkʷadɕ_** - _the money, the boy has, is little_
+	- **_aːχʃa ɕʼaɮam jəʔar məkʷadɕ_** - _the money, the boy has, is little_
 
 # Participles
 //NOTE: maybe discuss this in the **_Particles_** article.

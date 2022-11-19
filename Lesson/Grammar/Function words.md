@@ -1,9 +1,11 @@
+
 ||question|universal|negatory|existential|
 |-----|------------|----------|------------|-|
 |basic|**_sət_**, **_xat_**|**_psaw_**, **_psawrəj_**|**_zərəj_**, **_zəməj_**|**_gʷar_**, **_zəgʷar_**
 |temporal|**_sət ɕəʁʷa_**, **_daːpɕaɕ_**|**_sət ɕəʁʷəj_**, **_daːpɕaɕəj_**, **_sətəm dajʒəj_** |**_zajə(tʃʼ)_**|**_jənəqʷam_**|
 |local|**_dana_**|**_danəj_**|**_zəɕʼəpʼəj(tʃʼ)_**|**_zə ɕʼəpʼa gʷarəm_**|
 |amount|**_daːpɕa_**||**_zəmaːɕʼəjtʃʼ_**,  **_zətʼakʷʼəj_**|
+
 ### Temporal
 **_sət ɕəʁʷa_** - _where_
 **_daːpɕaɕ_** - _where_

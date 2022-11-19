@@ -1,4 +1,31 @@
-Kabardian has participles. This is a way to use verbs in a adjective like manner.
+In short, participles are verbal forms which make the verb be more adjectives. If those verbs don't actually describe a noun, the noun is implicit.
+
+To give an example in English, **_sleeping_** in **a sleeping man** describes the noun (the head) **_a man_** and has the meaning **_a man who sleeps_**. **_sleeping_** can't stand by itself in English at least not usually speaking, you can't say **a sleeping**, to achieve that one has to use the dummy noun **_one_**, that is **_the sleeping one_**. In Kabardian this is not the case, there you can say **_ɬʼə ʑajr_** for _the sleeping man_ and **_ʑajr_** for _the sleeping one_.
+
+This article will mainly talk about how those participles are created, because can get quite complex. How they are used will be discussed in another article.
+
+There are a few participle types, the subject/object type, manner (**_zarə-_**), time/place (**_ɕə-_**), place (**_zda-_**), reason/goal (**_ɕʼa-_**).
+
+
+# Structure
+The way how participles look like, that is interact with the various other part of the verb, depends on the type of the verb.
+
+The most straight forward is in case of base verbs (without any preverbs) with 1-person and intranstive
+
+**_ʑajən_** means _to sleep_.
+>- **baːdzar maʑaj** - _the fly sleeps_
+>- **_baːdza ʑajr_** - _the sleeping fly_
+>- **_baːdza zarəʑajr_** - _(the way) how the fly sleeps_
+>- **_baːdza ɕəʑajr_** - _(the way) when how the fly sleeps_
+>- **_baːdza zdaʑajr_** - _(the way) where the fly sleeps_
+>- **_baːdza ɕʼaʑajr_** - _(the way) why the fly sleeps_
+
+
+
+
+
+
+
 
 Some examples below:
 
@@ -76,19 +103,19 @@ For **_zaxaxən_** (2 tr.) _to hear Y_ (cf. **_zaxa-_** is a preverb)
 ## Intransitive twopersonal
 **_ja-V-n_** - _to V Y_
 	**_ja-V-r_** - _who Vs Y_
-	**_za-V-r_** - _whom X Vs_
+	**_za-V-r_** - _whom X Vs_/_who is Ved by X_
 
 **_japɬən_**
 	**_japɬər_** - _who sees Y_
-	**_zapɬər_** - _whom X sees_
+	**_zapɬər_** - _whom X sees_/_who is seen by X_
 	
 **_ɬəχʷan_**
 	**_jaɬəχʷa_** - _who sees Y_
-	**_zaɬəχʷa_** - _whom X sees_
+	**_zaɬəχʷa_** - _whom X sees_/_who is seen by X_
 	
 **_jəʔan_**
 	**_jəʔa_** - _who has Y_
-	**_zəjʔa_** - _whom X has_
+	**_zəjʔa_** - _whom X has_/_who is had by X_
 
 
 ## Intransitive two-personal with preverb
@@ -139,8 +166,21 @@ For **_zaxaxən_** (2 tr.) _to hear Y_ (cf. **_zaxa-_** is a preverb)
 **_ɕʼan_** - _to build_ Y
 	**_zəɕʼar_** - _who builds Y_
 	**_jəɕʼar_** - _whom X builds_
+- **_ɬaːʁʷən_** - _to see Y_
+	- **_zəɬaːʁʷər_**
 	
 ## Transitive two-personal with preverb
+**_P-V-n**
+	**_P-zə-V-r_**
+
+- **_zaxaxən_**
+	- **_zaxazəxər_** - _who hears Y_
+	- **_zaxəjxər_** - _whom X hears_/_who is heard by X_
+	- **_zaxasxaː_** - _whom I heard_
+	- **_səzaxazəxaː_** - _who heard me_
+- **_ɕʼajdzan_**
+	- **_ɕʼazədza_** - _who begins Y_
+	- **_ɕʼəjdza_** - _whom X begins_/_who is began by X_
 **_qaɕaxʷən_**
 	**_zəqaɕaxʷ_**
 ## Transitive three-personal with preverb

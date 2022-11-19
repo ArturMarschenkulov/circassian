@@ -1,0 +1,193 @@
+{
+  "main": {
+    "id": "4f49968466d9bb7e",
+    "type": "split",
+    "children": [
+      {
+        "id": "b4c69d7165434525",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "818c050d83b9f9c8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Lesson/Grammar/Verb/Verb conjugation paradigm.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "88f3e662927eb711",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Lesson/Grammar/Clause, Adjective clause.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "c82f4916f1fbedb3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Lesson/Grammar/Verb/Derivation.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "bf9c1744eed2db34",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Lesson/Grammar/Verb/Preverbs.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "e9ec595f4fe22fe6",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.0.0"
+              }
+            }
+          },
+          {
+            "id": "078c4965184e5695",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Kabardian Dictionary/Lemmas/jaɬan.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "6dce3f9e9c678fea",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Lesson/Grammar/Verb/Verb conjugation paradigm.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 6
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "79c7ecd7aaca8317",
+    "type": "split",
+    "children": [
+      {
+        "id": "2f5937f6cb425754",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a71fa42c18efeec4",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "50736863e9e3ab9a",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "nose",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 405.5086555480957
+  },
+  "right": {
+    "id": "91ac3f9085a0b7b4",
+    "type": "split",
+    "children": [
+      {
+        "id": "6759bb42e9d4f614",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "718e7d06369d59fd",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Lesson/Grammar/Verb/Verb conjugation paradigm.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "5167a721c6cb6dcf",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Lesson/Grammar/Verb/Verb conjugation paradigm.md"
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "active": "6dce3f9e9c678fea",
+  "lastOpenFiles": [
+    "Lesson/Grammar/Adjectives.md",
+    "Lesson/Grammar/Clause, Adverbial clause.md",
+    "Lesson/Grammar/Clause, Subordinate clause.md",
+    "Lesson/Grammar/Conjunctions.md",
+    "Lesson/Grammar/Derivation.md",
+    "Lesson/Grammar/Function words.md",
+    "Lesson/Grammar/Interjections.md",
+    "Lesson/Grammar/Verb/Derivation.md",
+    "Lesson/Grammar/Verb/a ə alteration.md",
+    "Lesson/Grammar/Verb/Reflexive verbs.md"
+  ]
+}

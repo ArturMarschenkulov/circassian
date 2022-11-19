@@ -2,8 +2,37 @@ The Kabardian verb conjugation paradigm is very complex.
 
 The verb can be divided into several group, which determine how the verb is to be conjugated.
 
-The most important overarching category is transitivity. Both transitive and intransitive verbs can have multiple persons marked. The main difference is the order of the personal prefixes and what case the subject and object take. 
-In case of intranstive verbs, the subject has the absolutive **_-r_** case, while object the ergative **_-m_** case. With transitive verbs it's the other way around, the subject takes the ergative case **_-m_**, while the object takes the absolutive case **_-r_**.
+# Transitivity
+The most important overarching category is transitivity. Both transitive and intransitive verbs can have multiple persons marked. The main difference is the order of the personal prefixes and what case the subject and object take.
+
+The main differences is that the subject of intransitive verbs is in the absolutive case (**_-r_**) (however it is also frequently called nominative), while the subject of the transitive verb is in the ergative case (**_-m_**).  An intransitive verb can only have indirect objects, which always have the ergative case (**_-m_**), while transitive verbs can have direct objects (**_-r_**) and indirect objects (**_-m_**), though they can't be without an object. However usually when a transitive object has 2 persons it's the subject and direct object. Meaning that effectively speaking, the cases switch between intransitive and transitive verbs.
+
+>- **_ɬʼər ʒəɣəm jawpɬ_** - _the man looks at the tree_
+>- **_ɬʼəm ʒəɣər jaɬaːʁʷ_** - _the man sees the tree  _
+
+The two verbs are **_japɬən_** _to look at Y_ and **_ɬaʁʷən_** _to see Y_, the former is intransitive, the later transitive, but both take 2 persons. While this parallel in the English language might only be a coincidence, it's actually a good analogy, because indirect objects can always be seen as 'preposition' + 'object', like 'at/to him'.
+
+Below is a short overview of the different conjugations:
+>- **_sawpɬ_** vs **_sawɬaʁʷ_** - _I look at Y_ vs _I see Y_
+>- **_səpɬaːɕ_** vs **_sɬaʁʷaːɕ_** - _I looked at Y_ vs _I saw Y_
+>- **_qəzawpɬ_** vs **_sajɬaʁʷ_** - _X looks at me_ vs _X sees me_
+>- **_qəzapɬaːɕ_** vs **_səjɬaʁʷaːɕ_** - _X looked at me_ vs _X saw me_
+>- **_sənawpɬ_** vs **_wəzawɬaʁʷ_** - _I look at you_ vs _I see you_
+>- **_sənawpɬaːɕ_** vs **_wəsɬaʁʷaːɕ_** - _I looked at you_ vs _I saw you_
+>- **_wəqəzawpɬ_** vs **_səbawɬaʁʷ_** - _you look at me_ vs _you see me_
+>- **_wəqəzapɬaːɕ_** vs **_səpɬaʁʷaːɕ_** - _you looked at me_ vs _you saw me_
+
+As you might have noticed, it seems like the order has changed. In intransitive verbs the marker for the subject comes first and then the indirect object, while in intransitive verbs the marker for the direct object comes first and then subject. And this is true, however one can also regard it as having the same order, if you analyze it as (abs)-(erg as indirect object)-(erg as subject). 
+
+> - **wə**qəzapɬaːɕ _**you** looked at me_ vs **wə**sɬaʁʷaːɕ _I saw **you**_
+> - **sə**pɬaːɕ _**I** looked at Y_ vs **s**əjɬaʁʷaːɕ _X looks at **me**_
+
+**_sə-_** and **_wə-_** are in this case absolutive person markers for the first and second person singular. **_s-_** and **_jə-_** are the ergative markers. Notice that ergative markers are absent from intransitive verbs.
+
+Simplified, the absolutive always comes first. In case of intransitive verbs, it's the subject. In case of transitive verbs it's the direct object. Intransitive verbs don't have the ergative as the subject slot, so it's simply skipped. And while not mentioned above, there are some 3-personal transitive verbs, who also have an indirect object. 
+
+
+For example, **_qəzəjtaːɕ_** _he gave it to me_ has the same indirect object as **_qəzapɬaːɕ_**, only that it fused together with the 3rd person marker **_əj_**, from **_qəza- + jə_**.
 
 2-personal intransitive verbs have the order "subject object", while 2-personal transitive verbs have the order "object subject".
 A good example of this are the two verbs **_gʷərəʔʷan_** and **_qəgʷərəʔʷan_**, the former is intransitive, the latter is transitive.
@@ -15,13 +44,14 @@ A good example of this are the two verbs **_gʷərəʔʷan_** and **_qəgʷərə
 >- **_zgʷərəʔʷa_** vs **_səqəgʷərəʔʷa_** - _agree with me!_ vs _understand me!_
 >- **_zgʷərəwməʔʷa_** vs **_səqəgʷərəwməʔʷa_** - _don't agree with me!_ vs _don't understand me!
 
-As you can see, the personal prefixes are switched
+As you can see, the personal prefixes are more or less switched
 
 >- **_sa wa sənawpɬ_** - _I look at you_
 >- **_sa wa wəsɬaːʁʷ_** - _I see you_
 >- **_səj aːdar səj aːnam jawpɬ_** - _my father looked at my mother_
 >- **_səj aːdam səj aːnar jaɬaːʁʷ_** - _my father sees my mother_
 
+# Dynamic vs Static
 Other than that, the other rather important distinction is whether the verb is static or dynamic. If it is dynamic it takes the prefix **_aw-_** in the present indicative positive form.
 
 >- **_sawpɬa_** - _I watch_
@@ -31,6 +61,8 @@ Other than that, the other rather important distinction is whether the verb is s
 Another thing, is also whether the verb is simple or whether it has some sort of prefix, preverb, causative etc attached to it.
 
 
+There
+
 Dynamic verbs get the **_aw-_** prefix in the present indicative.
 
 **_ma-_** occurs in simple 1-personal intr. verbs in the 3rd person.
@@ -38,24 +70,33 @@ Dynamic verbs get the **_aw-_** prefix in the present indicative.
 
 Only transitive preverbless verbs can have a distinct plural 3rd person.
 
-## %
-- abs/S sə-, wə-, ∅-, də-, fə, ∅-
-- erg/O za-, wa-, ja-, da-, va-, ja
-- m
+# %
+- abs/subject: sə-, wə-, ∅-, də-, fə, ∅-
+- erg/indirect-object: za-, wa-, ja-, da-, va-, ja
+- erg/subject: s-, w-/p-, jə-, d-, f-, jaː-
 - 
 
 ## intr. 1-pers. base
+This is about intranstivie verbs with only 1 person without any preverbs.
+
 Verbs which use that conjugation are:
->- **_ʒan_** (**_maːʒa_**) - _to run_
->- **_ʒajjən_** (**_maʒaj_**) - _to sleep_
->- **_ʁən_** (**_maːʁ_**) - _to cry_
->- **_psaːɬan_** (**_mapsaːɬa_**) - _to speak_
->- **_gʷəpsəsan_** (**_magʷəpsəsa_**) - _to think_
->- **_txan_** (**_maːtxa_**) - _to write_
->- **_ɕətən_** (**_ɕətɕ_**) - _to stand_
->- **_ɕəsən_** (**_ɕəsɕ_**) - _to stand_
->- **_ɮaʑan_** (**_maɮaːʑa_**) - _to work_
->- **_dəħaʃxən_** (**_madəħaʃx_**) - _to laugh_
+>- **_ʒan_** (**_maːʒa(r)_**) - _to run_
+>- **_ʑan_** (**_maːʑa(r)_**) - _to boil/fry/roast_
+>- **_psaːɬan_** (**_mapsaːɬa(r)_**) - _to speak_
+>- **_gʷəpsəsan_** (**_magʷəpsəsa(r)_**) - _to think_
+>- **_txan_** (**_maːtxa(r)_**) - _to write_
+>- **_ɮaʑan_** (**_maɮaːʑa(r)_**) - _to work_
+>- **_dəħaʃxən_** (**_madəħaʃx(ər)_**) - _to laugh_
+>- **_gʷəfʼa_** (**_magʷəfʼa(r)_**) - _to be happy_
+>- **_naɕχajjən_** (**_manaɕχaj(r)_**) - _to be sad_
+>- **_ʁʷən_** (**_maːʁʷ(ər)_**) - _to dry_
+>- **_ʁən_** (**_maːʁ(ər)_**) - _to cry_
+>- **_ʁʷaχʷan_** (**_maʁʷaːχʷa(r)_**) - _to cry loudly_
+>...
+>- **_fʼafʼən_** (**_fʼafʼɕ_**) - _to like Y_
+
+In the present tense, static verbs have the suffix **_-ɕ_**, while dynamic verbs have the prefix **_aw-_** and the optional suffix **_-r_**. 
+
 
 intransitive 1-person
 |1    |        2   |   Preset | Non-Present|
@@ -74,7 +115,11 @@ To summerize, **_saw-_**, **_waw-_**, **_ma-_**, **_daw-_**, **_faw-_** come fro
 
 ## intr. 1-pers. prefix
 Verbs which use that conjugation are:
->- **_qafan_** (**_qawfa_**) - _to dance_
+>- **_qafan_** (**_qawfa(r)_**) - _to dance_
+>- 
+>- **_ɕətən_** (**_ɕətɕ_**) - _to stand_
+>- **_ɕəsən_** (**_ɕəsɕ_**) - _to sit_
+>- **_ɕəɬən_** (**_ɕəɬɕ_**) - _to lie_
 
 ## intr. 2-pers. base
 
@@ -83,9 +128,10 @@ Verbs which use that conjugation are:
 >- **_jaʑan_** (**_jawʑa_**) - _to wait for Y_
 >- **_jafan_** (**_jawfa_**) - _to drink Y_
 >- **_jadʒan_** (**_jawdʒa_**) - _to study Y_
->- **_daʔʷan_** (**_jawdaːʔʷa_**) - _to listen to Y_
->- **_xʷajjən_** (**_xʷaj_**) - _to want Y_
->- **_jəʔan_** (**_jəʔa_**) - _to have Y_
+>- 
+>- **_jadaʔʷan_** (**_jawdaːʔʷa_**) - _to listen to Y_
+>- **_xʷajən_** (**_xʷajɕ_**) - _to want Y_
+>- **_jəʔan_** (**_jəʔaɕ_**) - _to have Y_
 >- **__**
 
 Below is the basic table for this conjugation. That is the table without the **_aw-_** taken into account.
@@ -152,8 +198,13 @@ Those verbs are:
 Verbs which use that conjugation are:
 >- **_qajdʒan_** (**_qawdʒa_**) - _to call Y_, _to read Y_
 >- **_gərəʔʷan_** (**_gʷərawʔʷa_**) - _to agree with Y_
->- 
+>- **_tʃʼaɬəkʷʼan_** (**_tʃʼaɬawkʷʼa_**) - _to follow Y_
+>- **_jəʔan_** (**_jəʔaɕ_**) - _to belong to Y_ (usually translated as _to have X_, where the object is translated as the subject and vice versa)
 
+- **_səjʔaɕ_** - _I have him_/_he belongs to me_
+- **_wəzəjʔaɕ_** - _I have you_/_you belong to me_
+- **_səwəjʔaɕ_** - _you have me_/_I belong to you_
+- **_sərəjʔaɕ_** - _he has me_/_I belong to him_
 
 Intransitivie 2-person with prefix
 |     |me   |you |him/her/it|us   |y'all |them|
@@ -170,14 +221,13 @@ The subject (absolutive -r) markers are: **_sə-_**, **_wə-_**, **_∅-_**, **_
 The object (ergative -m) markers are: **_s-_**, **_p-_**, **_∅-_**, **_d-_**, **_f-_**, **_jaː-_**.
 
 
-## tr. 2-pers.
+## tr. 2-pers. base
 Verbs which use that conjugation are:
 >- **_xʷən_** (**_jaxʷ_**) - _to chase Y_
 >- **_ħən_** (**_jaħ_**) - _to carry Y_
 >- **_ɬaʁʷən_** (**_jeɬaʁʷ_**) - _to see Y_
 >- **_ɕʼan_** (**_jaɕʼa_**) - _to know Y_
 >- **_jatən_** (**_jat_**) - _to give Y_
->- **_qaɕtan_** (**_qajɕta_**) - _to take Y_
 >- **_wəxən_** (**_jawəx_**) - _to finish Y_
 >- **_tħaɕʼən_** (**_jatħaɕʼ_**) - _to wash Y_
 >- **__** - __
@@ -225,6 +275,7 @@ For reflexives one uses **_zə-_**.
 Verbs which use that conjugation are:
 >- **_zaxaxən_** (**_zaxajx_**) - _to hear Y_
 >- **_ɕʼadzan_** (**_ɕʼajdza_**) - _to begin Y_
+>- **_qaɕtan_** (**_qajɕta_**) - _to take Y_
 >- **_ʒəʔan_** (**_ʒajʔa_**) - _to say Y_
 
 |1    |        2   |   Preset | Non-Present|
@@ -249,12 +300,15 @@ Verbs which use that conjugation are:
 Transitive 2-person with prefix
 |     |me   |you |him/her/it|we   |y'all |them|
 |-----|-----|----|----------|-----|------|----|
-|I    |%|wə-P-s-|P-s-|%|fə-P-s-|P-s-|
-|you  |sə-P-p-|%|P-p-|də-P-p-|%|P-p-|
+|I    |(zə-P-s)|wə-P-s-|P-s-|%|fə-P-s-|P-s-|
+|you  |sə-P-p-|(zə-P-p)|P-p-|də-P-p-|%|P-p-|
 |he   |sə-P-əj-|wə-P-əj-|P-əj-|də-P-əj-|fə-P-əj-|P-əj-|
-|we   |%|wə-P-t-|P-t-|%|fə-P-t-|P-t-|
-|y'all|sə-P-f-|%|P-f-|də-P-f-|%|P-f-|
+|we   |%|wə-P-t-|P-t-|(zə-P-d)|fə-P-t-|P-t-|
+|y'all|sə-P-f-|%|P-f-|də-P-f-|(zə-P-f-)|P-f-|
 |they |sə-P-əj-|wə-P-əj-|P-əj-|də-P-əj-|fə-P-əj-|P-əj-|
+The subject (ergative -m) markers are: **_s-_**, **_w-/p-_**, **_jə-_**, **_d-_**, **_f-_**, **_jə-_**.
+
+The object (absolutive -r) markers are: **_sə-_**, **_wə-_**, **_∅-_**, **_də-_**, **_fə-_**, **_∅-_**.
 ## tr. 3-pers.
 direct_object-indirect_object-subject
 

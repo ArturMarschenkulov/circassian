@@ -53,4 +53,7 @@ those are roots, which don't appear (at least to my knowledge, as independent)
 	**_jətsʼaftən** - _pop/jump out_, _lightly get out of somewhere _
 	**_xatsʼaftən** - _pop out, fly out, run out of sth._
 	**_tajtsʼaftən** - _quickly come off the surface of sth_
-	
+
+
+# same roots different meanings
+**_tʃʼə_** has the meaning _to grow_

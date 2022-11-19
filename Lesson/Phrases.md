@@ -72,3 +72,7 @@
 **_χədʒabzər qajwəpɕʼaːɕ 'sət qaχʷaːr?'_** - _the girl asked him 'what happened?'_   
 
 jənəʔʷaɕ
+
+- ХеилъкIэ фи Iэ кIыхь иIахэр Культурэм и лъыр зыгъэдийщ. - _Ваши длинные руки, обагренные кровью невинных, убивают культуру. lit. Кровью невинных ваши длинные руки обагренные Культуры душу леденящие есть.
+- **_xajjəɬtʃʼa fəj ʔa tʃʼəħ jəʔaːxar kəwɬtəwram jə ɬər zəʁadəjɕ_**
+- **_xajjəɬtʃʼa jəʔaːxa fəj ʔa tʃʼəħər kəwɬtəwram jə ɬər zəʁadəjɕ_** - _your long arms, who_

@@ -1,7 +1,14 @@
+# 
+- 
+	- **_ʑaːtʃʼa_** - _beard_
+	- **_ʒaːtʃʼa_** - _ember_
+	- **_ʒatʃʼa_** - _while running_
+- 
+
 # ʃ vs ɕ vs ɕʼ
-**_ʃən_** - _to milk Y_
-**_ɕən_** - 1. _to sew Y_ 2. _to measure Y_
-**_ɕʼən_** - _to make X_
+- **_ʃən_** - _to milk Y_
+- **_ɕən_** - 1. _to sew Y_ 2. _to measure Y_
+- **_ɕʼən_** - _to make X_
 
 **_pʃəħ_** - _evening_
 **_pɕʼəħ_** - _dream_
