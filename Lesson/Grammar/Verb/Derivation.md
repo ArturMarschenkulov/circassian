@@ -30,7 +30,7 @@ Some verbs go even further.
 >- **_bɣan_** (**_maːbɣa_**) _to curse_ -> **_jabɣən_** (**_jawbɣ_**) _to curse Y_
 >- **_banan_** (**_mabaːna_**) _to fight_ -> **_jabanən_** (**_jawban_**) _to fight (with/against) Y_
 >- **_kʷʼan_** (**_maːkʷʼa_**) _to go_ -> **_jakʷʼən_** (**_jawkʷʼ_**) _to go through Y_
->- **_ɬaːʔʷan_** (**_ɬaːʔʷa)_** _to request_ -> **_jaɬaːʔʷən_** (**_jawɬaːʔʷ_**) _to go through Y_
+>- **_ɬaːʔʷan_** (**_ɬaːʔʷa)_** _to request_ -> **_jaɬa ːʔʷən_** (**_jawɬaːʔʷ_**) _to go through Y_
 
 ## preverb + a/e alteration
 Verbs of movement when combined with a locational preverb, the a/ə alteration denotes whether the verb is towards the subject or away from it.

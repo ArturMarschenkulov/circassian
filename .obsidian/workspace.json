@@ -174,20 +174,19 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "active": "6dce3f9e9c678fea",
   "lastOpenFiles": [
-    "Lesson/Grammar/Adjectives.md",
-    "Lesson/Grammar/Clause, Adverbial clause.md",
-    "Lesson/Grammar/Clause, Subordinate clause.md",
-    "Lesson/Grammar/Conjunctions.md",
-    "Lesson/Grammar/Derivation.md",
-    "Lesson/Grammar/Function words.md",
-    "Lesson/Grammar/Interjections.md",
     "Lesson/Grammar/Verb/Derivation.md",
-    "Lesson/Grammar/Verb/a ə alteration.md",
-    "Lesson/Grammar/Verb/Reflexive verbs.md"
+    "Lesson/Grammar/Verb/Verb conjugation paradigm.md",
+    "Lesson/Grammar/Verb/Transitivity, Ergativity.md",
+    "Lesson/Grammar/Verb/Preverbs.md",
+    "Lesson/Grammar/Verb/Reflexive verbs.md",
+    "Lesson/Grammar/Verb/Semantic verb types.md",
+    "Lesson/Grammar/Verb/Tense.md",
+    "Lesson/Grammar/Verb/Optative form.md",
+    "Lesson/Grammar/Verb/Imperative.md",
+    "Lesson/Grammar/Verb/Passive Voice.md"
   ]
 }

@@ -3,7 +3,7 @@ The Kabardian verb conjugation paradigm is very complex.
 The verb can be divided into several group, which determine how the verb is to be conjugated.
 
 # Transitivity
-The most important overarching category is transitivity. Both transitive and intransitive verbs can have multiple persons marked. The main difference is the order of the personal prefixes and what case the subject and object take.
+The most important overarching category is transitivity. Both transitive (**_ɬaʔas_**) and intransitive (**_ɬaməʔas_**) verbs can have multiple persons marked. The main difference is the order of the personal prefixes and what case the subject and object take.
 
 The main differences is that the subject of intransitive verbs is in the absolutive case (**_-r_**) (however it is also frequently called nominative), while the subject of the transitive verb is in the ergative case (**_-m_**).  An intransitive verb can only have indirect objects, which always have the ergative case (**_-m_**), while transitive verbs can have direct objects (**_-r_**) and indirect objects (**_-m_**), though they can't be without an object. However usually when a transitive object has 2 persons it's the subject and direct object. Meaning that effectively speaking, the cases switch between intransitive and transitive verbs.
 
@@ -52,6 +52,7 @@ As you can see, the personal prefixes are more or less switched
 >- **_səj aːdam səj aːnar jaɬaːʁʷ_** - _my father sees my mother_
 
 # Dynamic vs Static
+Dynamicity is another major distinction.
 Other than that, the other rather important distinction is whether the verb is static or dynamic. If it is dynamic it takes the prefix **_aw-_** in the present indicative positive form.
 
 >- **_sawpɬa_** - _I watch_
