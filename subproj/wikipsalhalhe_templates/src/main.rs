@@ -96,19 +96,7 @@ struct TemplateDesc {
     original_string: String,
 }
 
-fn create_template(desc: TemplateDesc) -> String {
-    let word_root = "{{{псалъэпкъ}}}".to_owned();
-    let mut result = "".to_string();
-    result.push_str(&format!(
-        "<!-- Template:Wt/kbd/{} -->\n",
-        desc.original_string
-    ));
-
-    let infinitve_ending = format!("{}н", &desc.ending);
-
-    let pronouns = "!! сэ  !! уэ !! ар !! дэ !! фэ !! ахэр";
-    let negative_prefix = "мы";
-
+fn get_masdar(desc: &TemplateDesc) -> String {
     /*
         {| class="wikitable"
         |-
@@ -119,14 +107,18 @@ fn create_template(desc: TemplateDesc) -> String {
         | щымыӀэныгъэ: || мы{{{псалъэпкъ}}}эн
         |}
     */
-    // Инфинитив (масдар)
+    let root = "{{{псалъэпкъ}}}".to_owned();
+    let infinitve_ending = format!("{}н", &desc.ending);
+    let negative_prefix = "мы";
+
+    let mut result = "".to_string();
     result.push_str("{| class=\"wikitable\"\n");
     result.push_str("|-\n");
     result.push_str(&format!("! Инфинитив (масдар) !!\n"));
 
     result.push_str("|-\n");
     result.push_str("| щыӀэныгъэ:");
-    let s = format!(" || {}{}", word_root, infinitve_ending.clone());
+    let s = format!(" || {}{}", root, infinitve_ending.clone());
     result.push_str(&s);
     result.push_str("\n");
     result.push_str("|-\n");
@@ -134,13 +126,15 @@ fn create_template(desc: TemplateDesc) -> String {
     let s = format!(
         " || {}{}{}",
         negative_prefix,
-        word_root,
+        root,
         infinitve_ending.clone()
     );
     result.push_str(&s);
     result.push_str("\n");
     result.push_str("|}\n");
-
+    return result;
+}
+fn get_masdar_personal(desc: &TemplateDesc) -> String {
     /*
         {| class="wikitable"
         |-
@@ -151,7 +145,13 @@ fn create_template(desc: TemplateDesc) -> String {
         | щымыӀэныгъэ: || сымы{{{псалъэпкъ}}}эн || умы{{{псалъэпкъ}}}эн || мы{{{псалъэпкъ}}}эн || дымы{{{псалъэпкъ}}}эн || фымы{{{псалъэпкъ}}}эн || мы{{{псалъэпкъ}}}эн(хэ)
         |}
     */
-    // Инфинитив (масдар) щхьэкӀэ зэхъуэкӀа
+    let root = "{{{псалъэпкъ}}}".to_owned();
+    let infinitve_ending = format!("{}н", &desc.ending);
+    let negative_prefix = "мы";
+    let pronouns = "!! сэ  !! уэ !! ар !! дэ !! фэ !! ахэр";
+
+    let mut result = "".to_string();
+
     result.push_str("{| class=\"wikitable\"\n");
     result.push_str("|-\n");
     result.push_str(&format!(
@@ -174,14 +174,13 @@ fn create_template(desc: TemplateDesc) -> String {
             let s = format!(
                 " || {}{}{}",
                 marker.to_string(),
-                word_root,
+                root,
                 &(infinitve_ending.clone() + &pl)
             );
             result.push_str(&s);
         }
     }
     result.push_str("\n");
-
     result.push_str("|-\n");
     result.push_str("| щымыӀэныгъэ:");
     for number in vec![Number::Singular, Number::Plural] {
@@ -198,7 +197,7 @@ fn create_template(desc: TemplateDesc) -> String {
                 " || {}{}{}{}",
                 marker.to_string(),
                 negative_prefix,
-                word_root,
+                root,
                 &(infinitve_ending.clone() + &pl)
             );
             result.push_str(&s);
@@ -206,7 +205,10 @@ fn create_template(desc: TemplateDesc) -> String {
     }
     result.push_str("\n");
     result.push_str("|}\n");
+    return result;
+}
 
+fn get_imperative(desc: &TemplateDesc) -> String {
     /*
     {| class="wikitable"
     |-
@@ -217,7 +219,12 @@ fn create_template(desc: TemplateDesc) -> String {
     | щымыӀэныгъэ: || умы{{{псалъэпкъ}}}э! || фымы{{{псалъэпкъ}}}э!
     |}
     */
-    // унафэ наклоненэ
+    let root = "{{{псалъэпкъ}}}".to_owned();
+    let infinitve_ending = format!("{}н", &desc.ending);
+    let negative_prefix = "мы";
+    let pronouns = "!! сэ  !! уэ !! ар !! дэ !! фэ !! ахэр";
+
+    let mut result = "".to_string();
     result.push_str("{| class=\"wikitable\"\n");
     result.push_str("|-\n");
     result.push_str(&format!("! унафэ наклоненэ {}\n", "!! уэ !! фэ"));
@@ -234,7 +241,7 @@ fn create_template(desc: TemplateDesc) -> String {
         let s = marker.to_string();
         let s = if s == "у" { "".to_string() } else { s };
 
-        let s = format!(" || {}{}{}", s, word_root, &desc.ending);
+        let s = format!(" || {}{}{}", s, root, &desc.ending);
         result.push_str(&s);
     }
     result.push_str("\n");
@@ -249,13 +256,20 @@ fn create_template(desc: TemplateDesc) -> String {
         };
         let s = marker.to_string();
 
-        let s = format!(" || {}мы{}{}", s, word_root, &desc.ending);
+        let s = format!(" || {}мы{}{}", s, root, &desc.ending);
         result.push_str(&s);
     }
     result.push_str("\n");
 
     result.push_str("|}\n");
-
+    return result;
+}
+struct Wikitable {
+    header: String,
+    rows: Vec<String>,
+    cols: 6,
+}
+fn get_imperative_raj(desc: &TemplateDesc) -> String {
     /*
     {| class="wikitable"
     |-
@@ -266,7 +280,12 @@ fn create_template(desc: TemplateDesc) -> String {
     | щымыӀэныгъэ: || сремы{{{псалъэпкъ}}}э || уремы{{{псалъэпкъ}}}э || иремы{{{псалъэпкъ}}}э || дремы{{{псалъэпкъ}}}э || фремы{{{псалъэпкъ}}}э || иремы{{{псалъэпкъ}}}э
     |}
     */
-    // Ре-кӀэ унафэ наклоненэ
+    let root = "{{{псалъэпкъ}}}".to_owned();
+    let infinitve_ending = format!("{}н", &desc.ending);
+    let negative_prefix = "мы";
+    let pronouns = "!! сэ  !! уэ !! ар !! дэ !! фэ !! ахэр";
+    let mut result = "".to_string();
+
     result.push_str("{| class=\"wikitable\"\n");
     result.push_str("|-\n");
     result.push_str(&format!("! Ре-кӀэ унафэ наклоненэ {}\n", pronouns));
@@ -281,7 +300,7 @@ fn create_template(desc: TemplateDesc) -> String {
                 case: PersonMarkerCase::Ergative,
                 form: SoundForm::Base,
             };
-            let s = format!(" || {}ре{}{}", marker.to_string(), word_root, &desc.ending);
+            let s = format!(" || {}ре{}{}", marker.to_string(), root, &desc.ending);
             result.push_str(&s);
         }
     }
@@ -298,7 +317,7 @@ fn create_template(desc: TemplateDesc) -> String {
             let s = format!(
                 " || {}ремы{}{}",
                 marker.to_string(),
-                word_root,
+                root,
                 &desc.ending
             );
             result.push_str(&s);
@@ -306,6 +325,31 @@ fn create_template(desc: TemplateDesc) -> String {
     }
     result.push_str("\n");
     result.push_str("|}\n");
+    return result;
+}
+fn create_template(desc: TemplateDesc) -> String {
+    // let root = "{{{псалъэпкъ}}}".to_owned();
+    let mut result = "".to_string();
+    result.push_str(&format!(
+        "<!-- Template:Wt/kbd/{} -->\n",
+        desc.original_string
+    ));
+
+    // let infinitve_ending = format!("{}н", &desc.ending);
+    // let pronouns = "!! сэ  !! уэ !! ар !! дэ !! фэ !! ахэр";
+    // let negative_prefix = "мы";
+
+    // Инфинитив (масдар)
+    result.push_str(&get_masdar(&desc));
+
+    // Инфинитив (масдар) щхьэкӀэ зэхъуэкӀа
+    result.push_str(&get_masdar_personal(&desc));
+
+    // унафэ наклоненэ
+    result.push_str(&get_imperative(&desc));
+
+    // Ре-кӀэ унафэ наклоненэ
+    result.push_str(&get_imperative_raj(&desc));
 
     result.push_str("|}<noinclude>\n[[Category:Wt/kbd]]\n</noinclude>");
     println!("{}", result);
