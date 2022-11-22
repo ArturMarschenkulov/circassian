@@ -308,6 +308,39 @@ fn create_template(desc: TemplateDesc) -> String {
 
     return result;
 }
+
+/*
+    From the Email of Robert Dunwell (Rhdkabardian), the following encoding is used.
+    лъэмыӏ- = intransitive (this is also used for passive verbs - this probably be separate)
+    лъэӏ- = transitive
+    стат- = stative
+    NOTE: In the future a static transitive category will be added.
+    NOTE: Passive verbs use лъэмыӏ, in the future they will get their own category.
+
+    Transitive:
+
+    CCC
+    д = unvoiced first consonant
+    жь = voiced first consonant
+    The second and third consonants are as in intransitive verbs.
+
+    Intransitive, stative, causative
+
+    CC
+    б = not used - vowel in root
+    д = ordinary consinant
+    дэа = root with alternating a/э (verbs in -э only)
+    т = root in a velar
+    л = root in a labial
+    й = root in jot
+    у = root in wy
+    йэа = root with alternating a/э (verbs in -э only)
+
+    Causative
+    бд = causative prefix гъэ
+    0д = causative prefix гъэ/гъа
+
+*/
 fn create_template_from_string(s: String) -> Option<String> {
     let ss = s.split("-").collect::<Vec<&str>>();
     println!("{:?}", ss);
