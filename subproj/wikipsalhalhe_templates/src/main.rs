@@ -133,20 +133,18 @@ fn get_masdar(desc: &TemplateDesc) -> String {
     */
     let root = "{{{псалъэпкъ}}}".to_owned();
     let infinitve_ending = format!("{}н", &desc.ending);
-    let negative_prefix = "мы";
     let table_name = "Инфинитив (масдар)".to_owned();
 
     let mut table = Wikitable::new();
     table.add(table_name.clone());
     table.add("".to_owned());
-    table.add_row();
 
-    table.add("щыӀэныгъэ:".to_owned());
-    table.add(format!("{}{}", root, infinitve_ending));
-    table.add_row();
+    for polarity in ["", "мы"] {
+        table.add_row();
+        table.add(format!("щы{}Ӏэныгъэ:", polarity));
+        table.add(format!("{}{}{}", polarity, root, infinitve_ending));
+    }
 
-    table.add("щымыӀэныгъэ:".to_owned());
-    table.add(format!("{}{}{}", negative_prefix, root, infinitve_ending));
     table.to_string()
 }
 fn get_masdar_personal(desc: &TemplateDesc) -> String {
@@ -163,7 +161,6 @@ fn get_masdar_personal(desc: &TemplateDesc) -> String {
 
     let root = "{{{псалъэпкъ}}}".to_owned();
     let infinitve_ending = format!("{}н", &desc.ending);
-    let negative_prefix = "мы";
 
     let table_name = "Инфинитив (масдар) щхьэкӀэ зэхъуэкӀа".to_owned();
 
@@ -173,48 +170,28 @@ fn get_masdar_personal(desc: &TemplateDesc) -> String {
         table.add(pronoun.to_string());
     }
 
-    table.add_row();
-    table.add("щыӀэныгъэ".to_owned());
-    for number in vec![Number::Singular, Number::Plural] {
-        for person in vec![Person::First, Person::Second, Person::Third] {
-            let is_third_pl = number == Number::Plural && person == Person::Third;
-            let marker = PersonMarker {
-                person,
-                number,
-                case: PersonMarkerCase::Absolutive,
-                form: SoundForm::Base,
-            };
-            let pl = if is_third_pl { "(хэ)" } else { "" };
-            let s = format!(
-                "{}{}{}",
-                marker.to_string(),
-                root,
-                &(infinitve_ending.clone() + &pl)
-            );
-            table.add(s);
-        }
-    }
-
-    table.add_row();
-    table.add("щымыӀэныгъэ".to_owned());
-    for number in vec![Number::Singular, Number::Plural] {
-        for person in vec![Person::First, Person::Second, Person::Third] {
-            let is_third_pl = number == Number::Plural && person == Person::Third;
-            let marker = PersonMarker {
-                person,
-                number,
-                case: PersonMarkerCase::Absolutive,
-                form: SoundForm::Base,
-            };
-            let pl = if is_third_pl { "(хэ)" } else { "" };
-            let s = format!(
-                "{}{}{}{}",
-                marker.to_string(),
-                negative_prefix,
-                root,
-                &(infinitve_ending.clone() + &pl)
-            );
-            table.add(s);
+    for polarity in ["", "мы"] {
+        table.add_row();
+        table.add(format!("щы{}Ӏэныгъэ", polarity));
+        for number in vec![Number::Singular, Number::Plural] {
+            for person in vec![Person::First, Person::Second, Person::Third] {
+                let is_third_pl = number == Number::Plural && person == Person::Third;
+                let marker = PersonMarker {
+                    person,
+                    number,
+                    case: PersonMarkerCase::Absolutive,
+                    form: SoundForm::Base,
+                };
+                let pl = if is_third_pl { "(хэ)" } else { "" };
+                let s = format!(
+                    "{}{}{}{}",
+                    marker.to_string(),
+                    polarity,
+                    root,
+                    &(infinitve_ending.clone() + &pl)
+                );
+                table.add(s);
+            }
         }
     }
     table.to_string()
@@ -232,7 +209,6 @@ fn get_imperative(desc: &TemplateDesc) -> String {
     |}
     */
     let root = "{{{псалъэпкъ}}}".to_owned();
-    let negative_prefix = "мы";
 
     let mut table = Wikitable::new();
     table.add("унафэ наклоненэ".to_owned());
@@ -240,35 +216,22 @@ fn get_imperative(desc: &TemplateDesc) -> String {
         table.add(pronoun.to_string());
     }
 
-    table.add_row();
-    table.add("щыӀэныгъэ".to_owned());
-    for number in vec![Number::Singular, Number::Plural] {
-        let marker = PersonMarker {
-            person: Person::Second,
-            number,
-            case: PersonMarkerCase::Absolutive,
-            form: SoundForm::Base,
-        };
-        let s = marker.to_string();
-        let s = if s == "у" { "".to_string() } else { s };
+    for polarity in ["", "мы"] {
+        table.add_row();
+        table.add(format!("щы{}Ӏэныгъэ", polarity));
+        for number in vec![Number::Singular, Number::Plural] {
+            let marker = PersonMarker {
+                person: Person::Second,
+                number,
+                case: PersonMarkerCase::Absolutive,
+                form: SoundForm::Base,
+            };
+            let s = marker.to_string();
+            let s = if s == "у" { "".to_string() } else { s };
 
-        let s = format!(" || {}{}{}", s, root, &desc.ending);
-        table.add(s);
-    }
-
-    table.add_row();
-    table.add("щымыӀэныгъэ".to_owned());
-    for number in vec![Number::Singular, Number::Plural] {
-        let marker = PersonMarker {
-            person: Person::Second,
-            number,
-            case: PersonMarkerCase::Absolutive,
-            form: SoundForm::Base,
-        };
-        let s = marker.to_string();
-
-        let s = format!(" || {}мы{}{}", s, root, &desc.ending);
-        table.add(s);
+            let s = format!("{}{}{}{}", s, polarity, root, &desc.ending);
+            table.add(s);
+        }
     }
     table.to_string()
 }
@@ -285,9 +248,6 @@ fn get_imperative_raj(desc: &TemplateDesc) -> String {
     |}
     */
     let root = "{{{псалъэпкъ}}}".to_owned();
-    let infinitve_ending = format!("{}н", &desc.ending);
-    let negative_prefix = "мы";
-    let pronouns = "!! сэ  !! уэ !! ар !! дэ !! фэ !! ахэр";
 
     let mut table = Wikitable::new();
     table.add("Ре-кӀэ унафэ наклоненэ".to_owned());
@@ -295,32 +255,26 @@ fn get_imperative_raj(desc: &TemplateDesc) -> String {
         table.add(pronoun.to_string());
     }
 
-    table.add_row();
-    table.add("щыӀэныгъэ".to_owned());
-    for number in vec![Number::Singular, Number::Plural] {
-        for person in vec![Person::First, Person::Second, Person::Third] {
-            let is_third_pl = number == Number::Plural && person == Person::Third;
-            let marker = PersonMarker {
-                person,
-                number,
-                case: PersonMarkerCase::Ergative,
-                form: SoundForm::Base,
-            };
-            let s = format!(" || {}ре{}{}", marker.to_string(), root, &desc.ending);
-            table.add(s);
-        }
-    }
-    table.add("щымыӀэныгъэ".to_owned());
-    for number in vec![Number::Singular, Number::Plural] {
-        for person in vec![Person::First, Person::Second, Person::Third] {
-            let marker = PersonMarker {
-                person,
-                number,
-                case: PersonMarkerCase::Ergative,
-                form: SoundForm::Base,
-            };
-            let s = format!(" || {}ремы{}{}", marker.to_string(), root, &desc.ending);
-            table.add(s);
+    for polarity in ["", "мы"] {
+        table.add_row();
+        table.add(format!("щы{}Ӏэныгъэ", polarity));
+        for number in vec![Number::Singular, Number::Plural] {
+            for person in vec![Person::First, Person::Second, Person::Third] {
+                let marker = PersonMarker {
+                    person,
+                    number,
+                    case: PersonMarkerCase::Ergative,
+                    form: SoundForm::Base,
+                };
+                let s = format!(
+                    "{}ре{}{}{}",
+                    marker.to_string(),
+                    polarity,
+                    root,
+                    &desc.ending
+                );
+                table.add(s);
+            }
         }
     }
     table.to_string()
