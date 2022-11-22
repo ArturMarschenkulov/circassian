@@ -54,24 +54,32 @@ impl PersonMarker {
         let s = if s == "" { "и".to_owned() } else { s };
         return s.to_owned();
     }
-    // fn row() -> Vec<PersonMarker> {
-    //     let mut result = Vec::new();
-    //     for person in vec![Person::First, Person::Second, Person::Third] {
-    //         for number in vec![Number::Singular, Number::Plural] {
-    //             for case in vec![PersonMarkerCase::Absolutive, PersonMarkerCase::Ergative, PersonMarkerCase::Oblique] {
-    //                 for form in vec![SoundForm::Unvoiced, SoundForm::Voiced, SoundForm::Vowel] {
-    //                     result.push(PersonMarker {
-    //                         person: person,
-    //                         number: number,
-    //                         case: case,
-    //                         form: form,
-    //                     });
-    //                 }
-    //             }
-    //         }
-    //     }
-    //     return result;
-    // }
+}
+
+struct Wikitable {
+    header: String,
+    cells: Vec<Vec<String>>,
+}
+impl Wikitable {
+    fn new() -> Self {
+        Wikitable {
+            header: "".to_owned(),
+            cells: vec![vec![]],
+        }
+    }
+    fn add_row(&mut self) {
+        self.cells.push(vec![]);
+    }
+    fn add(&mut self, s: String) {
+        let mut last_row = self.cells.last_mut().unwrap();
+        last_row.push(s);
+    }
+    fn to_string(&self) -> String {
+        let mut result = String::new();
+        result += &"{| class=\"wikitable\"\n";
+
+        return "".to_owned();
+    }
 }
 enum Transitivity {
     Transitive,
@@ -112,26 +120,26 @@ fn get_masdar(desc: &TemplateDesc) -> String {
     let negative_prefix = "мы";
 
     let mut result = "".to_string();
-    result.push_str("{| class=\"wikitable\"\n");
-    result.push_str("|-\n");
-    result.push_str(&format!("! Инфинитив (масдар) !!\n"));
+    result += "{| class=\"wikitable\"\n";
+    result += "|-\n";
+    result += &format!("! Инфинитив (масдар) !!\n");
 
-    result.push_str("|-\n");
-    result.push_str("| щыӀэныгъэ:");
+    result += "|-\n";
+    result += "| щыӀэныгъэ:";
     let s = format!(" || {}{}", root, infinitve_ending.clone());
-    result.push_str(&s);
-    result.push_str("\n");
-    result.push_str("|-\n");
-    result.push_str("| щымыӀэныгъэ:");
+    result += &s;
+    result += "\n";
+    result += "|-\n";
+    result += "| щымыӀэныгъэ:";
     let s = format!(
         " || {}{}{}",
         negative_prefix,
         root,
         infinitve_ending.clone()
     );
-    result.push_str(&s);
-    result.push_str("\n");
-    result.push_str("|}\n");
+    result += &s;
+    result += "\n";
+    result += "|}\n";
     return result;
 }
 fn get_masdar_personal(desc: &TemplateDesc) -> String {
@@ -145,6 +153,7 @@ fn get_masdar_personal(desc: &TemplateDesc) -> String {
         | щымыӀэныгъэ: || сымы{{{псалъэпкъ}}}эн || умы{{{псалъэпкъ}}}эн || мы{{{псалъэпкъ}}}эн || дымы{{{псалъэпкъ}}}эн || фымы{{{псалъэпкъ}}}эн || мы{{{псалъэпкъ}}}эн(хэ)
         |}
     */
+
     let root = "{{{псалъэпкъ}}}".to_owned();
     let infinitve_ending = format!("{}н", &desc.ending);
     let negative_prefix = "мы";
@@ -152,14 +161,15 @@ fn get_masdar_personal(desc: &TemplateDesc) -> String {
 
     let mut result = "".to_string();
 
-    result.push_str("{| class=\"wikitable\"\n");
-    result.push_str("|-\n");
-    result.push_str(&format!(
-        "! Инфинитив (масдар) щхьэкӀэ зэхъуэкӀа {}\n",
-        pronouns
-    ));
-    result.push_str("|-\n");
-    result.push_str("| щыӀэныгъэ:");
+    
+    let table_name = "Инфинитив (масдар) щхьэкӀэ зэхъуэкӀа".to_owned();
+
+
+    result += "{| class=\"wikitable\"\n";
+    result += "|-\n";
+    result += &format!("! {} {}\n", table_name, pronouns);
+    result += "|-\n";
+    result += "| щыӀэныгъэ:";
 
     for number in vec![Number::Singular, Number::Plural] {
         for person in vec![Person::First, Person::Second, Person::Third] {
@@ -177,12 +187,12 @@ fn get_masdar_personal(desc: &TemplateDesc) -> String {
                 root,
                 &(infinitve_ending.clone() + &pl)
             );
-            result.push_str(&s);
+            result += &s;
         }
     }
-    result.push_str("\n");
-    result.push_str("|-\n");
-    result.push_str("| щымыӀэныгъэ:");
+    result += "\n";
+    result += "|-\n";
+    result += "| щымыӀэныгъэ:";
     for number in vec![Number::Singular, Number::Plural] {
         for person in vec![Person::First, Person::Second, Person::Third] {
             let is_third_pl = number == Number::Plural && person == Person::Third;
@@ -200,11 +210,11 @@ fn get_masdar_personal(desc: &TemplateDesc) -> String {
                 root,
                 &(infinitve_ending.clone() + &pl)
             );
-            result.push_str(&s);
+            result += &s;
         }
     }
-    result.push_str("\n");
-    result.push_str("|}\n");
+    result += "\n";
+    result += "|}\n";
     return result;
 }
 
@@ -225,11 +235,11 @@ fn get_imperative(desc: &TemplateDesc) -> String {
     let pronouns = "!! сэ  !! уэ !! ар !! дэ !! фэ !! ахэр";
 
     let mut result = "".to_string();
-    result.push_str("{| class=\"wikitable\"\n");
-    result.push_str("|-\n");
-    result.push_str(&format!("! унафэ наклоненэ {}\n", "!! уэ !! фэ"));
-    result.push_str("|-\n");
-    result.push_str("| щыӀэныгъэ:");
+    result += "{| class=\"wikitable\"\n";
+    result += "|-\n";
+    result += &format!("! унафэ наклоненэ {}\n", "!! уэ !! фэ");
+    result += "|-\n";
+    result += "| щыӀэныгъэ:";
     for number in vec![Number::Singular, Number::Plural] {
         let is_singular = number == Number::Singular;
         let marker = PersonMarker {
@@ -242,11 +252,11 @@ fn get_imperative(desc: &TemplateDesc) -> String {
         let s = if s == "у" { "".to_string() } else { s };
 
         let s = format!(" || {}{}{}", s, root, &desc.ending);
-        result.push_str(&s);
+        result += &s;
     }
-    result.push_str("\n");
-    result.push_str("|-\n");
-    result.push_str("| щымыӀэныгъэ:");
+    result += "\n";
+    result += "|-\n";
+    result += "| щымыӀэныгъэ:";
     for number in vec![Number::Singular, Number::Plural] {
         let marker = PersonMarker {
             person: Person::Second,
@@ -257,18 +267,14 @@ fn get_imperative(desc: &TemplateDesc) -> String {
         let s = marker.to_string();
 
         let s = format!(" || {}мы{}{}", s, root, &desc.ending);
-        result.push_str(&s);
+        result += &s;
     }
-    result.push_str("\n");
+    result += "\n";
 
-    result.push_str("|}\n");
+    result += "|}\n";
     return result;
 }
-struct Wikitable {
-    header: String,
-    rows: Vec<String>,
-    cols: 6,
-}
+
 fn get_imperative_raj(desc: &TemplateDesc) -> String {
     /*
     {| class="wikitable"
@@ -286,11 +292,11 @@ fn get_imperative_raj(desc: &TemplateDesc) -> String {
     let pronouns = "!! сэ  !! уэ !! ар !! дэ !! фэ !! ахэр";
     let mut result = "".to_string();
 
-    result.push_str("{| class=\"wikitable\"\n");
-    result.push_str("|-\n");
-    result.push_str(&format!("! Ре-кӀэ унафэ наклоненэ {}\n", pronouns));
-    result.push_str("|-\n");
-    result.push_str("| щыӀэныгъэ:");
+    result += "{| class=\"wikitable\"\n";
+    result += "|-\n";
+    result += &format!("! Ре-кӀэ унафэ наклоненэ {}\n", pronouns);
+    result += "|-\n";
+    result += "| щыӀэныгъэ:";
     for number in vec![Number::Singular, Number::Plural] {
         for person in vec![Person::First, Person::Second, Person::Third] {
             let is_third_pl = number == Number::Plural && person == Person::Third;
@@ -301,11 +307,11 @@ fn get_imperative_raj(desc: &TemplateDesc) -> String {
                 form: SoundForm::Base,
             };
             let s = format!(" || {}ре{}{}", marker.to_string(), root, &desc.ending);
-            result.push_str(&s);
+            result += &s;
         }
     }
-    result.push_str("\n");
-    result.push_str("| щыӀэмыныгъэ:");
+    result += "\n";
+    result += "| щыӀэмыныгъэ:";
     for number in vec![Number::Singular, Number::Plural] {
         for person in vec![Person::First, Person::Second, Person::Third] {
             let marker = PersonMarker {
@@ -314,44 +320,42 @@ fn get_imperative_raj(desc: &TemplateDesc) -> String {
                 case: PersonMarkerCase::Ergative,
                 form: SoundForm::Base,
             };
-            let s = format!(
-                " || {}ремы{}{}",
-                marker.to_string(),
-                root,
-                &desc.ending
-            );
-            result.push_str(&s);
+            let s = format!(" || {}ремы{}{}", marker.to_string(), root, &desc.ending);
+            result += &s;
         }
     }
-    result.push_str("\n");
-    result.push_str("|}\n");
+    result += "\n";
+    result += "|}\n";
     return result;
 }
 fn create_template(desc: TemplateDesc) -> String {
     // let root = "{{{псалъэпкъ}}}".to_owned();
     let mut result = "".to_string();
-    result.push_str(&format!(
+    result += &format!(
         "<!-- Template:Wt/kbd/{} -->\n",
         desc.original_string
-    ));
+    );
 
     // let infinitve_ending = format!("{}н", &desc.ending);
     // let pronouns = "!! сэ  !! уэ !! ар !! дэ !! фэ !! ахэр";
     // let negative_prefix = "мы";
 
     // Инфинитив (масдар)
-    result.push_str(&get_masdar(&desc));
+    result += &get_masdar(&desc);
+    result += "\n-\n";
 
     // Инфинитив (масдар) щхьэкӀэ зэхъуэкӀа
-    result.push_str(&get_masdar_personal(&desc));
-
+    result += &get_masdar_personal(&desc);
+    result += "\n-\n";
     // унафэ наклоненэ
-    result.push_str(&get_imperative(&desc));
+    result += &get_imperative(&desc);
+    result += "\n-\n";
 
     // Ре-кӀэ унафэ наклоненэ
-    result.push_str(&get_imperative_raj(&desc));
+    result += &get_imperative_raj(&desc);
+    result += "\n-\n";
 
-    result.push_str("|}<noinclude>\n[[Category:Wt/kbd]]\n</noinclude>");
+    result += "|}<noinclude>\n[[Category:Wt/kbd]]\n</noinclude>";
     println!("{}", result);
 
     return result;
