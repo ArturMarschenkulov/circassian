@@ -1,3 +1,5 @@
+// #![allow(dead_code, unused_variables)]
+
 mod table;
 
 use std::collections::VecDeque;
@@ -6,8 +8,8 @@ use table::Wikitable;
 
 #[derive(Debug, Clone)]
 enum PreverbForm {
-    Full,        // e.g. къэ-
-    Reduced,     // e.g. къы-
+    Full, // e.g. къэ-
+    // Reduced,     // e.g. къы-
     BeforeVowel, // e.g. къ-
 }
 
@@ -17,14 +19,15 @@ struct Preverb {
     base: String,
 }
 
+#[derive(Debug, Clone)]
 enum MorphemeKind {
     Preverb(Preverb),
     PersonMarker(PersonMarker),
     Stem(VerbStem),
     NegationPrefix,
     Generic,
-    Backpart,
 }
+#[derive(Debug, Clone)]
 struct Morpheme {
     kind: MorphemeKind,
     base: String,
@@ -33,14 +36,14 @@ impl Preverb {
     fn get_string(&self, form: PreverbForm) -> String {
         let sss = match &self.base {
             // This handles the preverbs which end on 'э'
-            base if base.ends_with("э") => {
+            base if base.ends_with('э') => {
                 let mut chars = base.chars();
                 chars.next_back();
                 let reduced = chars.as_str().to_string();
 
                 match form {
                     PreverbForm::Full => base.to_owned(),
-                    PreverbForm::Reduced => reduced + "ы",
+                    // PreverbForm::Reduced => reduced + "ы",
                     PreverbForm::BeforeVowel => reduced,
                 }
             }
@@ -49,24 +52,24 @@ impl Preverb {
         sss
     }
 }
-#[derive(Clone, Copy, PartialEq)]
+#[derive(Debug, Clone, Copy, PartialEq)]
 enum PersonMarkerCase {
     /// (-р) subject of intransitive verb, direct object of transitive verb
     Absolutive,
     /// (-м) subject of transitive verb
     Ergative,
-    /// (-м) indirect object of intransitive and transitive verbs.
-    Oblique,
+    // /// (-м) indirect object of intransitive and transitive verbs.
+    // Oblique,
 }
 
 /// A struct that indicates the number of a noun or verb.
-#[derive(Clone, Copy, PartialEq)]
+#[derive(Debug, Clone, Copy, PartialEq)]
 enum Number {
     Singular,
     Plural,
 }
 /// A struct that indicates the person of a verb.
-#[derive(Clone, Copy, PartialEq)]
+#[derive(Debug, Clone, Copy, PartialEq)]
 enum Person {
     First,
     Second,
@@ -78,7 +81,7 @@ enum SoundForm {
     Base,
     BeforeUnvoiced,
     BeforeVoiced,
-    BeforeVowel,
+    // BeforeVowel,
     /// This is only for 'я' which becomes after consonants 'а'
     AfterConsonant,
     /// Transitive verbs which have the negative prefix мы- and are base (without preverb)
@@ -89,7 +92,7 @@ enum SoundForm {
     // NOTE: Probably add `BeforeSonorant` as there is sometimes different behavior before <м> /m/ and <р> /r/.
 }
 
-#[derive(Clone, Copy)]
+#[derive(Debug, Clone, Copy)]
 struct PersonMarker {
     person: Person,
     number: Number,
@@ -99,7 +102,6 @@ struct PersonMarker {
 impl PersonMarker {
     /// Returns the "base" form of the person markers
     fn get_base(&self) -> String {
-        use Number::*;
         use Person::*;
         use PersonMarkerCase::*;
 
@@ -136,14 +138,14 @@ impl PersonMarker {
             _ => (),
         }
 
-        if &self.form == &SoundForm::NegativePrefixBase
+        if self.form == SoundForm::NegativePrefixBase
             && self.case == Ergative
             && self.person != Third
         {
             result = Self::get_base_from(&self.person, &self.number, &Absolutive);
         }
 
-        result.to_string()
+        result
     }
     fn get_base_from(person: &Person, number: &Number, case: &PersonMarkerCase) -> String {
         use Number::*;
@@ -152,34 +154,28 @@ impl PersonMarker {
         let result = match (&person, &number, &case) {
             (First, Singular, Absolutive) => "сы",
             (First, Singular, Ergative) => "с",
-            (First, Singular, Oblique) => "сэ",
-
+            // (First, Singular, Oblique) => "сэ",
             (Second, Singular, Absolutive) => "у",
             (Second, Singular, Ergative) => "б",
-            (Second, Singular, Oblique) => "уэ",
-
+            // (Second, Singular, Oblique) => "уэ",
             (Third, Singular, Absolutive) => "",
             (Third, Singular, Ergative) => "и",
-            (Third, Singular, Oblique) => "е",
-
+            // (Third, Singular, Oblique) => "е",
             (First, Plural, Absolutive) => "ды",
             (First, Plural, Ergative) => "д",
-            (First, Plural, Oblique) => "дэ",
-
+            // (First, Plural, Oblique) => "дэ",
             (Second, Plural, Absolutive) => "фы",
             (Second, Plural, Ergative) => "ф",
-            (Second, Plural, Oblique) => "фэ",
-
+            // (Second, Plural, Oblique) => "фэ",
             (Third, Plural, Absolutive) => "",
             (Third, Plural, Ergative) => "я",
-            (Third, Plural, Oblique) => "е",
+            // (Third, Plural, Oblique) => "е",
         };
 
         result.to_string()
     }
     fn get_string(&self) -> String {
-        let base_consonant = self.get_base();
-        return base_consonant.to_owned();
+        self.get_base()
     }
 }
 
@@ -300,15 +296,30 @@ fn get_masdar(desc: &TemplateDesc) -> String {
         table.add_row();
         table.add(format!("щы{}Ӏэныгъэ:", polarity));
 
-        let preverb = desc
-            .preverb
-            .as_ref()
-            .map(|p| p.get_string(PreverbForm::Full))
-            .unwrap_or("".to_owned());
-        table.add(format!(
-            "{}{}{}{}",
-            preverb, polarity, root, infinitve_ending
-        ));
+        let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
+        morphemes.push_back(Morpheme {
+            kind: MorphemeKind::Stem(desc.stem.clone()),
+            base: root.clone(),
+        });
+        morphemes.push_back(Morpheme {
+            kind: MorphemeKind::Generic,
+            base: infinitve_ending.clone(),
+        });
+
+        if polarity == "мы" {
+            morphemes.push_front(Morpheme {
+                kind: MorphemeKind::NegationPrefix,
+                base: "мы".to_owned(),
+            });
+        }
+
+        if let Some(preverb) = desc.preverb.clone() {
+            morphemes.push_front(Morpheme {
+                kind: MorphemeKind::Preverb(preverb.clone()),
+                base: preverb.base.clone(),
+            });
+        }
+        table.add(evaluate_morphemes(&morphemes));
     }
 
     table.to_string()
@@ -324,94 +335,6 @@ fn get_masdar(desc: &TemplateDesc) -> String {
     | щымыӀэныгъэ: || сымы{{{псалъэпкъ}}}эн || умы{{{псалъэпкъ}}}эн || мы{{{псалъэпкъ}}}эн || дымы{{{псалъэпкъ}}}эн || фымы{{{псалъэпкъ}}}эн || мы{{{псалъэпкъ}}}эн(хэ)
     |}
 */
-fn get_masdar_personal_(desc: &TemplateDesc) -> String {
-    let root = "{{{псалъэпкъ}}}".to_owned();
-
-    let table_name = "Инфинитив (масдар) щхьэкӀэ зэхъуэкӀа".to_owned();
-
-    let mut table = Wikitable::new();
-    table.add(table_name.clone());
-    for pronoun in ["сэ", "уэ", "ар", "дэ", "фэ", "ахэр"].iter() {
-        table.add(pronoun.to_string());
-    }
-
-    for polarity in ["", "мы"] {
-        table.add_row();
-        table.add(format!("щы{}Ӏэныгъэ", polarity));
-        for number in vec![Number::Singular, Number::Plural] {
-            for person in vec![Person::First, Person::Second, Person::Third] {
-                use ConsonantKind::*;
-                use PersonMarkerCase::*;
-                let thematic_vowel = treat_thematic_vowel(&desc.stem.thematic_vowel, &desc.stem);
-                let infinitve_ending = format!("{}н", thematic_vowel);
-
-                let case = desc.transitivity.get_subject_case();
-                let is_second_singular = (person, number) == (Person::Second, Number::Singular);
-
-                let form = match (
-                    &polarity,
-                    &case,
-                    &desc.stem.first_consonant,
-                    &desc.preverb.is_some(),
-                ) {
-                    (&"мы", Ergative, _, false) => SoundForm::NegativePrefixBase,
-                    (&"мы", Ergative, _, true) => {
-                        if is_second_singular {
-                            SoundForm::NegativePrefixBase
-                        } else {
-                            SoundForm::BeforeVoiced
-                        }
-                    }
-                    (&"", Ergative, Unvoiced, _) => SoundForm::BeforeUnvoiced,
-                    (&"", Ergative, Voiced, _) => SoundForm::BeforeVoiced,
-                    (&"", _, _, _) => SoundForm::Base,
-                    _ => panic!("Unknown case"),
-                };
-                let marker = PersonMarker {
-                    person,
-                    number,
-                    case,
-                    form,
-                };
-
-                let number_suffix = match (&number, &person) {
-                    (Number::Plural, Person::Third) => Some("(хэ)"),
-                    _ => None,
-                }
-                .to_owned();
-
-                let preverb =
-                    desc.preverb
-                        .as_ref()
-                        .map(|p| {
-                            let pf = match (person, number, polarity) {
-                                (Person::Second, Number::Singular, "мы")
-                                | (Person::Third, _, _) => PreverbForm::BeforeVowel,
-                                _ => PreverbForm::Full,
-                            };
-                            p.get_string(pf)
-                        })
-                        .unwrap_or("".to_owned());
-
-                let marker_string = if desc.preverb.is_some() && marker.get_string() == "я" {
-                    "а".to_owned()
-                } else {
-                    marker.get_string()
-                };
-
-                let part_front = format!("{}{}{}", preverb, marker_string, polarity);
-                let part_back = format!(
-                    "{}",
-                    &(infinitve_ending.clone() + &number_suffix.unwrap_or(""))
-                );
-
-                let s = format!("{}{}{}", part_front, root, part_back);
-                table.add(s);
-            }
-        }
-    }
-    table.to_string()
-}
 fn get_masdar_personal(desc: &TemplateDesc) -> String {
     let root = "{{{псалъэпкъ}}}".to_owned();
     let thematic_vowel = treat_thematic_vowel(&desc.stem.thematic_vowel, &desc.stem);
@@ -434,9 +357,8 @@ fn get_masdar_personal(desc: &TemplateDesc) -> String {
         table.add_row();
         table.add(format!("щы{}Ӏэныгъэ", polarity));
 
-        for number in vec![Number::Singular, Number::Plural] {
-            for person in vec![Person::First, Person::Second, Person::Third] {
-                use ConsonantKind::*;
+        for number in &[Number::Singular, Number::Plural] {
+            for person in &[Person::First, Person::Second, Person::Third] {
                 use PersonMarkerCase::*;
 
                 let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
@@ -458,23 +380,18 @@ fn get_masdar_personal(desc: &TemplateDesc) -> String {
 
                 let case = &desc.transitivity.get_subject_case();
 
-                let erg_marker = if case == &Ergative {
-                    Some(PersonMarker {
-                        person,
-                        number,
+                if case == &Ergative {
+                    let erg_marker = PersonMarker {
+                        person: *person,
+                        number: *number,
                         case: case.clone(),
                         form: SoundForm::Base,
-                    })
-                } else {
-                    None
-                };
-
-                if let Some(erg_marker) = erg_marker {
+                    };
                     morphemes.push_front(Morpheme {
                         kind: MorphemeKind::PersonMarker(erg_marker),
                         base: erg_marker.get_base(),
                     });
-                }
+                };
 
                 if let Some(preverb) = desc.preverb.clone() {
                     morphemes.push_front(Morpheme {
@@ -486,7 +403,7 @@ fn get_masdar_personal(desc: &TemplateDesc) -> String {
                 let (_person, _number) = if desc.transitivity == Transitivity::Transitive {
                     (Person::Third, Number::Singular)
                 } else {
-                    (person, number)
+                    (*person, *number)
                 };
                 let abs_marker = PersonMarker {
                     person: _person,
@@ -516,13 +433,23 @@ fn get_masdar_personal(desc: &TemplateDesc) -> String {
     table.to_string()
 }
 
+// enum Phone {
+//     Consonant(Consonant),
+//     Vowel(Vowel),
+// }
 fn evaluate_morphemes(morphemes: &VecDeque<Morpheme>) -> String {
     let mut result = String::new();
     for (i, morpheme) in morphemes.iter().enumerate() {
-        let morpheme_last = morphemes.get(i.checked_sub(1).unwrap_or(0));
+        let morpheme_prev = if let Some(i) = i.checked_sub(1) {
+            Some(&morphemes[i])
+        } else {
+            None
+        };
+
+        // let morpheme_prev = if i != 0 { morphemes.get(i - 1) } else { None };
         let morpheme_next = morphemes.get(i + 1);
-        let is_first_morpheme = morpheme_last.is_none();
-        let is_last_morpheme = morpheme_next.is_none();
+        let _is_first_morpheme = morpheme_prev.is_none();
+        let _is_last_morpheme = morpheme_next.is_none();
 
         match morpheme.kind {
             MorphemeKind::PersonMarker(marker) => {
@@ -530,11 +457,11 @@ fn evaluate_morphemes(morphemes: &VecDeque<Morpheme>) -> String {
 
                 let ss = match marker.case {
                     PersonMarkerCase::Ergative => {
-                        let morpheme_last_kind = morpheme_last.map(|x| &x.kind);
+                        let morpheme_last_kind = morpheme_prev.map(|x| &x.kind);
                         let morpheme_next_kind = morpheme_next.map(|x| &x.kind);
                         let is_third_plural =
                             (marker.person, marker.number) == (Person::Third, Number::Plural);
-                        let is_second_singular =
+                        let _is_second_singular =
                             (marker.person, marker.number) == (Person::Second, Number::Singular);
 
                         let x = if is_third_plural {
@@ -572,18 +499,40 @@ fn evaluate_morphemes(morphemes: &VecDeque<Morpheme>) -> String {
                     PersonMarkerCase::Absolutive => {
                         m.form = SoundForm::Base;
                         m.get_base()
-                    }
-                    PersonMarkerCase::Oblique => unimplemented!(),
+                    } // PersonMarkerCase::Oblique => unimplemented!(),
                 };
                 result += &ss;
             }
             MorphemeKind::Stem(ref stem) => {
-                result += &morpheme.base;
+                let morpheme_prev_kind = morpheme_prev.map(|x| &x.kind);
+                let morpheme_next_kind = morpheme_next.map(|x| &x.kind);
+                let tv = treat_thematic_vowel(&stem.thematic_vowel, &stem);
+
+                let tv = match (&morpheme_prev_kind, &morpheme_next_kind) {
+                    (None, None) => tv,
+                    (Some(MorphemeKind::PersonMarker(marker)), None)
+                        if marker.case == PersonMarkerCase::Ergative =>
+                    {
+                        let morpheme_prev_prev = if let Some(i) = i.checked_sub(2) {
+                            Some(&morphemes[i])
+                        } else {
+                            None
+                        };
+                        if morpheme_prev_prev.is_none() {
+                            tv
+                        } else {
+                            "".to_owned()
+                        }
+                    }
+                    _ => "".to_owned(),
+                };
+
+                result += &(morpheme.base.clone() + &tv);
             }
             MorphemeKind::Preverb(ref preverb) => {
                 let mut p = preverb.clone();
 
-                match morpheme_next.unwrap().kind {
+                match &morpheme_next.unwrap().kind {
                     MorphemeKind::PersonMarker(marker) => {
                         match (marker.person, marker.number, marker.case) {
                             (Person::Third, _, PersonMarkerCase::Ergative) => {
@@ -602,20 +551,25 @@ fn evaluate_morphemes(morphemes: &VecDeque<Morpheme>) -> String {
                             }
                         }
                     }
-                    _ => unimplemented!(),
+                    MorphemeKind::Stem(..) => {
+                        p.form = PreverbForm::Full;
+                    }
+                    MorphemeKind::NegationPrefix => {
+                        p.form = PreverbForm::Full;
+                    }
+                    x => unimplemented!("{:?}", x),
                 }
                 result += &preverb.get_string(p.form);
             }
             MorphemeKind::NegationPrefix => {
-                result += &"мы".to_owned();
+                result += "мы";
             }
             MorphemeKind::Generic => {
                 result += &morpheme.base;
-            }
-            _ => unimplemented!(),
+            } // _ => unimplemented!(),
         }
     }
-    format!("{}", result)
+    result
 }
 
 fn get_imperative(desc: &TemplateDesc) -> String {
@@ -631,6 +585,7 @@ fn get_imperative(desc: &TemplateDesc) -> String {
     */
     let root = "{{{псалъэпкъ}}}".to_owned();
     let table_name = "унафэ наклоненэ".to_owned();
+    // let thematic_vowel = treat_thematic_vowel(&desc.stem.thematic_vowel, &desc.stem);
 
     let mut table = Wikitable::new();
     table.add(table_name);
@@ -641,58 +596,59 @@ fn get_imperative(desc: &TemplateDesc) -> String {
     for polarity in ["", "мы"] {
         table.add_row();
         table.add(format!("щы{}Ӏэныгъэ", polarity));
-        for number in vec![Number::Singular, Number::Plural] {
-            let case = desc.transitivity.get_subject_case();
-            use ConsonantKind::*;
-            use PersonMarkerCase::*;
-            let form = match (&polarity, &case, &desc.stem.first_consonant) {
-                (&"мы", _, _) => SoundForm::NegativePrefixBase,
-                (&"", Ergative, Unvoiced) => SoundForm::BeforeUnvoiced,
-                (&"", Ergative, Voiced) => SoundForm::BeforeVoiced,
-                (&"", _, _) => SoundForm::Base,
-                _ => panic!("Unknown case"),
-            };
-            let marker = PersonMarker {
-                person: Person::Second,
-                number,
-                case,
-                form,
-            };
-            // The second person singular imperative doesn't take a person marker
-            let s = match (&marker.person, &marker.number) {
-                (&Person::Second, &Number::Singular) => "".to_owned(),
-                _ => marker.get_string(),
+        for number in &[Number::Singular, Number::Plural] {
+            let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
+            morphemes.push_back(Morpheme {
+                kind: MorphemeKind::Stem(desc.stem.clone()),
+                base: root.clone(),
+            });
+
+            if polarity == "мы" {
+                morphemes.push_front(Morpheme {
+                    kind: MorphemeKind::NegationPrefix,
+                    base: "мы".to_owned(),
+                });
+            }
+            let case = &desc.transitivity.get_subject_case();
+            if case == &PersonMarkerCase::Ergative {
+                if *number == Number::Plural {
+                    let erg_marker = PersonMarker {
+                        person: Person::Second,
+                        number: *number,
+                        case: *case,
+                        form: SoundForm::Base,
+                    };
+                    morphemes.push_front(Morpheme {
+                        kind: MorphemeKind::PersonMarker(erg_marker),
+                        base: erg_marker.get_base(),
+                    });
+                }
             };
 
-            // The thematic vowel 'э' is always there,
-            // however 'ы' stays only there if the form is monosyllabic
-            let thematic_vowel = {
-                let r = match &desc.stem.thematic_vowel {
-                    ThematicVowel::A => {
-                        format!("{}", &desc.stem.thematic_vowel)
-                    }
-                    ThematicVowel::Y => {
-                        let no_vowel_in_stem = &desc.stem.vowel == &VowelKind::Without;
-                        let is_positive = polarity == "";
-                        let is_singular = number == Number::Singular;
-                        let is_transitive = &desc.transitivity == &Transitivity::Transitive;
-
-                        // The thematic vowel 'ы' is
-                        // If the verb is base (no preverbs/prefixes) and has a consonant root, then it is treated in a special way.
-                        let s = if no_vowel_in_stem && is_positive && is_singular && is_transitive {
-                            treat_thematic_vowel(&desc.stem.thematic_vowel, &desc.stem)
-                        } else if no_vowel_in_stem && is_positive {
-                            treat_thematic_vowel(&desc.stem.thematic_vowel, &desc.stem)
-                        } else {
-                            "".to_string()
-                        };
-                        s
-                    }
+            if let Some(preverb) = desc.preverb.clone() {
+                morphemes.push_front(Morpheme {
+                    kind: MorphemeKind::Preverb(preverb.clone()),
+                    base: preverb.base.clone(),
+                });
+            }
+            let (abs_person, abs_number) = if desc.transitivity == Transitivity::Transitive {
+                (Person::Third, Number::Singular)
+            } else {
+                (Person::Second, *number)
+            };
+            if (abs_person, abs_number) == (Person::Second, Number::Plural) {
+                let abs_marker = PersonMarker {
+                    person: abs_person,
+                    number: abs_number,
+                    case: PersonMarkerCase::Absolutive,
+                    form: SoundForm::Base,
                 };
-                r
-            };
-
-            let s = format!("{}{}{}{}", s, polarity, root, thematic_vowel);
+                morphemes.push_front(Morpheme {
+                    kind: MorphemeKind::PersonMarker(abs_marker),
+                    base: abs_marker.get_base(),
+                });
+            }
+            let s = evaluate_morphemes(&morphemes);
             table.add(s);
         }
     }
@@ -721,8 +677,8 @@ fn get_imperative_raj(desc: &TemplateDesc) -> String {
     for polarity in ["", "мы"] {
         table.add_row();
         table.add(format!("щы{}Ӏэныгъэ", polarity));
-        for number in vec![Number::Singular, Number::Plural] {
-            for person in vec![Person::First, Person::Second, Person::Third] {
+        for number in &[Number::Singular, Number::Plural] {
+            for person in &[Person::First, Person::Second, Person::Third] {
                 // All person markers are in their base ergative form, however the second person singular is seamingly in their absolutive form.
                 // It's 'у-' instead of the expected 'б-' form. Most likely it's because of phonological reasons, because it preceeds 'р' /r/.
                 let case = match (&person, &number) {
@@ -733,11 +689,11 @@ fn get_imperative_raj(desc: &TemplateDesc) -> String {
                 // The third person can't be in the plural form. The singular is used.
                 let number = match &person {
                     &Person::Third => Number::Singular,
-                    _ => number,
+                    _ => *number,
                 };
 
                 let marker = PersonMarker {
-                    person,
+                    person: *person,
                     number,
                     case,
                     form: SoundForm::Base,
@@ -746,7 +702,7 @@ fn get_imperative_raj(desc: &TemplateDesc) -> String {
                 // The thematic vowel 'ы' is never present in such a form
                 let thematic_vowel = {
                     let mut thematic_vowel = "".to_owned();
-                    if &desc.stem.thematic_vowel == &ThematicVowel::A {
+                    if desc.stem.thematic_vowel == ThematicVowel::A {
                         thematic_vowel = desc.stem.thematic_vowel.to_string();
                     }
                     thematic_vowel
@@ -791,7 +747,7 @@ fn create_template(desc: TemplateDesc) -> String {
 }
 
 fn create_template_from_string(s: String) -> Option<String> {
-    let segments = s.split("-").collect::<Vec<&str>>();
+    let segments = s.split('-').collect::<Vec<&str>>();
 
     // Every string must start with "спр". If this is not the case, the string is false.
     if segments[0] != "спр" {
@@ -829,32 +785,32 @@ fn create_template_from_string(s: String) -> Option<String> {
         let root = segments[3].clone();
         let mut fc = ConsonantKind::Ordinary;
         let mut v = VowelKind::Without;
-        let mut lc = ConsonantKind::Ordinary;
+        let lc;
 
-        if root.starts_with("0") {
+        if root.starts_with('0') {
             assert_eq!(transitivity, Transitivity::Intransitive);
             fc = ConsonantKind::Ordinary;
             v = VowelKind::Without;
-        } else if root.starts_with("б") {
+        } else if root.starts_with('б') {
             assert_eq!(transitivity, Transitivity::Intransitive);
             fc = ConsonantKind::Ordinary;
             v = VowelKind::With;
         } else if root.starts_with("жь") {
             assert_eq!(transitivity, Transitivity::Transitive);
             fc = ConsonantKind::Voiced;
-            if root.find("0").is_some() {
+            if root.find('0').is_some() {
                 v = VowelKind::Without;
-            } else if root.find("б").is_some() {
+            } else if root.find('б').is_some() {
                 v = VowelKind::With;
             } else {
                 panic!();
             }
-        } else if root.starts_with("д") {
+        } else if root.starts_with('д') {
             assert_eq!(transitivity, Transitivity::Transitive);
             fc = ConsonantKind::Unvoiced;
-            if root.find("0").is_some() {
+            if root.find('0').is_some() {
                 v = VowelKind::Without;
-            } else if root.find("б").is_some() {
+            } else if root.find('б').is_some() {
                 v = VowelKind::With;
             } else {
                 panic!();
@@ -862,13 +818,13 @@ fn create_template_from_string(s: String) -> Option<String> {
         }
 
         match root {
-            _ if root.ends_with("д") => {
+            _ if root.ends_with('д') => {
                 lc = ConsonantKind::Ordinary;
             }
-            _ if root.ends_with("т") => {
+            _ if root.ends_with('т') => {
                 lc = ConsonantKind::Velar;
             }
-            _ if root.ends_with("л") => {
+            _ if root.ends_with('л') => {
                 lc = ConsonantKind::Labialized;
             }
             _ if root.ends_with("дэа") => {
@@ -882,8 +838,8 @@ fn create_template_from_string(s: String) -> Option<String> {
         (fc, v, lc)
     };
     let template_desc = TemplateDesc {
-        transitivity: transitivity,
-        preverb: preverb,
+        transitivity,
+        preverb,
         stem: VerbStem {
             first_consonant: fc,
             vowel: v,
@@ -897,7 +853,7 @@ fn create_template_from_string(s: String) -> Option<String> {
     println!("Detected those segments in template string: {:?}", segments);
     println!("{:#?}", template_desc);
     let template = create_template(template_desc);
-    return Some(template);
+    Some(template)
 }
 
 /*
@@ -956,7 +912,7 @@ fn create_template_from_string(s: String) -> Option<String> {
 
 */
 fn main() {
-    let template = "спр-лъэӏ-дэ-д0л-ы"; // tr. base. vl. e.g. хьын
-                                        // let template = "спр-лъэмыӏ-0-0д-э"; // intr. base. vl. e.g. плъэн
+    let template = "спр-лъэӏ-0-д0д-ы"; // tr. base. vl. e.g. хьын
+    // let template = "спр-лъэмыӏ-0-0д-ы"; // intr. base. vl. e.g. плъэн
     let template = create_template_from_string(template.to_owned());
 }
