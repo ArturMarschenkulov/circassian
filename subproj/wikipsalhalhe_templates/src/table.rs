@@ -34,6 +34,6 @@ impl Wikitable {
             result += "|-\n";
         }
         result += "|}";
-        return result.to_owned();
+        result.to_owned()
     }
 }
