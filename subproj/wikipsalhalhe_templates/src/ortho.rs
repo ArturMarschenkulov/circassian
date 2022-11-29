@@ -5,12 +5,12 @@
 
 #[derive(Debug, Clone, PartialEq)]
 pub struct Letter {
-    kind: LetterKind,
+    pub kind: LetterKind,
     base: String,
 }
 
 #[derive(Debug, Clone, PartialEq)]
-enum LetterKind {
+pub enum LetterKind {
     /// Represents a consonant letter.
     Consonant(Consonant),
     /// Represents a vowel letter.
@@ -24,9 +24,28 @@ enum LetterKind {
     /// 'о' = 'уэ', (actually it's rather'эу')
     Combi(Consonant, Vowel),
 }
+impl Letter {
+    pub fn to_string(&self) -> String {
+        match &self.kind {
+            LetterKind::Consonant(c) => c.to_string(),
+            LetterKind::Vowel(v) => v.to_string(),
+            LetterKind::Combi(c, v) => {
+                let x = match (&c.to_string().as_ref(), &v.to_string().as_ref()) {
+                    (&"й", &"э") => "е".to_owned(),
+                    (&"й", &"ы") => "и".to_owned(),
+                    (&"й", &"а") => "я".to_owned(),
+                    (&"у", &"ы") => "у".to_owned(),
+                    (&"у", &"э") => "о".to_owned(),
+                    _ => unreachable!(),
+                };
+                x
+            }
+        }
+    }
+}
 
 #[derive(Debug, Clone, PartialEq)]
-struct Vowel {
+pub struct Vowel {
     kind: VowelKind,
     base: String,
 }
@@ -39,6 +58,13 @@ impl Vowel {
         }
         .to_owned();
         Vowel { kind, base }
+    }
+    fn to_string(&self) -> String {
+        match self.kind {
+            VowelKind::AA => "а",
+            VowelKind::A => "э",
+            VowelKind::Y => "ы",
+        }.to_owned()
     }
     fn from_string(s: String) -> Option<Vowel> {
         match s.as_str() {
@@ -59,19 +85,19 @@ enum VowelKind {
     Y,
 }
 
-#[derive(Debug, Clone, PartialEq)]
-enum Voiceness {
+#[derive(Debug, Clone, Copy, PartialEq)]
+pub enum Voiceness {
     Voiceless,
     Voiced,
     Ejective,
 }
 #[derive(Debug, Clone, PartialEq)]
-struct Consonant {
-    place: Place,
-    manner: Manner,
-    voiceness: Voiceness,
+pub struct Consonant {
+    pub place: Place,
+    pub manner: Manner,
+    pub voiceness: Voiceness,
     is_labialized: bool,
-    base: String,
+    pub base: String,
 }
 impl Consonant {
     fn new(
@@ -89,6 +115,86 @@ impl Consonant {
             base,
         })
     }
+    pub fn to_string(&self) -> String {
+        match (self.place, self.manner, self.voiceness, self.is_labialized) {
+            // Plosives
+            (Place::Labial, Manner::Nasal, Voiceness::Voiced, false) => "н".to_owned(),
+            (Place::Alveolar, Manner::Nasal, Voiceness::Voiceless, false) => "м".to_owned(),
+
+            (Place::Labial, Manner::Plosive, Voiceness::Voiceless, false) => "п".to_owned(),
+            (Place::Labial, Manner::Plosive, Voiceness::Voiced, false) => "б".to_owned(),
+            (Place::Labial, Manner::Plosive, Voiceness::Ejective, false) => "пI".to_owned(),
+
+            (Place::Alveolar, Manner::Plosive, Voiceness::Voiceless, false) => "т".to_owned(),
+            (Place::Alveolar, Manner::Plosive, Voiceness::Voiced, false) => "д".to_owned(),
+            (Place::Alveolar, Manner::Plosive, Voiceness::Ejective, false) => "тI".to_owned(),
+
+            (Place::Velar, Manner::Plosive, Voiceness::Voiceless, false) => "к".to_owned(),
+
+            (Place::Uvular, Manner::Plosive, Voiceness::Voiceless, false) => "къ".to_owned(),
+            (Place::Glottal, Manner::Plosive, Voiceness::Voiceless, false) => "I".to_owned(),
+
+            (Place::Uvular, Manner::Plosive, Voiceness::Voiceless, true) => "къу".to_owned(),
+            (Place::Glottal, Manner::Plosive, Voiceness::Voiceless, true) => "Iу".to_owned(),
+
+            // Fricatives
+            (Place::Alveolar, Manner::Affricative, Voiceness::Voiceless, false) => "ц".to_owned(),
+            (Place::Alveolar, Manner::Affricative, Voiceness::Voiced, false) => "дз".to_owned(),
+            (Place::Alveolar, Manner::Affricative, Voiceness::Ejective, false) => "цI".to_owned(),
+            
+            (Place::PostAlveolar, Manner::Affricative, Voiceness::Voiceless, false) => "ч".to_owned(),
+            (Place::PostAlveolar, Manner::Affricative, Voiceness::Voiced, false) => "дж".to_owned(),
+            (Place::PostAlveolar, Manner::Affricative, Voiceness::Ejective, false) => "кI".to_owned(),
+            (Place::Uvular, Manner::Affricative, Voiceness::Voiceless, false) => "кхъ".to_owned(),
+
+            (Place::Uvular, Manner::Affricative, Voiceness::Voiceless, true) => "кхъу".to_owned(),
+
+
+
+            (Place::Labial, Manner::Fricative, Voiceness::Voiceless, false) => "ф".to_owned(),
+            (Place::Labial, Manner::Fricative, Voiceness::Voiced, false) => "в".to_owned(),
+            (Place::Labial, Manner::Fricative, Voiceness::Ejective, false) => "фI".to_owned(),
+
+            (Place::Alveolar, Manner::Fricative, Voiceness::Voiceless, false) => "с".to_owned(),
+            (Place::Alveolar, Manner::Fricative, Voiceness::Voiced, false) => "з".to_owned(),
+
+            (Place::Lateral, Manner::Fricative, Voiceness::Voiceless, false) => "лъ".to_owned(),
+            (Place::Lateral, Manner::Fricative, Voiceness::Voiced, false) => "л".to_owned(),
+            (Place::Lateral, Manner::Fricative, Voiceness::Ejective, false) => "лI".to_owned(),
+
+            (Place::PostAlveolar, Manner::Fricative, Voiceness::Voiceless, false) => "ш".to_owned(),
+            (Place::PostAlveolar, Manner::Fricative, Voiceness::Voiced, false) => "ж".to_owned(),
+
+            (Place::Palatal, Manner::Fricative, Voiceness::Voiceless, false) => "щ".to_owned(),
+            (Place::Palatal, Manner::Fricative, Voiceness::Voiced, false) => "жь".to_owned(),
+            (Place::Palatal, Manner::Fricative, Voiceness::Ejective, false) => "щI".to_owned(),
+
+            (Place::Velar, Manner::Fricative, Voiceness::Voiceless, false) => "х".to_owned(),
+            (Place::Velar, Manner::Fricative, Voiceness::Voiced, false) => "г".to_owned(),
+            (Place::Uvular, Manner::Fricative, Voiceness::Voiceless, false) => "хъ".to_owned(),
+            (Place::Uvular, Manner::Fricative, Voiceness::Voiced, false) => "гъ".to_owned(),
+            (Place::Pharyngeal, Manner::Fricative, Voiceness::Voiceless, false) => "хь".to_owned(),
+            
+
+            (Place::Velar, Manner::Fricative, Voiceness::Voiceless, true) => "ху".to_owned(),
+            (Place::Uvular, Manner::Fricative, Voiceness::Voiceless, true) => "хъу".to_owned(),
+            (Place::Uvular, Manner::Fricative, Voiceness::Voiced, true) => "гьу".to_owned(),
+
+            (Place::Palatal, Manner::Approximant, Voiceness::Voiced, false) => "й".to_owned(),
+            (Place::Labial, Manner::Approximant, Voiceness::Voiced, false) => "у".to_owned(),
+            (Place::Alveolar, Manner::Trill, Voiceness::Voiced, false) => "р".to_owned(),
+
+
+            // 
+            (Place::Velar, Manner::Plosive, Voiceness::Voiced, false) => unreachable!("kabardian doesn't have a voiced velar plosive, did you mean voiced velar fricative?"),
+            (Place::Labial, _, _, true) => unreachable!(""),
+            (Place::Alveolar, _, _, true) => unreachable!(""),
+            (Place::PostAlveolar, _, _, true) => unreachable!(""),
+            (Place::Pharyngeal, _, _, true) => unreachable!(""),
+
+            x => unimplemented!("{:?}", x),
+        }
+    }
     fn from_string(s: &String) -> Option<Consonant> {
         match s.as_str() {
             // Nasals
@@ -100,7 +206,7 @@ impl Consonant {
                 s.to_owned(),
             ),
             "н" => Consonant::new(
-                Place::Labial,
+                Place::Alveolar,
                 Manner::Nasal,
                 Voiceness::Voiced,
                 false,
@@ -302,7 +408,7 @@ impl Consonant {
                 s.to_owned(),
             ),
             "щ" => Consonant::new(
-                Place::Alveolopalatal,
+                Place::Palatal,
                 Manner::Fricative,
                 Voiceness::Voiceless,
                 false,
@@ -374,7 +480,7 @@ impl Consonant {
                 s.to_owned(),
             ),
             "жь" => Consonant::new(
-                Place::Alveolopalatal,
+                Place::Palatal,
                 Manner::Fricative,
                 Voiceness::Voiced,
                 false,
@@ -418,7 +524,7 @@ impl Consonant {
                 s.to_owned(),
             ),
             "щI" => Consonant::new(
-                Place::Alveolopalatal,
+                Place::Palatal,
                 Manner::Fricative,
                 Voiceness::Ejective,
                 false,
@@ -433,7 +539,7 @@ impl Consonant {
                 s.to_owned(),
             ),
             "й" => Consonant::new(
-                Place::Alveolopalatal,
+                Place::Palatal,
                 Manner::Approximant,
                 Voiceness::Voiced,
                 false,
@@ -441,10 +547,10 @@ impl Consonant {
             ),
             // Consider actually using "w" for this, because у can also be a combi.
             "у" => Consonant::new(
-                Place::Velar,
+                Place::Labial,
                 Manner::Approximant,
                 Voiceness::Voiced,
-                true,
+                false, // labialized ?
                 s.to_owned(),
             ),
 
@@ -453,20 +559,20 @@ impl Consonant {
     }
 }
 
-#[derive(Debug, Clone, PartialEq)]
-enum Place {
+#[derive(Debug, Clone, Copy, PartialEq)]
+pub enum Place {
     Labial,
     Alveolar,
     Lateral,
     PostAlveolar,
-    Alveolopalatal,
+    Palatal,
     Velar,
     Uvular,
     Pharyngeal,
     Glottal,
 }
-#[derive(Debug, Clone, PartialEq)]
-enum Manner {
+#[derive(Debug, Clone, Copy, PartialEq)]
+pub enum Manner {
     Nasal,
     Plosive,
     Affricative,
@@ -505,7 +611,7 @@ fn is_char_consonant(c: &char) -> bool {
         _ => false,
     }
 }
-pub fn parse(s: String) -> Vec<Letter> {
+pub fn parse(s: &String) -> Vec<Letter> {
     let mut letters = Vec::new();
     let chars = s.chars().collect::<Vec<char>>();
 
@@ -565,16 +671,16 @@ pub fn parse(s: String) -> Vec<Letter> {
 
                 'bp: loop {
                     if simple_cons.contains(&base_char) {
-                        println!("{:?} is a simply consonant, it can't be modified, thus we are breaking", consonant_str);
+                        // println!("{:?} is a simply consonant, it can't be modified, thus we are breaking", consonant_str);
                         break 'bp;
                     }
                     let next_letter = chars.get(i + 1);
-                    println!("The next letter is {:?}", next_letter);
+                    // println!("The next letter is {:?}", next_letter);
                     if next_letter.map(is_char_diacritic).unwrap_or(false) {
-                        println!("The next letter is a diacritic {:?}", next_letter);
+                        // println!("The next letter is a diacritic {:?}", next_letter);
                     }
                     if next_letter.map(is_char_vowel).unwrap_or(false) {
-                        println!("The next letter is a vowel {:?}", next_letter);
+                        // println!("The next letter is a vowel {:?}", next_letter);
                         break 'bp;
                     }
 

@@ -4,29 +4,74 @@
 mod evaluation;
 mod ortho;
 mod table;
+mod template;
 
 use std::collections::VecDeque;
 
 use table::Wikitable;
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 enum PreverbForm {
-    Full, // e.g. къэ-
-    // Reduced,     // e.g. къы-
+    Full,        // e.g. къэ-
+    Reduced,     // e.g. къы-
     BeforeVowel, // e.g. къ-
 }
-
-#[derive(Debug, Clone)]
-struct Preverb {
-    form: PreverbForm,
-    base: String,
+#[derive(Debug, Clone, PartialEq)]
+enum PreverbKind {
+    Normal,
+    Vowel,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
+pub struct Preverb {
+    form: PreverbForm,
+    // kind: PreverbKind,
+    base: String,
+}
+impl Preverb {
+    fn new(base: &String) -> Self {
+        Preverb {
+            form: PreverbForm::Full,
+            base: base.to_owned(),
+        }
+    }
+    fn get_last_consonant(&self) -> Option<ortho::Consonant> {
+        let letters = ortho::parse(&self.base);
+        let mut last_consonant = None;
+        for letter in letters {
+            match letter.kind {
+                ortho::LetterKind::Consonant(consonant) => last_consonant = Some(consonant),
+                _ => {}
+            }
+        }
+        last_consonant
+    }
+
+    fn get_string(&self, form: PreverbForm) -> String {
+        let sss = match &self.base {
+            // This handles the preverbs which end on 'э'
+            base if base.ends_with('э') => {
+                let mut chars = base.chars();
+                chars.next_back();
+                let reduced = chars.as_str().to_string();
+
+                match form {
+                    PreverbForm::Full => base.to_owned(),
+                    PreverbForm::Reduced => reduced + "ы",
+                    PreverbForm::BeforeVowel => reduced,
+                }
+            }
+            _ => unreachable!(),
+        };
+        sss
+    }
+}
+
+#[derive(Debug, Clone, PartialEq)]
 enum MorphemeKind {
     Preverb(Preverb),
     PersonMarker(PersonMarker),
-    Stem(VerbStem),
+    Stem(template::VerbStem),
     NegationPrefix,
     RajImperative,
     Generic,
@@ -35,6 +80,13 @@ enum MorphemeKind {
 pub struct Morpheme {
     kind: MorphemeKind,
     base: String,
+}
+impl Morpheme {
+    fn get_first_letter(&self) -> Option<ortho::Letter> {
+        let letters = ortho::parse(&self.base);
+        let first_letter = letters.first().cloned();
+        first_letter
+    }
 }
 impl Morpheme {
     fn make_generic(base: &str) -> Self {
@@ -56,34 +108,15 @@ impl Morpheme {
         }
     }
 }
-impl Preverb {
-    fn get_string(&self, form: PreverbForm) -> String {
-        let sss = match &self.base {
-            // This handles the preverbs which end on 'э'
-            base if base.ends_with('э') => {
-                let mut chars = base.chars();
-                chars.next_back();
-                let reduced = chars.as_str().to_string();
 
-                match form {
-                    PreverbForm::Full => base.to_owned(),
-                    // PreverbForm::Reduced => reduced + "ы",
-                    PreverbForm::BeforeVowel => reduced,
-                }
-            }
-            _ => unreachable!(),
-        };
-        sss
-    }
-}
 #[derive(Debug, Clone, Copy, PartialEq)]
 enum Case {
     /// (-р) subject of intransitive verb, direct object of transitive verb
     Absolutive,
     /// (-м) subject of transitive verb
     Ergative,
-    // /// (-м) indirect object of intransitive and transitive verbs.
-    // Oblique,
+    /// (-м) indirect object of intransitive and transitive verbs.
+    Oblique,
 }
 
 /// A struct that indicates the number of a noun or verb.
@@ -101,27 +134,10 @@ enum Person {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq)]
-enum SoundForm {
-    Base,
-    BeforeUnvoiced,
-    BeforeVoiced,
-    // BeforeVowel,
-    /// This is only for 'я' which becomes after consonants 'а'
-    AfterConsonant,
-    /// Transitive verbs which have the negative prefix мы- and are base (without preverb)
-    /// take the absolutive markers (at least they look like that), except the third person.
-    /// NOTE: This is only the case if there is no prefix before that.
-    /// пхьы vs умыхь
-    NegativePrefixBase,
-    // NOTE: Probably add `BeforeSonorant` as there is sometimes different behavior before <м> /m/ and <р> /r/.
-}
-
-#[derive(Debug, Clone, Copy)]
 struct PersonMarker {
     person: Person,
     number: Number,
     case: Case,
-    form: SoundForm,
 }
 
 impl PersonMarker {
@@ -130,118 +146,55 @@ impl PersonMarker {
             person,
             number,
             case,
-            form: SoundForm::Base,
         }
     }
 }
 impl PersonMarker {
     /// Returns the "base" form of the person markers
-    fn get_base(&self) -> String {
-        use Case::*;
-        use Person::*;
-
-        // sanity checks
-        // assert_ne!(Ergative == self.case, SoundForm::AfterConsonant == self.form);
-        // assert_ne!(Ergative == self.case, SoundForm::BeforeUnvoiced == self.form);
-        // assert_eq!(Ergative == self.case, SoundForm::BeforeVoiced == self.form);
-
-        let mut result = Self::get_base_from(&self.person, &self.number, &self.case);
-        match (&self.case, &self.form) {
-            (Ergative, SoundForm::BeforeUnvoiced) => {
-                result = match result.as_str() {
-                    "б" => "п",
-                    "д" => "т",
-                    _ => result.as_str(),
-                }
-                .to_owned();
-            }
-            (Ergative, SoundForm::BeforeVoiced) => {
-                result = match result.as_str() {
-                    "с" => "з",
-                    "ф" => "в",
-                    _ => result.as_str(),
-                }
-                .to_owned();
-            }
-            (Ergative, SoundForm::AfterConsonant) => {
-                result = match result.as_str() {
-                    "я" => "а",
-                    _ => result.as_str(),
-                }
-                .to_owned();
-            }
-            _ => (),
-        }
-
-        if self.form == SoundForm::NegativePrefixBase
-            && self.case == Ergative
-            && self.person != Third
-        {
-            result = Self::get_base_from(&self.person, &self.number, &Absolutive);
-        }
-
+    fn get_base_2(&self) -> String {
+        let result = Self::get_base_from(&self.person, &self.number, &self.case);
         result
     }
     fn get_base_from(person: &Person, number: &Number, case: &Case) -> String {
+        let pm = PersonMarker {
+            person: *person,
+            number: *number,
+            case: *case,
+        };
+        pm.get_base_string()
+    }
+    fn get_base_string(&self) -> String {
         use Case::*;
         use Number::*;
         use Person::*;
-        let result = match (&person, &number, &case) {
+        let result = match (self.person, self.number, self.case) {
             (First, Singular, Absolutive) => "сы",
             (First, Singular, Ergative) => "с",
-            // (First, Singular, Oblique) => "сэ",
+            (First, Singular, Oblique) => "сэ",
             (Second, Singular, Absolutive) => "у",
             (Second, Singular, Ergative) => "б",
-            // (Second, Singular, Oblique) => "уэ",
+            (Second, Singular, Oblique) => "уэ",
             (Third, Singular, Absolutive) => "",
             (Third, Singular, Ergative) => "и",
-            // (Third, Singular, Oblique) => "е",
+            (Third, Singular, Oblique) => "е",
             (First, Plural, Absolutive) => "ды",
             (First, Plural, Ergative) => "д",
-            // (First, Plural, Oblique) => "дэ",
+            (First, Plural, Oblique) => "дэ",
             (Second, Plural, Absolutive) => "фы",
             (Second, Plural, Ergative) => "ф",
-            // (Second, Plural, Oblique) => "фэ",
+            (Second, Plural, Oblique) => "фэ",
             (Third, Plural, Absolutive) => "",
             (Third, Plural, Ergative) => "я",
-            // (Third, Plural, Oblique) => "е",
+            (Third, Plural, Oblique) => "е",
         };
 
         result.to_string()
     }
     fn get_string(&self) -> String {
-        self.get_base()
+        self.get_base_2()
     }
 }
 
-#[derive(Debug, Clone, PartialEq)]
-enum ConsonantKind {
-    /// Refers to unvoiced consonants.
-    /// Can only be in the beginning of transitive verbs.
-    /// It makes the preceding consonant unvoiced.
-    /// Comes from 'д'.
-    Unvoiced,
-    /// Refers to voiced consonants.
-    /// Can only be in the beginning of transitive verbs.
-    /// It makes the preceding consonant voiced.
-    /// Comes from 'жъ'.
-    Voiced,
-    /// Refers to velar consonants.
-    /// Can only be in the end.
-    /// Forces an insertion of ы before a у, to differentiate between labialized consonants къу vs къыу
-    /// Comes from 'т'.
-    Velar,
-    /// Refers to labialized consonants.
-    /// Can only be in the end.
-    /// There can't be an ы behind it, as it's already implicit. гуыр -> гъур
-    /// Comes from 'л'.
-    Labialized,
-    /// Refers to consonants that are neither voiced nor unvoiced.
-    /// Can only be in the end. Intransitive verbs can also have it at the beginning, because there voiceness doesn't matter.
-    ///
-    /// Comes from 'д'.
-    Ordinary,
-}
 #[derive(Debug, Clone, PartialEq)]
 enum VowelKind {
     With,
@@ -249,24 +202,11 @@ enum VowelKind {
     Alternating,
 }
 
-/// Here is the information stored about the verb stem.
-/// It is extracted from the template string.
-/// In the Kabardian language itself, all stems are mostly treated the same, however because of the orthographical system
-/// there are some difference how those stems are treated.
-#[derive(Debug, Clone)]
-struct VerbStem {
-    first_consonant: ConsonantKind,
-    vowel: VowelKind,
-    last_consonant: ConsonantKind,
-    thematic_vowel: ThematicVowel,
-    string: String,
-}
 #[derive(Debug, Clone, PartialEq)]
-enum Transitivity {
+pub enum Transitivity {
     Transitive,
     Intransitive,
 }
-
 impl Transitivity {
     fn get_subject_case(&self) -> Case {
         match self {
@@ -274,37 +214,6 @@ impl Transitivity {
             Transitivity::Intransitive => Case::Absolutive,
         }
     }
-}
-#[derive(Debug, Clone, PartialEq)]
-enum ThematicVowel {
-    A,
-    Y,
-}
-impl std::fmt::Display for ThematicVowel {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-        match self {
-            ThematicVowel::A => write!(f, "э"),
-            ThematicVowel::Y => write!(f, "ы"),
-        }
-    }
-}
-#[derive(Debug, Clone)]
-struct TemplateDesc {
-    transitivity: Transitivity,
-    preverb: Option<Preverb>,
-    stem: VerbStem,
-    original_string: String,
-}
-
-/// It's basically there to treat stems ending on у which labializes the consonants before it.
-/// This also indicates an implicit ы.
-fn treat_thematic_vowel(tv: &ThematicVowel, vs: &VerbStem) -> String {
-    match (&tv, &vs.last_consonant) {
-        (ThematicVowel::Y, ConsonantKind::Labialized) => "",
-        (ThematicVowel::Y, _) => "ы",
-        _ => "э",
-    }
-    .to_owned()
 }
 
 /*
@@ -317,9 +226,9 @@ fn treat_thematic_vowel(tv: &ThematicVowel, vs: &VerbStem) -> String {
     | щымыӀэныгъэ: || мы{{{псалъэпкъ}}}эн
     |}
 */
-fn get_masdar(desc: &TemplateDesc) -> String {
+fn get_masdar(desc: &template::TemplateDesc) -> String {
     let root = "{{{псалъэпкъ}}}".to_owned();
-    let thematic_vowel = treat_thematic_vowel(&desc.stem.thematic_vowel, &desc.stem);
+    let thematic_vowel = template::treat_thematic_vowel(&desc.stem.thematic_vowel, &desc.stem);
     let infinitve_ending = format!("{}н", thematic_vowel);
     let table_name = "Инфинитив (масдар)".to_owned();
 
@@ -364,9 +273,9 @@ fn get_masdar(desc: &TemplateDesc) -> String {
     | щымыӀэныгъэ: || сымы{{{псалъэпкъ}}}эн || умы{{{псалъэпкъ}}}эн || мы{{{псалъэпкъ}}}эн || дымы{{{псалъэпкъ}}}эн || фымы{{{псалъэпкъ}}}эн || мы{{{псалъэпкъ}}}эн(хэ)
     |}
 */
-fn get_masdar_personal(desc: &TemplateDesc) -> String {
+fn get_masdar_personal(desc: &template::TemplateDesc) -> String {
     let root = "{{{псалъэпкъ}}}".to_owned();
-    let thematic_vowel = treat_thematic_vowel(&desc.stem.thematic_vowel, &desc.stem);
+    let thematic_vowel = template::treat_thematic_vowel(&desc.stem.thematic_vowel, &desc.stem);
     let infinitve_ending = format!("{}н", thematic_vowel);
 
     let table_name = "Инфинитив (масдар) щхьэкӀэ зэхъуэкӀа".to_owned();
@@ -418,45 +327,33 @@ fn get_masdar_personal(desc: &TemplateDesc) -> String {
                 } else {
                     (*person, *number)
                 };
-                let abs_marker = PersonMarker::new(_person, _number, *case);
+                let abs_marker = PersonMarker::new(_person, _number, Case::Absolutive);
 
                 morphemes.push_front(Morpheme::make_person_marker(&abs_marker));
 
                 let s = evaluation::evaluate_morphemes(&morphemes);
+
+                println!("{:?}", evaluation::morphemes_to_string(&morphemes));
                 table.add(s);
             }
         }
     }
-
-    // let s = morphemes
-    //     .iter()
-    //     .map(|m| m.base.clone())
-    //     .collect::<Vec<String>>()
-    //     .join("-");
-    // println!("{}", s);
-    // evaluate_morphemes(&morphemes);
     table.to_string()
 }
 
-// enum Phone {
-//     Consonant(Consonant),
-//     Vowel(Vowel),
-// }
-
-fn get_imperative(desc: &TemplateDesc) -> String {
-    /*
-    {| class="wikitable"
-    |-
-    ! унафэ наклоненэ !! уэ !! фэ
-    |-
-    | щыӀэныгъэ: || {{{псалъэпкъ}}}э! || фы{{{псалъэпкъ}}}э!
-    |-
-    | щымыӀэныгъэ: || умы{{{псалъэпкъ}}}э! || фымы{{{псалъэпкъ}}}э!
-    |}
-    */
+/*
+{| class="wikitable"
+|-
+! унафэ наклоненэ !! уэ !! фэ
+|-
+| щыӀэныгъэ: || {{{псалъэпкъ}}}э! || фы{{{псалъэпкъ}}}э!
+|-
+| щымыӀэныгъэ: || умы{{{псалъэпкъ}}}э! || фымы{{{псалъэпкъ}}}э!
+|}
+*/
+fn get_imperative(desc: &template::TemplateDesc) -> String {
     let root = "{{{псалъэпкъ}}}".to_owned();
     let table_name = "унафэ наклоненэ".to_owned();
-    // let thematic_vowel = treat_thematic_vowel(&desc.stem.thematic_vowel, &desc.stem);
 
     let mut table = Wikitable::new();
     table.add(table_name);
@@ -505,17 +402,17 @@ fn get_imperative(desc: &TemplateDesc) -> String {
     table.to_string()
 }
 
-fn get_imperative_raj(desc: &TemplateDesc) -> String {
-    /*
-    {| class="wikitable"
-    |-
-    ! Ре-кӀэ унафэ наклоненэ !! сэ  !! уэ !! ар !! дэ !! фэ !! ахэр
-    |-
-    | щыӀэныгъэ: || сре{{{псалъэпкъ}}}э || уре{{{псалъэпкъ}}}э || ире{{{псалъэпкъ}}}э || дре{{{псалъэпкъ}}}э || фре{{{псалъэпкъ}}}э || ире{{{псалъэпкъ}}}э
-    |-
-    | щымыӀэныгъэ: || сремы{{{псалъэпкъ}}}э || уремы{{{псалъэпкъ}}}э || иремы{{{псалъэпкъ}}}э || дремы{{{псалъэпкъ}}}э || фремы{{{псалъэпкъ}}}э || иремы{{{псалъэпкъ}}}э
-    |}
-    */
+/*
+{| class="wikitable"
+|-
+! Ре-кӀэ унафэ наклоненэ !! сэ  !! уэ !! ар !! дэ !! фэ !! ахэр
+|-
+| щыӀэныгъэ: || сре{{{псалъэпкъ}}}э || уре{{{псалъэпкъ}}}э || ире{{{псалъэпкъ}}}э || дре{{{псалъэпкъ}}}э || фре{{{псалъэпкъ}}}э || ире{{{псалъэпкъ}}}э
+|-
+| щымыӀэныгъэ: || сремы{{{псалъэпкъ}}}э || уремы{{{псалъэпкъ}}}э || иремы{{{псалъэпкъ}}}э || дремы{{{псалъэпкъ}}}э || фремы{{{псалъэпкъ}}}э || иремы{{{псалъэпкъ}}}э
+|}
+*/
+fn get_imperative_raj(desc: &template::TemplateDesc) -> String {
     let root = "{{{псалъэпкъ}}}".to_owned();
 
     let mut table = Wikitable::new();
@@ -572,7 +469,8 @@ fn get_imperative_raj(desc: &TemplateDesc) -> String {
     }
     table.to_string()
 }
-fn create_template(desc: TemplateDesc) -> String {
+
+fn create_template(desc: template::TemplateDesc) -> String {
     let mut result = "".to_string();
     result += &format!("<!-- Template:Wt/kbd/{} -->\n", desc.original_string);
 
@@ -597,168 +495,6 @@ fn create_template(desc: TemplateDesc) -> String {
     result
 }
 
-fn create_template_from_string(s: String) -> Option<TemplateDesc> {
-    let segments = s.split('-').collect::<Vec<&str>>();
-
-    // Every string must start with "спр". If this is not the case, the string is false.
-    if segments[0] != "спр" {
-        println!("The string does not start with 'спр'");
-        return None;
-    }
-    let transitivity = match segments[1] {
-        "лъэмыӏ" => Transitivity::Intransitive,
-        "лъэӏ" => Transitivity::Transitive,
-        _ => {
-            println!("The second string isn't either 'лъэмыӏ' or 'лъэӏ'");
-            return None;
-        }
-    };
-    let preverb = match segments[2] {
-        "0" => None,
-        _ => Some(Preverb {
-            form: PreverbForm::Full,
-            base: segments[2].to_owned(),
-        }),
-    };
-
-    let ending = match segments.last() {
-        Some(&"э") => ThematicVowel::A,
-        Some(&"ы") => ThematicVowel::Y,
-        _ => {
-            println!("The last string isn't either 'э' or 'ы'");
-            return None;
-        }
-    };
-
-    let (fc, v, lc) = {
-        //TODO: Refactor this!!! This is very messy.
-
-        let root = segments[3].clone();
-        let mut fc = ConsonantKind::Ordinary;
-        let mut v = VowelKind::Without;
-        let lc;
-
-        if root.starts_with('0') {
-            assert_eq!(transitivity, Transitivity::Intransitive);
-            fc = ConsonantKind::Ordinary;
-            v = VowelKind::Without;
-        } else if root.starts_with('б') {
-            assert_eq!(transitivity, Transitivity::Intransitive);
-            fc = ConsonantKind::Ordinary;
-            v = VowelKind::With;
-        } else if root.starts_with("жь") {
-            assert_eq!(transitivity, Transitivity::Transitive);
-            fc = ConsonantKind::Voiced;
-            if root.find('0').is_some() {
-                v = VowelKind::Without;
-            } else if root.find('б').is_some() {
-                v = VowelKind::With;
-            } else {
-                panic!();
-            }
-        } else if root.starts_with('д') {
-            assert_eq!(transitivity, Transitivity::Transitive);
-            fc = ConsonantKind::Unvoiced;
-            if root.find('0').is_some() {
-                v = VowelKind::Without;
-            } else if root.find('б').is_some() {
-                v = VowelKind::With;
-            } else {
-                panic!();
-            }
-        }
-
-        match root {
-            _ if root.ends_with('д') => {
-                lc = ConsonantKind::Ordinary;
-            }
-            _ if root.ends_with('т') => {
-                lc = ConsonantKind::Velar;
-            }
-            _ if root.ends_with('л') => {
-                lc = ConsonantKind::Labialized;
-            }
-            _ if root.ends_with("дэа") => {
-                lc = ConsonantKind::Ordinary;
-                v = VowelKind::Alternating;
-            }
-            _ => {
-                panic!();
-            }
-        }
-        (fc, v, lc)
-    };
-    let template_desc = TemplateDesc {
-        transitivity,
-        preverb,
-        stem: VerbStem {
-            first_consonant: fc,
-            vowel: v,
-            last_consonant: lc,
-            thematic_vowel: ending,
-            string: format!("{}{}", segments[3], segments.last().unwrap()),
-        },
-        original_string: s.clone(),
-    };
-    Some(template_desc)
-}
-
-/*
-    From the Email of Robert Dunwell (Rhdkabardian), the following encoding is used.
-    лъэмыӏ- = intransitive (this is also used for passive verbs - this probably be separate)
-    лъэӏ- = transitive
-    стат- = stative
-    NOTE: In the future a static transitive category will be added.
-    NOTE: Passive verbs use лъэмыӏ, in the future they will get their own category.
-
-    Transitive:
-
-    CCC
-    д = unvoiced first consonant
-    жь = voiced first consonant
-    The second and third consonants are as in intransitive verbs.
-
-    Intransitive, stative, causative
-
-    CC
-    б = not used - vowel in root
-    д = ordinary consinant
-    дэа = root with alternating a/э (verbs in -э only)
-    т = root in a velar
-    л = root in a labial
-    й = root in jot
-    у = root in wy
-    йэа = root with alternating a/э (verbs in -э only)
-
-    Causative
-    бд = causative prefix гъэ
-    0д = causative prefix гъэ/гъа
-
-*/
-/*
-
-    спр-лъэмыӏ-0-0д-э: плъэн
-    спр-лъэмыӏ-0-0д-ы:
-    спр-лъэмыӏ-0-0л-ы: гъун
-    спр-лъэмыӏ-0-0т-ы: гъын
-
-    спр-лъэмыӏ-0-бд-э: гупсысэн гуфIэн
-    спр-лъэмыӏ-0-бдэа-э: лэжьэн
-    спр-лъэмыӏ-0-бт-ы: дыхьэшхын
-    спр-лъэмыӏ-0-бй-ы: жеин
-
-    спр-лъэӏ-0-дблэа-ы: лъагъун
-    спр-лъэӏ-0-дбд-ы: тхьэщIын
-    спр-лъэӏ-0-жь0й-ы: ин
-    спр-лъэӏ-0-д0д-э: щIэн
-    спр-лъэӏ-0-убт-ы: ухын
-    спр-лъэӏ-0-д0д-ы: хьын тын
-    спр-лъэӏ-0-д0л-ы: хун
-
-    спр-лъэмыӏ-е-бд-ы: еплъын
-
-*/
-
 /*
     Ideas about the strucutre.
     - Having several modes. I want this projec to be quite flexible. The idea is not only to support wikipsalhalhe, but also other projects in the future if need be.
@@ -766,11 +502,11 @@ fn create_template_from_string(s: String) -> Option<TemplateDesc> {
 
     1. Template extraction:
         We give the engine a template string. It extract the necessary information from it.
-    2. 
+    2.
 */
 fn main() {
-    let template = "спр-лъэӏ-дэ-д0д-ы"; // tr. base. vl. e.g. хьын
-                                        // let template = "спр-лъэмыӏ-0-0д-ы"; // intr. base. vl. e.g. плъэн
-    let template = create_template_from_string(template.to_owned()).unwrap();
+    let template = "спр-лъэӏ-зэхэ-д0д-ы"; // tr. base. vl. e.g. хьын
+                                        // let template = "спр-лъэмыӏ-зэхэ-0д-ы"; // intr. base. vl. e.g. плъэн
+    let template = template::create_template_from_string(template.to_owned()).unwrap();
     create_template(template);
 }
