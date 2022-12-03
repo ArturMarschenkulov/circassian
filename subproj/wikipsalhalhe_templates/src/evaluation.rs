@@ -1,7 +1,7 @@
 use crate::ortho;
 use crate::template;
 use crate::PersonMarker;
-use crate::{Case, Morpheme, MorphemeKind, Number, Person, Preverb, PreverbForm};
+use crate::{Case, Morpheme, MorphemeKind, Number, Person, Preverb, PreverbSoundForm};
 use std::collections::VecDeque;
 
 pub fn morphemes_to_string(morphemes: &VecDeque<Morpheme>) -> String {
@@ -32,7 +32,7 @@ fn evaluate_person_marker(
     let is_second_singular = (marker.person, marker.number) == (Person::Second, Number::Singular);
 
     let m = marker;
-    let ss = match marker.case {
+    match marker.case {
         Case::Ergative => {
             // Because ergative markers are only one letter, we do this
             let letter = &ortho::parse(&marker.get_base_string())[0];
@@ -49,7 +49,7 @@ fn evaluate_person_marker(
                     // They basically look like normal absolutive markers
                     (None, Some(MorphemeKind::NegationPrefix))
                     | (None, Some(MorphemeKind::RajImperative)) => {
-                        let mut new_marker = marker.clone();
+                        let mut new_marker = *marker;
                         new_marker.case = Case::Absolutive;
 
                         new_marker.get_string()
@@ -64,7 +64,7 @@ fn evaluate_person_marker(
                             x
                         }
                     }
-                    // Howver if there is something before that, like a preverb, the ergative markers behave normally again,
+                    // Howver if there is something before that, like a preverb, the ergative markers behave normal again,
                     // except the second person singular, which stays 'у' instead of becoming 'б'/'п'.
                     (Some(MorphemeKind::Preverb(preverb)), Some(MorphemeKind::NegationPrefix)) => {
                         use ortho::{Manner::*, Place::*};
@@ -72,7 +72,12 @@ fn evaluate_person_marker(
                         match &letter.kind {
                             ortho::LetterKind::Consonant(consonant) => {
                                 let mut co = consonant.clone();
-                                co.voiceness = ortho::Voiceness::Voiced;
+                                // co.voiceness = ortho::Voiceness::Voiced;
+                                co.voiceness = morpheme_next
+                                    .unwrap()
+                                    .get_first_letter()
+                                    .unwrap()
+                                    .get_voiceness();
                                 let mut empenthetic = "".to_owned();
                                 if (co.place, co.manner) == (Labial, Plosive) {
                                     co.manner = Approximant;
@@ -89,6 +94,7 @@ fn evaluate_person_marker(
                     }
                     (_, Some(MorphemeKind::Stem(stem))) => match &letter.kind {
                         ortho::LetterKind::Consonant(consonant) => {
+                            // let x = preverb.get_first_letter().get_voiceness();
                             let mut consonant = consonant.clone();
                             use ortho::Voiceness as OV;
                             use template::ConsonantKind as TCP;
@@ -114,34 +120,31 @@ fn evaluate_person_marker(
                         _ => unreachable!(),
                     },
                     (_, None) => unreachable!(),
-                    _ => unreachable!(),
+                    x => unreachable!("{:?}", x),
                 }
             }
         }
         Case::Absolutive => m.get_base_string(),
         Case::Oblique => unimplemented!(),
-    };
-    ss
+    }
 }
 fn evaluate_preverb(preverb: &Preverb, morphemes: &VecDeque<Morpheme>, i: usize) -> String {
-    let mut p = preverb.clone();
+    let p = preverb.clone();
     let morpheme_prev = i.checked_sub(1).map(|i| &morphemes[i]);
     let morpheme_next = morphemes.get(i + 1);
     let morpheme_prev_kind = morpheme_prev.map(|x| &x.kind);
     let morpheme_next_kind = morpheme_next.map(|x| &x.kind);
 
     // let mut result = String::new();
-
-    let s = match &morpheme_next.unwrap().kind {
+    use PreverbSoundForm::*;
+    match &morpheme_next.unwrap().kind {
         MorphemeKind::PersonMarker(marker) => {
             assert!(marker.case == Case::Ergative);
 
             let o = marker.get_base_string();
             let first_letter = ortho::parse(&o)[0].clone();
-            match first_letter.kind {
-                ortho::LetterKind::Combi(..) => {
-                    p.form = PreverbForm::BeforeVowel;
-                }
+            let x = match first_letter.kind {
+                ortho::LetterKind::Combi(..) => preverb.get_form(&BeforeVowel),
                 ortho::LetterKind::Consonant(cons)
                     if cons.base == "б"
                         && morphemes
@@ -149,27 +152,17 @@ fn evaluate_preverb(preverb: &Preverb, morphemes: &VecDeque<Morpheme>, i: usize)
                             .map(|m| m.kind == MorphemeKind::NegationPrefix)
                             .unwrap_or(false) =>
                 {
-                    p.form = PreverbForm::BeforeVowel
+                    preverb.get_form(&BeforeVowel)
                 }
-                _ => p.form = PreverbForm::Full,
-            }
-            preverb.get_string(p.form)
+                _ => preverb.get_form(&Full),
+            };
+            x
         }
-        MorphemeKind::Stem(..) => {
-            p.form = PreverbForm::Full;
-            preverb.get_string(p.form)
-        }
-        MorphemeKind::NegationPrefix => {
-            p.form = PreverbForm::Full;
-            preverb.get_string(p.form)
-        }
-        MorphemeKind::RajImperative => {
-            p.form = PreverbForm::BeforeVowel;
-            preverb.get_string(p.form)
-        }
+        MorphemeKind::Stem(..) => preverb.get_form(&Full),
+        MorphemeKind::NegationPrefix => preverb.get_form(&Full),
+        MorphemeKind::RajImperative => preverb.get_form(&BeforeVowel),
         x => unimplemented!("{:?}", x),
-    };
-    s
+    }
 }
 pub fn evaluate_morphemes(morphemes: &VecDeque<Morpheme>) -> String {
     let mut result = String::new();
@@ -190,10 +183,8 @@ pub fn evaluate_morphemes(morphemes: &VecDeque<Morpheme>) -> String {
         let _is_first_morpheme = morpheme_prev.is_none();
         let _is_last_morpheme = morpheme_next.is_none();
 
-        match morpheme.kind {
-            MorphemeKind::PersonMarker(marker) => {
-                result += &evaluate_person_marker(&marker, morphemes, i);
-            }
+        let x = match morpheme.kind {
+            MorphemeKind::PersonMarker(marker) => evaluate_person_marker(&marker, morphemes, i),
             MorphemeKind::Stem(ref stem) => {
                 let tv = template::treat_thematic_vowel(&stem.thematic_vowel, stem);
 
@@ -203,27 +194,28 @@ pub fn evaluate_morphemes(morphemes: &VecDeque<Morpheme>) -> String {
                         if marker.case == Case::Ergative =>
                     {
                         let morpheme_prev_prev = i.checked_sub(2).map(|i| &morphemes[i]);
-                        if morpheme_prev_prev.is_none() {
-                            tv
-                        } else {
-                            "".to_owned()
-                        }
+                        morpheme_prev_prev.map(|m| "".to_owned()).unwrap_or(tv)
                     }
+                    // (_, Some(MorphemeKind::Generic))
+                    //     if morpheme_next
+                    //         .unwrap()
+                    //         .get_first_letter()
+                    //         .unwrap()
+                    //         .is_nasal() =>
+                    // {
+                    //     let morpheme_prev_prev = i.checked_sub(2).map(|i| &morphemes[i]);
+                    //     morpheme_prev_prev.map(|m| "".to_owned()).unwrap_or(tv)
+                    // }
                     _ => "".to_owned(),
                 };
 
-                result += &(morpheme.base.clone() + &tv);
+                morpheme.base.clone() + &tv
             }
-            MorphemeKind::Preverb(ref preverb) => {
-                result += &evaluate_preverb(&preverb, morphemes, i);
-            }
-            MorphemeKind::NegationPrefix => {
-                result += "мы";
-            }
-            MorphemeKind::Generic | MorphemeKind::RajImperative => {
-                result += &morpheme.base;
-            } // _ => unimplemented!(),
-        }
+            MorphemeKind::Preverb(ref preverb) => evaluate_preverb(preverb, morphemes, i),
+            MorphemeKind::NegationPrefix => "мы".to_owned(),
+            MorphemeKind::Generic | MorphemeKind::RajImperative => morpheme.base.clone(), // _ => unimplemented!(),
+        };
+        result += &x;
     }
     result
 }

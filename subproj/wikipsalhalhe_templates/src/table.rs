@@ -14,7 +14,10 @@ impl Wikitable {
         let last_row = self.cells.last_mut().unwrap();
         last_row.push(s);
     }
-    pub fn to_string(&self) -> String {
+}
+
+impl std::fmt::Display for Wikitable {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         let mut result = String::new();
         result += "{| class=\"wikitable\"\n";
         result += "|-\n";
@@ -34,6 +37,6 @@ impl Wikitable {
             result += "|-\n";
         }
         result += "|}";
-        result.to_owned()
+        write!(f, "{}", result)
     }
 }

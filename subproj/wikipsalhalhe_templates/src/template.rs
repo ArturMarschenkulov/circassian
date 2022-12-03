@@ -11,7 +11,7 @@ pub fn treat_thematic_vowel(tv: &ThematicVowel, vs: &VerbStem) -> String {
     .to_owned()
 }
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub enum ConsonantKind {
     /// Refers to unvoiced consonants.
     /// Can only be in the beginning of transitive verbs.
@@ -40,7 +40,7 @@ pub enum ConsonantKind {
     Ordinary,
 }
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub enum ThematicVowel {
     A,
     Y,
@@ -164,7 +164,8 @@ pub fn create_template_from_string(s: String) -> Option<TemplateDesc> {
     let (fc, v, lc) = {
         //TODO: Refactor this!!! This is very messy.
 
-        let root = segments[3].clone();
+        let root = <&str>::clone(&segments[3]);
+        // let root = segments[3].clone();
         let mut fc = ConsonantKind::Ordinary;
         let mut v = VowelKind::Without;
         let lc;
