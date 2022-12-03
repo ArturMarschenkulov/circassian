@@ -186,27 +186,36 @@ pub fn evaluate_morphemes(morphemes: &VecDeque<Morpheme>) -> String {
         let x = match morpheme.kind {
             MorphemeKind::PersonMarker(marker) => evaluate_person_marker(&marker, morphemes, i),
             MorphemeKind::Stem(ref stem) => {
+                // Because of orthography and phonological rules the ы letter, /ə/ sound, has to be treated in a special way.
+                //
                 let tv = template::treat_thematic_vowel(&stem.thematic_vowel, stem);
 
-                let tv = match (&morpheme_prev_kind, &morpheme_next_kind) {
-                    (None, None) => tv,
-                    (Some(MorphemeKind::PersonMarker(marker)), None)
-                        if marker.case == Case::Ergative =>
-                    {
-                        let morpheme_prev_prev = i.checked_sub(2).map(|i| &morphemes[i]);
-                        morpheme_prev_prev.map(|m| "".to_owned()).unwrap_or(tv)
+                let tv = match tv.as_ref() {
+                    "ы" => {
+                        let tv = match (&morpheme_prev_kind, &morpheme_next_kind) {
+                            (None, None) => tv,
+                            (Some(MorphemeKind::PersonMarker(marker)), None)
+                                if marker.case == Case::Ergative =>
+                            {
+                                let morpheme_prev_prev = i.checked_sub(2).map(|i| &morphemes[i]);
+                                // morpheme_prev_prev.map(|m| tv).unwrap_or("".to_owned())
+                                morpheme_prev_prev.map(|m| "".to_owned()).unwrap_or(tv)
+                            }
+                            (_, Some(MorphemeKind::Generic))
+                                if morpheme_next
+                                    .unwrap()
+                                    .get_first_letter()
+                                    .unwrap()
+                                    .is_nasal() =>
+                            {
+                                tv
+                            }
+                            _ => "".to_owned(),
+                        };
+                        tv
                     }
-                    // (_, Some(MorphemeKind::Generic))
-                    //     if morpheme_next
-                    //         .unwrap()
-                    //         .get_first_letter()
-                    //         .unwrap()
-                    //         .is_nasal() =>
-                    // {
-                    //     let morpheme_prev_prev = i.checked_sub(2).map(|i| &morphemes[i]);
-                    //     morpheme_prev_prev.map(|m| "".to_owned()).unwrap_or(tv)
-                    // }
-                    _ => "".to_owned(),
+                    v @ ("э" | "") => v.to_owned(),
+                    x => unreachable!("{:?}", x),
                 };
 
                 morpheme.base.clone() + &tv
