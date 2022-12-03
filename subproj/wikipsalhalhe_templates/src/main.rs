@@ -329,6 +329,7 @@ fn get_masdar_personal(desc: &template::TemplateDesc) -> String {
 
     let mut table = Wikitable::new();
     table.add(table_name);
+    let subject_case = &desc.transitivity.get_subject_case();
 
     let pronouns = match &desc.transitivity {
         Transitivity::Intransitive => ["сэ", "уэ", "ар", "дэ", "фэ", "ахэр"],
@@ -358,10 +359,9 @@ fn get_masdar_personal(desc: &template::TemplateDesc) -> String {
                 }
 
                 // Add ergative person marker
-                let case = &desc.transitivity.get_subject_case();
-                if case == &Case::Ergative {
-                    let erg_marker = PersonMarker::new(*person, *number, *case);
-                    let m = Morpheme::make_person_marker(&erg_marker);
+                if subject_case == &Case::Ergative {
+                    let marker = PersonMarker::new(*person, *number, *subject_case);
+                    let m = Morpheme::make_person_marker(&marker);
                     morphemes.push_front(m);
                 };
 
@@ -371,10 +371,10 @@ fn get_masdar_personal(desc: &template::TemplateDesc) -> String {
                     morphemes.push_front(m);
                 }
 
-                if desc.transitivity == Transitivity::Intransitive {
-                    let abs_marker = PersonMarker::new(*person, *number, Case::Absolutive);
-
-                    let m = Morpheme::make_person_marker(&abs_marker);
+                // Add absolutive person marker2
+                if subject_case == &Case::Absolutive {
+                    let marker = PersonMarker::new(*person, *number, Case::Absolutive);
+                    let m = Morpheme::make_person_marker(&marker);
                     morphemes.push_front(m);
                 }
 
@@ -408,6 +408,8 @@ fn get_imperative(desc: &template::TemplateDesc) -> String {
         table.add(pronoun.to_string());
     }
 
+    let subject_case = &desc.transitivity.get_subject_case();
+
     for polarity in ["", "мы"] {
         table.add_row();
         table.add(format!("щы{}Ӏэныгъэ", polarity));
@@ -425,11 +427,10 @@ fn get_imperative(desc: &template::TemplateDesc) -> String {
             }
 
             // Add ergative person marker
-            let case = &desc.transitivity.get_subject_case();
-            if case == &Case::Ergative {
+            if subject_case == &Case::Ergative {
                 if !((number, polarity) == (&Number::Singular, "")) {
-                    let erg_marker = PersonMarker::new(Person::Second, *number, *case);
-                    let m = Morpheme::make_person_marker(&erg_marker);
+                    let marker = PersonMarker::new(Person::Second, *number, *subject_case);
+                    let m = Morpheme::make_person_marker(&marker);
                     morphemes.push_front(m);
                 }
             };
@@ -441,10 +442,10 @@ fn get_imperative(desc: &template::TemplateDesc) -> String {
             }
 
             // Add absolutive person marker
-            if case == &Case::Absolutive {
+            if subject_case == &Case::Absolutive {
                 if (*number, polarity) != (Number::Singular, "") {
-                    let abs_marker = PersonMarker::new(Person::Second, *number, Case::Absolutive);
-                    let m = Morpheme::make_person_marker(&abs_marker);
+                    let marker = PersonMarker::new(Person::Second, *number, Case::Absolutive);
+                    let m = Morpheme::make_person_marker(&marker);
                     morphemes.push_front(m);
                 }
             }
@@ -482,25 +483,30 @@ fn get_imperative_raj(desc: &template::TemplateDesc) -> String {
             for person in &[Person::First, Person::Second, Person::Third] {
                 let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
 
+                // Add stem
                 morphemes.push_back(Morpheme {
                     kind: MorphemeKind::Stem(desc.stem.clone()),
                     base: root.clone(),
                 });
 
+                // Add negative prefix
                 if polarity == "мы" {
                     let m = Morpheme::make_negative_prefix();
                     morphemes.push_front(m);
                 }
+                // Add imperative raj
                 morphemes.push_front(Morpheme::make_imperative_raj());
+                // Add preverb
                 if let Some(preverb) = desc.preverb.clone() {
                     let m = Morpheme::make_preverb(&preverb);
                     morphemes.push_front(m);
                 }
 
-                // If there is a preverb present, the third person marker is not present
+                // Add
                 if !(desc.preverb.is_some() && Person::Third == *person) {
                     let marker = PersonMarker::new(
                         *person,
+                        // If there is a preverb present, the third person marker is not present
                         if (person, number) == (&Person::Third, &Number::Plural) {
                             Number::Singular
                         } else {
