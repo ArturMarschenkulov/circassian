@@ -307,10 +307,29 @@ impl Transitivity {
     |}
 */
 
+fn new_masdar(polarity: &str, preverb: &Option<Preverb>, stem: &VerbStem) -> VecDeque<Morpheme> {
+    let root = "{{{псалъэпкъ}}}".to_owned();
+    let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
 
+    morphemes.push_back(Morpheme {
+        kind: MorphemeKind::Stem(stem.clone(), root.clone()),
+        //base: root.clone(),
+    });
+    morphemes.push_back(Morpheme::new_generic("н"));
+    if polarity == "мы" {
+        let m = Morpheme::new_negative_prefix();
+        morphemes.push_front(m);
+    }
+
+    if let Some(preverb) = preverb.clone() {
+        let m = Morpheme::new_preverb(&preverb);
+        morphemes.push_front(m);
+    }
+    morphemes
+}
 
 fn table_masdar(desc: &template::TemplateDesc) -> String {
-    let root = "{{{псалъэпкъ}}}".to_owned();
+    // let root = "{{{псалъэпкъ}}}".to_owned();
     let table_name = "Инфинитив (масдар)".to_owned();
 
     let mut table = Wikitable::new();
@@ -321,22 +340,9 @@ fn table_masdar(desc: &template::TemplateDesc) -> String {
         table.add_row();
         table.add(format!("щы{}Ӏэныгъэ:", polarity));
 
-        let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
-        morphemes.push_back(Morpheme {
-            kind: MorphemeKind::Stem(desc.stem.clone(), root.clone()),
-            //base: root.clone(),
-        });
-        morphemes.push_back(Morpheme::new_generic("н"));
-        if polarity == "мы" {
-            let m = Morpheme::new_negative_prefix();
-            morphemes.push_front(m);
-        }
-
-        if let Some(preverb) = desc.preverb.clone() {
-            let m = Morpheme::new_preverb(&preverb);
-            morphemes.push_front(m);
-        }
-        table.add(evaluation::evaluate_morphemes(&morphemes));
+        let morphemes = new_masdar(polarity, &desc.preverb, &desc.stem);
+        let string = evaluation::evaluate_morphemes(&morphemes);
+        table.add(string);
     }
 
     table.to_string()
@@ -352,9 +358,56 @@ fn table_masdar(desc: &template::TemplateDesc) -> String {
     | щымыӀэныгъэ: || сымы{{{псалъэпкъ}}}эн || умы{{{псалъэпкъ}}}эн || мы{{{псалъэпкъ}}}эн || дымы{{{псалъэпкъ}}}эн || фымы{{{псалъэпкъ}}}эн || мы{{{псалъэпкъ}}}эн(хэ)
     |}
 */
-fn table_masdar_personal(desc: &template::TemplateDesc) -> String {
-    let root = "{{{псалъэпкъ}}}".to_owned();
+fn new_masdar_personal(
+    polarity: &str,
+    preverb: &Option<Preverb>,
+    stem: &VerbStem,
+    abs_marker: &PersonMarker,
+    erg_marker: &Option<PersonMarker>,
+) -> VecDeque<Morpheme> {
+    assert_eq!(abs_marker.case, Case::Absolutive);
 
+    let root = "{{{псалъэпкъ}}}".to_owned();
+    let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
+
+    morphemes.push_back(Morpheme {
+        kind: MorphemeKind::Stem(stem.clone(), root.clone()),
+        //base: root.clone(),
+    });
+    morphemes.push_back(Morpheme::new_generic("н"));
+
+    // Add negative prefix
+    if polarity == "мы" {
+        let m = Morpheme::new_negative_prefix();
+        morphemes.push_front(m);
+    }
+
+    // Add ergative person marker
+    if let Some(marker) = erg_marker {
+        let marker = PersonMarker::new(marker.person, marker.number, Case::Ergative);
+        let m = Morpheme::new_person_marker(&marker);
+        morphemes.push_front(m);
+    };
+
+    // Add preverb
+    if let Some(preverb) = preverb.clone() {
+        let m = Morpheme::new_preverb(&preverb);
+        morphemes.push_front(m);
+    }
+
+    // Add absolutive person marker
+    if (Person::Third) != abs_marker.person {
+        let marker = PersonMarker::new(abs_marker.person, abs_marker.number, Case::Absolutive);
+        let m = Morpheme::new_person_marker(&marker);
+        morphemes.push_front(m);
+    }
+
+    let m = Morpheme::new_person_marker(&abs_marker);
+    morphemes.push_back(m);
+
+    morphemes
+}
+fn table_masdar_personal(desc: &template::TemplateDesc) -> String {
     let table_name = "Инфинитив (масдар) щхьэкӀэ зэхъуэкӀа".to_owned();
 
     let mut table = Wikitable::new();
@@ -374,43 +427,27 @@ fn table_masdar_personal(desc: &template::TemplateDesc) -> String {
 
         for number in &[Number::Singular, Number::Plural] {
             for person in &[Person::First, Person::Second, Person::Third] {
-                let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
-                morphemes.push_back(Morpheme {
-                    kind: MorphemeKind::Stem(desc.stem.clone(), root.clone()),
-                    // base: root.clone(),
-                });
-                morphemes.push_back(Morpheme::new_generic("н"));
-
-                // Add negative prefix
-                if polarity == "мы" {
-                    let m = Morpheme::new_negative_prefix();
-                    morphemes.push_front(m);
-                }
-
-                // Add ergative person marker
-                if subject_case == &Case::Ergative {
-                    let marker = PersonMarker::new(*person, *number, *subject_case);
-                    let m = Morpheme::new_person_marker(&marker);
-                    morphemes.push_front(m);
+                let abs_marker = if subject_case == &Case::Absolutive {
+                    PersonMarker::new(*person, *number, Case::Absolutive)
+                } else {
+                    PersonMarker::new(Person::Third, *number, Case::Absolutive)
                 };
+                let erg_marker = if subject_case == &Case::Ergative {
+                    Some(PersonMarker::new(*person, *number, Case::Ergative))
+                } else {
+                    None
+                };
+                let morphemes = new_masdar_personal(
+                    polarity,
+                    &desc.preverb,
+                    &desc.stem,
+                    &abs_marker,
+                    &erg_marker,
+                );
 
-                // Add preverb
-                if let Some(preverb) = desc.preverb.clone() {
-                    let m = Morpheme::new_preverb(&preverb);
-                    morphemes.push_front(m);
-                }
-
-                // Add absolutive person marker2
-                if subject_case == &Case::Absolutive {
-                    let marker = PersonMarker::new(*person, *number, Case::Absolutive);
-                    let m = Morpheme::new_person_marker(&marker);
-                    morphemes.push_front(m);
-                }
-
-                let s = evaluation::evaluate_morphemes(&morphemes);
-
-                println!("{:?}", evaluation::morphemes_to_string(&morphemes));
-                table.add(s);
+                let string = evaluation::evaluate_morphemes(&morphemes);
+                // println!("{:?}", evaluation::morphemes_to_string(&morphemes));
+                table.add(string);
             }
         }
     }
@@ -427,8 +464,50 @@ fn table_masdar_personal(desc: &template::TemplateDesc) -> String {
 | щымыӀэныгъэ: || умы{{{псалъэпкъ}}}э! || фымы{{{псалъэпкъ}}}э!
 |}
 */
-fn table_imperative(desc: &template::TemplateDesc) -> String {
+fn new_imperative(
+    polarity: &str,
+    preverb: &Option<Preverb>,
+    stem: &VerbStem,
+    abs_marker: &PersonMarker,
+    erg_marker: &Option<PersonMarker>,
+) -> VecDeque<Morpheme> {
     let root = "{{{псалъэпкъ}}}".to_owned();
+    let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
+
+    morphemes.push_back(Morpheme {
+        kind: MorphemeKind::Stem(stem.clone(), root.clone()),
+        // base: root.clone(),
+    });
+
+    // Add negative prefix
+    if polarity == "мы" {
+        let m = Morpheme::new_negative_prefix();
+        morphemes.push_front(m);
+    }
+
+    // Add ergative person marker
+    if let Some(marker) = erg_marker {
+        let marker = PersonMarker::new(Person::Second, marker.number, Case::Ergative);
+        let m = Morpheme::new_person_marker(&marker);
+        morphemes.push_front(m);
+    };
+
+    // Add preverb
+    if let Some(preverb) = preverb.clone() {
+        let m = Morpheme::new_preverb(&preverb);
+        morphemes.push_front(m);
+    }
+
+    // Add absolutive person marker
+    if (Person::Third) != abs_marker.person {
+        let marker = PersonMarker::new(Person::Second, abs_marker.number, Case::Absolutive);
+        let m = Morpheme::new_person_marker(&marker);
+        morphemes.push_front(m);
+    }
+
+    morphemes
+}
+fn table_imperative(desc: &template::TemplateDesc) -> String {
     let table_name = "унафэ наклоненэ".to_owned();
 
     let mut table = Wikitable::new();
@@ -443,44 +522,27 @@ fn table_imperative(desc: &template::TemplateDesc) -> String {
         table.add_row();
         table.add(format!("щы{}Ӏэныгъэ", polarity));
         for number in &[Number::Singular, Number::Plural] {
-            let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
-            morphemes.push_back(Morpheme {
-                kind: MorphemeKind::Stem(desc.stem.clone(), root.clone()),
-                // base: root.clone(),
-            });
-
-            // Add negative prefix
-            if polarity == "мы" {
-                let m = Morpheme::new_negative_prefix();
-                morphemes.push_front(m);
-            }
-
-            // Add ergative person marker
-            if subject_case == &Case::Ergative {
-                if !((number, polarity) == (&Number::Singular, "")) {
-                    let marker = PersonMarker::new(Person::Second, *number, *subject_case);
-                    let m = Morpheme::new_person_marker(&marker);
-                    morphemes.push_front(m);
-                }
+            let abs_marker = if subject_case == &Case::Absolutive {
+                PersonMarker::new(Person::Second, *number, Case::Absolutive)
+            } else {
+                PersonMarker::new(Person::Third, *number, Case::Absolutive)
+            };
+            let erg_marker = if subject_case == &Case::Ergative {
+                Some(PersonMarker::new(Person::Second, *number, Case::Ergative))
+            } else {
+                None
             };
 
-            // Add preverb
-            if let Some(preverb) = desc.preverb.clone() {
-                let m = Morpheme::new_preverb(&preverb);
-                morphemes.push_front(m);
-            }
+            let morphemes = new_imperative(
+                polarity,
+                &desc.preverb,
+                &desc.stem,
+                &abs_marker,
+                &erg_marker,
+            );
 
-            // Add absolutive person marker
-            if subject_case == &Case::Absolutive {
-                if (*number, polarity) != (Number::Singular, "") {
-                    let marker = PersonMarker::new(Person::Second, *number, Case::Absolutive);
-                    let m = Morpheme::new_person_marker(&marker);
-                    morphemes.push_front(m);
-                }
-            }
-
-            let s = evaluation::evaluate_morphemes(&morphemes);
-            table.add(s);
+            let string = evaluation::evaluate_morphemes(&morphemes);
+            table.add(string);
         }
     }
     table.to_string()
@@ -496,9 +558,52 @@ fn table_imperative(desc: &template::TemplateDesc) -> String {
 | щымыӀэныгъэ: || сремы{{{псалъэпкъ}}}э || уремы{{{псалъэпкъ}}}э || иремы{{{псалъэпкъ}}}э || дремы{{{псалъэпкъ}}}э || фремы{{{псалъэпкъ}}}э || иремы{{{псалъэпкъ}}}э
 |}
 */
-fn table_imperative_raj(desc: &template::TemplateDesc) -> String {
+fn new_imperative_raj(
+    polarity: &str,
+    preverb: &Option<Preverb>,
+    stem: &VerbStem,
+    person: &Person,
+    number: &Number,
+) -> VecDeque<Morpheme> {
     let root = "{{{псалъэпкъ}}}".to_owned();
+    let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
+    // Add stem
+    morphemes.push_back(Morpheme {
+        kind: MorphemeKind::Stem(stem.clone(), root.clone()),
+        // base: root.clone(),
+    });
 
+    // Add negative prefix
+    if polarity == "мы" {
+        let m = Morpheme::new_negative_prefix();
+        morphemes.push_front(m);
+    }
+    // Add imperative raj
+    morphemes.push_front(Morpheme::new_imperative_raj());
+    // Add preverb
+    if let Some(preverb) = preverb.clone() {
+        let m = Morpheme::new_preverb(&preverb);
+        morphemes.push_front(m);
+    }
+
+    // Add
+    if !(preverb.is_some() && Person::Third == *person) {
+        let marker = PersonMarker::new(
+            *person,
+            // If there is a preverb present, the third person marker is not present
+            if (person, number) == (&Person::Third, &Number::Plural) {
+                Number::Singular
+            } else {
+                *number
+            },
+            Case::Ergative,
+        );
+        let m = Morpheme::new_person_marker(&marker);
+        morphemes.push_front(m);
+    }
+    morphemes
+}
+fn table_imperative_raj(desc: &template::TemplateDesc) -> String {
     let mut table = Wikitable::new();
     table.add("Ре-кӀэ унафэ наклоненэ".to_owned());
     let pronouns = match &desc.transitivity {
@@ -514,45 +619,10 @@ fn table_imperative_raj(desc: &template::TemplateDesc) -> String {
         table.add(format!("щы{}Ӏэныгъэ", polarity));
         for number in &[Number::Singular, Number::Plural] {
             for person in &[Person::First, Person::Second, Person::Third] {
-                let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
-
-                // Add stem
-                morphemes.push_back(Morpheme {
-                    kind: MorphemeKind::Stem(desc.stem.clone(), root.clone()),
-                    // base: root.clone(),
-                });
-
-                // Add negative prefix
-                if polarity == "мы" {
-                    let m = Morpheme::new_negative_prefix();
-                    morphemes.push_front(m);
-                }
-                // Add imperative raj
-                morphemes.push_front(Morpheme::new_imperative_raj());
-                // Add preverb
-                if let Some(preverb) = desc.preverb.clone() {
-                    let m = Morpheme::new_preverb(&preverb);
-                    morphemes.push_front(m);
-                }
-
-                // Add
-                if !(desc.preverb.is_some() && Person::Third == *person) {
-                    let marker = PersonMarker::new(
-                        *person,
-                        // If there is a preverb present, the third person marker is not present
-                        if (person, number) == (&Person::Third, &Number::Plural) {
-                            Number::Singular
-                        } else {
-                            *number
-                        },
-                        Case::Ergative,
-                    );
-                    let m = Morpheme::new_person_marker(&marker);
-                    morphemes.push_front(m);
-                }
-
-                let s = evaluation::evaluate_morphemes(&morphemes);
-                table.add(s);
+                let morphemes =
+                    new_imperative_raj(polarity, &desc.preverb, &desc.stem, person, number);
+                let string = evaluation::evaluate_morphemes(&morphemes);
+                table.add(string);
             }
         }
     }
@@ -604,8 +674,8 @@ fn table_indicative(desc: &template::TemplateDesc) -> String {
                     morphemes.push_front(m);
                 }
             }
-            let s = evaluation::evaluate_morphemes(&morphemes);
-            table.add(s);
+            let string = evaluation::evaluate_morphemes(&morphemes);
+            table.add(string);
         }
     }
     table.to_string()
@@ -671,7 +741,7 @@ fn main() {
     // In many cases the resulting table won't correspond to real words.
     let mut test_roots: std::collections::HashMap<&str, &str>;
     test_roots = std::collections::HashMap::new();
-    test_roots.insert("0д", "");
+    test_roots.insert("0д", "в");
     test_roots.insert("0л", "гъу");
     test_roots.insert("0т", "гъ");
 
@@ -689,8 +759,8 @@ fn main() {
     test_roots.insert("д0л", "ху");
 
     // спр-лъэӏ-зэхэ-д0д-ы
-    let template = "спр-лъэӏ-0-д0д-ы"; // tr. base. vl. e.g. хьын
-                                       // let template = "спр-лъэмыӏ-0-0д-ы"; // intr. base. vl. e.g. плъэн
+    let template = "спр-лъэмыӏ-0-0д-ы"; // tr. base. vl. e.g. хьын
+                                        // let template = "спр-лъэмыӏ-0-0д-ы"; // intr. base. vl. e.g. плъэн
     let template_desc = template::create_template_from_string(template.to_owned()).unwrap();
     let template_str = create_template(template_desc);
 
