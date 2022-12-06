@@ -40,12 +40,12 @@ fn evaluate_person_marker_(
     }
 
     match morpheme_next_kind {
-        Some(mk) if mk.get_first_letter().unwrap().is_consonant() => {
+        Some(mk) if mk.first_letter().unwrap().is_consonant() => {
             is_before_vowel = false;
             is_next_consonant_voiced =
-                mk.get_first_letter().unwrap().get_voiceness() == ortho::Voiceness::Voiced;
+                mk.first_letter().unwrap().get_voiceness() == ortho::Voiceness::Voiced;
         }
-        Some(mk) if mk.get_first_letter().unwrap().is_vowel() => {
+        Some(mk) if mk.first_letter().unwrap().is_vowel() => {
             is_before_vowel = true;
         }
         None => unreachable!("PersonMarker must be followed by a morpheme"),
@@ -139,13 +139,13 @@ fn evaluate_person_marker(
                                 ortho::LetterKind::Consonant(consonant) => {
                                     let mut consonant = consonant.clone();
                                     consonant.voiceness =
-                                        negative.get_first_letter().unwrap().get_voiceness();
+                                        negative.first_letter().unwrap().get_voiceness();
                                     let mut empenthetic = "".to_owned();
 
                                     // if 'п' or 'б', make it 'у'.
                                     if (consonant.place, consonant.manner) == (Labial, Plosive) {
                                         consonant.manner = Approximant;
-                                        let lc = preverb.get_last_consonant().unwrap();
+                                        let lc = preverb.last_consonant().unwrap();
                                         if [Velar, Uvular, Glottal].contains(&lc.place) {
                                             empenthetic = "ы".to_owned();
                                         }
@@ -193,7 +193,7 @@ fn evaluate_person_marker(
         Case::Absolutive => {
             let x = match (morpheme_prev_kind, morpheme_next_kind) {
                 (None, Some(generic @ MorphemeKind::Generic(..)))
-                    if generic.get_first_letter().unwrap().is_vowel() =>
+                    if generic.first_letter().unwrap().is_vowel() =>
                 {
                     let x = marker.get_base_string();
                     let xxx = if x.ends_with('ы') {
@@ -298,11 +298,7 @@ pub fn evaluate_morphemes(morphemes: &VecDeque<Morpheme>) -> String {
                                 morpheme_prev_prev.map(|m| "".to_owned()).unwrap_or(tv)
                             }
                             (_, Some(MorphemeKind::Generic(..)))
-                                if morpheme_next
-                                    .unwrap()
-                                    .get_first_letter()
-                                    .unwrap()
-                                    .is_nasal() =>
+                                if morpheme_next.unwrap().first_letter().unwrap().is_nasal() =>
                             {
                                 tv
                             }
