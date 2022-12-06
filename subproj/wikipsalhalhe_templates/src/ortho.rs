@@ -39,6 +39,36 @@ impl Letter {
             LetterKind::Combi(..) => false,
         }
     }
+    /// Returns `true` if the letter is a vowel or a combination of consonant and vowel.
+    pub fn is_vowel(&self) -> bool {
+        match &self.kind {
+            LetterKind::Consonant(..) => false,
+            LetterKind::Vowel(..) => true,
+            LetterKind::Combi(..) => false,
+        }
+    }
+    /// Returns `true` if the letter is a consonant or a combination of consonant and vowel.
+    pub fn is_consonant(&self) -> bool {
+        match &self.kind {
+            LetterKind::Consonant(..) => true,
+            LetterKind::Vowel(..) => false,
+            LetterKind::Combi(..) => false,
+        }
+    }
+    pub fn is_vowel_with_combi(&self) -> bool {
+        match &self.kind {
+            LetterKind::Consonant(..) => false,
+            LetterKind::Vowel(..) => true,
+            LetterKind::Combi(..) => true,
+        }
+    }
+    pub fn is_consonant_with_combi(&self) -> bool {
+        match &self.kind {
+            LetterKind::Consonant(..) => true,
+            LetterKind::Vowel(..) => false,
+            LetterKind::Combi(..) => true,
+        }
+    }
 }
 
 impl std::fmt::Display for Letter {

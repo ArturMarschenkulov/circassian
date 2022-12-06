@@ -1,5 +1,5 @@
-#![allow(dead_code, unused_variables)]
-#![allow(clippy::match_like_matches_macro)]
+// #![allow(dead_code, unused_variables)]
+// #![allow(clippy::match_like_matches_macro)]
 
 mod evaluation;
 mod ortho;
@@ -109,11 +109,37 @@ impl Preverb {
 enum MorphemeKind {
     Preverb(Preverb),
     PersonMarker(PersonMarker),
-    Stem(template::VerbStem),
-    // InfitiveSuffix,
     NegationPrefix,
     RajImperative,
-    Generic,
+
+    Stem(template::VerbStem, String),
+
+    Generic(String),
+}
+
+impl MorphemeKind {
+    fn get_first_letter(&self) -> Option<ortho::Letter> {
+        self.to_letters().first().cloned()
+    }
+    fn to_letters(&self) -> Vec<ortho::Letter> {
+        let base = self.to_string();
+        ortho::parse(&base)
+    }
+}
+
+impl std::fmt::Display for MorphemeKind {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+        match self {
+            MorphemeKind::Preverb(preverb) => write!(f, "{}", preverb.base),
+            MorphemeKind::PersonMarker(person_marker) => {
+                write!(f, "{}", person_marker.get_base_string())
+            }
+            MorphemeKind::NegationPrefix => write!(f, "мы"),
+            MorphemeKind::RajImperative => write!(f, "ре"),
+            MorphemeKind::Stem(stem, base) => write!(f, "{}", base),
+            MorphemeKind::Generic(generic) => write!(f, "{}", generic),
+        }
+    }
 }
 #[derive(Debug, Clone)]
 pub struct Morpheme {
@@ -122,18 +148,22 @@ pub struct Morpheme {
 }
 impl Morpheme {
     fn get_first_letter(&self) -> Option<ortho::Letter> {
-        let letters = ortho::parse(&self.base);
-        let first_letter = letters.first().cloned();
-        first_letter
+        self.to_letters().first().cloned()
     }
     fn to_letters(&self) -> Vec<ortho::Letter> {
-        ortho::parse(&self.base)
+        let base = self.kind.to_string();
+        ortho::parse(&base)
+    }
+}
+impl std::fmt::Display for Morpheme {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+        write!(f, "{}", self.kind)
     }
 }
 impl Morpheme {
     fn make_generic(base: &str) -> Self {
         Morpheme {
-            kind: MorphemeKind::Generic,
+            kind: MorphemeKind::Generic(base.to_owned()),
             base: base.to_owned(),
         }
     }
@@ -204,10 +234,6 @@ impl PersonMarker {
     }
 }
 impl PersonMarker {
-    /// Returns the "base" form of the person markers
-    fn get_base_2(&self) -> String {
-        Self::get_base_from(&self.person, &self.number, &self.case)
-    }
     fn get_base_from(person: &Person, number: &Number, case: &Case) -> String {
         let pm = PersonMarker {
             person: *person,
@@ -244,12 +270,12 @@ impl PersonMarker {
         result.to_string()
     }
     fn get_string(&self) -> String {
-        self.get_base_2()
+        Self::get_base_from(&self.person, &self.number, &self.case)
     }
 }
 
 #[derive(Debug, Clone, PartialEq)]
-enum VowelKind {
+pub enum VowelKind {
     With,
     Without,
     Alternating,
@@ -293,7 +319,7 @@ fn get_masdar(desc: &template::TemplateDesc) -> String {
 
         let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
         morphemes.push_back(Morpheme {
-            kind: MorphemeKind::Stem(desc.stem.clone()),
+            kind: MorphemeKind::Stem(desc.stem.clone(), root.clone()),
             base: root.clone(),
         });
         morphemes.push_back(Morpheme::make_generic("н"));
@@ -347,7 +373,7 @@ fn get_masdar_personal(desc: &template::TemplateDesc) -> String {
             for person in &[Person::First, Person::Second, Person::Third] {
                 let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
                 morphemes.push_back(Morpheme {
-                    kind: MorphemeKind::Stem(desc.stem.clone()),
+                    kind: MorphemeKind::Stem(desc.stem.clone(), root.clone()),
                     base: root.clone(),
                 });
                 morphemes.push_back(Morpheme::make_generic("н"));
@@ -416,7 +442,7 @@ fn get_imperative(desc: &template::TemplateDesc) -> String {
         for number in &[Number::Singular, Number::Plural] {
             let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
             morphemes.push_back(Morpheme {
-                kind: MorphemeKind::Stem(desc.stem.clone()),
+                kind: MorphemeKind::Stem(desc.stem.clone(), root.clone()),
                 base: root.clone(),
             });
 
@@ -472,7 +498,11 @@ fn get_imperative_raj(desc: &template::TemplateDesc) -> String {
 
     let mut table = Wikitable::new();
     table.add("Ре-кӀэ унафэ наклоненэ".to_owned());
-    for pronoun in ["сэ", "уэ", "ар", "дэ", "фэ", "ахэр"].iter() {
+    let pronouns = match &desc.transitivity {
+        Transitivity::Intransitive => ["сэ", "уэ", "ар", "дэ", "фэ", "ахэр"],
+        Transitivity::Transitive => ["сэ", "уэ", "абы", "дэ", "фэ", "абыхэм"],
+    };
+    for pronoun in pronouns.iter() {
         table.add(pronoun.to_string());
     }
 
@@ -485,7 +515,7 @@ fn get_imperative_raj(desc: &template::TemplateDesc) -> String {
 
                 // Add stem
                 morphemes.push_back(Morpheme {
-                    kind: MorphemeKind::Stem(desc.stem.clone()),
+                    kind: MorphemeKind::Stem(desc.stem.clone(), root.clone()),
                     base: root.clone(),
                 });
 
@@ -526,6 +556,58 @@ fn get_imperative_raj(desc: &template::TemplateDesc) -> String {
     table.to_string()
 }
 
+fn get_indicative(desc: &template::TemplateDesc) -> String {
+    let root = "{{{псалъэпкъ}}}".to_owned();
+
+    let mut table = Wikitable::new();
+    table.add("ЗэраӀуатэ наклоненэ".to_owned());
+    let subject_case = &desc.transitivity.get_subject_case();
+    let pronouns = match &desc.transitivity {
+        Transitivity::Intransitive => ["сэ", "уэ", "ар", "дэ", "фэ", "ахэр"],
+        Transitivity::Transitive => ["сэ", "уэ", "абы", "дэ", "фэ", "абыхэм"],
+    };
+    for pronoun in pronouns.iter() {
+        table.add(pronoun.to_string());
+    }
+
+    table.add_row();
+    table.add("ит зэман – щыӀэныгъэ".to_owned());
+    for number in &[Number::Singular, Number::Plural] {
+        for person in &[Person::First, Person::Second, Person::Third] {
+            let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
+            morphemes.push_back(Morpheme {
+                kind: MorphemeKind::Stem(desc.stem.clone(), root.clone()),
+                base: root.clone(),
+            });
+            morphemes.push_back(Morpheme::make_generic("р"));
+
+            morphemes.push_front(Morpheme::make_generic("о"));
+
+            // Add absolutive person marker
+            if subject_case == &Case::Ergative {
+                let marker = PersonMarker::new(*person, *number, Case::Ergative);
+                let m = Morpheme::make_person_marker(&marker);
+                morphemes.push_front(m);
+            }
+            // Add preverb
+            if let Some(preverb) = desc.preverb.clone() {
+                let m = Morpheme::make_preverb(&preverb);
+                morphemes.push_front(m);
+            }
+            if subject_case == &Case::Absolutive {
+                if (person) != (&Person::Third) {
+                    let marker = PersonMarker::new(*person, *number, Case::Absolutive);
+                    let m = Morpheme::make_person_marker(&marker);
+                    morphemes.push_front(m);
+                }
+            }
+            let s = evaluation::evaluate_morphemes(&morphemes);
+            table.add(s);
+        }
+    }
+    table.to_string()
+}
+
 fn create_template(desc: template::TemplateDesc) -> String {
     let mut result = "".to_string();
     result += &format!("<!-- Template:Wt/kbd/{} -->\n", desc.original_string);
@@ -545,8 +627,10 @@ fn create_template(desc: template::TemplateDesc) -> String {
     result += &get_imperative_raj(&desc);
     result += "\n-\n";
 
+    result += &get_indicative(&desc);
+    result += "\n-\n";
+
     result += "|}<noinclude>\n[[Category:Wt/kbd]]\n</noinclude>";
-    println!("{}", result);
 
     result
 }
@@ -561,9 +645,56 @@ fn create_template(desc: template::TemplateDesc) -> String {
     2.
 */
 fn main() {
+    let possible_templates = [
+        "спр-лъэмыӏ-0-0д-э",
+        "спр-лъэмыӏ-0-0д-ы",
+        "спр-лъэмыӏ-0-0л-ы",
+        "спр-лъэмыӏ-0-0т-ы",
+        "спр-лъэмыӏ-0-бд-э",
+        "спр-лъэмыӏ-0-бдэа-э",
+        "спр-лъэмыӏ-0-бт-ы",
+        "спр-лъэмыӏ-0-бй-ы",
+        "спр-лъэӏ-0-дблэа-ы",
+        "спр-лъэӏ-0-дбд-ы",
+        "спр-лъэӏ-0-жь0й-ы",
+        "спр-лъэӏ-0-д0д-э",
+        "спр-лъэӏ-0-убт-ы",
+        "спр-лъэӏ-0-д0д-ы",
+        "спр-лъэӏ-0-д0л-ы",
+        // "спр-лъэмыӏ-е-бд-ы",
+    ];
+
+    // those are only test roots so that one can visually test the tables better.
+    // In many cases the resulting table won't correspond to real words.
+    let mut test_roots: std::collections::HashMap<&str, &str>;
+    test_roots = std::collections::HashMap::new();
+    test_roots.insert("0д", "");
+    test_roots.insert("0л", "гъу");
+    test_roots.insert("0т", "гъ");
+
+    test_roots.insert("бд", "гупсыс");
+    test_roots.insert("бдэа", "лэжь");
+    test_roots.insert("бт", "дыхьэшх");
+    test_roots.insert("бй", "же");
+
+    test_roots.insert("дблэа", "лъагъу");
+    test_roots.insert("дбд", "тхьэщI");
+    test_roots.insert("жь0й", "и");
+    test_roots.insert("д0д", "щI");
+    test_roots.insert("убт", "ух");
+    test_roots.insert("д0д", "хь");
+    test_roots.insert("д0л", "ху");
+
     // спр-лъэӏ-зэхэ-д0д-ы
-    let template = "спр-лъэӏ-зэхэ-дбд-ы"; // tr. base. vl. e.g. хьын
-    let template = "спр-лъэмыӏ-0-0д-ы"; // intr. base. vl. e.g. плъэн
-    let template = template::create_template_from_string(template.to_owned()).unwrap();
-    create_template(template);
+    let template = "спр-лъэӏ-0-д0д-ы"; // tr. base. vl. e.g. хьын
+                                       // let template = "спр-лъэмыӏ-0-0д-ы"; // intr. base. vl. e.g. плъэн
+    let template_desc = template::create_template_from_string(template.to_owned()).unwrap();
+    let template_str = create_template(template_desc);
+
+    if let Some(root) = test_roots.get(template::get_root_str(template)) {
+        let result = template_str.replace("{{{псалъэпкъ}}}", root);
+        println!("{}", result);
+    } else {
+        println!("{}", template_str);
+    }
 }
