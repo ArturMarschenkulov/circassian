@@ -1,5 +1,5 @@
-use crate::ortho;
-use crate::{Preverb, Transitivity, VowelKind};
+use crate::morpho::{Preverb, Transitivity};
+use crate::VowelKind;
 
 /// It's basically there to treat stems ending on у which labializes the consonants before it.
 /// This also indicates an implicit ы.

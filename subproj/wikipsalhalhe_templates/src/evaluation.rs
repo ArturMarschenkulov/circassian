@@ -1,7 +1,8 @@
+use crate::morpho::{
+    Case, Morpheme, MorphemeKind, Number, Person, PersonMarker, Preverb, PreverbSoundForm,
+};
 use crate::ortho;
 use crate::template;
-use crate::PersonMarker;
-use crate::{Case, Morpheme, MorphemeKind, Number, Person, Preverb, PreverbSoundForm};
 use std::collections::VecDeque;
 
 pub fn morphemes_to_string(morphemes: &VecDeque<Morpheme>) -> String {
