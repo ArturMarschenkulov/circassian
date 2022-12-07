@@ -1,5 +1,5 @@
 use crate::ortho;
-use crate::template;
+use crate::wiki::template;
 
 use std::collections::VecDeque;
 
@@ -351,8 +351,8 @@ pub fn new_masdar_personal(
         morphemes.push_front(m);
     }
 
-    let m = Morpheme::new_person_marker(&abs_marker);
-    morphemes.push_back(m);
+    // let m = Morpheme::new_person_marker(&abs_marker);
+    // morphemes.push_back(m);
 
     morphemes
 }

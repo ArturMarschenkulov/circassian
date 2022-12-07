@@ -2,7 +2,6 @@ use crate::morpho::{
     Case, Morpheme, MorphemeKind, Number, Person, PersonMarker, Preverb, PreverbSoundForm,
 };
 use crate::ortho;
-use crate::template;
 use std::collections::VecDeque;
 
 pub fn morphemes_to_string(morphemes: &VecDeque<Morpheme>) -> String {
@@ -166,8 +165,8 @@ fn evaluate_person_marker(
                         ortho::LetterKind::Consonant(consonant) => {
                             // let x = preverb.get_first_letter().get_voiceness();
                             let mut consonant = consonant.clone();
+                            use crate::wiki::template::FirstConsonant as TV;
                             use ortho::Voiceness as OV;
-                            use template::FirstConsonant as TV;
                             consonant.voiceness = match &stem.first_consonant.clone().unwrap() {
                                 TV::Unvoiced => OV::Voiceless,
                                 TV::Voiced => OV::Voiced,
@@ -285,7 +284,7 @@ pub fn evaluate_morphemes(morphemes: &VecDeque<Morpheme>) -> String {
             MorphemeKind::Stem(ref stem, ref base) => {
                 // Because of orthography and phonological rules the ы letter, /ə/ sound, has to be treated in a special way.
                 //
-                let tv = template::treat_thematic_vowel(&stem.thematic_vowel, stem);
+                let tv = crate::wiki::template::treat_thematic_vowel(&stem.thematic_vowel, stem);
 
                 let tv = match tv.as_ref() {
                     "ы" => {

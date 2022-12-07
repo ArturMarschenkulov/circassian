@@ -1,5 +1,4 @@
 use crate::morpho::{Preverb, Transitivity};
-use crate::VowelKind;
 
 /// It's basically there to treat stems ending on у which labializes the consonants before it.
 /// This also indicates an implicit ы.
@@ -10,6 +9,13 @@ pub fn treat_thematic_vowel(tv: &ThematicVowel, vs: &VerbStem) -> String {
         _ => "э",
     }
     .to_owned()
+}
+
+#[derive(Debug, Clone, PartialEq)]
+pub enum VowelKind {
+    With,
+    Without,
+    Alternating,
 }
 
 // #[derive(Debug, Clone, PartialEq, Eq)]
