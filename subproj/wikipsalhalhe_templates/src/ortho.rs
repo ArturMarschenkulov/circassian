@@ -168,6 +168,15 @@ impl Consonant {
             base,
         })
     }
+    /// Returns `true` if the consonant is a labial plosive, i.e. 'п' or 'б'.
+    pub fn is_labial_plosive(&self) -> bool {
+        self.place == Place::Labial && self.manner == Manner::Plosive
+    }
+    /// Returns `true` if the consonant is a velar, uvular or pharyngeal plosive, aka it needs an 'ы' before 'у'.
+    pub fn needs_epenthetic_y(&self) -> bool {
+        use Place::*;
+        [Velar, Uvular, Glottal].contains(&self.place)
+    }
     fn from_string(s: &String) -> Option<Consonant> {
         match s.as_str() {
             // Nasals

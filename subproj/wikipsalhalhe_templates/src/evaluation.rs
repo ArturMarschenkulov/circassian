@@ -81,113 +81,131 @@ fn evaluate_person_marker(
         false
     });
 
-    let is_third_plural = (marker.person, marker.number) == (Person::Third, Number::Plural);
-    let is_second_singular = (marker.person, marker.number) == (Person::Second, Number::Singular);
+    let is_third_plural_ergative = marker.is_third_plural_ergative();
 
     match marker.case {
         Case::Ergative => {
-            // Because ergative markers are only one letter, we do this
-            let first_letter = &ortho::parse(&marker.get_base_string())[0];
+            match (morpheme_prev_kind, morpheme_next_kind) {
+                (_, Some(m_next)) if is_raj_imperative => {
+                    assert_eq!(marker.case, Case::Ergative);
+                    let mut new_marker = *marker;
+                    if m_next == &MorphemeKind::RajImperative {
+                        if marker.is_second_singular() {
+                            new_marker.case = Case::Absolutive;
+                        }
+                    } else {
+                        new_marker.case = Case::Absolutive;
+                    }
+                    new_marker.base_string()
+                }
+                (_, Some(MorphemeKind::Generic(base))) if base == "о" => {
+                    assert_eq!(marker.case, Case::Ergative);
+                    if (marker.person, marker.number) == (Person::Third, Number::Singular) {
+                        // 'и' + 'о' -> 'е'
+                        "е".to_owned()
+                    } else {
+                        if is_third_plural_ergative {
+                            let x = match morpheme_prev_kind {
+                                Some(..) => "а",
+                                None => "я",
+                            };
+                            x.to_owned()
+                        } else {
+                            marker.base_string()
+                        }
+                    }
+                }
+                // If it is the start of the verb with a negative prefix, the ergative markers get a 'ы'
+                // They basically look like normal absolutive markers
+                // Howver if there is something before that, like a preverb, the ergative markers behave normal again,
+                // except the second person singular, which stays 'у' instead of becoming 'б'/'п'.
+                (morpheme_prev, Some(negative @ MorphemeKind::NegationPrefix)) => {
+                    assert!(
+                        [Case::Ergative, Case::Absolutive].contains(&marker.case),
+                        "Case marker cas to be absolutive or ergative, it was however {:?}",
+                        marker.case
+                    );
 
-            if is_third_plural {
-                let x = match morpheme_prev_kind {
-                    Some(..) => "а",
-                    None => "я",
-                };
-                x.to_owned()
-            } else {
-                match (morpheme_prev_kind, morpheme_next_kind) {
-                    (_, Some(mnk)) if is_raj_imperative => {
+                    assert_ne!((morpheme_prev.is_some(), marker.case), (true, Case::Absolutive), "If the person marker is absolutive and is followed by a negation prefix, then it must be the first morpheme of the verb, it was however {:?}", (morpheme_prev, marker.case));
+
+                    if morpheme_prev.is_none() {
                         let mut new_marker = *marker;
-                        if mnk == &MorphemeKind::RajImperative {
-                            if (marker.person, marker.number) == (Person::Second, Number::Singular)
-                            {
-                                new_marker.case = Case::Absolutive;
-                            }
-                        } else {
-                            new_marker.case = Case::Absolutive;
-                        }
-                        new_marker.get_string()
-                    }
-                    (_, Some(MorphemeKind::Generic(base))) if base == &"о" => {
-                        if (marker.person, marker.number) == (Person::Third, Number::Singular) {
-                            // 'и' + 'о' -> 'е'
-                            "е".to_owned()
-                        } else {
-                            marker.get_string()
-                        }
-                    }
-                    // If it is the start of the verb with a negative prefix, the ergative markers get a 'ы'
-                    // They basically look like normal absolutive markers
-                    // Howver if there is something before that, like a preverb, the ergative markers behave normal again,
-                    // except the second person singular, which stays 'у' instead of becoming 'б'/'п'.
-                    (x, Some(negative @ MorphemeKind::NegationPrefix)) => {
-                        assert!(
-                            [Case::Ergative, Case::Absolutive].contains(&marker.case),
-                            "Case marker cas to be absolutive or ergative, it was however {:?}",
-                            marker.case
-                        );
+                        new_marker.case = Case::Absolutive;
 
-                        if let None = x {
-                            let mut new_marker = *marker;
-                            new_marker.case = Case::Absolutive;
+                        new_marker.base_string()
+                    } else if let Some(MorphemeKind::Preverb(preverb)) = morpheme_prev {
+                        use ortho::Manner::*;
+                        match &marker.to_letters()[0].kind {
+                            ortho::LetterKind::Consonant(consonant) => {
+                                let mut consonant = consonant.clone();
+                                consonant.voiceness =
+                                    negative.first_letter().unwrap().get_voiceness();
 
-                            new_marker.get_string()
-                        } else if let Some(MorphemeKind::Preverb(preverb)) = x {
-                            use ortho::{Manner::*, Place::*};
-                            match &first_letter.kind {
-                                ortho::LetterKind::Consonant(consonant) => {
-                                    let mut consonant = consonant.clone();
-                                    consonant.voiceness =
-                                        negative.first_letter().unwrap().get_voiceness();
-                                    let mut empenthetic = "".to_owned();
-
-                                    // if 'п' or 'б', make it 'у'.
-                                    if (consonant.place, consonant.manner) == (Labial, Plosive) {
-                                        consonant.manner = Approximant;
-                                        let lc = preverb.last_consonant().unwrap();
-                                        if [Velar, Uvular, Glottal].contains(&lc.place) {
-                                            empenthetic = "ы".to_owned();
-                                        }
+                                // if 'п' or 'б', make it 'у'.
+                                let mut empenthetic = "".to_owned();
+                                if consonant.is_labial_plosive() {
+                                    consonant.manner = Approximant;
+                                    let lc = preverb.last_consonant().unwrap();
+                                    if lc.needs_epenthetic_y() {
+                                        empenthetic = "ы".to_owned();
                                     }
-
-                                    empenthetic + &consonant.to_string()
                                 }
-                                ortho::LetterKind::Combi(..) => first_letter.to_string(),
-                                _ => unreachable!(),
+
+                                empenthetic + &consonant.to_string()
                             }
-                        } else {
-                            panic!("Negative prefix must be preceded by a preverb or nothing")
-                            //marker.get_string()
+                            ortho::LetterKind::Combi(..) => {
+                                if is_third_plural_ergative {
+                                    let x = match morpheme_prev_kind {
+                                        Some(..) => "а",
+                                        None => "я",
+                                    };
+                                    x.to_owned()
+                                } else {
+                                    marker.to_letters()[0].to_string()
+                                }
+                            }
+                            _ => unreachable!(),
                         }
+                    } else {
+                        panic!("Negative prefix must be preceded by a preverb or nothing")
+                        //marker.get_string()
                     }
-                    (_, Some(MorphemeKind::Stem(stem, base))) => match &first_letter.kind {
+                }
+                (_, Some(MorphemeKind::Stem(stem, base))) => {
+                    match &marker.to_letters()[0].kind {
                         ortho::LetterKind::Consonant(consonant) => {
+                            assert_ne!((marker.person, marker.number), (Person::Third, Number::Plural), "Second person singular ergative markers are not allowed to be followed by a stem");
                             // let x = preverb.get_first_letter().get_voiceness();
                             let mut consonant = consonant.clone();
-                            use crate::wiki::template::FirstConsonant as TV;
-                            use ortho::Voiceness as OV;
-                            consonant.voiceness = match &stem.first_consonant.clone().unwrap() {
-                                TV::Unvoiced => OV::Voiceless,
-                                TV::Voiced => OV::Voiced,
-                                _ => unreachable!(),
-                            };
+                            consonant.voiceness = stem
+                                .first_consonant
+                                .as_ref()
+                                .unwrap()
+                                .to_voiceness()
+                                .to_owned();
 
                             consonant.to_string()
                         }
-                        ortho::LetterKind::Combi(..) => first_letter.to_string(),
-                        _ => unreachable!(),
-                    },
-                    (None, Some(..)) => match &first_letter.kind {
-                        ortho::LetterKind::Consonant(consonant) => {
-                            let consonant = consonant.clone();
-                            consonant.to_string()
+                        ortho::LetterKind::Combi(..) => {
+                            if is_third_plural_ergative {
+                                let x = match morpheme_prev_kind {
+                                    Some(..) => "а",
+                                    None => "я",
+                                };
+                                x.to_owned()
+                            } else {
+                                marker.to_letters()[0].to_string()
+                            }
                         }
-                        ortho::LetterKind::Combi(..) => first_letter.to_string(),
                         _ => unreachable!(),
-                    },
-                    x => unreachable!("{:?}", x),
+                    }
                 }
+                (None, Some(..)) => match &marker.to_letters()[0].kind {
+                    ortho::LetterKind::Consonant(consonant) => consonant.to_string(),
+                    ortho::LetterKind::Combi(..) => marker.to_letters()[0].to_string(),
+                    _ => unreachable!(),
+                },
+                x => unreachable!("{:?}", x),
             }
         }
         Case::Absolutive => {
@@ -195,7 +213,7 @@ fn evaluate_person_marker(
                 (None, Some(generic @ MorphemeKind::Generic(..)))
                     if generic.first_letter().unwrap().is_vowel() =>
                 {
-                    let x = marker.get_base_string();
+                    let x = marker.base_string();
                     let xxx = if x.ends_with('ы') {
                         let mut chars = x.chars();
                         chars.next_back();
@@ -206,7 +224,7 @@ fn evaluate_person_marker(
                     };
                     xxx
                 }
-                _ => marker.get_base_string(),
+                _ => marker.base_string(),
             };
             //m.get_base_string()
             x
@@ -228,7 +246,7 @@ fn evaluate_preverb(preverb: &Preverb, morphemes: &VecDeque<Morpheme>, i: usize)
             assert!(marker.case == Case::Ergative);
 
             // let base = marker.get_base_string();
-            let first_letter = ortho::parse(&marker.get_base_string())[0].clone();
+            let first_letter = marker.to_letters()[0].clone();
             let x = match first_letter.kind {
                 ortho::LetterKind::Combi(..) => preverb.get_form(&BeforeVowel),
                 ortho::LetterKind::Consonant(cons)
@@ -244,7 +262,7 @@ fn evaluate_preverb(preverb: &Preverb, morphemes: &VecDeque<Morpheme>, i: usize)
                     let morpheme_next_next = morphemes.get(i + 2);
                     let morpheme_next_next_kind = morpheme_next_next.map(|x| &x.kind);
                     let x = match morpheme_next_next_kind {
-                        Some(MorphemeKind::Generic(base)) if base == &"о" => {
+                        Some(MorphemeKind::Generic(base)) if base == "о" => {
                             preverb.get_form(&Reduced)
                         }
                         _ => preverb.get_form(&Full),
@@ -314,7 +332,7 @@ pub fn evaluate_morphemes(morphemes: &VecDeque<Morpheme>) -> String {
             }
             MorphemeKind::Preverb(ref preverb) => evaluate_preverb(preverb, morphemes, i),
             MorphemeKind::NegationPrefix => "мы".to_owned(),
-            MorphemeKind::Generic(ref base) if base == &"о" => {
+            MorphemeKind::Generic(ref base) if base == "о" => {
                 match (morpheme_prev_kind, morpheme_next) {
                     (None, Some(..)) => "мэ".to_owned(),
                     (Some(MorphemeKind::PersonMarker(marker)), Some(..))

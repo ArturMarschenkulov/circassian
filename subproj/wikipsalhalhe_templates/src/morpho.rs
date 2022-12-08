@@ -3,7 +3,7 @@ use crate::wiki::template;
 
 use std::collections::VecDeque;
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub enum PreverbSoundForm {
     Full,        // e.g. къэ-
     Reduced,     // e.g. къы-
@@ -129,8 +129,7 @@ impl MorphemeKind {
         self.to_letters().first().cloned()
     }
     fn to_letters(&self) -> Vec<ortho::Letter> {
-        let base = self.to_string();
-        ortho::parse(&base)
+        ortho::parse(&self.to_string())
     }
 }
 
@@ -139,7 +138,7 @@ impl std::fmt::Display for MorphemeKind {
         match self {
             MorphemeKind::Preverb(preverb) => write!(f, "{}", preverb.base),
             MorphemeKind::PersonMarker(person_marker) => {
-                write!(f, "{}", person_marker.get_base_string())
+                write!(f, "{}", person_marker.base_string())
             }
             MorphemeKind::NegationPrefix => write!(f, "мы"),
             MorphemeKind::RajImperative => write!(f, "ре"),
@@ -172,36 +171,31 @@ impl Morpheme {
     pub fn new_generic(base: &str) -> Self {
         Morpheme {
             kind: MorphemeKind::Generic(base.to_owned()),
-            // base: base.to_owned(),
         }
     }
     pub fn new_negative_prefix() -> Self {
         Morpheme {
             kind: MorphemeKind::NegationPrefix,
-            // base: "мы".to_owned(),
         }
     }
     pub fn new_imperative_raj() -> Self {
         Morpheme {
             kind: MorphemeKind::RajImperative,
-            // base: "ре".to_owned(),
         }
     }
     pub fn new_preverb(preverb: &Preverb) -> Self {
         Morpheme {
             kind: MorphemeKind::Preverb(preverb.clone()),
-            // base: preverb.base.clone(),
         }
     }
     pub fn new_person_marker(marker: &PersonMarker) -> Self {
         Morpheme {
             kind: MorphemeKind::PersonMarker(*marker),
-            // base: marker.get_string(),
         }
     }
 }
 
-#[derive(Debug, Clone, Copy, PartialEq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Case {
     /// (-р) subject of intransitive verb, direct object of transitive verb
     Absolutive,
@@ -212,23 +206,25 @@ pub enum Case {
 }
 
 /// A struct that indicates the number of a noun or verb.
-#[derive(Debug, Clone, Copy, PartialEq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Number {
     Singular,
     Plural,
 }
 /// A struct that indicates the person of a verb.
-#[derive(Debug, Clone, Copy, PartialEq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Person {
     First,
     Second,
     Third,
 }
 
-#[derive(Debug, Clone, Copy, PartialEq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct PersonMarker {
     pub person: Person,
     pub number: Number,
+    /// The case of the person marker.
+    /// However, not direct reflection of the actual case, but more so the "surface level" appearance of the person markers.
     pub case: Case,
 }
 
@@ -240,17 +236,49 @@ impl PersonMarker {
             case,
         }
     }
+
+    pub fn to_letters(&self) -> Vec<ortho::Letter> {
+        let base = self.base_string();
+        ortho::parse(&base)
+    }
+    pub fn is_second_singular(&self) -> bool {
+        self.person == Person::Second && self.number == Number::Singular
+    }
+    pub fn is_third_plural_ergative(&self) -> bool {
+        self.person == Person::Third && self.number == Number::Plural && self.case == Case::Ergative
+    }
 }
 impl PersonMarker {
-    fn get_base_from(person: &Person, number: &Number, case: &Case) -> String {
-        let pm = PersonMarker {
-            person: *person,
-            number: *number,
-            case: *case,
+    pub fn base_string_as_voiced(&self) -> String {
+        let base = self.base_string();
+        let old = base.chars().next().unwrap();
+        let new = match old {
+            'с' => 'з',
+            'ф' => 'в',
+            x => x,
         };
-        pm.get_base_string()
+        base.replacen(old, &new.to_string(), 1)
     }
-    pub fn get_base_string(&self) -> String {
+    pub fn base_string_as_voiceless(&self) -> String {
+        let base = self.base_string();
+        let old = base.chars().next().unwrap();
+        let new = match old {
+            'б' => 'п',
+            'д' => 'т',
+            x => x,
+        };
+        base.replacen(old, &new.to_string(), 1)
+    }
+    pub fn base_string_as_after_consonant(&self) -> String {
+        let base = self.base_string();
+        let old = base.chars().next().unwrap();
+        let new = match old {
+            'я' => 'а',
+            x => x,
+        };
+        base.replacen(old, &new.to_string(), 1)
+    }
+    pub fn base_string(&self) -> String {
         use Case::*;
         use Number::*;
         use Person::*;
@@ -277,9 +305,6 @@ impl PersonMarker {
 
         result.to_string()
     }
-    pub fn get_string(&self) -> String {
-        Self::get_base_from(&self.person, &self.number, &self.case)
-    }
 }
 
 pub fn new_masdar(
@@ -291,10 +316,13 @@ pub fn new_masdar(
     let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
 
     morphemes.push_back(Morpheme {
-        kind: MorphemeKind::Stem(stem.clone(), root.clone()),
-        //base: root.clone(),
+        kind: MorphemeKind::Stem(stem.clone(), root),
+        //base: root,
     });
     morphemes.push_back(Morpheme::new_generic("н"));
+
+    // Prefix part
+
     if polarity == "мы" {
         let m = Morpheme::new_negative_prefix();
         morphemes.push_front(m);
@@ -307,6 +335,50 @@ pub fn new_masdar(
     morphemes
 }
 
+pub fn new_imperative_raj(
+    polarity: &str,
+    preverb: &Option<Preverb>,
+    stem: &template::VerbStem,
+    person: &Person,
+    number: &Number,
+) -> VecDeque<Morpheme> {
+    let root = "{{{псалъэпкъ}}}".to_owned();
+    let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
+    // Add stem
+    morphemes.push_back(Morpheme {
+        kind: MorphemeKind::Stem(stem.clone(), root),
+        // base: root,
+    });
+
+    // Prefix part
+
+    // Add negative prefix
+    if polarity == "мы" {
+        let m = Morpheme::new_negative_prefix();
+        morphemes.push_front(m);
+    }
+    // Add imperative raj
+    morphemes.push_front(Morpheme::new_imperative_raj());
+    // Add preverb
+    if let Some(preverb) = preverb.clone() {
+        let m = Morpheme::new_preverb(&preverb);
+        morphemes.push_front(m);
+    }
+
+    // Add person marker
+    // If there is a preverb present, the third person marker is not present
+    if !(preverb.is_some() && Person::Third == *person) {
+        let number = if (person, number) == (&Person::Third, &Number::Plural) {
+            Number::Singular
+        } else {
+            *number
+        };
+        let marker = PersonMarker::new(*person, number, Case::Ergative);
+        let m = Morpheme::new_person_marker(&marker);
+        morphemes.push_front(m);
+    }
+    morphemes
+}
 pub fn new_masdar_personal(
     polarity: &str,
     preverb: &Option<Preverb>,
@@ -320,10 +392,14 @@ pub fn new_masdar_personal(
     let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
 
     morphemes.push_back(Morpheme {
-        kind: MorphemeKind::Stem(stem.clone(), root.clone()),
-        //base: root.clone(),
+        kind: MorphemeKind::Stem(stem.clone(), root),
+        //base: root,
     });
+    // Suffix part
+
     morphemes.push_back(Morpheme::new_generic("н"));
+
+    // Prefix part
 
     // Add negative prefix
     if polarity == "мы" {
@@ -368,9 +444,11 @@ pub fn new_imperative(
     let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
 
     morphemes.push_back(Morpheme {
-        kind: MorphemeKind::Stem(stem.clone(), root.clone()),
-        // base: root.clone(),
+        kind: MorphemeKind::Stem(stem.clone(), root),
+        // base: root,
     });
+
+    // Prefix part
 
     // Add negative prefix
     if polarity == "мы" {
@@ -380,9 +458,11 @@ pub fn new_imperative(
 
     // Add ergative person marker
     if let Some(marker) = erg_marker {
-        let marker = PersonMarker::new(Person::Second, marker.number, Case::Ergative);
-        let m = Morpheme::new_person_marker(&marker);
-        morphemes.push_front(m);
+        if (polarity, marker.person, marker.number) != ("", Person::Second, Number::Singular) {
+            let marker = PersonMarker::new(Person::Second, marker.number, Case::Ergative);
+            let m = Morpheme::new_person_marker(&marker);
+            morphemes.push_front(m);
+        }
     };
 
     // Add preverb

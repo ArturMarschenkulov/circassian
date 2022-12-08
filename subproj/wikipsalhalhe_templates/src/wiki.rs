@@ -1,19 +1,17 @@
 /// This module will contain everything specific to wikipsalhalhe. In the future this may also include the normal wiki.
 ///
 ///
-pub mod table;
+mod table;
 pub mod template;
 
 use std::collections::VecDeque;
 
 use crate::{
     evaluation,
-    morpho::{
-        self, Case, Morpheme, MorphemeKind, Number, Person, PersonMarker, Preverb, Transitivity,
-    },
+    morpho::{self, Case, Morpheme, MorphemeKind, Number, Person, PersonMarker, Transitivity},
 };
 
-use self::{table::Wikitable, template::VerbStem};
+use self::table::Wikitable;
 
 /*
     {| class="wikitable"
@@ -25,7 +23,6 @@ use self::{table::Wikitable, template::VerbStem};
     | щымыӀэныгъэ: || мы{{{псалъэпкъ}}}эн
     |}
 */
-
 fn table_masdar(desc: &template::TemplateDesc) -> String {
     // let root = "{{{псалъэпкъ}}}".to_owned();
     let table_name = "Инфинитив (масдар)".to_owned();
@@ -42,7 +39,6 @@ fn table_masdar(desc: &template::TemplateDesc) -> String {
         let string = evaluation::evaluate_morphemes(&morphemes);
         table.add(string);
     }
-
     table.to_string()
 }
 
@@ -56,7 +52,6 @@ fn table_masdar(desc: &template::TemplateDesc) -> String {
     | щымыӀэныгъэ: || сымы{{{псалъэпкъ}}}эн || умы{{{псалъэпкъ}}}эн || мы{{{псалъэпкъ}}}эн || дымы{{{псалъэпкъ}}}эн || фымы{{{псалъэпкъ}}}эн || мы{{{псалъэпкъ}}}эн(хэ)
     |}
 */
-
 fn table_masdar_personal(desc: &template::TemplateDesc) -> String {
     let table_name = "Инфинитив (масдар) щхьэкӀэ зэхъуэкӀа".to_owned();
 
@@ -114,7 +109,6 @@ fn table_masdar_personal(desc: &template::TemplateDesc) -> String {
 | щымыӀэныгъэ: || умы{{{псалъэпкъ}}}э! || фымы{{{псалъэпкъ}}}э!
 |}
 */
-
 fn table_imperative(desc: &template::TemplateDesc) -> String {
     let table_name = "унафэ наклоненэ".to_owned();
 
@@ -166,51 +160,6 @@ fn table_imperative(desc: &template::TemplateDesc) -> String {
 | щымыӀэныгъэ: || сремы{{{псалъэпкъ}}}э || уремы{{{псалъэпкъ}}}э || иремы{{{псалъэпкъ}}}э || дремы{{{псалъэпкъ}}}э || фремы{{{псалъэпкъ}}}э || иремы{{{псалъэпкъ}}}э
 |}
 */
-fn new_imperative_raj(
-    polarity: &str,
-    preverb: &Option<Preverb>,
-    stem: &VerbStem,
-    person: &Person,
-    number: &Number,
-) -> VecDeque<Morpheme> {
-    let root = "{{{псалъэпкъ}}}".to_owned();
-    let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
-    // Add stem
-    morphemes.push_back(Morpheme {
-        kind: MorphemeKind::Stem(stem.clone(), root.clone()),
-        // base: root.clone(),
-    });
-
-    // Add negative prefix
-    if polarity == "мы" {
-        let m = Morpheme::new_negative_prefix();
-        morphemes.push_front(m);
-    }
-    // Add imperative raj
-    morphemes.push_front(Morpheme::new_imperative_raj());
-    // Add preverb
-    if let Some(preverb) = preverb.clone() {
-        let m = Morpheme::new_preverb(&preverb);
-        morphemes.push_front(m);
-    }
-
-    // Add
-    if !(preverb.is_some() && Person::Third == *person) {
-        let marker = PersonMarker::new(
-            *person,
-            // If there is a preverb present, the third person marker is not present
-            if (person, number) == (&Person::Third, &Number::Plural) {
-                Number::Singular
-            } else {
-                *number
-            },
-            Case::Ergative,
-        );
-        let m = Morpheme::new_person_marker(&marker);
-        morphemes.push_front(m);
-    }
-    morphemes
-}
 fn table_imperative_raj(desc: &template::TemplateDesc) -> String {
     let mut table = Wikitable::new();
     table.add("Ре-кӀэ унафэ наклоненэ".to_owned());
@@ -228,7 +177,7 @@ fn table_imperative_raj(desc: &template::TemplateDesc) -> String {
         for number in &[Number::Singular, Number::Plural] {
             for person in &[Person::First, Person::Second, Person::Third] {
                 let morphemes =
-                    new_imperative_raj(polarity, &desc.preverb, &desc.stem, person, number);
+                    morpho::new_imperative_raj(polarity, &desc.preverb, &desc.stem, person, number);
                 let string = evaluation::evaluate_morphemes(&morphemes);
                 table.add(string);
             }
@@ -358,7 +307,7 @@ pub fn main() {
     test_roots.insert("д0л", "ху");
 
     // спр-лъэӏ-зэхэ-д0д-ы
-    let template = "спр-лъэмыӏ-0-0д-ы"; // tr. base. vl. e.g. хьын
+    let template = "спр-лъэӏ-зэхэ-д0д-ы"; // tr. base. vl. e.g. хьын
                                         // let template = "спр-лъэмыӏ-0-0д-ы"; // intr. base. vl. e.g. плъэн
     let template_desc = template::create_template_from_string(template.to_owned()).unwrap();
     let template_str = create_template(template_desc);

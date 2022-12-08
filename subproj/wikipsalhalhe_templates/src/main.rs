@@ -1,5 +1,5 @@
 // #![allow(dead_code, unused_variables)]
-// #![allow(clippy::match_like_matches_macro)]
+#![allow(clippy::match_like_matches_macro)]
 
 mod evaluation;
 mod morpho;

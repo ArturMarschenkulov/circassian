@@ -1,4 +1,5 @@
 use crate::morpho::{Preverb, Transitivity};
+use crate::ortho;
 
 /// It's basically there to treat stems ending on у which labializes the consonants before it.
 /// This also indicates an implicit ы.
@@ -11,7 +12,7 @@ pub fn treat_thematic_vowel(tv: &ThematicVowel, vs: &VerbStem) -> String {
     .to_owned()
 }
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub enum VowelKind {
     With,
     Without,
@@ -61,14 +62,25 @@ impl std::fmt::Display for ThematicVowel {
     }
 }
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub enum FirstConsonant {
     Unvoiced, // 'д'
     Voiced,   // 'жь'
     Wy,       // 'у'
               // Yy, // 'й'
 }
-#[derive(Debug, Clone, PartialEq)]
+
+impl FirstConsonant {
+    pub fn to_voiceness(&self) -> ortho::Voiceness {
+        match self {
+            FirstConsonant::Unvoiced => ortho::Voiceness::Voiceless,
+            FirstConsonant::Voiced => ortho::Voiceness::Voiced,
+            FirstConsonant::Wy => ortho::Voiceness::Voiced,
+        }
+    }
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub enum LastConsonant {
     Ordinary, // 'д'
     Velar,    // 'т'
@@ -76,7 +88,7 @@ pub enum LastConsonant {
     Yy,       // 'й'
 }
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct VerbStem {
     pub first_consonant: Option<FirstConsonant>,
     pub vowel: VowelKind,
@@ -161,7 +173,6 @@ fn get_transitivity_str(s: &str) -> &str {
 }
 
 fn extract_transitivity(s: &str) -> Option<Transitivity> {
-    let segments = s.split('-').collect::<Vec<&str>>();
     match s {
         "лъэмыӏ" => Some(Transitivity::Intransitive),
         "лъэӏ" => Some(Transitivity::Transitive),
@@ -195,10 +206,10 @@ fn extract_root(s: &str) -> (Option<FirstConsonant>, VowelKind, LastConsonant, b
     );
 
     // parsing first consonant
-    let c = &root.chars().nth(0).unwrap();
+    let c = &root.chars().next().unwrap();
     let (root, fc) = if !['б', '0'].contains(c) {
         // this means it's transitive.
-        let c = &root.chars().nth(0).unwrap();
+        let c = &root.chars().next().unwrap();
         let fc = match c {
             'д' => Some(FirstConsonant::Unvoiced),
             'у' => Some(FirstConsonant::Wy),
@@ -217,7 +228,7 @@ fn extract_root(s: &str) -> (Option<FirstConsonant>, VowelKind, LastConsonant, b
         (root, None)
     };
 
-    let c = &root.chars().nth(0).unwrap();
+    let c = &root.chars().next().unwrap();
     let (root, v) = if ['б', '0'].contains(c) {
         let v = match c {
             'б' => VowelKind::With,
@@ -230,10 +241,10 @@ fn extract_root(s: &str) -> (Option<FirstConsonant>, VowelKind, LastConsonant, b
         panic!("")
     };
 
-    let c = &root.chars().nth(0).unwrap();
+    let c = &root.chars().next().unwrap();
     let (root, lc) = if !['б', '0'].contains(c) {
         // this means it's transitive.
-        let c = &root.chars().nth(0).unwrap();
+        let c = &root.chars().next().unwrap();
         let fc = match c {
             'д' => LastConsonant::Ordinary,
             'т' => LastConsonant::Velar,
@@ -247,7 +258,7 @@ fn extract_root(s: &str) -> (Option<FirstConsonant>, VowelKind, LastConsonant, b
         panic!("")
     };
 
-    let alternating = if root.ends_with("эа") { true } else { false };
+    let alternating = root.ends_with("эа");
     (fc, v, lc, alternating)
 }
 
@@ -271,11 +282,11 @@ pub fn create_template_from_string(s: String) -> Option<TemplateDesc> {
     let preverb_str = get_preverb_str(&s);
     let root_str = get_root_str(&s);
 
-    let transitivity = extract_transitivity(&transitivity_str).unwrap_or_else(|| {
+    let transitivity = extract_transitivity(transitivity_str).unwrap_or_else(|| {
         println!("The transitivity is not either 'лъэмыӏ' or 'лъэӏ'");
         panic!("");
     });
-    let preverb = extract_preverb(&preverb_str);
+    let preverb = extract_preverb(preverb_str);
 
     let thematic_vowel = match segments.last() {
         Some(&"э") => ThematicVowel::A,
@@ -286,7 +297,7 @@ pub fn create_template_from_string(s: String) -> Option<TemplateDesc> {
         }
     };
 
-    let (fc, v, lc, alternating) = extract_root(&root_str);
+    let (fc, v, lc, alternating) = extract_root(root_str);
 
     let template_desc = TemplateDesc {
         transitivity,
