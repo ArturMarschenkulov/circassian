@@ -4,7 +4,7 @@
 mod table;
 pub mod template;
 
-use std::collections::VecDeque;
+use std::collections::{HashMap, VecDeque};
 
 use crate::{
     evaluation,
@@ -162,10 +162,7 @@ fn table_imperative(desc: &template::TemplateDesc) -> String {
 fn table_imperative_raj(desc: &template::TemplateDesc) -> String {
     let mut table = Wikitable::new();
     table.add("Ре-кӀэ унафэ наклоненэ".to_owned());
-    let pronouns = match &desc.transitivity {
-        Transitivity::Intransitive => ["сэ", "уэ", "ар", "дэ", "фэ", "ахэр"],
-        Transitivity::Transitive => ["сэ", "уэ", "абы", "дэ", "фэ", "абыхэм"],
-    };
+    let pronouns = &desc.transitivity.pronoun_row();
     for pronoun in pronouns.iter() {
         table.add(pronoun.to_string());
     }
@@ -201,43 +198,93 @@ fn table_indicative(desc: &template::TemplateDesc) -> String {
         table.add(pronoun.to_string());
     }
 
-    for polarity in [Polarity::Positive, Polarity::Negative] {
-        table.add_row();
-        table.add("ит зэман – щыӀэныгъэ".to_owned());
-        for number in &[Number::Singular, Number::Plural] {
-            for person in &[Person::First, Person::Second, Person::Third] {
-                let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
-                morphemes.push_back(Morpheme {
-                    kind: MorphemeKind::Stem(desc.stem.clone(), root.clone()),
-                });
-                morphemes.push_back(Morpheme::new_generic("р"));
-                if polarity == Polarity::Negative {
-                    morphemes.push_back(Morpheme::new_generic("къым"));
-                }
-                if polarity == Polarity::Positive {
-                    morphemes.push_front(Morpheme::new_generic("о"));
-                }
+    #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+    enum Tense {
+        Present,
+        Imperfect,
+        Perfect,
+        PlusQuamPerfect,
+        FarPast,
+        FastPast2,
+        Tense1,
+        Tense2,
+        Future1,
+        Future2,
+    }
+    impl Tense {
+        fn to_arr() -> Vec<Self> {
+            [
+                Tense::Present,
+                Tense::Imperfect,
+                Tense::Perfect,
+                Tense::PlusQuamPerfect,
+                Tense::FarPast,
+                Tense::FastPast2,
+                Tense::Tense1,
+                Tense::Tense2,
+                Tense::Future1,
+                Tense::Future2,
+            ]
+            .to_vec()
+        }
+    }
+    let tense_map: std::collections::HashMap<_, _> = [
+        (Tense::Present, ("р", "ркъым")),
+        (Tense::Imperfect, ("рт", "ртэкъым")),
+        (Tense::Perfect, ("ащ", "акъым")),
+        (Tense::PlusQuamPerfect, ("ат", "атэкъым")),
+        (Tense::FarPast, ("гъащ", "гъакъым")),
+        (Tense::FastPast2, ("гъат", "гъатэкъым")),
+        (Tense::Tense1, ("щ", "къым")),
+        (Tense::Tense2, ("т", "тэкъым")),
+        (Tense::Future1, ("нщ", "нкъым")),
+        (Tense::Future2, ("ну", "нукъым")),
+    ]
+    .into_iter()
+    .collect();
 
-                // Add absolutive person marker
-                if subject_case == &Case::Ergative {
-                    let marker = PersonMarker::new(*person, *number, Case::Ergative);
-                    let m = Morpheme::new_person_marker(&marker);
-                    morphemes.push_front(m);
-                }
-                // Add preverb
-                if let Some(preverb) = desc.preverb.clone() {
-                    let m = Morpheme::new_preverb(&preverb);
-                    morphemes.push_front(m);
-                }
-                if subject_case == &Case::Absolutive {
-                    if (person) != (&Person::Third) {
-                        let marker = PersonMarker::new(*person, *number, Case::Absolutive);
+    for tense in Tense::to_arr() {
+        for polarity in [Polarity::Positive, Polarity::Negative] {
+            table.add_row();
+            table.add("ит зэман – щыӀэныгъэ".to_owned());
+            for number in &[Number::Singular, Number::Plural] {
+                for person in &[Person::First, Person::Second, Person::Third] {
+                    let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
+                    morphemes.push_back(Morpheme {
+                        kind: MorphemeKind::Stem(desc.stem.clone(), root.clone()),
+                    });
+                    morphemes.push_back(Morpheme::new_generic(
+                        if &polarity == &Polarity::Positive {
+                            tense_map[&tense].0
+                        } else {
+                            tense_map[&tense].1
+                        },
+                    ));
+                    if (&polarity, tense) == (&Polarity::Positive, Tense::Present) {
+                        morphemes.push_front(Morpheme::new_generic("о"));
+                    }
+
+                    // Add absolutive person marker
+                    if subject_case == &Case::Ergative {
+                        let marker = PersonMarker::new(*person, *number, Case::Ergative);
                         let m = Morpheme::new_person_marker(&marker);
                         morphemes.push_front(m);
                     }
+                    // Add preverb
+                    if let Some(preverb) = desc.preverb.clone() {
+                        let m = Morpheme::new_preverb(&preverb);
+                        morphemes.push_front(m);
+                    }
+                    if subject_case == &Case::Absolutive {
+                        if (person) != (&Person::Third) {
+                            let marker = PersonMarker::new(*person, *number, Case::Absolutive);
+                            let m = Morpheme::new_person_marker(&marker);
+                            morphemes.push_front(m);
+                        }
+                    }
+                    let string = evaluation::evaluate_morphemes(&morphemes);
+                    table.add(string);
                 }
-                let string = evaluation::evaluate_morphemes(&morphemes);
-                table.add(string);
             }
         }
     }
