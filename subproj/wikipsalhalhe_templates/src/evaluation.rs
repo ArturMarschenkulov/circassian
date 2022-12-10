@@ -170,7 +170,7 @@ fn evaluate_person_marker(
         // They basically look like normal absolutive markers
         // Howver if there is something before that, like a preverb, the ergative markers behave normal again,
         // except the second person singular, which stays 'у' instead of becoming 'б'/'п'.
-        (morpheme_prev, Some(negative @ MorphemeKind::NegationPrefix)) => {
+        (morpheme_prev, Some(neg_prefix @ MorphemeKind::NegationPrefix)) => {
             assert!(
                 [Case::Ergative, Case::Absolutive].contains(&marker.case),
                 "Case marker cas to be absolutive or ergative, it was however {:?}",
@@ -189,17 +189,16 @@ fn evaluate_person_marker(
                 match &marker.to_letters()[0].kind {
                     ortho::LetterKind::Consonant(consonant) => {
                         let mut consonant = consonant.clone();
-                        consonant.voiceness = negative.first_letter().unwrap().get_voiceness();
+                        consonant.voiceness = neg_prefix.first_letter().unwrap().get_voiceness();
 
                         // if 'п' or 'б', make it 'у'.
-                        let mut empenthetic = "".to_owned();
                         if consonant.is_labial_plosive() {
                             consonant.manner = Approximant;
-                            empenthetic = give_epenthetic_if_needed(
-                                &consonant,
-                                &preverb.last_consonant().unwrap(),
-                            );
-                        }
+                        };
+                        let empenthetic = give_epenthetic_if_needed(
+                            &consonant,
+                            &preverb.last_consonant().unwrap(),
+                        );
 
                         empenthetic + &consonant.to_string()
                     }

@@ -4,13 +4,9 @@
 mod table;
 pub mod template;
 
-use std::collections::{HashMap, VecDeque};
-
 use crate::{
     evaluation,
-    morpho::{
-        self, Case, Morpheme, MorphemeKind, Number, Person, PersonMarker, Polarity, Transitivity,
-    },
+    morpho::{self, Case, Number, Person, PersonMarker, Polarity, Tense},
 };
 
 use self::table::Wikitable;
@@ -71,15 +67,13 @@ fn table_masdar_personal(desc: &template::TemplateDesc) -> String {
 
         for number in &[Number::Singular, Number::Plural] {
             for person in &[Person::First, Person::Second, Person::Third] {
-                let abs_marker = if subject_case == &Case::Absolutive {
-                    PersonMarker::new(*person, *number, Case::Absolutive)
+                let (abs_marker, erg_marker) = if subject_case == &Case::Absolutive {
+                    (PersonMarker::new(*person, *number, Case::Absolutive), None)
                 } else {
-                    PersonMarker::new(Person::Third, *number, Case::Absolutive)
-                };
-                let erg_marker = if subject_case == &Case::Ergative {
-                    Some(PersonMarker::new(*person, *number, Case::Ergative))
-                } else {
-                    None
+                    (
+                        PersonMarker::new(Person::Third, *number, Case::Absolutive),
+                        Some(PersonMarker::new(*person, *number, Case::Ergative)),
+                    )
                 };
                 let morphemes = morpho::new_masdar_personal(
                     &polarity,
@@ -123,15 +117,16 @@ fn table_imperative(desc: &template::TemplateDesc) -> String {
         table.add_row();
         table.add(format!("щы{}Ӏэныгъэ", polarity.to_string_prefix()));
         for number in &[Number::Singular, Number::Plural] {
-            let abs_marker = if subject_case == &Case::Absolutive {
-                PersonMarker::new(Person::Second, *number, Case::Absolutive)
+            let (abs_marker, erg_marker) = if subject_case == &Case::Absolutive {
+                (
+                    PersonMarker::new(Person::Second, *number, Case::Absolutive),
+                    None,
+                )
             } else {
-                PersonMarker::new(Person::Third, *number, Case::Absolutive)
-            };
-            let erg_marker = if subject_case == &Case::Ergative {
-                Some(PersonMarker::new(Person::Second, *number, Case::Ergative))
-            } else {
-                None
+                (
+                    PersonMarker::new(Person::Third, *number, Case::Absolutive),
+                    Some(PersonMarker::new(Person::Second, *number, Case::Ergative)),
+                )
             };
 
             let morphemes = morpho::new_imperative(
