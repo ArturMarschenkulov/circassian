@@ -58,10 +58,7 @@ fn table_masdar_personal(desc: &template::TemplateDesc) -> String {
     let mut table = Wikitable::new();
     table.add(table_name);
     let subject_case = &desc.transitivity.subject_case();
-    let pronouns = match &desc.transitivity {
-        Transitivity::Intransitive => ["сэ", "уэ", "ар", "дэ", "фэ", "ахэр"],
-        Transitivity::Transitive => ["сэ", "уэ", "абы", "дэ", "фэ", "абыхэм"],
-    };
+    let pronouns = &desc.transitivity.pronoun_row();
 
     for pronoun in pronouns.iter() {
         table.add(pronoun.to_string());
@@ -192,47 +189,51 @@ fn table_indicative(desc: &template::TemplateDesc) -> String {
     let mut table = Wikitable::new();
     table.add("ЗэраӀуатэ наклоненэ".to_owned());
     let subject_case = &desc.transitivity.subject_case();
-    let pronouns = match &desc.transitivity {
-        Transitivity::Intransitive => ["сэ", "уэ", "ар", "дэ", "фэ", "ахэр"],
-        Transitivity::Transitive => ["сэ", "уэ", "абы", "дэ", "фэ", "абыхэм"],
-    };
+    let pronouns = &desc.transitivity.pronoun_row();
     for pronoun in pronouns.iter() {
         table.add(pronoun.to_string());
     }
 
-    table.add_row();
-    table.add("ит зэман – щыӀэныгъэ".to_owned());
-    for number in &[Number::Singular, Number::Plural] {
-        for person in &[Person::First, Person::Second, Person::Third] {
-            let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
-            morphemes.push_back(Morpheme {
-                kind: MorphemeKind::Stem(desc.stem.clone(), root.clone()),
-                // base: root.clone(),
-            });
-            morphemes.push_back(Morpheme::new_generic("р"));
+    
 
-            morphemes.push_front(Morpheme::new_generic("о"));
+    for polarity in ["", "мы"] {
+        table.add_row();
+        table.add("ит зэман – щыӀэныгъэ".to_owned());
+        for number in &[Number::Singular, Number::Plural] {
+            for person in &[Person::First, Person::Second, Person::Third] {
+                let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
+                morphemes.push_back(Morpheme {
+                    kind: MorphemeKind::Stem(desc.stem.clone(), root.clone()),
+                });
+                morphemes.push_back(Morpheme::new_generic("р"));
+                if polarity == "мы" {
+                    morphemes.push_back(Morpheme::new_generic("къым"));
+                }
+                if polarity == "" {
+                    morphemes.push_front(Morpheme::new_generic("о"));
+                }
 
-            // Add absolutive person marker
-            if subject_case == &Case::Ergative {
-                let marker = PersonMarker::new(*person, *number, Case::Ergative);
-                let m = Morpheme::new_person_marker(&marker);
-                morphemes.push_front(m);
-            }
-            // Add preverb
-            if let Some(preverb) = desc.preverb.clone() {
-                let m = Morpheme::new_preverb(&preverb);
-                morphemes.push_front(m);
-            }
-            if subject_case == &Case::Absolutive {
-                if (person) != (&Person::Third) {
-                    let marker = PersonMarker::new(*person, *number, Case::Absolutive);
+                // Add absolutive person marker
+                if subject_case == &Case::Ergative {
+                    let marker = PersonMarker::new(*person, *number, Case::Ergative);
                     let m = Morpheme::new_person_marker(&marker);
                     morphemes.push_front(m);
                 }
+                // Add preverb
+                if let Some(preverb) = desc.preverb.clone() {
+                    let m = Morpheme::new_preverb(&preverb);
+                    morphemes.push_front(m);
+                }
+                if subject_case == &Case::Absolutive {
+                    if (person) != (&Person::Third) {
+                        let marker = PersonMarker::new(*person, *number, Case::Absolutive);
+                        let m = Morpheme::new_person_marker(&marker);
+                        morphemes.push_front(m);
+                    }
+                }
+                let string = evaluation::evaluate_morphemes(&morphemes);
+                table.add(string);
             }
-            let string = evaluation::evaluate_morphemes(&morphemes);
-            table.add(string);
         }
     }
     table.to_string()
@@ -265,6 +266,29 @@ fn create_template(desc: template::TemplateDesc) -> String {
     result
 }
 
+/*
+
+    спр-лъэмыӏ-0-0д-э: плъэн
+    спр-лъэмыӏ-0-0д-ы:
+    спр-лъэмыӏ-0-0л-ы: гъун
+    спр-лъэмыӏ-0-0т-ы: гъын
+
+    спр-лъэмыӏ-0-бд-э: гупсысэн гуфIэн
+    спр-лъэмыӏ-0-бдэа-э: лэжьэн
+    спр-лъэмыӏ-0-бт-ы: дыхьэшхын
+    спр-лъэмыӏ-0-бй-ы: жеин
+
+    спр-лъэӏ-0-дблэа-ы: лъагъун
+    спр-лъэӏ-0-дбд-ы: тхьэщIын
+    спр-лъэӏ-0-жь0й-ы: ин
+    спр-лъэӏ-0-д0д-э: щIэн
+    спр-лъэӏ-0-убт-ы: ухын
+    спр-лъэӏ-0-д0д-ы: хьын тын
+    спр-лъэӏ-0-д0л-ы: хун
+
+    спр-лъэмыӏ-е-бд-ы: еплъын
+
+*/
 pub fn main() {
     let possible_templates = [
         "спр-лъэмыӏ-0-0д-э",
@@ -301,14 +325,15 @@ pub fn main() {
     test_roots.insert("дблэа", "лъагъу");
     test_roots.insert("дбд", "тхьэщI");
     test_roots.insert("жь0й", "и");
+    test_roots.insert("жь0д", "гъ");
     test_roots.insert("д0д", "щI");
     test_roots.insert("убт", "ух");
-    test_roots.insert("д0д", "хь");
+    test_roots.insert("д0д", "гъ");
     test_roots.insert("д0л", "ху");
 
     // спр-лъэӏ-зэхэ-д0д-ы
-    let template = "спр-лъэӏ-зэхэ-д0д-ы"; // tr. base. vl. e.g. хьын
-                                        // let template = "спр-лъэмыӏ-0-0д-ы"; // intr. base. vl. e.g. плъэн
+    let template = "спр-лъэӏ-хэ-жь0д-э"; // tr. base. vl. e.g. хьын
+                                         // let template = "спр-лъэмыӏ-0-0д-ы"; // intr. base. vl. e.g. плъэн
     let template_desc = template::create_template_from_string(template.to_owned()).unwrap();
     let template_str = create_template(template_desc);
 

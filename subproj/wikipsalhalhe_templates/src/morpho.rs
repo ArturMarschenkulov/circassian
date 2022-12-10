@@ -21,6 +21,19 @@ impl Transitivity {
             Transitivity::Intransitive => Case::Absolutive,
         }
     }
+
+    pub fn pronoun_row(&self) -> [&str; 6] {
+        match &self {
+            Transitivity::Intransitive => ["сэ", "уэ", "ар", "дэ", "фэ", "ахэр"],
+            Transitivity::Transitive => ["сэ", "уэ", "абы", "дэ", "фэ", "абыхэм"],
+        }
+    }
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+enum Polarity {
+    Positive,
+    Negative,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -244,8 +257,19 @@ impl PersonMarker {
     pub fn is_second_singular(&self) -> bool {
         self.person == Person::Second && self.number == Number::Singular
     }
+    pub fn is_third_singular_ergative(&self) -> bool {
+        self.person == Person::Third
+            && self.number == Number::Singular
+            && self.case == Case::Ergative
+    }
     pub fn is_third_plural_ergative(&self) -> bool {
         self.person == Person::Third && self.number == Number::Plural && self.case == Case::Ergative
+    }
+    pub fn is_ergative(&self) -> bool {
+        self.case == Case::Ergative
+    }
+    pub fn is_absolutive(&self) -> bool {
+        self.case == Case::Absolutive
     }
 }
 impl PersonMarker {
@@ -277,6 +301,14 @@ impl PersonMarker {
             x => x,
         };
         base.replacen(old, &new.to_string(), 1)
+    }
+    pub fn base_string_as_before_o(&self) -> String {
+        let base = self.base_string();
+        if base.ends_with('ы') {
+            base.replacen('ы', "", 1)
+        } else {
+            base
+        }
     }
     pub fn base_string(&self) -> String {
         use Case::*;
