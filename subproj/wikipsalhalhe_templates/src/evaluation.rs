@@ -370,7 +370,19 @@ pub fn evaluate_morphemes(morphemes: &VecDeque<Morpheme>) -> String {
                         };
                         tv
                     }
-                    v @ ("э" | "") => v.to_owned(),
+                    v @ "э" => match morpheme_next_kind {
+                        Some(MorphemeKind::Generic(gen)) => {
+                            let first_letter_of_next_morpheme =
+                                gen.chars().next().unwrap().to_string();
+                            if first_letter_of_next_morpheme == "а" {
+                                "".to_owned()
+                            } else {
+                                v.to_owned()
+                            }
+                        }
+                        _ => v.to_owned(),
+                    },
+                    v @ "" => v.to_owned(),
                     x => unreachable!("{:?}", x),
                 };
 

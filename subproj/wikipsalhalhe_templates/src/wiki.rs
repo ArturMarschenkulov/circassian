@@ -198,90 +198,28 @@ fn table_indicative(desc: &template::TemplateDesc) -> String {
         table.add(pronoun.to_string());
     }
 
-    #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-    enum Tense {
-        Present,
-        Imperfect,
-        Perfect,
-        PlusQuamPerfect,
-        FarPast,
-        FastPast2,
-        Tense1,
-        Tense2,
-        Future1,
-        Future2,
-    }
-    impl Tense {
-        fn to_arr() -> Vec<Self> {
-            [
-                Tense::Present,
-                Tense::Imperfect,
-                Tense::Perfect,
-                Tense::PlusQuamPerfect,
-                Tense::FarPast,
-                Tense::FastPast2,
-                Tense::Tense1,
-                Tense::Tense2,
-                Tense::Future1,
-                Tense::Future2,
-            ]
-            .to_vec()
-        }
-    }
-    let tense_map: std::collections::HashMap<_, _> = [
-        (Tense::Present, ("р", "ркъым")),
-        (Tense::Imperfect, ("рт", "ртэкъым")),
-        (Tense::Perfect, ("ащ", "акъым")),
-        (Tense::PlusQuamPerfect, ("ат", "атэкъым")),
-        (Tense::FarPast, ("гъащ", "гъакъым")),
-        (Tense::FastPast2, ("гъат", "гъатэкъым")),
-        (Tense::Tense1, ("щ", "къым")),
-        (Tense::Tense2, ("т", "тэкъым")),
-        (Tense::Future1, ("нщ", "нкъым")),
-        (Tense::Future2, ("ну", "нукъым")),
-    ]
-    .into_iter()
-    .collect();
-
     for tense in Tense::to_arr() {
         for polarity in [Polarity::Positive, Polarity::Negative] {
             table.add_row();
             table.add("ит зэман – щыӀэныгъэ".to_owned());
             for number in &[Number::Singular, Number::Plural] {
                 for person in &[Person::First, Person::Second, Person::Third] {
-                    let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
-                    morphemes.push_back(Morpheme {
-                        kind: MorphemeKind::Stem(desc.stem.clone(), root.clone()),
-                    });
-                    morphemes.push_back(Morpheme::new_generic(
-                        if &polarity == &Polarity::Positive {
-                            tense_map[&tense].0
-                        } else {
-                            tense_map[&tense].1
-                        },
-                    ));
-                    if (&polarity, tense) == (&Polarity::Positive, Tense::Present) {
-                        morphemes.push_front(Morpheme::new_generic("о"));
-                    }
-
-                    // Add absolutive person marker
-                    if subject_case == &Case::Ergative {
-                        let marker = PersonMarker::new(*person, *number, Case::Ergative);
-                        let m = Morpheme::new_person_marker(&marker);
-                        morphemes.push_front(m);
-                    }
-                    // Add preverb
-                    if let Some(preverb) = desc.preverb.clone() {
-                        let m = Morpheme::new_preverb(&preverb);
-                        morphemes.push_front(m);
-                    }
-                    if subject_case == &Case::Absolutive {
-                        if (person) != (&Person::Third) {
-                            let marker = PersonMarker::new(*person, *number, Case::Absolutive);
-                            let m = Morpheme::new_person_marker(&marker);
-                            morphemes.push_front(m);
-                        }
-                    }
+                    let (abs_marker, erg_marker) = if subject_case == &Case::Absolutive {
+                        (PersonMarker::new(*person, *number, Case::Absolutive), None)
+                    } else {
+                        (
+                            PersonMarker::new(Person::Third, *number, Case::Absolutive),
+                            Some(PersonMarker::new(*person, *number, Case::Ergative)),
+                        )
+                    };
+                    let morphemes = morpho::new_indicative(
+                        &polarity,
+                        &tense,
+                        &desc.preverb,
+                        &desc.stem,
+                        &abs_marker,
+                        &erg_marker,
+                    );
                     let string = evaluation::evaluate_morphemes(&morphemes);
                     table.add(string);
                 }

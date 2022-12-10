@@ -3,6 +3,37 @@ use crate::wiki::template;
 
 use std::collections::VecDeque;
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum Tense {
+    Present,
+    Imperfect,
+    Perfect,
+    PlusQuamPerfect,
+    FarPast,
+    FastPast2,
+    Tense1,
+    Tense2,
+    Future1,
+    Future2,
+}
+impl Tense {
+    pub fn to_arr() -> Vec<Self> {
+        [
+            Tense::Present,
+            Tense::Imperfect,
+            Tense::Perfect,
+            Tense::PlusQuamPerfect,
+            Tense::FarPast,
+            Tense::FastPast2,
+            Tense::Tense1,
+            Tense::Tense2,
+            Tense::Future1,
+            Tense::Future2,
+        ]
+        .to_vec()
+    }
+}
+
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum PreverbSoundForm {
     Full,        // e.g. къэ-
@@ -30,7 +61,7 @@ impl Transitivity {
     }
 }
 
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Polarity {
     Positive,
     Negative,
@@ -526,5 +557,58 @@ pub fn new_imperative(
         morphemes.push_front(m);
     }
 
+    morphemes
+}
+
+pub fn new_indicative(
+    polarity: &Polarity,
+    tense: &Tense,
+    preverb: &Option<Preverb>,
+    stem: &template::VerbStem,
+    abs_marker: &PersonMarker,
+    erg_marker: &Option<PersonMarker>,
+) -> VecDeque<Morpheme> {
+    let root = "{{{псалъэпкъ}}}".to_owned();
+    let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
+    let tense_suffix_pair = match (tense) {
+        Tense::Present => ("р", "ркъым"),
+        Tense::Imperfect => ("рт", "ртэкъым"),
+        Tense::Perfect => ("ащ", "акъым"),
+        Tense::PlusQuamPerfect => ("ат", "атэкъым"),
+        Tense::FarPast => ("гъащ", "гъакъым"),
+        Tense::FastPast2 => ("гъат", "гъатэкъым"),
+        Tense::Tense1 => ("щ", "къым"),
+        Tense::Tense2 => ("т", "тэкъым"),
+        Tense::Future1 => ("нщ", "нкъым"),
+        Tense::Future2 => ("ну", "нукъым"),
+    };
+    morphemes.push_back(Morpheme {
+        kind: MorphemeKind::Stem(stem.clone(), root.clone()),
+    });
+    morphemes.push_back(Morpheme::new_generic(if polarity == &Polarity::Positive {
+        tense_suffix_pair.0
+    } else {
+        tense_suffix_pair.1
+    }));
+    if (polarity, tense) == (&Polarity::Positive, &Tense::Present) {
+        morphemes.push_front(Morpheme::new_generic("о"));
+    }
+
+    // Add absolutive person marker
+    if let Some(marker) = erg_marker {
+        let marker = PersonMarker::new(marker.person, marker.number, Case::Ergative);
+        let m = Morpheme::new_person_marker(&marker);
+        morphemes.push_front(m);
+    }
+    // Add preverb
+    if let Some(preverb) = preverb.clone() {
+        let m = Morpheme::new_preverb(&preverb);
+        morphemes.push_front(m);
+    }
+    if (Person::Third) != abs_marker.person {
+        let marker = PersonMarker::new(abs_marker.person, abs_marker.number, Case::Absolutive);
+        let m = Morpheme::new_person_marker(&marker);
+        morphemes.push_front(m);
+    }
     morphemes
 }
