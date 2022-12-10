@@ -31,9 +31,23 @@ impl Transitivity {
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-enum Polarity {
+pub enum Polarity {
     Positive,
     Negative,
+}
+impl Polarity {
+    pub fn to_string_prefix(&self) -> String {
+        match self {
+            Polarity::Positive => "".to_owned(),
+            Polarity::Negative => "мы".to_owned(),
+        }
+    }
+    pub fn to_string_suffix(&self) -> String {
+        match self {
+            Polarity::Positive => "".to_owned(),
+            Polarity::Negative => "къым".to_owned(),
+        }
+    }
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -340,7 +354,7 @@ impl PersonMarker {
 }
 
 pub fn new_masdar(
-    polarity: &str,
+    polarity: &Polarity,
     preverb: &Option<Preverb>,
     stem: &template::VerbStem,
 ) -> VecDeque<Morpheme> {
@@ -355,7 +369,7 @@ pub fn new_masdar(
 
     // Prefix part
 
-    if polarity == "мы" {
+    if polarity == &Polarity::Negative {
         let m = Morpheme::new_negative_prefix();
         morphemes.push_front(m);
     }
@@ -368,7 +382,7 @@ pub fn new_masdar(
 }
 
 pub fn new_imperative_raj(
-    polarity: &str,
+    polarity: &Polarity,
     preverb: &Option<Preverb>,
     stem: &template::VerbStem,
     person: &Person,
@@ -385,7 +399,7 @@ pub fn new_imperative_raj(
     // Prefix part
 
     // Add negative prefix
-    if polarity == "мы" {
+    if polarity == &Polarity::Negative {
         let m = Morpheme::new_negative_prefix();
         morphemes.push_front(m);
     }
@@ -412,7 +426,7 @@ pub fn new_imperative_raj(
     morphemes
 }
 pub fn new_masdar_personal(
-    polarity: &str,
+    polarity: &Polarity,
     preverb: &Option<Preverb>,
     stem: &template::VerbStem,
     abs_marker: &PersonMarker,
@@ -434,7 +448,7 @@ pub fn new_masdar_personal(
     // Prefix part
 
     // Add negative prefix
-    if polarity == "мы" {
+    if polarity == &Polarity::Negative {
         let m = Morpheme::new_negative_prefix();
         morphemes.push_front(m);
     }
@@ -466,7 +480,7 @@ pub fn new_masdar_personal(
 }
 
 pub fn new_imperative(
-    polarity: &str,
+    polarity: &Polarity,
     preverb: &Option<Preverb>,
     stem: &template::VerbStem,
     abs_marker: &PersonMarker,
@@ -483,14 +497,16 @@ pub fn new_imperative(
     // Prefix part
 
     // Add negative prefix
-    if polarity == "мы" {
+    if polarity == &Polarity::Negative {
         let m = Morpheme::new_negative_prefix();
         morphemes.push_front(m);
     }
 
     // Add ergative person marker
     if let Some(marker) = erg_marker {
-        if (polarity, marker.person, marker.number) != ("", Person::Second, Number::Singular) {
+        if (polarity, marker.person, marker.number)
+            != (&Polarity::Negative, Person::Second, Number::Singular)
+        {
             let marker = PersonMarker::new(Person::Second, marker.number, Case::Ergative);
             let m = Morpheme::new_person_marker(&marker);
             morphemes.push_front(m);

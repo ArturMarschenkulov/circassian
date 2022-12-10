@@ -8,7 +8,9 @@ use std::collections::VecDeque;
 
 use crate::{
     evaluation,
-    morpho::{self, Case, Morpheme, MorphemeKind, Number, Person, PersonMarker, Transitivity},
+    morpho::{
+        self, Case, Morpheme, MorphemeKind, Number, Person, PersonMarker, Polarity, Transitivity,
+    },
 };
 
 use self::table::Wikitable;
@@ -31,11 +33,11 @@ fn table_masdar(desc: &template::TemplateDesc) -> String {
     table.add(table_name);
     table.add("".to_owned());
 
-    for polarity in ["", "мы"] {
+    for polarity in [Polarity::Positive, Polarity::Negative] {
         table.add_row();
-        table.add(format!("щы{}Ӏэныгъэ:", polarity));
+        table.add(format!("щы{}Ӏэныгъэ:", polarity.to_string_prefix()));
 
-        let morphemes = morpho::new_masdar(polarity, &desc.preverb, &desc.stem);
+        let morphemes = morpho::new_masdar(&polarity, &desc.preverb, &desc.stem);
         let string = evaluation::evaluate_morphemes(&morphemes);
         table.add(string);
     }
@@ -63,9 +65,9 @@ fn table_masdar_personal(desc: &template::TemplateDesc) -> String {
     for pronoun in pronouns.iter() {
         table.add(pronoun.to_string());
     }
-    for polarity in ["", "мы"] {
+    for polarity in [Polarity::Positive, Polarity::Negative] {
         table.add_row();
-        table.add(format!("щы{}Ӏэныгъэ", polarity));
+        table.add(format!("щы{}Ӏэныгъэ", polarity.to_string_prefix()));
 
         for number in &[Number::Singular, Number::Plural] {
             for person in &[Person::First, Person::Second, Person::Third] {
@@ -80,7 +82,7 @@ fn table_masdar_personal(desc: &template::TemplateDesc) -> String {
                     None
                 };
                 let morphemes = morpho::new_masdar_personal(
-                    polarity,
+                    &polarity,
                     &desc.preverb,
                     &desc.stem,
                     &abs_marker,
@@ -117,9 +119,9 @@ fn table_imperative(desc: &template::TemplateDesc) -> String {
 
     let subject_case = &desc.transitivity.subject_case();
 
-    for polarity in ["", "мы"] {
+    for polarity in [Polarity::Positive, Polarity::Negative] {
         table.add_row();
-        table.add(format!("щы{}Ӏэныгъэ", polarity));
+        table.add(format!("щы{}Ӏэныгъэ", polarity.to_string_prefix()));
         for number in &[Number::Singular, Number::Plural] {
             let abs_marker = if subject_case == &Case::Absolutive {
                 PersonMarker::new(Person::Second, *number, Case::Absolutive)
@@ -133,7 +135,7 @@ fn table_imperative(desc: &template::TemplateDesc) -> String {
             };
 
             let morphemes = morpho::new_imperative(
-                polarity,
+                &polarity,
                 &desc.preverb,
                 &desc.stem,
                 &abs_marker,
@@ -168,13 +170,18 @@ fn table_imperative_raj(desc: &template::TemplateDesc) -> String {
         table.add(pronoun.to_string());
     }
 
-    for polarity in ["", "мы"] {
+    for polarity in [Polarity::Positive, Polarity::Negative] {
         table.add_row();
-        table.add(format!("щы{}Ӏэныгъэ", polarity));
+        table.add(format!("щы{}Ӏэныгъэ", polarity.to_string_prefix()));
         for number in &[Number::Singular, Number::Plural] {
             for person in &[Person::First, Person::Second, Person::Third] {
-                let morphemes =
-                    morpho::new_imperative_raj(polarity, &desc.preverb, &desc.stem, person, number);
+                let morphemes = morpho::new_imperative_raj(
+                    &polarity,
+                    &desc.preverb,
+                    &desc.stem,
+                    person,
+                    number,
+                );
                 let string = evaluation::evaluate_morphemes(&morphemes);
                 table.add(string);
             }
@@ -194,9 +201,7 @@ fn table_indicative(desc: &template::TemplateDesc) -> String {
         table.add(pronoun.to_string());
     }
 
-    
-
-    for polarity in ["", "мы"] {
+    for polarity in [Polarity::Positive, Polarity::Negative] {
         table.add_row();
         table.add("ит зэман – щыӀэныгъэ".to_owned());
         for number in &[Number::Singular, Number::Plural] {
@@ -206,10 +211,10 @@ fn table_indicative(desc: &template::TemplateDesc) -> String {
                     kind: MorphemeKind::Stem(desc.stem.clone(), root.clone()),
                 });
                 morphemes.push_back(Morpheme::new_generic("р"));
-                if polarity == "мы" {
+                if polarity == Polarity::Negative {
                     morphemes.push_back(Morpheme::new_generic("къым"));
                 }
-                if polarity == "" {
+                if polarity == Polarity::Positive {
                     morphemes.push_front(Morpheme::new_generic("о"));
                 }
 
