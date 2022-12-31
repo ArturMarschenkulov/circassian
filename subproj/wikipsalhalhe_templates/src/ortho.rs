@@ -39,34 +39,23 @@ impl Letter {
             LetterKind::Combi(..) => false,
         }
     }
-    /// Returns `true` if the letter is a vowel or a combination of consonant and vowel.
     pub fn is_vowel(&self) -> bool {
         match &self.kind {
-            LetterKind::Consonant(..) => false,
+            
             LetterKind::Vowel(..) => true,
-            LetterKind::Combi(..) => false,
+            _ => false,
         }
     }
-    /// Returns `true` if the letter is a consonant or a combination of consonant and vowel.
     pub fn is_consonant(&self) -> bool {
         match &self.kind {
-            LetterKind::Consonant(..) => true,
-            LetterKind::Vowel(..) => false,
-            LetterKind::Combi(..) => false,
+            LetterKind::Consonant(..) => true, 
+            _ => false,
         }
     }
-    pub fn is_vowel_with_combi(&self) -> bool {
+    pub fn is_combi(&self) -> bool {
         match &self.kind {
-            LetterKind::Consonant(..) => false,
-            LetterKind::Vowel(..) => true,
-            LetterKind::Combi(..) => true,
-        }
-    }
-    pub fn is_consonant_with_combi(&self) -> bool {
-        match &self.kind {
-            LetterKind::Consonant(..) => true,
-            LetterKind::Vowel(..) => false,
-            LetterKind::Combi(..) => true,
+            LetterKind::Combi(..) => true, 
+            _ => false,
         }
     }
 }
@@ -619,8 +608,8 @@ impl std::fmt::Display for Consonant {
             (Place::Alveolar, _, _, true) => unreachable!(""),
             (Place::PostAlveolar, _, _, true) => unreachable!(""),
             (Place::Pharyngeal, _, _, true) => unreachable!(""),
-            (Place::Ignore, _, _, _) => panic!(""),
-            (_, Manner::Ignore, _, _) => panic!(""),
+            // (Place::Ignore, _, _, _) => panic!(""),
+            // (_, Manner::Ignore, _, _) => panic!(""),
 
             x => unimplemented!("{:?}", x),
         };
@@ -639,7 +628,6 @@ pub enum Place {
     Uvular,
     Pharyngeal,
     Glottal,
-    Ignore,
 }
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Manner {
@@ -649,7 +637,6 @@ pub enum Manner {
     Fricative,
     Approximant,
     Trill,
-    Ignore,
 }
 
 fn is_char_combi(c: &char) -> bool {

@@ -9,28 +9,31 @@ pub enum Tense {
     Imperfect,
     Perfect,
     PlusQuamPerfect,
-    FarPast,
+    FarPast1,
     FastPast2,
-    Tense1,
-    Tense2,
+    Aorist1,
+    Aorist2,
     Future1,
     Future2,
 }
 impl Tense {
-    pub fn to_arr() -> Vec<Self> {
+    pub fn variants() -> Vec<Self> {
         [
             Tense::Present,
             Tense::Imperfect,
             Tense::Perfect,
             Tense::PlusQuamPerfect,
-            Tense::FarPast,
+            Tense::FarPast1,
             Tense::FastPast2,
-            Tense::Tense1,
-            Tense::Tense2,
+            Tense::Aorist1,
+            Tense::Aorist2,
             Tense::Future1,
             Tense::Future2,
         ]
         .to_vec()
+    }
+    pub fn variants_iter() -> impl Iterator<Item = Self> {
+        Self::variants().into_iter()
     }
 }
 
@@ -52,9 +55,17 @@ impl Transitivity {
             Transitivity::Intransitive => Case::Absolutive,
         }
     }
+}
 
-    pub fn pronoun_row(&self) -> [&str; 6] {
-        match &self {
+pub struct Pronoun {
+    pub case: Case,
+    pub number: Number,
+    pub person: Person,
+}
+
+impl Pronoun {
+    pub fn variants_str(transitivity: &Transitivity) -> [&str; 6] {
+        match transitivity {
             Transitivity::Intransitive => ["сэ", "уэ", "ар", "дэ", "фэ", "ахэр"],
             Transitivity::Transitive => ["сэ", "уэ", "абы", "дэ", "фэ", "абыхэм"],
         }
@@ -67,13 +78,19 @@ pub enum Polarity {
     Negative,
 }
 impl Polarity {
-    pub fn to_string_prefix(&self) -> String {
+    pub fn variants() -> Vec<Self> {
+        [Polarity::Positive, Polarity::Negative].to_vec()
+    }
+    pub fn variants_iter() -> impl Iterator<Item = Self> {
+        Self::variants().into_iter()
+    }
+    pub fn to_string_prefix(self) -> String {
         match self {
             Polarity::Positive => "".to_owned(),
             Polarity::Negative => "мы".to_owned(),
         }
     }
-    pub fn to_string_suffix(&self) -> String {
+    pub fn to_string_suffix(self) -> String {
         match self {
             Polarity::Positive => "".to_owned(),
             Polarity::Negative => "къым".to_owned(),
@@ -100,9 +117,8 @@ impl Preverb {
         let letters = ortho::parse(&self.base);
         let mut last_consonant = None;
         for letter in letters {
-            match letter.kind {
-                ortho::LetterKind::Consonant(consonant) => last_consonant = Some(consonant),
-                _ => {}
+            if let ortho::LetterKind::Consonant(consonant) = letter.kind {
+                last_consonant = Some(consonant)
             }
         }
         last_consonant
@@ -115,7 +131,7 @@ impl Preverb {
         }
     }
     fn before_vowel(&self) -> String {
-        let sss = match &self.base {
+        match &self.base {
             base if base.ends_with('э') || base.ends_with('ы') => {
                 let mut chars = base.chars();
                 chars.next_back();
@@ -123,11 +139,10 @@ impl Preverb {
                 reduced
             }
             _ => unreachable!(),
-        };
-        sss
+        }
     }
     fn reduced(&self) -> String {
-        let sss = match &self.base {
+        match &self.base {
             base if base.ends_with('э') || base.ends_with('ы') => {
                 let mut chars = base.chars();
                 chars.next_back();
@@ -135,8 +150,7 @@ impl Preverb {
                 reduced + "ы"
             }
             _ => unreachable!(),
-        };
-        sss
+        }
     }
 
     fn get_string(&self, form: PreverbSoundForm) -> String {
@@ -170,7 +184,7 @@ impl Preverb {
     }
 }
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub enum MorphemeKind {
     Preverb(Preverb),
     PersonMarker(PersonMarker),
@@ -200,7 +214,7 @@ impl std::fmt::Display for MorphemeKind {
             }
             MorphemeKind::NegationPrefix => write!(f, "мы"),
             MorphemeKind::RajImperative => write!(f, "ре"),
-            MorphemeKind::Stem(stem, base) => write!(f, "{}", base),
+            MorphemeKind::Stem(_, base) => write!(f, "{}", base),
             MorphemeKind::Generic(generic) => write!(f, "{}", generic),
         }
     }
@@ -259,8 +273,11 @@ pub enum Case {
     Absolutive,
     /// (-м) subject of transitive verb
     Ergative,
-    /// (-м) indirect object of intransitive and transitive verbs.
-    Oblique,
+}
+impl Case {
+    // pub fn variants() -> Vec<Self> {
+    //     vec![Case::Absolutive, Case::Ergative]
+    // }
 }
 
 /// A struct that indicates the number of a noun or verb.
@@ -269,12 +286,29 @@ pub enum Number {
     Singular,
     Plural,
 }
+impl Number {
+    pub fn variants() -> Vec<Self> {
+        vec![Number::Singular, Number::Plural]
+    }
+    pub fn variants_iter() -> impl Iterator<Item = Self> {
+        Self::variants().into_iter()
+    }
+}
+
 /// A struct that indicates the person of a verb.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Person {
     First,
     Second,
     Third,
+}
+impl Person {
+    pub fn variants() -> Vec<Self> {
+        vec![Person::First, Person::Second, Person::Third]
+    }
+    pub fn variants_iter() -> impl Iterator<Item = Self> {
+        Self::variants().into_iter()
+    }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -295,12 +329,21 @@ impl PersonMarker {
         }
     }
 
-    pub fn to_letters(&self) -> Vec<ortho::Letter> {
-        let base = self.base_string();
-        ortho::parse(&base)
+    pub fn to_letters(self) -> Vec<ortho::Letter> {
+        ortho::parse(&self.base_string())
+    }
+}
+
+impl PersonMarker {
+    pub fn is_third(&self) -> bool {
+        self.person == Person::Third
     }
     pub fn is_second_singular(&self) -> bool {
         self.person == Person::Second && self.number == Number::Singular
+    }
+
+    pub fn is_third_ergative(&self) -> bool {
+        self.person == Person::Third && self.case == Case::Ergative
     }
     pub fn is_third_singular_ergative(&self) -> bool {
         self.person == Person::Third
@@ -324,17 +367,20 @@ impl PersonMarker {
         let new = match old {
             'с' => 'з',
             'ф' => 'в',
-            x => x,
+            x if ['б', 'д', 'и'].contains(&x) => x,
+            x => unreachable!("Unexpected letter: {}", x),
         };
         base.replacen(old, &new.to_string(), 1)
     }
+
     pub fn base_string_as_voiceless(&self) -> String {
         let base = self.base_string();
         let old = base.chars().next().unwrap();
         let new = match old {
             'б' => 'п',
             'д' => 'т',
-            x => x,
+            x if ['с', 'ф', 'и'].contains(&x) => x,
+            x => unreachable!("Unexpected letter: {}", x),
         };
         base.replacen(old, &new.to_string(), 1)
     }
@@ -343,10 +389,15 @@ impl PersonMarker {
         let old = base.chars().next().unwrap();
         let new = match old {
             'я' => 'а',
-            x => x,
+            x if ['с', 'б', 'д', 'ф', 'и'].contains(&x) => x,
+            x => unreachable!("Unexpected letter: {}", x),
         };
         base.replacen(old, &new.to_string(), 1)
     }
+
+    // pub fn base_string_as_before_m(&self) -> String {
+    //     let base = self.base_string();
+    // }
     pub fn base_string_as_before_o(&self) -> String {
         let base = self.base_string();
         if base.ends_with('ы') {
@@ -361,23 +412,18 @@ impl PersonMarker {
         use Person::*;
         let result = match (self.person, self.number, self.case) {
             (First, Singular, Absolutive) => "сы",
-            (First, Singular, Ergative) => "с",
-            (First, Singular, Oblique) => "сэ",
             (Second, Singular, Absolutive) => "у",
-            (Second, Singular, Ergative) => "б",
-            (Second, Singular, Oblique) => "уэ",
             (Third, Singular, Absolutive) => "",
-            (Third, Singular, Ergative) => "и",
-            (Third, Singular, Oblique) => "е",
             (First, Plural, Absolutive) => "ды",
-            (First, Plural, Ergative) => "д",
-            (First, Plural, Oblique) => "дэ",
             (Second, Plural, Absolutive) => "фы",
-            (Second, Plural, Ergative) => "ф",
-            (Second, Plural, Oblique) => "фэ",
             (Third, Plural, Absolutive) => "",
+
+            (First, Singular, Ergative) => "с",
+            (Second, Singular, Ergative) => "б",
+            (Third, Singular, Ergative) => "и",
+            (First, Plural, Ergative) => "д",
+            (Second, Plural, Ergative) => "ф",
             (Third, Plural, Ergative) => "я",
-            (Third, Plural, Oblique) => "е",
         };
 
         result.to_string()
@@ -394,7 +440,6 @@ pub fn new_masdar(
 
     morphemes.push_back(Morpheme {
         kind: MorphemeKind::Stem(stem.clone(), root),
-        //base: root,
     });
     morphemes.push_back(Morpheme::new_generic("н"));
 
@@ -570,20 +615,20 @@ pub fn new_indicative(
 ) -> VecDeque<Morpheme> {
     let root = "{{{псалъэпкъ}}}".to_owned();
     let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
-    let tense_suffix_pair = match (tense) {
+    let tense_suffix_pair = match tense {
         Tense::Present => ("р", "ркъым"),
         Tense::Imperfect => ("рт", "ртэкъым"),
         Tense::Perfect => ("ащ", "акъым"),
         Tense::PlusQuamPerfect => ("ат", "атэкъым"),
-        Tense::FarPast => ("гъащ", "гъакъым"),
+        Tense::FarPast1 => ("гъащ", "гъакъым"),
         Tense::FastPast2 => ("гъат", "гъатэкъым"),
-        Tense::Tense1 => ("щ", "къым"),
-        Tense::Tense2 => ("т", "тэкъым"),
+        Tense::Aorist1 => ("щ", "къым"),
+        Tense::Aorist2 => ("т", "тэкъым"),
         Tense::Future1 => ("нщ", "нкъым"),
         Tense::Future2 => ("ну", "нукъым"),
     };
     morphemes.push_back(Morpheme {
-        kind: MorphemeKind::Stem(stem.clone(), root.clone()),
+        kind: MorphemeKind::Stem(stem.clone(), root),
     });
     morphemes.push_back(Morpheme::new_generic(if polarity == &Polarity::Positive {
         tense_suffix_pair.0
@@ -592,6 +637,58 @@ pub fn new_indicative(
     }));
     if (polarity, tense) == (&Polarity::Positive, &Tense::Present) {
         morphemes.push_front(Morpheme::new_generic("о"));
+    }
+
+    // Add absolutive person marker
+    if let Some(marker) = erg_marker {
+        let marker = PersonMarker::new(marker.person, marker.number, Case::Ergative);
+        let m = Morpheme::new_person_marker(&marker);
+        morphemes.push_front(m);
+    }
+    // Add preverb
+    if let Some(preverb) = preverb.clone() {
+        let m = Morpheme::new_preverb(&preverb);
+        morphemes.push_front(m);
+    }
+    if (Person::Third) != abs_marker.person {
+        let marker = PersonMarker::new(abs_marker.person, abs_marker.number, Case::Absolutive);
+        let m = Morpheme::new_person_marker(&marker);
+        morphemes.push_front(m);
+    }
+    morphemes
+}
+
+pub fn new_interrogative(
+    polarity: &Polarity,
+    tense: &Tense,
+    preverb: &Option<Preverb>,
+    stem: &template::VerbStem,
+    abs_marker: &PersonMarker,
+    erg_marker: &Option<PersonMarker>,
+) -> VecDeque<Morpheme> {
+    let root = "{{{псалъэпкъ}}}".to_owned();
+    let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
+    let tense_suffix_pair = match tense {
+        Tense::Present => ("рэ", "ркъэ"),
+        Tense::Imperfect => ("рт", "ртэкъым"),
+        Tense::Perfect => ("ащ", "акъэ"),
+        Tense::PlusQuamPerfect => ("ат", "атэкъэ"),
+        Tense::FarPast1 => ("гъащ", "гъакъэ"),
+        Tense::FastPast2 => ("гъат", "гъатэкъэ"),
+        Tense::Aorist1 => ("", "къэ"),
+        Tense::Aorist2 => ("т", "тэкъэ"),
+        Tense::Future1 => ("нщ", "нкъэ"),
+        Tense::Future2 => ("ну", "нукъэ"),
+    };
+    morphemes.push_back(Morpheme {
+        kind: MorphemeKind::Stem(stem.clone(), root),
+    });
+    if !tense_suffix_pair.0.is_empty() && polarity == &Polarity::Positive {
+        morphemes.push_back(Morpheme::new_generic(if polarity == &Polarity::Positive {
+            tense_suffix_pair.0
+        } else {
+            tense_suffix_pair.1
+        }));
     }
 
     // Add absolutive person marker
