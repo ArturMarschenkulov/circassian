@@ -25,19 +25,43 @@ pub enum LetterKind {
     Combi(Consonant, Vowel),
 }
 impl Letter {
-    pub fn get_voiceness(&self) -> Voiceness {
+    pub fn voiceness(&self) -> Voiceness {
         match &self.kind {
             LetterKind::Consonant(c) => c.voiceness,
             LetterKind::Vowel(..) => Voiceness::Voiced,
             LetterKind::Combi(..) => Voiceness::Voiced,
         }
     }
-    pub fn is_nasal(&self) -> bool {
+
+    pub fn is_consonant_voiceness(&self, voiceness: Voiceness) -> bool {
         match &self.kind {
-            LetterKind::Consonant(c) => c.manner == Manner::Nasal,
+            LetterKind::Consonant(c) => c.voiceness == voiceness,
             LetterKind::Vowel(..) => false,
             LetterKind::Combi(..) => false,
         }
+    }
+    pub fn is_consonant_manner(&self, manner: Manner) -> bool {
+        match &self.kind {
+            LetterKind::Consonant(c) => c.manner == manner,
+            LetterKind::Vowel(..) => false,
+            LetterKind::Combi(..) => false,
+        }
+    }
+    pub fn is_consonant_place(&self, place: Place) -> bool {
+        match &self.kind {
+            LetterKind::Consonant(c) => c.place == place,
+            LetterKind::Vowel(..) => false,
+            LetterKind::Combi(..) => false,
+        }
+    }
+    pub fn is_consonant_manner_place(&self, manner: Manner, place: Place) -> bool {
+        self.is_consonant_manner(manner) && self.is_consonant_place(place)
+    }
+    pub fn is_nasal(&self) -> bool {
+        self.is_consonant_manner(Manner::Nasal)
+    }
+    pub fn is_trill(&self) -> bool {
+        self.is_consonant_manner(Manner::Trill)
     }
     pub fn is_vowel(&self) -> bool {
         match &self.kind {

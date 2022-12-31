@@ -164,8 +164,8 @@ fn evaluate_person_marker(
                 match &marker.to_letters()[0].kind {
                     ortho::LetterKind::Consonant(consonant) => {
                         let mut consonant = consonant.clone();
-                        consonant.voiceness = neg_prefix.first_letter().unwrap().get_voiceness();
-                    
+                        consonant.voiceness = neg_prefix.first_letter().unwrap().voiceness();
+
                         // if 'п' or 'б', make it 'у'.
                         if consonant.is_labial_plosive() {
                             consonant.manner = Approximant;
@@ -196,7 +196,7 @@ fn evaluate_person_marker(
                 match &marker.to_letters()[0].kind {
                     ortho::LetterKind::Consonant(consonant) => {
                         assert_ne!((marker.person, marker.number), (Person::Third, Number::Plural), "Second person singular ergative markers are not allowed to be followed by a stem");
-                        // let x = preverb.get_first_letter().get_voiceness();
+                        // let x = preverb.first_letter().voiceness();
                         let mut consonant = consonant.clone();
                         consonant.voiceness = stem
                             .first_consonant
@@ -243,7 +243,7 @@ fn evaluate_preverb(preverb: &Preverb, morphemes: &VecDeque<Morpheme>, i: usize)
             // let base = marker.get_base_string();
             let first_letter = marker.to_letters()[0].clone();
             let x = match first_letter.kind {
-                ortho::LetterKind::Combi(..) => preverb.get_form(&BeforeVowel),
+                ortho::LetterKind::Combi(..) => preverb.form(&BeforeVowel),
                 ortho::LetterKind::Consonant(cons)
                     if cons.base == "б"
                         && morphemes
@@ -251,24 +251,22 @@ fn evaluate_preverb(preverb: &Preverb, morphemes: &VecDeque<Morpheme>, i: usize)
                             .map(|m| m.kind == MorphemeKind::NegationPrefix)
                             .unwrap_or(false) =>
                 {
-                    preverb.get_form(&BeforeVowel)
+                    preverb.form(&BeforeVowel)
                 }
                 _ => {
                     let morpheme_next_next = morphemes.get(i + 2);
                     let morpheme_next_next_kind = morpheme_next_next.map(|x| &x.kind);
                     match morpheme_next_next_kind {
-                        Some(MorphemeKind::Generic(base)) if base == "о" => {
-                            preverb.get_form(&Reduced)
-                        }
-                        _ => preverb.get_form(&Full),
+                        Some(MorphemeKind::Generic(base)) if base == "о" => preverb.form(&Reduced),
+                        _ => preverb.form(&Full),
                     }
                 }
             };
             x
         }
-        MorphemeKind::Stem(..) => preverb.get_form(&Full),
-        MorphemeKind::NegationPrefix => preverb.get_form(&Full),
-        MorphemeKind::RajImperative => preverb.get_form(&BeforeVowel),
+        MorphemeKind::Stem(..) => preverb.form(&Full),
+        MorphemeKind::NegationPrefix => preverb.form(&Full),
+        MorphemeKind::RajImperative => preverb.form(&BeforeVowel),
         x => unimplemented!("{:?}", x),
     }
 }
@@ -289,20 +287,32 @@ fn evaluate_stem(
 
     let tv = match thematic_vowel.as_ref() {
         "ы" => match (&morpheme_prev_kind, &morpheme_next_kind) {
+            // If only the stem is present, the thematic vowel is pronounced.
             (None, None) => thematic_vowel,
+            // If the stem is preceded by an ergative person marker and the stem is the last morpheme, the thematic vowel is pronounced.
             (Some(MorphemeKind::PersonMarker(marker)), None) if marker.case == Case::Ergative => {
-                // let morpheme_prev_prev = i.checked_sub(2).map(|i| &morphemes[i]);
-                i.checked_sub(2)
-                    .map(|i| &morphemes[i])
+                // If prevprevious morpheme exists, then the thematic vowel is not pronounced, else it is.
+                // This simply means that the verb stem would build it's own syllable, e.g. зэхэсхы => зэхэсх.
+
+                // TODO: Find another way to determine this.
+                let morpheme_prev_prev = i.checked_sub(2).map(|i| &morphemes[i]);
+                morpheme_prev_prev
                     .map(|_| "".to_owned())
                     .unwrap_or(thematic_vowel)
             }
+            // If the stem is followed by certain consonants, the thematic vowel is pronounced.
+            // if followed by гъ (-гъэ), н (-нэ), or a trill (-р, but not -рэ), the thematic vowel is pronounced.
             (_, Some(MorphemeKind::Generic(..)))
-                if morpheme_prev_kind
-                    .unwrap()
-                    .first_letter()
-                    .unwrap()
-                    .is_nasal() =>
+                if {
+                    let fl = morpheme_next_kind.unwrap().first_letter().unwrap();
+
+                    fl
+                    .is_consonant_manner_place(ortho::Manner::Nasal, ortho::Place::Alveolar) // н
+                    || fl
+                        .is_consonant_manner_place(ortho::Manner::Fricative, ortho::Place::Uvular) // гъ
+                    || fl
+                        .is_trill() && !morpheme_next_kind.unwrap().is_generic_certain("рэ")
+                } =>
             {
                 thematic_vowel
             }
@@ -372,18 +382,22 @@ pub fn evaluate_morphemes(morphemes: &VecDeque<Morpheme>) -> String {
             MorphemeKind::Preverb(ref preverb) => evaluate_preverb(preverb, morphemes, i),
             MorphemeKind::NegationPrefix => "мы".to_owned(),
             MorphemeKind::Generic(ref base) if base == "о" => evaluate_o(morphemes, i),
-            MorphemeKind::Generic(ref base) if base.starts_with('р') && !base.starts_with("рэ") => match morpheme_prev_kind {
-                Some(MorphemeKind::Stem(s, _)) if s.thematic_vowel == ThematicVowel::Y => {
-                    "ы".to_owned() + &morpheme.to_string()
-                }
-                _ => morpheme.to_string(),
-            },
-            MorphemeKind::Generic(ref base) if base.starts_with('н') || base.starts_with("гъ") => match morpheme_prev_kind {
-                Some(MorphemeKind::Stem(s, _)) if s.thematic_vowel == ThematicVowel::Y => {
-                    "ы".to_owned() + &morpheme.to_string()
-                }
-                _ => morpheme.to_string(),
-            },
+            // MorphemeKind::Generic(ref base) if base.starts_with('р') && !base.starts_with("рэ") => {
+            //     match morpheme_prev_kind {
+            //         Some(MorphemeKind::Stem(s, _)) if s.thematic_vowel == ThematicVowel::Y => {
+            //             "ы".to_owned() + &morpheme.to_string()
+            //         }
+            //         _ => morpheme.to_string(),
+            //     }
+            // }
+            // MorphemeKind::Generic(ref base) if base.starts_with('н') || base.starts_with("гъ") => {
+            //     match morpheme_prev_kind {
+            //         Some(MorphemeKind::Stem(s, _)) if s.thematic_vowel == ThematicVowel::Y => {
+            //             "ы".to_owned() + &morpheme.to_string()
+            //         }
+            //         _ => morpheme.to_string(),
+            //     }
+            // }
             MorphemeKind::Generic(..) | MorphemeKind::RajImperative => morpheme.to_string(), // _ => unimplemented!(),
         };
         result += &x;

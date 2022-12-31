@@ -10,7 +10,7 @@ pub enum Tense {
     Perfect,
     PlusQuamPerfect,
     FarPast1,
-    FastPast2,
+    FarPast2,
     Aorist1,
     Aorist2,
     Future1,
@@ -24,7 +24,7 @@ impl Tense {
             Tense::Perfect,
             Tense::PlusQuamPerfect,
             Tense::FarPast1,
-            Tense::FastPast2,
+            Tense::FarPast2,
             Tense::Aorist1,
             Tense::Aorist2,
             Tense::Future1,
@@ -64,11 +64,48 @@ pub struct Pronoun {
 }
 
 impl Pronoun {
-    pub fn variants_str(transitivity: &Transitivity) -> [&str; 6] {
-        match transitivity {
-            Transitivity::Intransitive => ["сэ", "уэ", "ар", "дэ", "фэ", "ахэр"],
-            Transitivity::Transitive => ["сэ", "уэ", "абы", "дэ", "фэ", "абыхэм"],
-        }
+    pub fn variants_case(case: &Case) -> Vec<Self> {
+        Number::variants_iter()
+            .flat_map(|n| {
+                Person::variants_iter().map(move |p| Pronoun {
+                    case: *case,
+                    number: n,
+                    person: p,
+                })
+            })
+            .collect::<Vec<_>>()
+    }
+    pub fn variants_person(person: &Person) -> Vec<Self> {
+        Number::variants_iter()
+            .flat_map(|n| {
+                Case::variants_iter().map(move |c| Pronoun {
+                    case: c,
+                    number: n,
+                    person: *person,
+                })
+            })
+            .collect::<Vec<_>>()
+    }
+}
+
+impl std::fmt::Display for Pronoun {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+        write!(
+            f,
+            "{}",
+            match (self.person, self.number, self.case) {
+                (Person::First, Number::Singular, _) => "сэ",
+                (Person::Second, Number::Singular, _) => "уэ",
+                (Person::First, Number::Plural, _) => "дэ",
+                (Person::Second, Number::Plural, _) => "фэ",
+
+                (Person::Third, Number::Singular, Case::Absolutive) => "ар",
+                (Person::Third, Number::Plural, Case::Absolutive) => "ахэр",
+                (Person::Third, Number::Singular, Case::Ergative) => "абы",
+                (Person::Third, Number::Plural, Case::Ergative) => "абыхэм",
+            }
+            .to_owned()
+        )
     }
 }
 
@@ -123,7 +160,7 @@ impl Preverb {
         }
         last_consonant
     }
-    pub fn get_form(&self, form: &PreverbSoundForm) -> String {
+    pub fn form(&self, form: &PreverbSoundForm) -> String {
         match &form {
             PreverbSoundForm::Full => self.base.clone(),
             PreverbSoundForm::Reduced => self.reduced(),
@@ -203,6 +240,13 @@ impl MorphemeKind {
     fn to_letters(&self) -> Vec<ortho::Letter> {
         ortho::parse(&self.to_string())
     }
+
+    pub fn is_generic_certain(&self, generic: &str) -> bool {
+        match self {
+            MorphemeKind::Generic(g) => g == generic,
+            _ => false,
+        }
+    }
 }
 
 impl std::fmt::Display for MorphemeKind {
@@ -234,11 +278,7 @@ impl Morpheme {
         ortho::parse(&base)
     }
 }
-impl std::fmt::Display for Morpheme {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-        write!(f, "{}", self.kind)
-    }
-}
+
 impl Morpheme {
     pub fn new_generic(base: &str) -> Self {
         Morpheme {
@@ -267,6 +307,12 @@ impl Morpheme {
     }
 }
 
+impl std::fmt::Display for Morpheme {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+        write!(f, "{}", self.kind)
+    }
+}
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Case {
     /// (-р) subject of intransitive verb, direct object of transitive verb
@@ -275,9 +321,12 @@ pub enum Case {
     Ergative,
 }
 impl Case {
-    // pub fn variants() -> Vec<Self> {
-    //     vec![Case::Absolutive, Case::Ergative]
-    // }
+    pub fn variants() -> Vec<Self> {
+        vec![Case::Absolutive, Case::Ergative]
+    }
+    pub fn variants_iter() -> impl Iterator<Item = Self> {
+        Self::variants().into_iter()
+    }
 }
 
 /// A struct that indicates the number of a noun or verb.
@@ -621,7 +670,7 @@ pub fn new_indicative(
         Tense::Perfect => ("ащ", "акъым"),
         Tense::PlusQuamPerfect => ("ат", "атэкъым"),
         Tense::FarPast1 => ("гъащ", "гъакъым"),
-        Tense::FastPast2 => ("гъат", "гъатэкъым"),
+        Tense::FarPast2 => ("гъат", "гъатэкъым"),
         Tense::Aorist1 => ("щ", "къым"),
         Tense::Aorist2 => ("т", "тэкъым"),
         Tense::Future1 => ("нщ", "нкъым"),
@@ -674,7 +723,7 @@ pub fn new_interrogative(
         Tense::Perfect => ("ащ", "акъэ"),
         Tense::PlusQuamPerfect => ("ат", "атэкъэ"),
         Tense::FarPast1 => ("гъащ", "гъакъэ"),
-        Tense::FastPast2 => ("гъат", "гъатэкъэ"),
+        Tense::FarPast2 => ("гъат", "гъатэкъэ"),
         Tense::Aorist1 => ("", "къэ"),
         Tense::Aorist2 => ("т", "тэкъэ"),
         Tense::Future1 => ("нщ", "нкъэ"),
@@ -692,6 +741,109 @@ pub fn new_interrogative(
     }
 
     // Add absolutive person marker
+    if let Some(marker) = erg_marker {
+        let marker = PersonMarker::new(marker.person, marker.number, Case::Ergative);
+        let m = Morpheme::new_person_marker(&marker);
+        morphemes.push_front(m);
+    }
+    // Add preverb
+    if let Some(preverb) = preverb.clone() {
+        let m = Morpheme::new_preverb(&preverb);
+        morphemes.push_front(m);
+    }
+    if (Person::Third) != abs_marker.person {
+        let marker = PersonMarker::new(abs_marker.person, abs_marker.number, Case::Absolutive);
+        let m = Morpheme::new_person_marker(&marker);
+        morphemes.push_front(m);
+    }
+    morphemes
+}
+
+pub fn new_conditional_2(
+    polarity: &Polarity,
+    tense: &Tense,
+    preverb: &Option<Preverb>,
+    stem: &template::VerbStem,
+    abs_marker: &PersonMarker,
+    erg_marker: &Option<PersonMarker>,
+) -> VecDeque<Morpheme> {
+    let root = "{{{псалъэпкъ}}}".to_owned();
+    let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
+    let tense_suffix = match tense {
+        Tense::Imperfect => "т",
+        Tense::Perfect => "атэ",
+        Tense::FarPast1 => "гъатэ",
+        Tense::Future1 => "нтэ",
+        Tense::Future2 => "нутэ",
+        _ => unreachable!("Invalid tense for conditional: {:?}", tense),
+    };
+    morphemes.push_back(Morpheme {
+        kind: MorphemeKind::Stem(stem.clone(), root),
+    });
+
+    if !tense_suffix.is_empty() {
+        morphemes.push_back(Morpheme::new_generic(tense_suffix));
+    }
+
+    morphemes.push_back(Morpheme::new_generic("мэ"));
+
+    // negation prefix
+    if polarity == &Polarity::Negative {
+        morphemes.push_front(Morpheme::new_negative_prefix());
+    }
+
+    // Add ergative person marker
+    if let Some(marker) = erg_marker {
+        let marker = PersonMarker::new(marker.person, marker.number, Case::Ergative);
+        let m = Morpheme::new_person_marker(&marker);
+        morphemes.push_front(m);
+    }
+    // Add preverb
+    if let Some(preverb) = preverb.clone() {
+        let m = Morpheme::new_preverb(&preverb);
+        morphemes.push_front(m);
+    }
+    if (Person::Third) != abs_marker.person {
+        let marker = PersonMarker::new(abs_marker.person, abs_marker.number, Case::Absolutive);
+        let m = Morpheme::new_person_marker(&marker);
+        morphemes.push_front(m);
+    }
+    morphemes
+}
+
+pub fn new_conditional(
+    polarity: &Polarity,
+    tense: &Tense,
+    preverb: &Option<Preverb>,
+    stem: &template::VerbStem,
+    abs_marker: &PersonMarker,
+    erg_marker: &Option<PersonMarker>,
+) -> VecDeque<Morpheme> {
+    let root = "{{{псалъэпкъ}}}".to_owned();
+    let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
+    let tense_suffix = match tense {
+        Tense::Present => "",
+        Tense::Perfect => "а",
+        Tense::FarPast1 => "гъа",
+        Tense::Future1 => "н",
+        Tense::Future2 => "ну",
+        _ => unreachable!("Invalid tense for conditional: {:?}", tense),
+    };
+    morphemes.push_back(Morpheme {
+        kind: MorphemeKind::Stem(stem.clone(), root),
+    });
+    if !tense_suffix.is_empty() {
+        morphemes.push_back(Morpheme::new_generic(tense_suffix));
+    }
+
+    morphemes.push_back(Morpheme::new_generic("мэ"));
+
+    // negation prefix
+    if polarity == &Polarity::Negative {
+        morphemes.push_front(Morpheme::new_negative_prefix());
+    }
+
+    // Add ergative person marker
     if let Some(marker) = erg_marker {
         let marker = PersonMarker::new(marker.person, marker.number, Case::Ergative);
         let m = Morpheme::new_person_marker(&marker);

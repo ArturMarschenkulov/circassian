@@ -55,10 +55,11 @@ fn table_masdar_personal(desc: &template::TemplateDesc) -> String {
 
     let mut table = Wikitable::new();
     table.add(table_name);
-    let pronouns = Pronoun::variants_str(&desc.transitivity);
-    for pronoun in pronouns.iter() {
-        table.add(pronoun.to_string());
-    }
+
+    Pronoun::variants_case(&desc.transitivity.subject_case())
+        .iter()
+        .map(|pronoun| pronoun.to_string())
+        .for_each(|pronoun| table.add(pronoun));
 
     let number_and_person = Number::variants_iter()
         .flat_map(|n| Person::variants_iter().map(move |p| (n, p)))
@@ -106,9 +107,10 @@ fn table_imperative(desc: &template::TemplateDesc) -> String {
 
     let mut table = Wikitable::new();
     table.add(table_name);
-    for pronoun in ["уэ", "фэ"].iter() {
-        table.add(pronoun.to_string());
-    }
+    Pronoun::variants_person(&Person::Second)
+        .iter()
+        .map(|pronoun| pronoun.to_string())
+        .for_each(|pronoun| table.add(pronoun));
 
     for polarity in Polarity::variants() {
         table.add_row();
@@ -160,10 +162,11 @@ fn get_person_markers(
 fn table_imperative_raj(desc: &template::TemplateDesc) -> String {
     let mut table = Wikitable::new();
     table.add("Ре-кӀэ унафэ наклоненэ".to_owned());
-    let pronouns = Pronoun::variants_str(&desc.transitivity);
-    for pronoun in pronouns.iter() {
-        table.add(pronoun.to_string());
-    }
+
+    Pronoun::variants_case(&desc.transitivity.subject_case())
+        .iter()
+        .map(|pronoun| pronoun.to_string())
+        .for_each(|pronoun| table.add(pronoun));
 
     let number_and_person = Number::variants_iter()
         .flat_map(|n| Person::variants_iter().map(move |p| (n, p)))
@@ -186,10 +189,11 @@ fn table_indicative(desc: &template::TemplateDesc) -> String {
     let mut table = Wikitable::new();
     table.add("ЗэраӀуатэ наклоненэ".to_owned());
     let subject_case = &desc.transitivity.subject_case();
-    let pronouns = Pronoun::variants_str(&desc.transitivity);
-    for &pronoun in pronouns.iter() {
-        table.add(pronoun.to_string());
-    }
+
+    Pronoun::variants_case(&desc.transitivity.subject_case())
+        .iter()
+        .map(|pronoun| pronoun.to_string())
+        .for_each(|pronoun| table.add(pronoun));
 
     let tense_and_polarity = Tense::variants_iter()
         .flat_map(|t| Polarity::variants_iter().map(move |p| (t, p)))
@@ -223,10 +227,11 @@ fn table_interrogative(desc: &template::TemplateDesc) -> String {
     let mut table = Wikitable::new();
     table.add("ЗэрыупщӀэ наклоненэ".to_owned());
     let subject_case = &desc.transitivity.subject_case();
-    let pronouns = Pronoun::variants_str(&desc.transitivity);
-    for &pronoun in pronouns.iter() {
-        table.add(pronoun.to_string());
-    }
+
+    Pronoun::variants_case(&desc.transitivity.subject_case())
+        .iter()
+        .map(|pronoun| pronoun.to_string())
+        .for_each(|pronoun| table.add(pronoun));
 
     let tense_and_polarity = Tense::variants_iter()
         .flat_map(|t| Polarity::variants_iter().map(move |p| (t, p)))
@@ -260,10 +265,11 @@ fn table_conditional(desc: &template::TemplateDesc) -> String {
     let mut table = Wikitable::new();
     table.add("условнэ ипэжыпӀэкӀэ щыӀэ наклоненэ".to_owned());
     let subject_case = &desc.transitivity.subject_case();
-    let pronouns = Pronoun::variants_str(&desc.transitivity);
-    for &pronoun in pronouns.iter() {
-        table.add(pronoun.to_string());
-    }
+
+    Pronoun::variants_case(&desc.transitivity.subject_case())
+        .iter()
+        .map(|pronoun| pronoun.to_string())
+        .for_each(|pronoun| table.add(pronoun));
 
     let tense_and_polarity = Tense::variants_iter()
         .flat_map(|t| Polarity::variants_iter().map(move |p| (t, p)))
@@ -274,20 +280,31 @@ fn table_conditional(desc: &template::TemplateDesc) -> String {
         .collect::<Vec<_>>();
 
     for (tense, polarity) in tense_and_polarity {
+        if ![
+            Tense::Present,
+            Tense::Perfect,
+            Tense::FarPast1,
+            Tense::Future1,
+            Tense::Future2,
+        ]
+        .contains(&tense)
+        {
+            continue;
+        }
         table.add_row();
         table.add(indcicative_tense_string(&tense, &polarity));
         for (number, person) in &number_and_person {
             let (abs_marker, erg_marker) = get_person_markers(subject_case, person, number);
-            // let morphemes = morpho::new_conditional(
-            //     &polarity,
-            //     &tense,
-            //     &desc.preverb,
-            //     &desc.stem,
-            //     &abs_marker,
-            //     &erg_marker,
-            // );
-            // let string = evaluation::evaluate_morphemes(&morphemes);
-            // table.add(string);
+            let morphemes = morpho::new_conditional(
+                &polarity,
+                &tense,
+                &desc.preverb,
+                &desc.stem,
+                &abs_marker,
+                &erg_marker,
+            );
+            let string = evaluation::evaluate_morphemes(&morphemes);
+            table.add(string);
         }
     }
     table.to_string()
@@ -304,7 +321,7 @@ fn indcicative_tense_string(tense: &Tense, polarity: &Polarity) -> String {
             p
         ),
         Tense::FarPast1 => format!("блэкӀа жыжьэ зэфӀэкӀа зэман – щы{}Ӏэныгъэ:", p),
-        Tense::FastPast2 => format!("блэкӀа жыжьэ зэфӀэкӀа и пэ ит зэман – щы{}Ӏэныгъэ:", p),
+        Tense::FarPast2 => format!("блэкӀа жыжьэ зэфӀэкӀа и пэ ит зэман – щы{}Ӏэныгъэ:", p),
         Tense::Aorist1 => format!("блэкӀа гъэкӀэщӀа зэман I – щы{}Ӏэныгъэ:", p),
         Tense::Aorist2 => format!("блэкӀа гъэкӀэщӀа зэман II – щы{}Ӏэныгъэ:", p),
         Tense::Future1 => format!("къэкӀуэну мыгъэбелджыла зэман – щы{}Ӏэныгъэ:", p),
@@ -335,6 +352,7 @@ fn create_template(desc: template::TemplateDesc) -> String {
     result += "\n-\n";
     result += &table_interrogative(&desc);
     result += "\n-\n";
+    result += &table_conditional(&desc);
 
     result += "|}<noinclude>\n[[Category:Wt/kbd]]\n</noinclude>";
 
@@ -412,7 +430,7 @@ pub fn main() {
     let template_desc = template::create_template_from_string(template.to_owned()).unwrap();
     let template_str = create_template(template_desc);
 
-    if let Some(root) = test_roots.get(template::get_root_str(template)) {
+    if let Some(root) = test_roots.get(template::root_str(template)) {
         let result = template_str.replace("{{{псалъэпкъ}}}", root);
         println!("{}", result);
     } else {

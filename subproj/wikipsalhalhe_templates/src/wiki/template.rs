@@ -144,7 +144,7 @@ pub struct VerbStem {
 
 */
 
-fn get_transitivity_str(s: &str) -> &str {
+fn transitivity_str(s: &str) -> &str {
     let segments = s.split('-').collect::<Vec<&str>>();
     segments[1]
 }
@@ -156,7 +156,7 @@ fn extract_transitivity(s: &str) -> Option<Transitivity> {
         _ => None,
     }
 }
-fn get_preverb_str(s: &str) -> &str {
+fn preverb_str(s: &str) -> &str {
     let segments = s.split('-').collect::<Vec<&str>>();
     segments[2]
 }
@@ -167,7 +167,7 @@ fn extract_preverb(s: &str) -> Option<Preverb> {
     }
 }
 
-pub fn get_root_str(s: &str) -> &str {
+pub fn root_str(s: &str) -> &str {
     let segments = s.split('-').collect::<Vec<&str>>();
     segments[3]
 }
@@ -255,9 +255,9 @@ pub fn create_template_from_string(s: String) -> Option<TemplateDesc> {
         println!("The string does not start with 'спр'");
         return None;
     }
-    let transitivity_str = get_transitivity_str(&s);
-    let preverb_str = get_preverb_str(&s);
-    let root_str = get_root_str(&s);
+    let transitivity_str = transitivity_str(&s);
+    let preverb_str = preverb_str(&s);
+    let root_str = root_str(&s);
 
     let transitivity = extract_transitivity(transitivity_str).unwrap_or_else(|| {
         println!("The transitivity is not either 'лъэмыӏ' or 'лъэӏ'");
