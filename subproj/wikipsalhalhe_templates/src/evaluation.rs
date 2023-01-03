@@ -3,6 +3,7 @@ use crate::morpho::{
 };
 use crate::ortho::{self, Consonant};
 use crate::wiki::template::ThematicVowel;
+use core::panic;
 use std::collections::VecDeque;
 
 pub fn morphemes_to_string(morphemes: &VecDeque<Morpheme>) -> String {
@@ -277,10 +278,14 @@ fn evaluate_stem(
     i: usize,
 ) -> String {
     let morpheme = &morphemes[i];
-    let _morpheme_prev = i.checked_sub(1).map(|i| &morphemes[i]);
-    let _morpheme_next = morphemes.get(i + 1);
-    let morpheme_prev_kind = i.checked_sub(1).map(|i| &morphemes[i]).map(|x| &x.kind);
-    let morpheme_next_kind = morphemes.get(i + 1).map(|x| &x.kind);
+    let morpheme_prev = i.checked_sub(1).map(|i| &morphemes[i]);
+    let morpheme_next = morphemes.get(i + 1);
+    let morpheme_prev_prev = i.checked_sub(2).map(|i| &morphemes[i]);
+
+    let morpheme_prev_kind = morpheme_prev.map(|x| &x.kind);
+    let morpheme_next_kind = morpheme_next.map(|x| &x.kind);
+    let morpheme_prev_prev_kind = morpheme_prev_prev.map(|x| &x.kind);
+
     // Because of orthography and phonological rules the ы letter, /ə/ sound, has to be treated in a special way.
     //
     let thematic_vowel = crate::wiki::template::treat_thematic_vowel(&stem.thematic_vowel, stem);
@@ -289,34 +294,81 @@ fn evaluate_stem(
         "ы" => match (&morpheme_prev_kind, &morpheme_next_kind) {
             // If only the stem is present, the thematic vowel is pronounced.
             (None, None) => thematic_vowel,
-            // If the stem is preceded by an ergative person marker and the stem is the last morpheme, the thematic vowel is pronounced.
-            (Some(MorphemeKind::PersonMarker(marker)), None) if marker.case == Case::Ergative => {
-                // If prevprevious morpheme exists, then the thematic vowel is not pronounced, else it is.
-                // This simply means that the verb stem would build it's own syllable, e.g. зэхэсхы => зэхэсх.
 
-                // TODO: Find another way to determine this.
-                let morpheme_prev_prev = i.checked_sub(2).map(|i| &morphemes[i]);
-                morpheme_prev_prev
-                    .map(|_| "".to_owned())
-                    .unwrap_or(thematic_vowel)
-            }
-            // If the stem is followed by certain consonants, the thematic vowel is pronounced.
-            // if followed by гъ (-гъэ), н (-нэ), or a trill (-р, but not -рэ), the thematic vowel is pronounced.
-            (_, Some(MorphemeKind::Generic(..)))
-                if {
-                    let fl = morpheme_next_kind.unwrap().first_letter().unwrap();
+            (_, _) => {
+                let is_last;
+                let is_next_vowel;
+                let mut does_vowel_exist_before;
+                let mut still_needs_y = false;
 
-                    fl
-                    .is_consonant_manner_place(ortho::Manner::Nasal, ortho::Place::Alveolar) // н
-                    || fl
-                        .is_consonant_manner_place(ortho::Manner::Fricative, ortho::Place::Uvular) // гъ
-                    || fl
-                        .is_trill() && !morpheme_next_kind.unwrap().is_generic_certain("рэ")
-                } =>
-            {
-                thematic_vowel
+                if let Some(m) = morpheme_next_kind {
+                    use ortho::*;
+                    is_last = false;
+                    let next_letter = m.first_letter().unwrap();
+                    if next_letter.is_vowel() {
+                        is_next_vowel = true;
+                    } else if next_letter.is_consonant() {
+                        is_next_vowel = false;
+                        let ss = next_letter
+                    .is_consonant_manner_place(Manner::Nasal, Place::Alveolar) // н
+                    || next_letter
+                        .is_consonant_manner_place(Manner::Fricative, Place::Uvular) // гъ
+                    || next_letter
+                        .is_trill() && !morpheme_next_kind.unwrap().is_generic_certain("рэ");
+                        if ss {
+                            still_needs_y = true;
+                        }
+                    } else {
+                        // NOTE: just a sanity check
+                        unreachable!("{:?}", m)
+                    }
+                } else {
+                    is_last = true;
+                    is_next_vowel = false;
+                }
+                assert!(!(is_last && is_next_vowel));
+
+                if let Some(x) = morpheme_prev_kind {
+                    let last_letter = x.last_latter().unwrap();
+                    if last_letter.is_vowel() || last_letter.is_combi() {
+                        does_vowel_exist_before = true;
+                    } else if last_letter.is_consonant() {
+                        does_vowel_exist_before = false;
+                    } else {
+                        // NOTE: just a sanity check
+                        unreachable!("{:?}", x)
+                    }
+                } else {
+                    does_vowel_exist_before = false;
+                }
+
+                if !does_vowel_exist_before {
+                    if let Some(x) = morpheme_prev_prev_kind {
+                        let last_letter = x.last_latter().unwrap();
+                        if last_letter.is_vowel() || last_letter.is_combi() {
+                            does_vowel_exist_before = true;
+                        } else if last_letter.is_consonant() {
+                            does_vowel_exist_before = false;
+                        } else {
+                            // NOTE: just a sanity check
+                            unreachable!("{:?}", x)
+                        }
+                    }
+                }
+                if still_needs_y {
+                    thematic_vowel
+                } else {
+                    if does_vowel_exist_before {
+                        "".to_owned()
+                    } else {
+                        if is_next_vowel {
+                            "".to_owned()
+                        } else {
+                            thematic_vowel
+                        }
+                    }
+                }
             }
-            _ => "".to_owned(),
         },
         v @ "э" => match morpheme_next_kind {
             Some(MorphemeKind::Generic(gen)) => {
@@ -360,6 +412,18 @@ fn evaluate_o(morphemes: &VecDeque<Morpheme>, i: usize) -> String {
     }
 }
 pub fn evaluate_morphemes(morphemes: &VecDeque<Morpheme>) -> String {
+    // remove null morphemes
+    let morphemes = &morphemes
+        .iter()
+        .cloned()
+        .filter(|m| {
+            if let MorphemeKind::Stem(..) = &m.kind {
+                true
+            } else {
+                !m.to_letters().is_empty()
+            }
+        })
+        .collect::<VecDeque<_>>();
     let mut result = String::new();
 
     let _has_raj_prefix = morphemes.iter().any(|m| match &m.kind {
@@ -382,22 +446,6 @@ pub fn evaluate_morphemes(morphemes: &VecDeque<Morpheme>) -> String {
             MorphemeKind::Preverb(ref preverb) => evaluate_preverb(preverb, morphemes, i),
             MorphemeKind::NegationPrefix => "мы".to_owned(),
             MorphemeKind::Generic(ref base) if base == "о" => evaluate_o(morphemes, i),
-            // MorphemeKind::Generic(ref base) if base.starts_with('р') && !base.starts_with("рэ") => {
-            //     match morpheme_prev_kind {
-            //         Some(MorphemeKind::Stem(s, _)) if s.thematic_vowel == ThematicVowel::Y => {
-            //             "ы".to_owned() + &morpheme.to_string()
-            //         }
-            //         _ => morpheme.to_string(),
-            //     }
-            // }
-            // MorphemeKind::Generic(ref base) if base.starts_with('н') || base.starts_with("гъ") => {
-            //     match morpheme_prev_kind {
-            //         Some(MorphemeKind::Stem(s, _)) if s.thematic_vowel == ThematicVowel::Y => {
-            //             "ы".to_owned() + &morpheme.to_string()
-            //         }
-            //         _ => morpheme.to_string(),
-            //     }
-            // }
             MorphemeKind::Generic(..) | MorphemeKind::RajImperative => morpheme.to_string(), // _ => unimplemented!(),
         };
         result += &x;

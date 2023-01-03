@@ -65,20 +65,19 @@ impl Letter {
     }
     pub fn is_vowel(&self) -> bool {
         match &self.kind {
-            
             LetterKind::Vowel(..) => true,
             _ => false,
         }
     }
     pub fn is_consonant(&self) -> bool {
         match &self.kind {
-            LetterKind::Consonant(..) => true, 
+            LetterKind::Consonant(..) => true,
             _ => false,
         }
     }
     pub fn is_combi(&self) -> bool {
         match &self.kind {
-            LetterKind::Combi(..) => true, 
+            LetterKind::Combi(..) => true,
             _ => false,
         }
     }
@@ -174,7 +173,6 @@ impl Consonant {
     ) -> Option<Self> {
         Some(Consonant {
             place,
-            
             manner,
             voiceness,
             is_labialized,
@@ -554,7 +552,6 @@ impl Consonant {
     }
 }
 
-
 impl std::fmt::Display for Consonant {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         let x = match (self.place, self.manner, self.voiceness, self.is_labialized) {
@@ -582,7 +579,7 @@ impl std::fmt::Display for Consonant {
             (Place::Alveolar, Manner::Affricative, Voiceness::Voiceless, false) => "ц".to_owned(),
             (Place::Alveolar, Manner::Affricative, Voiceness::Voiced, false) => "дз".to_owned(),
             (Place::Alveolar, Manner::Affricative, Voiceness::Ejective, false) => "цI".to_owned(),
-            
+
             (Place::PostAlveolar, Manner::Affricative, Voiceness::Voiceless, false) => "ч".to_owned(),
             (Place::PostAlveolar, Manner::Affricative, Voiceness::Voiced, false) => "дж".to_owned(),
             (Place::PostAlveolar, Manner::Affricative, Voiceness::Ejective, false) => "кI".to_owned(),
@@ -615,7 +612,6 @@ impl std::fmt::Display for Consonant {
             (Place::Uvular, Manner::Fricative, Voiceness::Voiceless, false) => "хъ".to_owned(),
             (Place::Uvular, Manner::Fricative, Voiceness::Voiced, false) => "гъ".to_owned(),
             (Place::Pharyngeal, Manner::Fricative, Voiceness::Voiceless, false) => "хь".to_owned(),
-            
 
             (Place::Velar, Manner::Fricative, Voiceness::Voiceless, true) => "ху".to_owned(),
             (Place::Uvular, Manner::Fricative, Voiceness::Voiceless, true) => "хъу".to_owned(),

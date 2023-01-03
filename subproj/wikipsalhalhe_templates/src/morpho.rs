@@ -237,6 +237,9 @@ impl MorphemeKind {
     pub fn first_letter(&self) -> Option<ortho::Letter> {
         self.to_letters().first().cloned()
     }
+    pub fn last_latter(&self) -> Option<ortho::Letter> {
+        self.to_letters().last().cloned()
+    }
     fn to_letters(&self) -> Vec<ortho::Letter> {
         ortho::parse(&self.to_string())
     }
@@ -273,7 +276,7 @@ impl Morpheme {
     pub fn first_letter(&self) -> Option<ortho::Letter> {
         self.to_letters().first().cloned()
     }
-    fn to_letters(&self) -> Vec<ortho::Letter> {
+    pub fn to_letters(&self) -> Vec<ortho::Letter> {
         let base = self.kind.to_string();
         ortho::parse(&base)
     }
@@ -592,11 +595,9 @@ pub fn new_masdar_personal(
     }
 
     // Add absolutive person marker
-    if (Person::Third) != abs_marker.person {
-        let marker = PersonMarker::new(abs_marker.person, abs_marker.number, Case::Absolutive);
-        let m = Morpheme::new_person_marker(&marker);
-        morphemes.push_front(m);
-    }
+    let marker = PersonMarker::new(abs_marker.person, abs_marker.number, Case::Absolutive);
+    let m = Morpheme::new_person_marker(&marker);
+    morphemes.push_front(m);
 
     // let m = Morpheme::new_person_marker(&abs_marker);
     // morphemes.push_back(m);
@@ -645,11 +646,9 @@ pub fn new_imperative(
     }
 
     // Add absolutive person marker
-    if (Person::Third) != abs_marker.person {
-        let marker = PersonMarker::new(Person::Second, abs_marker.number, Case::Absolutive);
-        let m = Morpheme::new_person_marker(&marker);
-        morphemes.push_front(m);
-    }
+    let marker = PersonMarker::new(Person::Second, abs_marker.number, Case::Absolutive);
+    let m = Morpheme::new_person_marker(&marker);
+    morphemes.push_front(m);
 
     morphemes
 }
@@ -684,26 +683,29 @@ pub fn new_indicative(
     } else {
         tense_suffix_pair.1
     }));
+
     if (polarity, tense) == (&Polarity::Positive, &Tense::Present) {
         morphemes.push_front(Morpheme::new_generic("о"));
     }
 
-    // Add absolutive person marker
+    // Add ergative person marker
     if let Some(marker) = erg_marker {
         let marker = PersonMarker::new(marker.person, marker.number, Case::Ergative);
         let m = Morpheme::new_person_marker(&marker);
         morphemes.push_front(m);
     }
+
     // Add preverb
     if let Some(preverb) = preverb.clone() {
         let m = Morpheme::new_preverb(&preverb);
         morphemes.push_front(m);
     }
-    if (Person::Third) != abs_marker.person {
-        let marker = PersonMarker::new(abs_marker.person, abs_marker.number, Case::Absolutive);
-        let m = Morpheme::new_person_marker(&marker);
-        morphemes.push_front(m);
-    }
+
+    // Add absolutive person marker
+    let marker = PersonMarker::new(abs_marker.person, abs_marker.number, Case::Absolutive);
+    let m = Morpheme::new_person_marker(&marker);
+    morphemes.push_front(m);
+
     morphemes
 }
 
@@ -732,65 +734,12 @@ pub fn new_interrogative(
     morphemes.push_back(Morpheme {
         kind: MorphemeKind::Stem(stem.clone(), root),
     });
-    if !tense_suffix_pair.0.is_empty() && polarity == &Polarity::Positive {
-        morphemes.push_back(Morpheme::new_generic(if polarity == &Polarity::Positive {
-            tense_suffix_pair.0
-        } else {
-            tense_suffix_pair.1
-        }));
-    }
 
-    // Add absolutive person marker
-    if let Some(marker) = erg_marker {
-        let marker = PersonMarker::new(marker.person, marker.number, Case::Ergative);
-        let m = Morpheme::new_person_marker(&marker);
-        morphemes.push_front(m);
-    }
-    // Add preverb
-    if let Some(preverb) = preverb.clone() {
-        let m = Morpheme::new_preverb(&preverb);
-        morphemes.push_front(m);
-    }
-    if (Person::Third) != abs_marker.person {
-        let marker = PersonMarker::new(abs_marker.person, abs_marker.number, Case::Absolutive);
-        let m = Morpheme::new_person_marker(&marker);
-        morphemes.push_front(m);
-    }
-    morphemes
-}
-
-pub fn new_conditional_2(
-    polarity: &Polarity,
-    tense: &Tense,
-    preverb: &Option<Preverb>,
-    stem: &template::VerbStem,
-    abs_marker: &PersonMarker,
-    erg_marker: &Option<PersonMarker>,
-) -> VecDeque<Morpheme> {
-    let root = "{{{псалъэпкъ}}}".to_owned();
-    let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
-    let tense_suffix = match tense {
-        Tense::Imperfect => "т",
-        Tense::Perfect => "атэ",
-        Tense::FarPast1 => "гъатэ",
-        Tense::Future1 => "нтэ",
-        Tense::Future2 => "нутэ",
-        _ => unreachable!("Invalid tense for conditional: {:?}", tense),
-    };
-    morphemes.push_back(Morpheme {
-        kind: MorphemeKind::Stem(stem.clone(), root),
-    });
-
-    if !tense_suffix.is_empty() {
-        morphemes.push_back(Morpheme::new_generic(tense_suffix));
-    }
-
-    morphemes.push_back(Morpheme::new_generic("мэ"));
-
-    // negation prefix
-    if polarity == &Polarity::Negative {
-        morphemes.push_front(Morpheme::new_negative_prefix());
-    }
+    morphemes.push_back(Morpheme::new_generic(if polarity == &Polarity::Positive {
+        tense_suffix_pair.0
+    } else {
+        tense_suffix_pair.1
+    }));
 
     // Add ergative person marker
     if let Some(marker) = erg_marker {
@@ -798,16 +747,18 @@ pub fn new_conditional_2(
         let m = Morpheme::new_person_marker(&marker);
         morphemes.push_front(m);
     }
+
     // Add preverb
     if let Some(preverb) = preverb.clone() {
         let m = Morpheme::new_preverb(&preverb);
         morphemes.push_front(m);
     }
-    if (Person::Third) != abs_marker.person {
-        let marker = PersonMarker::new(abs_marker.person, abs_marker.number, Case::Absolutive);
-        let m = Morpheme::new_person_marker(&marker);
-        morphemes.push_front(m);
-    }
+
+    // Add absolutive person marker
+    let marker = PersonMarker::new(abs_marker.person, abs_marker.number, Case::Absolutive);
+    let m = Morpheme::new_person_marker(&marker);
+    morphemes.push_front(m);
+
     morphemes
 }
 
@@ -854,10 +805,108 @@ pub fn new_conditional(
         let m = Morpheme::new_preverb(&preverb);
         morphemes.push_front(m);
     }
-    if (Person::Third) != abs_marker.person {
-        let marker = PersonMarker::new(abs_marker.person, abs_marker.number, Case::Absolutive);
+    // Add absolutive person marker
+    let marker = PersonMarker::new(abs_marker.person, abs_marker.number, Case::Absolutive);
+    let m = Morpheme::new_person_marker(&marker);
+    morphemes.push_front(m);
+
+    morphemes
+}
+
+pub fn new_conditional_2(
+    polarity: &Polarity,
+    tense: &Tense,
+    preverb: &Option<Preverb>,
+    stem: &template::VerbStem,
+    abs_marker: &PersonMarker,
+    erg_marker: &Option<PersonMarker>,
+) -> VecDeque<Morpheme> {
+    let root = "{{{псалъэпкъ}}}".to_owned();
+    let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
+    let tense_suffix = match tense {
+        Tense::Present => "тэ",
+        Tense::Perfect => "атэ",
+        Tense::FarPast1 => "гъатэ",
+        Tense::Future1 => "нтэ",
+        Tense::Future2 => "нутэ",
+        _ => unreachable!("Invalid tense for conditional: {:?}", tense),
+    };
+    morphemes.push_back(Morpheme {
+        kind: MorphemeKind::Stem(stem.clone(), root),
+    });
+
+    if !tense_suffix.is_empty() {
+        morphemes.push_back(Morpheme::new_generic(tense_suffix));
+    }
+
+    morphemes.push_back(Morpheme::new_generic("мэ"));
+
+    // negation prefix
+    if polarity == &Polarity::Negative {
+        morphemes.push_front(Morpheme::new_negative_prefix());
+    }
+
+    // Add ergative person marker
+    if let Some(marker) = erg_marker {
+        let marker = PersonMarker::new(marker.person, marker.number, Case::Ergative);
         let m = Morpheme::new_person_marker(&marker);
         morphemes.push_front(m);
     }
+    // Add preverb
+    if let Some(preverb) = preverb.clone() {
+        let m = Morpheme::new_preverb(&preverb);
+        morphemes.push_front(m);
+    }
+
+    let marker = PersonMarker::new(abs_marker.person, abs_marker.number, Case::Absolutive);
+    let m = Morpheme::new_person_marker(&marker);
+    morphemes.push_front(m);
+
+    morphemes
+}
+
+pub fn new_subjunctive(
+    polarity: &Polarity,
+    tense: &Tense,
+    preverb: &Option<Preverb>,
+    stem: &template::VerbStem,
+    abs_marker: &PersonMarker,
+    erg_marker: &Option<PersonMarker>,
+) -> VecDeque<Morpheme> {
+    let root = "{{{псалъэпкъ}}}".to_owned();
+    let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
+    let tense_suffix_pair = match tense {
+        Tense::Future1 => ("нт", "нтэкъым"),
+        Tense::Future2 => ("нут", "нутэкъым"),
+        _ => unreachable!("Invalid tense for conditional: {:?}", tense),
+    };
+    morphemes.push_back(Morpheme {
+        kind: MorphemeKind::Stem(stem.clone(), root),
+    });
+
+    morphemes.push_back(Morpheme::new_generic(if polarity == &Polarity::Positive {
+        tense_suffix_pair.0
+    } else {
+        tense_suffix_pair.1
+    }));
+
+    // Add ergative person marker
+    if let Some(marker) = erg_marker {
+        let marker = PersonMarker::new(marker.person, marker.number, Case::Ergative);
+        let m = Morpheme::new_person_marker(&marker);
+        morphemes.push_front(m);
+    }
+
+    // Add preverb
+    if let Some(preverb) = preverb.clone() {
+        let m = Morpheme::new_preverb(&preverb);
+        morphemes.push_front(m);
+    }
+
+    // Add absolutive person marker
+    let marker = PersonMarker::new(abs_marker.person, abs_marker.number, Case::Absolutive);
+    let m = Morpheme::new_person_marker(&marker);
+    morphemes.push_front(m);
+
     morphemes
 }

@@ -310,6 +310,55 @@ fn table_conditional(desc: &template::TemplateDesc) -> String {
     table.to_string()
 }
 
+fn table_conditional_2(desc: &template::TemplateDesc) -> String {
+    let mut table = Wikitable::new();
+    table.add("условнэ ипэжыпӀэкӀэ щыӀэ наклоненэ".to_owned());
+    let subject_case = &desc.transitivity.subject_case();
+
+    Pronoun::variants_case(&desc.transitivity.subject_case())
+        .iter()
+        .map(|pronoun| pronoun.to_string())
+        .for_each(|pronoun| table.add(pronoun));
+
+    let tense_and_polarity = Tense::variants_iter()
+        .flat_map(|t| Polarity::variants_iter().map(move |p| (t, p)))
+        .collect::<Vec<_>>();
+
+    let number_and_person = Number::variants_iter()
+        .flat_map(|n| Person::variants_iter().map(move |p| (n, p)))
+        .collect::<Vec<_>>();
+
+    for (tense, polarity) in tense_and_polarity {
+        if ![
+            Tense::Present,
+            Tense::Perfect,
+            Tense::FarPast1,
+            Tense::Future1,
+            Tense::Future2,
+        ]
+        .contains(&tense)
+        {
+            continue;
+        }
+        table.add_row();
+        table.add(indcicative_tense_string(&tense, &polarity));
+        for (number, person) in &number_and_person {
+            let (abs_marker, erg_marker) = get_person_markers(subject_case, person, number);
+            let morphemes = morpho::new_conditional_2(
+                &polarity,
+                &tense,
+                &desc.preverb,
+                &desc.stem,
+                &abs_marker,
+                &erg_marker,
+            );
+            let string = evaluation::evaluate_morphemes(&morphemes);
+            table.add(string);
+        }
+    }
+    table.to_string()
+}
+
 fn indcicative_tense_string(tense: &Tense, polarity: &Polarity) -> String {
     let p = polarity.to_string_prefix();
     match tense {
@@ -331,28 +380,27 @@ fn indcicative_tense_string(tense: &Tense, polarity: &Polarity) -> String {
 fn create_template(desc: template::TemplateDesc) -> String {
     let mut result = "".to_string();
     result += &format!("<!-- Template:Wt/kbd/{} -->\n", desc.original_string);
+    let r = vec![
+        // Инфинитив (масдар)
+        table_masdar(&desc),
+        // Инфинитив (масдар) щхьэкӀэ зэхъуэкӀа
+        table_masdar_personal(&desc),
+        // унафэ наклоненэ
+        table_imperative(&desc),
+        // Ре-кӀэ унафэ наклоненэ
+        table_imperative_raj(&desc),
+        // This part needs mostly the same logic, as only the endings change.
+        table_indicative(&desc),
+        table_interrogative(&desc),
+        table_conditional(&desc),
+        table_conditional_2(&desc),
+    ];
 
-    // Инфинитив (масдар)
-    result += &table_masdar(&desc);
-    result += "\n-\n";
-
-    // Инфинитив (масдар) щхьэкӀэ зэхъуэкӀа
-    result += &table_masdar_personal(&desc);
-    result += "\n-\n";
-    // унафэ наклоненэ
-    result += &table_imperative(&desc);
-    result += "\n-\n";
-
-    // Ре-кӀэ унафэ наклоненэ
-    result += &table_imperative_raj(&desc);
-    result += "\n-\n";
-
-    // This part needs mostly the same logic, as only the endings change.
-    result += &table_indicative(&desc);
-    result += "\n-\n";
-    result += &table_interrogative(&desc);
-    result += "\n-\n";
-    result += &table_conditional(&desc);
+    for table in r {
+        result += &table;
+        result += "\n----------------------------------------------\n";
+    }
+    // result += &r.join("\n-\n");
 
     result += "|}<noinclude>\n[[Category:Wt/kbd]]\n</noinclude>";
 
@@ -425,8 +473,8 @@ pub fn main() {
     test_roots.insert("д0л", "ху");
 
     // спр-лъэӏ-зэхэ-д0д-ы
-    let template = "спр-лъэӏ-зэхэ-д0д-ы"; // tr. base. vl. e.g. хьын
-                                          // let template = "спр-лъэмыӏ-0-0д-ы"; // intr. base. vl. e.g. плъэн
+    let template = "спр-лъэмыӏ-0-д0д-ы"; // tr. base. vl. e.g. хьын
+                                         // let template = "спр-лъэмыӏ-0-0д-ы"; // intr. base. vl. e.g. плъэн
     let template_desc = template::create_template_from_string(template.to_owned()).unwrap();
     let template_str = create_template(template_desc);
 
