@@ -11,8 +11,7 @@ impl Wikitable {
         self.cells.push(vec![]);
     }
     pub fn add(&mut self, s: String) {
-        let last_row = self.cells.last_mut().unwrap();
-        last_row.push(s);
+        self.cells.last_mut().unwrap().push(s);
     }
 }
 

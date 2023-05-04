@@ -1,4 +1,4 @@
-use crate::morpho::{Preverb, Transitivity};
+use crate::morpho::{self, Preverb, Transitivity};
 use crate::ortho;
 
 /// It's basically there to treat stems ending on у which labializes the consonants before it.
@@ -53,6 +53,16 @@ pub enum ThematicVowel {
     A,
     Y,
 }
+
+impl ThematicVowel {
+    fn from(vowel: &ortho::Vowel) -> Self {
+        match vowel.kind {
+            ortho::VowelKind::A => ThematicVowel::A,
+            ortho::VowelKind::Y => ThematicVowel::Y,
+            _ => unreachable!("The vowel {:?} is not a thematic vowel.", vowel),
+        }
+    }
+}
 impl std::fmt::Display for ThematicVowel {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         match self {
@@ -71,6 +81,14 @@ pub enum FirstConsonant {
 }
 
 impl FirstConsonant {
+    fn from(consonant: &ortho::Consonant) -> Self {
+        match (consonant.place, consonant.manner, consonant.voiceness) {
+            (ortho::Place::Labial, ortho::Manner::Approximant, _) => FirstConsonant::Wy,
+            (_, _, ortho::Voiceness::Voiced) => FirstConsonant::Voiced,
+            _ => FirstConsonant::Unvoiced,
+            // _ => panic!("The consonant {:?} is not a first consonant.", consonant),
+        }
+    }
     pub fn to_voiceness(&self) -> ortho::Voiceness {
         match self {
             FirstConsonant::Unvoiced => ortho::Voiceness::Voiceless,
@@ -88,6 +106,18 @@ pub enum LastConsonant {
     Yy,       // 'й'
 }
 
+impl LastConsonant {
+    fn from(consonant: &ortho::Consonant) -> Self {
+        match (consonant.place, consonant.manner, consonant.is_labialized) {
+            (_, _, true) => LastConsonant::Labial,
+            (ortho::Place::Velar, _, _) => LastConsonant::Velar,
+            (ortho::Place::Palatal, ortho::Manner::Approximant, _) => LastConsonant::Yy,
+            _ => LastConsonant::Ordinary,
+            // _ => panic!("The consonant {:?} is not a last consonant.", consonant),
+        }
+    }
+}
+
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct VerbStem {
     pub first_consonant: Option<FirstConsonant>,
@@ -96,6 +126,65 @@ pub struct VerbStem {
     pub is_alternating: bool,
     pub thematic_vowel: ThematicVowel,
     pub string: String,
+}
+
+impl VerbStem {
+    pub fn new_from_str(s: &str, transitivity: morpho::Transitivity) -> Self {
+        let letters = ortho::parse(s).unwrap();
+        assert!(!letters.is_empty(), "The verb stem can't be empty.");
+        println!("letters: {:#?}", letters);
+
+        let vowel = if letters.len() == 1 {
+            VowelKind::Without
+        } else {
+            VowelKind::With
+        };
+
+        let last_letter = letters.last().unwrap();
+        let first_letter = letters.first().unwrap();
+
+        let thematic_vowel = if let ortho::LetterKind::Vowel(vowel) = &last_letter.kind {
+            ThematicVowel::from(vowel)
+        } else {
+            ThematicVowel::Y
+        };
+
+        let last_consonant = letters
+            .iter()
+            .rev()
+            .find(|l| l.is_consonant())
+            .map(|l| {
+                if let ortho::LetterKind::Consonant(consonant) = &l.kind {
+                    LastConsonant::from(consonant)
+                } else {
+                    panic!("The letter {:?} is not a consonant.", l);
+                }
+            })
+            .unwrap();
+
+        // The first consonant is only relevant for transitive verbs.
+        let first_consonant = match transitivity {
+            Transitivity::Intransitive => None,
+            _ => {
+                if let ortho::LetterKind::Consonant(consonant) = &first_letter.kind {
+                    Some(FirstConsonant::from(consonant))
+                } else {
+                    panic!("The letter {:?} is not a consonant.", first_letter);
+                }
+            }
+        };
+
+        // в / вы
+
+        Self {
+            first_consonant,
+            vowel,
+            last_consonant,
+            is_alternating: false,
+            thematic_vowel,
+            string: s.to_owned(),
+        }
+    }
 }
 
 // /// Here is the information stored about the verb stem.
@@ -144,21 +233,39 @@ pub struct VerbStem {
 
 */
 
+fn extract_transitivity(s: &str) -> Result<Transitivity, String> {
+    match s {
+        "лъэмыӏ" => Ok(Transitivity::Intransitive),
+        "лъэӏ" => Ok(Transitivity::Transitive),
+        _ => Err(format!(
+            "The transitivity must be either лъэмыӏ or лъэӏ, but it is {}.",
+            s
+        )),
+    }
+}
+fn extract_thematic_vowel(s: &str) -> Result<ThematicVowel, String> {
+    match s {
+        "э" => Ok(ThematicVowel::A),
+        "ы" => Ok(ThematicVowel::Y),
+        _ => {
+            return Err(format!(
+                "The thematic vowel must be either 'э' or 'ы', instead it is {}",
+                s
+            ));
+        }
+    }
+}
 fn transitivity_str(s: &str) -> &str {
     let segments = s.split('-').collect::<Vec<&str>>();
     segments[1]
 }
-
-fn extract_transitivity(s: &str) -> Option<Transitivity> {
-    match s {
-        "лъэмыӏ" => Some(Transitivity::Intransitive),
-        "лъэӏ" => Some(Transitivity::Transitive),
-        _ => None,
-    }
-}
 fn preverb_str(s: &str) -> &str {
     let segments = s.split('-').collect::<Vec<&str>>();
     segments[2]
+}
+pub fn root_str(s: &str) -> &str {
+    let segments = s.split('-').collect::<Vec<&str>>();
+    segments[3]
 }
 fn extract_preverb(s: &str) -> Option<Preverb> {
     match s {
@@ -167,10 +274,6 @@ fn extract_preverb(s: &str) -> Option<Preverb> {
     }
 }
 
-pub fn root_str(s: &str) -> &str {
-    let segments = s.split('-').collect::<Vec<&str>>();
-    segments[3]
-}
 fn extract_root(s: &str) -> (Option<FirstConsonant>, VowelKind, LastConsonant, bool) {
     //  let segments = s.split('-').collect::<Vec<&str>>();
     let root = <&str>::clone(&s).to_string();
@@ -247,34 +350,40 @@ pub struct TemplateDesc {
     pub original_string: String,
 }
 
-pub fn create_template_from_string(s: String) -> Option<TemplateDesc> {
-    let segments = s.split('-').collect::<Vec<&str>>();
-
-    // Every string must start with "спр". If this is not the case, the string is false.
-    if segments[0] != "спр" {
-        println!("The string does not start with 'спр'");
-        return None;
+impl TemplateDesc {
+    pub fn from(s: String) -> Result<TemplateDesc, String> {
+        create_template_from_string(s)
     }
-    let transitivity_str = transitivity_str(&s);
-    let preverb_str = preverb_str(&s);
-    let root_str = root_str(&s);
+}
 
-    let transitivity = extract_transitivity(transitivity_str).unwrap_or_else(|| {
-        println!("The transitivity is not either 'лъэмыӏ' or 'лъэӏ'");
-        panic!("");
-    });
-    let preverb = extract_preverb(preverb_str);
+pub fn create_template_from_string(s: String) -> Result<TemplateDesc, String> {
+    // _-transitivity-preverb-root-thematic_vowel
 
-    let thematic_vowel = match segments.last() {
-        Some(&"э") => ThematicVowel::A,
-        Some(&"ы") => ThematicVowel::Y,
-        _ => {
-            println!("The last string isn't either 'э' or 'ы'");
-            return None;
-        }
-    };
+    let segments = s.split('-').collect::<Vec<&str>>();
+    if segments.len() == 5 {
+        return Err(format!(
+            "The string must have 5 segments, instead it has {}",
+            segments.len()
+        ));
+    }
 
-    let (fc, v, lc, alternating) = extract_root(root_str);
+    if segments[0] != "спр" {
+        return Err(format!(
+            "The string must start with 'спр', instead it starts with {}",
+            segments[0]
+        ));
+    }
+
+    let transitivity = extract_transitivity(segments[1]).unwrap();
+    let preverb = extract_preverb(segments[2]);
+    let (fc, v, lc, alternating) = extract_root(segments[3]);
+    let thematic_vowel = extract_thematic_vowel(segments[4]).unwrap();
+
+    if fc.is_none() && transitivity == Transitivity::Transitive {
+        return Err(
+            "The first consonant is not allowed to be None if the verb is transitive.".to_owned(),
+        );
+    }
 
     let template_desc = TemplateDesc {
         transitivity,
@@ -289,5 +398,5 @@ pub fn create_template_from_string(s: String) -> Option<TemplateDesc> {
         },
         original_string: s.clone(),
     };
-    Some(template_desc)
+    Ok(template_desc)
 }

@@ -3,12 +3,15 @@
 ///
 /// The main struct is `Letter`, which contains the letter itself, and a `LetterKind`.
 
+/// `Letter` is a struct which contains the letter itself, and a `LetterKind`.
 #[derive(Debug, Clone, PartialEq)]
 pub struct Letter {
     pub kind: LetterKind,
     base: String,
 }
 
+/// `LetterKind` is an enum which contains the kind of the letter.
+/// It can be a consonant, a vowel, or a combination of consonant and vowel.
 #[derive(Debug, Clone, PartialEq)]
 pub enum LetterKind {
     /// Represents a consonant letter.
@@ -63,6 +66,7 @@ impl Letter {
     pub fn is_trill(&self) -> bool {
         self.is_consonant_manner(Manner::Trill)
     }
+
     pub fn is_vowel(&self) -> bool {
         match &self.kind {
             LetterKind::Vowel(..) => true,
@@ -81,6 +85,12 @@ impl Letter {
             _ => false,
         }
     }
+    pub fn is_consonant_or_combi(&self) -> bool {
+        self.is_consonant() || self.is_combi()
+    }
+    pub fn is_vowel_or_combi(&self) -> bool {
+        self.is_vowel() || self.is_combi()
+    }
 }
 
 impl std::fmt::Display for Letter {
@@ -89,15 +99,8 @@ impl std::fmt::Display for Letter {
             LetterKind::Consonant(c) => c.to_string(),
             LetterKind::Vowel(v) => v.to_string(),
             LetterKind::Combi(c, v) => {
-                let x = match (&c.to_string().as_ref(), &v.to_string().as_ref()) {
-                    (&"й", &"э") => "е".to_owned(),
-                    (&"й", &"ы") => "и".to_owned(),
-                    (&"й", &"а") => "я".to_owned(),
-                    (&"у", &"ы") => "у".to_owned(),
-                    (&"у", &"э") => "о".to_owned(),
-                    _ => unreachable!(),
-                };
-                x
+                let x = combine_to_combi(&c.to_string(), &v.to_string()).unwrap();
+                x.to_string()
             }
         };
         write!(f, "{}", x)
@@ -106,7 +109,7 @@ impl std::fmt::Display for Letter {
 
 #[derive(Debug, Clone, PartialEq)]
 pub struct Vowel {
-    kind: VowelKind,
+    pub kind: VowelKind,
     base: String,
 }
 impl Vowel {
@@ -119,12 +122,12 @@ impl Vowel {
         .to_owned();
         Vowel { kind, base }
     }
-    fn from_string(s: String) -> Option<Vowel> {
+    fn from_string(s: String) -> Vowel {
         match s.as_str() {
-            "а" => Some(Vowel::new(VowelKind::AA)),
-            "э" => Some(Vowel::new(VowelKind::A)),
-            "ы" => Some(Vowel::new(VowelKind::Y)),
-            _ => None,
+            "а" => Vowel::new(VowelKind::AA),
+            "э" => Vowel::new(VowelKind::A),
+            "ы" => Vowel::new(VowelKind::Y),
+            _ => unreachable!(""),
         }
     }
 }
@@ -140,7 +143,7 @@ impl std::fmt::Display for Vowel {
     }
 }
 #[derive(Debug, Clone, PartialEq)]
-enum VowelKind {
+pub enum VowelKind {
     /// Represents the 'a' sound
     AA,
     /// Represents the 'э' sound
@@ -160,7 +163,7 @@ pub struct Consonant {
     pub place: Place,
     pub manner: Manner,
     pub voiceness: Voiceness,
-    is_labialized: bool,
+    pub is_labialized: bool,
     pub base: String,
 }
 impl Consonant {
@@ -179,7 +182,7 @@ impl Consonant {
             base,
         })
     }
-    /// Returns `true` if the consonant is a labial plosive, i.e. 'п' or 'б'.
+    /// Returns `true` if the consonant is a labial plosive, e.g. 'п' or 'б'.
     pub fn is_labial_plosive(&self) -> bool {
         self.place == Place::Labial && self.manner == Manner::Plosive
     }
@@ -659,6 +662,37 @@ pub enum Manner {
     Trill,
 }
 
+fn first_of_combi(c: &char) -> Option<char> {
+    if !is_char_combi(c) {
+        return None;
+    }
+    match c {
+        'я' | 'е' | 'и' => Some('й'),
+        'о' | 'у' => Some('у'),
+        _ => None,
+    }
+}
+fn last_of_combi(c: &char) -> Option<char> {
+    if !is_char_combi(c) {
+        return None;
+    }
+    match c {
+        'я' => Some('а'),
+        'е' | 'о' => Some('э'),
+        'и' | 'у' => Some('ы'),
+        _ => None,
+    }
+}
+fn combine_to_combi(c_0: &String, c_1: &String) -> Option<char> {
+    match (&c_0.as_ref(), &c_1.as_ref()) {
+        (&"й", &"э") => Some('e'),
+        (&"й", &"ы") => Some('и'),
+        (&"й", &"а") => Some('я'),
+        (&"у", &"э") => Some('о'),
+        (&"у", &"ы") => Some('у'),
+        _ => None,
+    }
+}
 fn is_char_combi(c: &char) -> bool {
     match c {
         'я' | 'е' | 'и' | 'о' | 'у' => true,
@@ -689,7 +723,7 @@ fn is_char_consonant(c: &char) -> bool {
         _ => false,
     }
 }
-pub fn parse(s: &str) -> Vec<Letter> {
+pub fn parse(s: &str) -> Result<Vec<Letter>, String> {
     let mut letters = Vec::new();
     let chars = s.chars().collect::<Vec<char>>();
 
@@ -702,24 +736,16 @@ pub fn parse(s: &str) -> Vec<Letter> {
 
         let letter = match ch {
             vowel if is_char_vowel(vowel) => Letter {
-                kind: LetterKind::Vowel(Vowel::from_string(vowel.to_string()).unwrap()),
+                kind: LetterKind::Vowel(Vowel::from_string(vowel.to_string())),
                 base: vowel.to_string(),
             },
             combi if is_char_combi(combi) => {
-                let c = match combi {
-                    'я' | 'е' | 'и' => 'й',
-                    'о' | 'у' => 'у',
-                    _ => unreachable!(),
-                };
-                let v = match combi {
-                    'я' => 'а',
-                    'е' | 'о' => 'э',
-                    'и' | 'у' => 'ы',
-                    _ => unreachable!(),
-                };
+                let c = first_of_combi(combi).unwrap_or_else(|| unreachable!());
+                let v = last_of_combi(combi).unwrap_or_else(|| unreachable!());
 
-                let consonant = Consonant::from_string(&c.to_string()).unwrap();
-                let vowel = Vowel::from_string(v.to_string()).unwrap();
+                let consonant =
+                    Consonant::from_string(&c.to_string()).unwrap_or_else(|| unreachable!());
+                let vowel = Vowel::from_string(v.to_string());
                 Letter {
                     kind: LetterKind::Combi(consonant, vowel),
                     base: combi.to_string(),
@@ -734,7 +760,7 @@ pub fn parse(s: &str) -> Vec<Letter> {
                     TverdyyZnak,
                 }
                 let can_palochka = ['п', 'т', 'ф', 'щ', 'к', 'х', 'ц', 'л'];
-                let can_labialized = ['к', 'х', 'I'];
+                let can_labialized = ['к', 'г', 'х', 'I'];
                 let can_tverdyj_znak = ['к', 'х', 'г', 'л'];
                 let can_magkiy_znak = ['х', 'ж'];
                 let simple_cons = ['м', 'н', 'б', 'ч', 'с', 'з', 'ш', 'в', 'р'];
@@ -749,65 +775,64 @@ pub fn parse(s: &str) -> Vec<Letter> {
 
                 'bp: loop {
                     if simple_cons.contains(&base_char) {
-                        // println!("{:?} is a simply consonant, it can't be modified, thus we are breaking", consonant_str);
                         break 'bp;
                     }
                     let next_letter = chars.get(i + 1);
-                    // println!("The next letter is {:?}", next_letter);
-                    if next_letter.map(is_char_diacritic).unwrap_or(false) {
-                        // println!("The next letter is a diacritic {:?}", next_letter);
-                    }
+                    if next_letter.map(is_char_diacritic).unwrap_or(false) {}
                     if next_letter.map(is_char_vowel).unwrap_or(false) {
-                        // println!("The next letter is a vowel {:?}", next_letter);
                         break 'bp;
                     }
 
                     match &next_letter {
-                        pal @ Some('I')
+                        Some(c)
                             if can_palochka.contains(&base_char)
                                 && deco == Deco::Base
-                                && !has_labial =>
+                                && !has_labial
+                                && *c == &'I' =>
                         {
-                            consonant_str.push(*pal.unwrap());
+                            consonant_str.push(**c);
                             i += 1;
                             deco = Deco::Palotshka;
                         }
-                        lab @ Some('у')
+                        Some(c)
                             if can_labialized.contains(&base_char)
                                 && !has_labial
-                                && deco != Deco::MagkiyZnak =>
+                                && deco != Deco::MagkiyZnak
+                                && *c == &'у' =>
                         {
-                            consonant_str.push(*lab.unwrap());
+                            consonant_str.push(**c);
                             i += 1;
                             has_labial = true;
                         }
-                        tz @ Some('ъ')
+                        Some(c)
                             if can_tverdyj_znak.contains(&base_char)
                                 && deco == Deco::Base
-                                && !has_labial =>
+                                && !has_labial
+                                && *c == &'ъ' =>
                         {
-                            consonant_str.push(*tz.unwrap());
+                            consonant_str.push(**c);
                             i += 1;
                             deco = Deco::TverdyyZnak;
                         }
-                        mz @ Some('ь')
+                        Some(c)
                             if can_magkiy_znak.contains(&base_char)
                                 && deco == Deco::Base
-                                && !has_labial =>
+                                && !has_labial
+                                && *c == &'ь' =>
                         {
-                            consonant_str.push(*mz.unwrap());
+                            consonant_str.push(**c);
                             i += 1;
                             deco = Deco::MagkiyZnak;
                         }
-                        aff @ (Some('з') | Some('ж')) if base_char == 'д' => {
-                            consonant_str.push(*aff.unwrap());
+                        Some('з') | Some('ж') if base_char == 'д' => {
+                            consonant_str.push(*next_letter.unwrap());
                             i += 1;
                         }
-                        aff @ Some('х')
+                        Some('х')
                             if base_char == 'к'
                                 && chars.get(i + 2).map(|x| x == &'ъ').unwrap_or(false) =>
                         {
-                            consonant_str.push(*aff.unwrap());
+                            consonant_str.push(*next_letter.unwrap());
                             i += 1;
                         }
                         _ => break 'bp,
@@ -826,5 +851,5 @@ pub fn parse(s: &str) -> Vec<Letter> {
         i += 1;
     }
 
-    letters
+    Ok(letters)
 }

@@ -188,7 +188,7 @@ fn evaluate_person_marker(
                     _ => unreachable!(),
                 }
             } else {
-                panic!("Negative prefix must be preceded by a preverb or nothing")
+                panic!("Negative prefix must be preceded by a preverb or nothingö.")
                 //marker.get_string()
             }
         }
@@ -296,38 +296,16 @@ fn evaluate_stem(
             (None, None) => thematic_vowel,
 
             (_, _) => {
-                let is_last;
-                let is_next_vowel;
-                let mut does_vowel_exist_before;
-                let mut still_needs_y = false;
+                let is_last = morpheme_next.is_none();
+                let is_next_vowel = morpheme_next_kind
+                    .map(|x| x.first_letter().unwrap().is_vowel_or_combi())
+                    .unwrap_or(false);
+                // let mut still_needs_y = false;
 
-                if let Some(m) = morpheme_next_kind {
-                    use ortho::*;
-                    is_last = false;
-                    let next_letter = m.first_letter().unwrap();
-                    if next_letter.is_vowel() {
-                        is_next_vowel = true;
-                    } else if next_letter.is_consonant() {
-                        is_next_vowel = false;
-                        let ss = next_letter
-                    .is_consonant_manner_place(Manner::Nasal, Place::Alveolar) // н
-                    || next_letter
-                        .is_consonant_manner_place(Manner::Fricative, Place::Uvular) // гъ
-                    || next_letter
-                        .is_trill() && !morpheme_next_kind.unwrap().is_generic_certain("рэ");
-                        if ss {
-                            still_needs_y = true;
-                        }
-                    } else {
-                        // NOTE: just a sanity check
-                        unreachable!("{:?}", m)
-                    }
-                } else {
-                    is_last = true;
-                    is_next_vowel = false;
-                }
+                if !is_next_vowel {}
                 assert!(!(is_last && is_next_vowel));
 
+                let mut does_vowel_exist_before;
                 if let Some(x) = morpheme_prev_kind {
                     let last_letter = x.last_latter().unwrap();
                     if last_letter.is_vowel() || last_letter.is_combi() {
@@ -355,18 +333,11 @@ fn evaluate_stem(
                         }
                     }
                 }
-                if still_needs_y {
-                    thematic_vowel
+
+                if does_vowel_exist_before || is_next_vowel {
+                    "".to_owned()
                 } else {
-                    if does_vowel_exist_before {
-                        "".to_owned()
-                    } else {
-                        if is_next_vowel {
-                            "".to_owned()
-                        } else {
-                            thematic_vowel
-                        }
-                    }
+                    thematic_vowel
                 }
             }
         },
@@ -432,14 +403,6 @@ pub fn evaluate_morphemes(morphemes: &VecDeque<Morpheme>) -> String {
     });
 
     for (i, morpheme) in morphemes.iter().enumerate() {
-        let morpheme_prev = i.checked_sub(1).map(|i| &morphemes[i]);
-        let morpheme_next = morphemes.get(i + 1);
-        let morpheme_prev_kind = morpheme_prev.map(|x| &x.kind);
-        let _morpheme_next_kind = morpheme_next.map(|x| &x.kind);
-
-        let _is_first_morpheme = morpheme_prev.is_none();
-        let _is_last_morpheme = morpheme_next.is_none();
-
         let x = match morpheme.kind {
             MorphemeKind::PersonMarker(marker) => evaluate_person_marker(&marker, morphemes, i),
             MorphemeKind::Stem(ref stem, _) => evaluate_stem(stem, morphemes, i),
@@ -451,4 +414,163 @@ pub fn evaluate_morphemes(morphemes: &VecDeque<Morpheme>) -> String {
         result += &x;
     }
     result
+}
+#[cfg(test)]
+mod tests {
+    use crate::*;
+    use evaluation::*;
+    use morpho::*;
+    #[test]
+    fn masdar_0() {
+        let stem_str = "в";
+        let stem = wiki::template::VerbStem::new_from_str(stem_str, Transitivity::Intransitive);
+        let morphemes = new_masdar(&Polarity::Positive, &None, &stem);
+        let string = evaluate_morphemes(&morphemes).replace("{{{псалъэпкъ}}}", stem_str);
+        assert_eq!(string, "вын");
+    }
+    #[test]
+    fn masdar_1() {
+        let stem_str = "гу";
+        let stem = wiki::template::VerbStem::new_from_str(stem_str, Transitivity::Intransitive);
+        let morphemes = new_masdar(&Polarity::Positive, &None, &stem);
+        let string = evaluate_morphemes(&morphemes).replace("{{{псалъэпкъ}}}", stem_str);
+        assert_eq!(string, "гун");
+    }
+
+    #[test]
+    fn imperative_0() {
+        let stem_str = "в";
+        let transitivity = Transitivity::Intransitive;
+        let stem = wiki::template::VerbStem::new_from_str(stem_str, transitivity);
+        let mut strings = vec![];
+        for polarity in Polarity::variants_iter() {
+            for number in Number::variants_iter() {
+                let morphemes = new_imperative(
+                    &polarity,
+                    &None,
+                    &stem,
+                    &PersonMarker::new(Person::Second, number, transitivity.subject_case()),
+                    &None,
+                    &transitivity,
+                );
+                let string = evaluate_morphemes(&morphemes).replace("{{{псалъэпкъ}}}", stem_str);
+                strings.push(string);
+            }
+        }
+        assert_eq!(strings, ["вы", "фыв", "умыв", "фымыв"]);
+    }
+    #[test]
+    fn imperative_1() {
+        let stem_str = "гу";
+        let transitivity = Transitivity::Intransitive;
+        let stem = wiki::template::VerbStem::new_from_str(stem_str, transitivity);
+        let mut strings = vec![];
+        for polarity in Polarity::variants_iter() {
+            for number in Number::variants_iter() {
+                let morphemes = new_imperative(
+                    &polarity,
+                    &None,
+                    &stem,
+                    &PersonMarker::new(Person::Second, number, transitivity.subject_case()),
+                    &None,
+                    &transitivity,
+                );
+                let string = evaluate_morphemes(&morphemes).replace("{{{псалъэпкъ}}}", stem_str);
+                strings.push(string);
+            }
+        }
+        assert_eq!(strings, ["гу", "фыгу", "умыгу", "фымыгу"]);
+    }
+    #[test]
+    fn imperative_2() {
+        let stem_str = "в";
+        let transitivity = Transitivity::Transitive;
+        let stem = wiki::template::VerbStem::new_from_str(stem_str, transitivity);
+        let mut strings = vec![];
+        for polarity in Polarity::variants_iter() {
+            for number in Number::variants_iter() {
+                let morphemes = new_imperative(
+                    &polarity,
+                    &None,
+                    &stem,
+                    &PersonMarker::new(
+                        Person::Third,
+                        Number::Singular,
+                        transitivity.direct_object_case().unwrap(),
+                    ),
+                    &Some(PersonMarker::new(
+                        Person::Second,
+                        number,
+                        transitivity.subject_case(),
+                    )),
+                    &transitivity,
+                );
+                let string = evaluate_morphemes(&morphemes).replace("{{{псалъэпкъ}}}", stem_str);
+                strings.push(string);
+            }
+        }
+        assert_eq!(strings, ["вы", "ввы", "умыв", "фымыв"]);
+    }
+    #[test]
+    fn imperative_3() {
+        let stem_str = "гу";
+        let transitivity = Transitivity::Transitive;
+        let stem = wiki::template::VerbStem::new_from_str(stem_str, transitivity);
+        let mut strings = vec![];
+        for polarity in Polarity::variants_iter() {
+            for number in Number::variants_iter() {
+                let morphemes = new_imperative(
+                    &polarity,
+                    &None,
+                    &stem,
+                    &PersonMarker::new(
+                        Person::Third,
+                        Number::Singular,
+                        transitivity.direct_object_case().unwrap(),
+                    ),
+                    &Some(PersonMarker::new(
+                        Person::Second,
+                        number,
+                        transitivity.subject_case(),
+                    )),
+                    &transitivity,
+                );
+                let string = evaluate_morphemes(&morphemes).replace("{{{псалъэпкъ}}}", stem_str);
+                strings.push(string);
+            }
+        }
+        assert_eq!(strings, ["гу", "вгу", "умыгу", "фымыгу"]);
+    }
+
+    #[test]
+    fn imperative_4() {
+        let preverb = "дэ";
+        let stem_str = "кIэ";
+        let transitivity = Transitivity::Transitive;
+        let stem = wiki::template::VerbStem::new_from_str(stem_str, transitivity);
+        let mut strings = vec![];
+        for polarity in Polarity::variants_iter() {
+            for number in Number::variants_iter() {
+                let morphemes = new_imperative(
+                    &polarity,
+                    &Some(Preverb::new(&preverb.to_owned())),
+                    &stem,
+                    &PersonMarker::new(
+                        Person::Third,
+                        Number::Singular,
+                        transitivity.direct_object_case().unwrap(),
+                    ),
+                    &Some(PersonMarker::new(
+                        Person::Second,
+                        number,
+                        transitivity.subject_case(),
+                    )),
+                    &transitivity,
+                );
+                let string = evaluate_morphemes(&morphemes).replace("{{{псалъэпкъ}}}", "кI");
+                strings.push(string);
+            }
+        }
+        assert_eq!(strings, ["дэкIэ", "дэфкIэ", "думыкIэ", "дэвмыкIэ"]);
+    }
 }
