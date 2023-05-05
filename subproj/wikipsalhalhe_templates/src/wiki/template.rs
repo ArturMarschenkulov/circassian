@@ -247,26 +247,7 @@ fn extract_thematic_vowel(s: &str) -> Result<ThematicVowel, String> {
     match s {
         "э" => Ok(ThematicVowel::A),
         "ы" => Ok(ThematicVowel::Y),
-        _ => {
-            return Err(format!(
-                "The thematic vowel must be either 'э' or 'ы', instead it is {}",
-                s
-            ));
-        }
-    }
-}
-fn transitivity_str(s: &str) -> &str {
-    let segments = s.split('-').collect::<Vec<&str>>();
-    segments[1]
-}
-fn preverb_str(s: &str) -> &str {
-    let segments = s.split('-').collect::<Vec<&str>>();
-    segments[2]
-}
-pub fn root_str(s: &str) -> &str {
-    let segments = s.split('-').collect::<Vec<&str>>();
-    segments[3]
-}
+
 fn extract_preverb(s: &str) -> Option<Preverb> {
     match s {
         "0" => None,

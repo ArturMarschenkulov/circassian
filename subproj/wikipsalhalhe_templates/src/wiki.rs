@@ -625,9 +625,9 @@ pub fn main() {
     let template = "спр-лъэмыӏ-0-0д-ы"; // tr. base. vl. e.g. хьын
                                         // let template = "спр-лъэмыӏ-0-0д-ы"; // intr. base. vl. e.g. плъэн
     let template_desc = template::TemplateDesc::from(template.to_owned()).unwrap();
-    let template_str = create_tables(template_desc);
-
-    if let Some(root) = test_roots.get(template::root_str(template)) {
+    let template_str = create_tables(&template_desc);
+    
+    if let Some(root) = test_roots.get(&template_desc.stem.string.as_str()) {
         let result = template_str.replace("{{{псалъэпкъ}}}", root);
         println!("{}", result);
     } else {
