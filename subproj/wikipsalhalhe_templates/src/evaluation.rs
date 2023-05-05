@@ -300,9 +300,23 @@ fn evaluate_stem(
                 let is_next_vowel = morpheme_next_kind
                     .map(|x| x.first_letter().unwrap().is_vowel_or_combi())
                     .unwrap_or(false);
-                // let mut still_needs_y = false;
 
                 if !is_next_vowel {}
+
+                let next_letter = morpheme_next_kind.and_then(|m| m.first_letter());
+
+                use ortho::*;
+                let still_needs_y = next_letter.map_or(false, |next_letter| {
+                    if let LetterKind::Consonant(consonant) = &next_letter.kind {
+                        let is_n = consonant.is_place_and_manner(Place::Alveolar, Manner::Nasal);
+                        let is_gh = consonant.is_place_and_manner(Place::Uvular, Manner::Fricative);
+                        let is_r = consonant.is_trill()
+                            && !morpheme_next_kind.unwrap().is_generic_certain("рэ");
+                        is_n || is_gh || is_r
+                    } else {
+                        false
+                    }
+                });
                 assert!(!(is_last && is_next_vowel));
 
                 let mut does_vowel_exist_before;
@@ -334,11 +348,33 @@ fn evaluate_stem(
                     }
                 }
 
-                if does_vowel_exist_before || is_next_vowel {
-                    "".to_owned()
-                } else {
+                if still_needs_y {
                     thematic_vowel
+                } else {
+                    if does_vowel_exist_before {
+                        "".to_owned()
+                    } else {
+                        if is_next_vowel {
+                            "".to_owned()
+                        } else {
+                            thematic_vowel
+                        }
+                    }
                 }
+
+                // if still_needs_y {
+                //     thematic_vowel
+                // } else if does_vowel_exist_before || is_next_vowel {
+                //     "".to_owned()
+                // } else {
+                //     thematic_vowel
+                // }
+
+                // if does_vowel_exist_before || is_next_vowel {
+                //     "".to_owned()
+                // } else {
+                //     thematic_vowel
+                // }
             }
         },
         v @ "э" => match morpheme_next_kind {
@@ -519,20 +555,15 @@ mod tests {
         let mut strings = vec![];
         for polarity in Polarity::variants_iter() {
             for number in Number::variants_iter() {
+                let do_case = transitivity.direct_object_case().unwrap();
+                let s_case = transitivity.subject_case();
+
                 let morphemes = new_imperative(
                     &polarity,
                     &None,
                     &stem,
-                    &PersonMarker::new(
-                        Person::Third,
-                        Number::Singular,
-                        transitivity.direct_object_case().unwrap(),
-                    ),
-                    &Some(PersonMarker::new(
-                        Person::Second,
-                        number,
-                        transitivity.subject_case(),
-                    )),
+                    &PersonMarker::new(Person::Third, Number::Singular, do_case),
+                    &Some(PersonMarker::new(Person::Second, number, s_case)),
                     &transitivity,
                 );
                 let string = evaluate_morphemes(&morphemes).replace("{{{псалъэпкъ}}}", stem_str);

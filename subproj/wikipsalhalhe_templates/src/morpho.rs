@@ -166,6 +166,7 @@ pub struct Preverb {
 
 impl Preverb {
     pub fn new(base: &String) -> Self {
+        assert!(!base.is_empty(), "Preverb must not be empty");
         Preverb {
             // form: PreverbSoundForm::Full,
             base: base.to_owned(),

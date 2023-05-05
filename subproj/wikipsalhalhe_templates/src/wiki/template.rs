@@ -132,7 +132,6 @@ impl VerbStem {
     pub fn new_from_str(s: &str, transitivity: morpho::Transitivity) -> Self {
         let letters = ortho::parse(s).unwrap();
         assert!(!letters.is_empty(), "The verb stem can't be empty.");
-        println!("letters: {:#?}", letters);
 
         let vowel = if letters.len() == 1 {
             VowelKind::Without
@@ -247,6 +246,12 @@ fn extract_thematic_vowel(s: &str) -> Result<ThematicVowel, String> {
     match s {
         "э" => Ok(ThematicVowel::A),
         "ы" => Ok(ThematicVowel::Y),
+        _ => Err(format!(
+            "The thematic vowel must be either 'э' or 'ы', instead it is {}",
+            s
+        )),
+    }
+}
 
 fn extract_preverb(s: &str) -> Option<Preverb> {
     match s {
@@ -341,7 +346,7 @@ pub fn create_template_from_string(s: String) -> Result<TemplateDesc, String> {
     // _-transitivity-preverb-root-thematic_vowel
 
     let segments = s.split('-').collect::<Vec<&str>>();
-    if segments.len() == 5 {
+    if segments.len() != 5 {
         return Err(format!(
             "The string must have 5 segments, instead it has {}",
             segments.len()

@@ -522,28 +522,31 @@ fn indcicative_tense_string(tense: &Tense, polarity: &Polarity) -> String {
         Tense::Future2 => format!("къэкӀуэну гъэбелджыла зэман – щы{}Ӏэныгъэ:", p),
     }
 }
-fn create_tables(desc: template::TemplateDesc) -> String {
+fn create_tables(desc: &template::TemplateDesc) -> String {
     let mut result = "".to_string();
     result += &format!("<!-- Template:Wt/kbd/{} -->\n", desc.original_string);
     let r = vec![
         // Инфинитив (масдар)
-        table_masdar(&desc),
+        table_masdar(desc),
         // Инфинитив (масдар) щхьэкӀэ зэхъуэкӀа
-        table_masdar_personal(&desc),
+        table_masdar_personal(desc),
         // унафэ наклоненэ
-        table_imperative(&desc),
+        table_imperative(desc),
         // Ре-кӀэ унафэ наклоненэ
-        table_imperative_raj(&desc),
+        table_imperative_raj(desc),
         // This part needs mostly the same logic, as only the endings change.
-        table_indicative(&desc),
-        table_interrogative(&desc),
-        table_conditional(&desc),
-        table_conditional_2(&desc),
-        table_subjunctive(&desc),
-        table_concessive(&desc),
-        table_concessive_2(&desc),
+        table_indicative(desc),
+        table_interrogative(desc),
+        table_conditional(desc),
+        table_conditional_2(desc),
+        table_subjunctive(desc),
+        table_concessive(desc),
+        table_concessive_2(desc),
         // table_dubitative(&desc),
-    ].iter().map(|table| table.to_string()).collect::<Vec<String>>();
+    ]
+    .iter()
+    .map(|table| table.to_string())
+    .collect::<Vec<String>>();
 
     for table in r {
         result += &table;
@@ -554,6 +557,22 @@ fn create_tables(desc: template::TemplateDesc) -> String {
     result += "|}<noinclude>\n[[Category:Wt/kbd]]\n</noinclude>";
 
     result
+}
+
+fn test() {
+    use crate::*;
+    use evaluation::*;
+    use morpho::*;
+
+    let stem_str = "в";
+    let stem = wiki::template::VerbStem::new_from_str(stem_str, Transitivity::Intransitive);
+    let morphemes = new_masdar(
+        &Polarity::Positive,
+        &Some(Preverb::new(&"хэ".to_owned())),
+        &stem,
+    );
+    let string = evaluate_morphemes(&morphemes).replace("{{{псалъэпкъ}}}", stem_str);
+    println!("{}", string);
 }
 
 /*
