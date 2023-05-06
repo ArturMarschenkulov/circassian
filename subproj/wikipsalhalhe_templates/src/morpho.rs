@@ -3,6 +3,13 @@ use crate::wiki::template;
 
 use std::collections::VecDeque;
 
+struct VerbMatrix {
+    absolutive: PersonMarker,
+    cis_preverb: Option<Preverb>,
+    preverbs: Vec<(PersonMarker, Preverb)>,
+    ergative: PersonMarker,
+    stem: String,
+}
 pub enum Mood {
     Imperative,
     Indicative,
@@ -55,6 +62,11 @@ impl Tense {
     }
 }
 
+/// Representation of the sound form of a preverb.
+///
+/// къэ-, къы-, къ-
+/// хэ-, хы-, х-
+/// дэ-, ды-, д-
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum PreverbSoundForm {
     Full,        // e.g. къэ-
@@ -164,14 +176,21 @@ pub struct Preverb {
     base: String,
 }
 
-impl Preverb {
-    pub fn new(base: &String) -> Self {
-        assert!(!base.is_empty(), "Preverb must not be empty");
-        Preverb {
+impl TryFrom<&String> for Preverb {
+    type Error = String;
+    fn try_from(base: &String) -> Result<Self, Self::Error> {
+        if base.is_empty() {
+            return Err("Preverb must not be empty".to_owned());
+        }
+        // TODO: Add checks for valid preverbs
+
+        Ok(Preverb {
             // form: PreverbSoundForm::Full,
             base: base.to_owned(),
-        }
+        })
     }
+}
+impl Preverb {
     pub fn first_letter(&self) -> ortho::Letter {
         ortho::parse(&self.base).unwrap()[0].clone()
     }
@@ -197,8 +216,7 @@ impl Preverb {
             base if base.ends_with('э') || base.ends_with('ы') => {
                 let mut chars = base.chars();
                 chars.next_back();
-                let reduced = chars.as_str().to_string();
-                reduced
+                chars.as_str().to_string()
             }
             _ => unreachable!(),
         }
@@ -208,8 +226,7 @@ impl Preverb {
             base if base.ends_with('э') || base.ends_with('ы') => {
                 let mut chars = base.chars();
                 chars.next_back();
-                let reduced = chars.as_str().to_string();
-                reduced + "ы"
+                chars.as_str().to_string() + "ы"
             }
             _ => unreachable!(),
         }
@@ -307,6 +324,24 @@ impl Morpheme {
     }
 }
 
+// impl From<&String> for Morpheme {
+//     fn from(base: &String) -> Self {
+//         if base == "мы" {
+//             return Morpheme {
+//                 kind: MorphemeKind::NegationPrefix,
+//             };
+//         }
+//         if base == "ре" {
+//             return Morpheme {
+//                 kind: MorphemeKind::RajImperative,
+//             };
+//         }
+//         Morpheme {
+//             kind: MorphemeKind::Generic(base.to_owned()),
+//         }
+//     }
+// }
+
 impl Morpheme {
     pub fn new_generic(base: &str) -> Self {
         Morpheme {
@@ -356,6 +391,16 @@ impl Case {
         Self::variants().into_iter()
     }
 }
+impl TryFrom<&str> for Case {
+    type Error = String;
+    fn try_from(s: &str) -> Result<Self, Self::Error> {
+        match s {
+            "р" => Ok(Case::Absolutive),
+            "м" => Ok(Case::Ergative),
+            _ => Err(format!("Invalid case: {}", s)),
+        }
+    }
+}
 
 /// A struct that indicates the number of a noun or verb.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -395,6 +440,39 @@ pub struct PersonMarker {
     /// The case of the person marker.
     /// However, not direct reflection of the actual case, but more so the "surface level" appearance of the person markers.
     pub case: Case,
+}
+
+impl TryFrom<&str> for PersonMarker {
+    type Error = String;
+    fn try_from(value: &str) -> Result<Self, Self::Error> {
+        if value.is_empty() {
+            return Err("Empty string".to_owned());
+        }
+        if value.len() > 2 {
+            return Err(format!(
+                "String too long: {}. A person marker can only have up to 2 chars",
+                value
+            ));
+        }
+        use Case::*;
+        use Number::*;
+        use Person::*;
+        let s = match value {
+            "сы" => PersonMarker::new(First, Singular, Absolutive),
+            "у" => PersonMarker::new(Second, Singular, Absolutive),
+            "" => PersonMarker::new(Third, Singular, Absolutive),
+            "ды" => PersonMarker::new(First, Plural, Absolutive),
+            "фы" => PersonMarker::new(Second, Plural, Absolutive),
+            "с" => PersonMarker::new(First, Singular, Ergative),
+            "п" | "б" => PersonMarker::new(Second, Singular, Ergative),
+            "и" => PersonMarker::new(Third, Singular, Ergative),
+            "д" => PersonMarker::new(First, Plural, Ergative),
+            "ф" => PersonMarker::new(Second, Plural, Ergative),
+            "я" => PersonMarker::new(Third, Plural, Ergative),
+            _ => return Err(format!("Invalid person marker: {}", value)),
+        };
+        Ok(s)
+    }
 }
 
 impl PersonMarker {
@@ -438,7 +516,7 @@ impl PersonMarker {
     }
 }
 impl PersonMarker {
-    pub fn base_string_as_voiced(&self) -> String {
+    pub fn as_voiced(&self) -> String {
         let base = self.base_string();
         let old = base.chars().next().unwrap();
         let new = match old {
@@ -450,7 +528,7 @@ impl PersonMarker {
         base.replacen(old, &new.to_string(), 1)
     }
 
-    pub fn base_string_as_voiceless(&self) -> String {
+    pub fn as_voiceless(&self) -> String {
         let base = self.base_string();
         let old = base.chars().next().unwrap();
         let new = match old {
@@ -461,7 +539,7 @@ impl PersonMarker {
         };
         base.replacen(old, &new.to_string(), 1)
     }
-    pub fn base_string_as_after_consonant(&self) -> String {
+    pub fn as_after_consonant(&self) -> String {
         let base = self.base_string();
         let old = base.chars().next().unwrap();
         let new = match old {
@@ -471,11 +549,7 @@ impl PersonMarker {
         };
         base.replacen(old, &new.to_string(), 1)
     }
-
-    // pub fn base_string_as_before_m(&self) -> String {
-    //     let base = self.base_string();
-    // }
-    pub fn base_string_as_before_o(&self) -> String {
+    pub fn as_before_o(&self) -> String {
         let base = self.base_string();
         if base.ends_with('ы') {
             base.replacen('ы', "", 1)
@@ -496,7 +570,7 @@ impl PersonMarker {
             (Third, Plural, Absolutive) => "",
 
             (First, Singular, Ergative) => "с",
-            (Second, Singular, Ergative) => "б",
+            (Second, Singular, Ergative) => "б", // ў
             (Third, Singular, Ergative) => "и",
             (First, Plural, Ergative) => "д",
             (Second, Plural, Ergative) => "ф",
@@ -578,6 +652,11 @@ pub fn new_imperative_raj(
         morphemes.push_front(m);
     }
     morphemes
+}
+
+fn push_person(morphemes: &mut VecDeque<Morpheme>, marker: &PersonMarker) {
+    let m = Morpheme::new_person_marker(marker);
+    morphemes.push_front(m);
 }
 pub fn new_masdar_personal(
     polarity: &Polarity,
@@ -687,6 +766,7 @@ pub fn new_imperative(
                 &Transitivity::Intransitive,
             )
         {
+            let marker = PersonMarker::try_from("у").unwrap();
             let marker = PersonMarker::new(Person::Second, abs_marker.number, Case::Absolutive);
             let m = Morpheme::new_person_marker(&marker);
             morphemes.push_front(m);

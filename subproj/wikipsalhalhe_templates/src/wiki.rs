@@ -565,10 +565,10 @@ fn test() {
     use morpho::*;
 
     let stem_str = "в";
-    let stem = wiki::template::VerbStem::new_from_str(stem_str, Transitivity::Intransitive);
+    let stem = wiki::template::VerbStem::new(stem_str, Transitivity::Intransitive);
     let morphemes = new_masdar(
         &Polarity::Positive,
-        &Some(Preverb::new(&"хэ".to_owned())),
+        &Some(Preverb::try_from(&"хэ".to_owned()).unwrap()),
         &stem,
     );
     let string = evaluate_morphemes(&morphemes).replace("{{{псалъэпкъ}}}", stem_str);
@@ -618,6 +618,12 @@ pub fn main() {
         // "спр-лъэмыӏ-е-бд-ы",
     ];
 
+    // спр-лъэӏ-зэхэ-д0д-ы
+    let template = "спр-лъэмыӏ-0-0д-ы"; // tr. base. vl. e.g. хьын
+                                        // let template = "спр-лъэмыӏ-0-0д-ы"; // intr. base. vl. e.g. плъэн
+    let template_desc = template::TemplateDesc::try_from(template.to_owned()).unwrap();
+    let template_str = create_tables(&template_desc);
+
     // those are only test roots so that one can visually test the tables better.
     // In many cases the resulting table won't correspond to real words.
     let mut test_roots: std::collections::HashMap<&str, &str>;
@@ -639,13 +645,6 @@ pub fn main() {
     test_roots.insert("убт", "ух");
     test_roots.insert("д0д", "х");
     test_roots.insert("д0л", "ху");
-
-    // спр-лъэӏ-зэхэ-д0д-ы
-    let template = "спр-лъэмыӏ-0-0д-ы"; // tr. base. vl. e.g. хьын
-                                        // let template = "спр-лъэмыӏ-0-0д-ы"; // intr. base. vl. e.g. плъэн
-    let template_desc = template::TemplateDesc::from(template.to_owned()).unwrap();
-    let template_str = create_tables(&template_desc);
-    
     if let Some(root) = test_roots.get(&template_desc.stem.string.as_str()) {
         let result = template_str.replace("{{{псалъэпкъ}}}", root);
         println!("{}", result);

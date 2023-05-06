@@ -54,7 +54,7 @@ pub enum ThematicVowel {
     Y,
 }
 
-impl ThematicVowel {
+impl From<&ortho::Vowel> for ThematicVowel {
     fn from(vowel: &ortho::Vowel) -> Self {
         match vowel.kind {
             ortho::VowelKind::A => ThematicVowel::A,
@@ -81,19 +81,22 @@ pub enum FirstConsonant {
 }
 
 impl FirstConsonant {
+    pub fn to_voiceness(&self) -> ortho::Voiceness {
+        match self {
+            FirstConsonant::Unvoiced => ortho::Voiceness::Voiceless,
+            FirstConsonant::Voiced => ortho::Voiceness::Voiced,
+            FirstConsonant::Wy => ortho::Voiceness::Voiced,
+        }
+    }
+}
+
+impl From<&ortho::Consonant> for FirstConsonant {
     fn from(consonant: &ortho::Consonant) -> Self {
         match (consonant.place, consonant.manner, consonant.voiceness) {
             (ortho::Place::Labial, ortho::Manner::Approximant, _) => FirstConsonant::Wy,
             (_, _, ortho::Voiceness::Voiced) => FirstConsonant::Voiced,
             _ => FirstConsonant::Unvoiced,
             // _ => panic!("The consonant {:?} is not a first consonant.", consonant),
-        }
-    }
-    pub fn to_voiceness(&self) -> ortho::Voiceness {
-        match self {
-            FirstConsonant::Unvoiced => ortho::Voiceness::Voiceless,
-            FirstConsonant::Voiced => ortho::Voiceness::Voiced,
-            FirstConsonant::Wy => ortho::Voiceness::Voiced,
         }
     }
 }
@@ -106,7 +109,7 @@ pub enum LastConsonant {
     Yy,       // 'й'
 }
 
-impl LastConsonant {
+impl From<&ortho::Consonant> for LastConsonant {
     fn from(consonant: &ortho::Consonant) -> Self {
         match (consonant.place, consonant.manner, consonant.is_labialized) {
             (_, _, true) => LastConsonant::Labial,
@@ -129,7 +132,7 @@ pub struct VerbStem {
 }
 
 impl VerbStem {
-    pub fn new_from_str(s: &str, transitivity: morpho::Transitivity) -> Self {
+    pub fn new(s: &str, transitivity: morpho::Transitivity) -> Self {
         let letters = ortho::parse(s).unwrap();
         assert!(!letters.is_empty(), "The verb stem can't be empty.");
 
@@ -256,7 +259,7 @@ fn extract_thematic_vowel(s: &str) -> Result<ThematicVowel, String> {
 fn extract_preverb(s: &str) -> Option<Preverb> {
     match s {
         "0" => None,
-        _ => Some(Preverb::new(&s.to_owned())),
+        _ => Some(Preverb::try_from(&s.to_owned()).unwrap()),
     }
 }
 
@@ -336,53 +339,51 @@ pub struct TemplateDesc {
     pub original_string: String,
 }
 
-impl TemplateDesc {
-    pub fn from(s: String) -> Result<TemplateDesc, String> {
-        create_template_from_string(s)
+impl TryFrom<String> for TemplateDesc {
+    type Error = String;
+    fn try_from(s: String) -> Result<TemplateDesc, String> {
+        // _-transitivity-preverb-root-thematic_vowel
+
+        let segments = s.split('-').collect::<Vec<&str>>();
+        if segments.len() != 5 {
+            return Err(format!(
+                "The string must have 5 segments, instead it has {}",
+                segments.len()
+            ));
+        }
+
+        if segments[0] != "спр" {
+            return Err(format!(
+                "The string must start with 'спр', instead it starts with {}",
+                segments[0]
+            ));
+        }
+
+        let transitivity = extract_transitivity(segments[1]).unwrap();
+        let preverb = extract_preverb(segments[2]);
+        let (fc, v, lc, alternating) = extract_root(segments[3]);
+        let thematic_vowel = extract_thematic_vowel(segments[4]).unwrap();
+
+        if fc.is_none() && transitivity == Transitivity::Transitive {
+            return Err(
+                "The first consonant is not allowed to be None if the verb is transitive."
+                    .to_owned(),
+            );
+        }
+
+        let template_desc = TemplateDesc {
+            transitivity,
+            preverb,
+            stem: VerbStem {
+                first_consonant: fc,
+                vowel: v,
+                last_consonant: lc,
+                is_alternating: alternating,
+                thematic_vowel,
+                string: segments[3].to_owned(),
+            },
+            original_string: s.clone(),
+        };
+        Ok(template_desc)
     }
-}
-
-pub fn create_template_from_string(s: String) -> Result<TemplateDesc, String> {
-    // _-transitivity-preverb-root-thematic_vowel
-
-    let segments = s.split('-').collect::<Vec<&str>>();
-    if segments.len() != 5 {
-        return Err(format!(
-            "The string must have 5 segments, instead it has {}",
-            segments.len()
-        ));
-    }
-
-    if segments[0] != "спр" {
-        return Err(format!(
-            "The string must start with 'спр', instead it starts with {}",
-            segments[0]
-        ));
-    }
-
-    let transitivity = extract_transitivity(segments[1]).unwrap();
-    let preverb = extract_preverb(segments[2]);
-    let (fc, v, lc, alternating) = extract_root(segments[3]);
-    let thematic_vowel = extract_thematic_vowel(segments[4]).unwrap();
-
-    if fc.is_none() && transitivity == Transitivity::Transitive {
-        return Err(
-            "The first consonant is not allowed to be None if the verb is transitive.".to_owned(),
-        );
-    }
-
-    let template_desc = TemplateDesc {
-        transitivity,
-        preverb,
-        stem: VerbStem {
-            first_consonant: fc,
-            vowel: v,
-            last_consonant: lc,
-            is_alternating: alternating,
-            thematic_vowel,
-            string: segments[3].to_owned(),
-        },
-        original_string: s.clone(),
-    };
-    Ok(template_desc)
 }

@@ -2,9 +2,35 @@ use crate::morpho::{
     Case, Morpheme, MorphemeKind, Number, Person, PersonMarker, Preverb, PreverbSoundForm,
 };
 use crate::ortho::{self, Consonant};
-use crate::wiki::template::ThematicVowel;
 use core::panic;
 use std::collections::VecDeque;
+
+/// NOTE: This file, and this whole project really, uses hacky tricks to replicated the special behavior of the singular second person ergative person markers.
+/// Thus to make it more apparent, whever this occurs it will be marked by a comment saying "S2E hack" (standing for "Singular Second Person Ergative hack").
+///
+/// In most cases, this person marker has the form п, before voiceless consonants, and б before voiced consonants
+/// and vowels and sometimes у in front of certain consonants and as a free variation to б in front of vowels (though б will be preferred here).
+/// Its absolutive equivalent only has <у> /wə/ as its form (except when it sometimes fuses together with certain morphemes to о (maybe also others?)).
+///
+/// The problem is that its true underlyign form is /w/ which is not representable in the current official orthography.
+/// The closest would be <у>, but that represents /wə/ and in front of vowels /w/, though that is a secondary allophone.
+///
+/// If represented like this all those changes seem rather regular. Look below:
+///
+/// */wtxənɕ/ -> /ptxənɕ/,   *ўтхынщ -> птхынщ
+///
+/// */wbzənɕ/ -> /bbzənɕ/ ?? *ўбзынщ -> ббзынщ
+///
+/// */wdzənɕ/ -> /bdzənɕ/ ?? *ўдзынщ -> бдзынщ
+///
+/// */wwəxənɕ/ -> /wəwəxənɕ/ or /bəwxənɕ/ *ўухынщ -> уухынщ or бухынщ
+///
+/// */wmədz/ -> /wəmədz/ ?? *ўмыдз -> умыдз
+///
+/// */ɕʼawmədz/ -> /ɕʼawəmədz/ ?? *щIэўмыдз -> щIумыдз
+///
+/// The idea is to make the base form "ў" as a cyrrilic representation of /w/ and then make the other forms be derived from it.
+///
 
 pub fn morphemes_to_string(morphemes: &VecDeque<Morpheme>) -> String {
     let s = morphemes
@@ -57,13 +83,24 @@ pub fn morphemes_to_string(morphemes: &VecDeque<Morpheme>) -> String {
 //     String::new()
 // }
 
+/// The third person plural ergative marker is 'я', however if something is before it, it becomes 'а'.
 fn ja_form(is_after_consonant: bool) -> String {
-    if is_after_consonant {
-        "а".to_owned()
-    } else {
-        "я".to_owned()
-    }
+    if is_after_consonant { "а" } else { "я" }.to_owned()
 }
+
+/// The preverb 'е' becomese 'э', in front of certain consonants/morphemes.
+///
+/// The transformation of 'e' to 'э' is not as aggressive as in case of 'я' to 'а'. It only happen in certain cases, where the morphemes are very close to each other.
+/// For example, the "фэ" in "фэстащ" ``I gave it to y'all``, is composed of "ф+е".
+/// The "къызэ" in "къызэплъащ" is composed of "къы-с+е".
+/// The "зэ" in "зэдзэр" "what X is reads" is composed of "зы+е".
+///
+/// However, фестащ "I gave y'all to him" doesn't become фэстащ, as firstly it is composed of "фы+е",
+/// and secondly, they are "further" apart, as фы, is not a suffix which is "attached to" "е", but is in its own slot.
+fn je_form(is_after_consonant: bool) -> String {
+    if is_after_consonant { "е" } else { "э" }.to_owned()
+}
+
 fn give_epenthetic_if_needed(c_0: &Consonant, c_1: &Consonant) -> String {
     let is_wy = (ortho::Manner::Approximant, ortho::Place::Labial) == (c_0.manner, c_0.place);
     let needs_it = c_1.needs_epenthetic_y();
@@ -103,14 +140,17 @@ fn evaluate_person_marker(
     // Any vowel after it gets swallowed. That is я + о = я,
 
     match (morpheme_prev_kind, morpheme_next_kind) {
+        (_, None) if has_raj_prefix => {
+            unreachable!("Logic error: Raj imperative must be followed by a morpheme")
+        }
+        // NOTE: Raj imperatives can have a person marker only at the very beginning.
         (x, Some(morph_next)) if has_raj_prefix => {
-            // Raj imperatives can have a person marker only at the very beginning.
-            //
             assert_eq!(marker.case, Case::Ergative);
             assert!(x.is_none());
 
             let mut new_marker = *marker;
             if morph_next == &MorphemeKind::RajImperative && marker.is_second_singular() {
+                // NOTE: S2E hack
                 new_marker.case = Case::Absolutive;
             } else if morph_next == &MorphemeKind::RajImperative && !marker.is_second_singular() {
                 new_marker.case = Case::Ergative;
@@ -119,26 +159,19 @@ fn evaluate_person_marker(
             }
             new_marker.base_string()
         }
-        (_, None) if has_raj_prefix => {
-            unreachable!("Logic error: Raj imperative must be followed by a morpheme")
-        }
         (mp, Some(MorphemeKind::Generic(base))) if base == "о" => {
-            if marker.is_third() {
-                if marker.is_third_singular_ergative() {
-                    // 'и' + 'о' -> 'е'
-                    "е".to_owned()
-                } else if marker.is_third_plural_ergative() {
+            match (marker.person, marker.number, marker.case) {
+                (Person::Third, Number::Singular, Case::Ergative) => "е".to_owned(), // 'и' + 'о' -> 'е'
+                (Person::Third, Number::Plural, Case::Ergative) => {
                     ja_form(morpheme_prev_kind.is_some())
-                } else {
-                    unreachable!()
                 }
-            } else {
-                if marker.is_absolutive() {
-                    marker.base_string_as_before_o()
-                } else if marker.is_ergative() && mp.is_some() {
-                    marker.base_string_as_voiced()
-                } else {
-                    marker.base_string()
+                (_, _, Case::Absolutive) => marker.as_before_o(),
+                (_, _, Case::Ergative) => {
+                    if mp.is_some() {
+                        marker.as_voiced()
+                    } else {
+                        marker.base_string()
+                    }
                 }
             }
         }
@@ -147,12 +180,6 @@ fn evaluate_person_marker(
         // However if there is something before that, like a preverb, the ergative markers behave normal again,
         // except the second person singular, which stays 'у' instead of becoming 'б'/'п'.
         (morpheme_prev, Some(neg_prefix @ MorphemeKind::NegationPrefix)) => {
-            assert!(
-                [Case::Ergative, Case::Absolutive].contains(&marker.case),
-                "Case marker cas to be absolutive or ergative, it was however {:?}",
-                marker.case
-            );
-
             assert_ne!((morpheme_prev.is_some(), marker.case), (true, Case::Absolutive), "If the person marker is absolutive and is followed by a negation prefix, then it must be the first morpheme of the verb, it was however {:?}", (morpheme_prev, marker.case));
 
             if morpheme_prev.is_none() {
@@ -167,7 +194,7 @@ fn evaluate_person_marker(
                         let mut consonant = consonant.clone();
                         consonant.voiceness = neg_prefix.first_letter().unwrap().voiceness();
 
-                        // if 'п' or 'б', make it 'у'.
+                        // NOTE: S2E hack
                         if consonant.is_labial_plosive() {
                             consonant.manner = Approximant;
                         };
@@ -188,7 +215,7 @@ fn evaluate_person_marker(
                     _ => unreachable!(),
                 }
             } else {
-                panic!("Negative prefix must be preceded by a preverb or nothingö.")
+                panic!("Negative prefix must be preceded by a preverb or nothing.")
                 //marker.get_string()
             }
         }
@@ -322,7 +349,7 @@ fn evaluate_stem(
                 let mut does_vowel_exist_before;
                 if let Some(x) = morpheme_prev_kind {
                     let last_letter = x.last_latter().unwrap();
-                    if last_letter.is_vowel() || last_letter.is_combi() {
+                    if last_letter.is_vowel_or_combi() {
                         does_vowel_exist_before = true;
                     } else if last_letter.is_consonant() {
                         does_vowel_exist_before = false;
@@ -348,18 +375,26 @@ fn evaluate_stem(
                     }
                 }
 
+                // if still_needs_y {
+                //     thematic_vowel
+                // } else {
+                //     if does_vowel_exist_before {
+                //         "".to_owned()
+                //     } else {
+                //         if is_next_vowel {
+                //             "".to_owned()
+                //         } else {
+                //             thematic_vowel
+                //         }
+                //     }
+                // }
+
                 if still_needs_y {
                     thematic_vowel
+                } else if does_vowel_exist_before || is_next_vowel {
+                    "".to_owned()
                 } else {
-                    if does_vowel_exist_before {
-                        "".to_owned()
-                    } else {
-                        if is_next_vowel {
-                            "".to_owned()
-                        } else {
-                            thematic_vowel
-                        }
-                    }
+                    thematic_vowel
                 }
 
                 // if still_needs_y {
@@ -459,7 +494,7 @@ mod tests {
     #[test]
     fn masdar_0() {
         let stem_str = "в";
-        let stem = wiki::template::VerbStem::new_from_str(stem_str, Transitivity::Intransitive);
+        let stem = wiki::template::VerbStem::new(stem_str, Transitivity::Intransitive);
         let morphemes = new_masdar(&Polarity::Positive, &None, &stem);
         let string = evaluate_morphemes(&morphemes).replace("{{{псалъэпкъ}}}", stem_str);
         assert_eq!(string, "вын");
@@ -467,7 +502,7 @@ mod tests {
     #[test]
     fn masdar_1() {
         let stem_str = "гу";
-        let stem = wiki::template::VerbStem::new_from_str(stem_str, Transitivity::Intransitive);
+        let stem = wiki::template::VerbStem::new(stem_str, Transitivity::Intransitive);
         let morphemes = new_masdar(&Polarity::Positive, &None, &stem);
         let string = evaluate_morphemes(&morphemes).replace("{{{псалъэпкъ}}}", stem_str);
         assert_eq!(string, "гун");
@@ -477,7 +512,7 @@ mod tests {
     fn imperative_0() {
         let stem_str = "в";
         let transitivity = Transitivity::Intransitive;
-        let stem = wiki::template::VerbStem::new_from_str(stem_str, transitivity);
+        let stem = wiki::template::VerbStem::new(stem_str, transitivity);
         let mut strings = vec![];
         for polarity in Polarity::variants_iter() {
             for number in Number::variants_iter() {
@@ -499,7 +534,7 @@ mod tests {
     fn imperative_1() {
         let stem_str = "гу";
         let transitivity = Transitivity::Intransitive;
-        let stem = wiki::template::VerbStem::new_from_str(stem_str, transitivity);
+        let stem = wiki::template::VerbStem::new(stem_str, transitivity);
         let mut strings = vec![];
         for polarity in Polarity::variants_iter() {
             for number in Number::variants_iter() {
@@ -521,7 +556,7 @@ mod tests {
     fn imperative_2() {
         let stem_str = "в";
         let transitivity = Transitivity::Transitive;
-        let stem = wiki::template::VerbStem::new_from_str(stem_str, transitivity);
+        let stem = wiki::template::VerbStem::new(stem_str, transitivity);
         let mut strings = vec![];
         for polarity in Polarity::variants_iter() {
             for number in Number::variants_iter() {
@@ -551,7 +586,7 @@ mod tests {
     fn imperative_3() {
         let stem_str = "гу";
         let transitivity = Transitivity::Transitive;
-        let stem = wiki::template::VerbStem::new_from_str(stem_str, transitivity);
+        let stem = wiki::template::VerbStem::new(stem_str, transitivity);
         let mut strings = vec![];
         for polarity in Polarity::variants_iter() {
             for number in Number::variants_iter() {
@@ -578,13 +613,13 @@ mod tests {
         let preverb = "дэ";
         let stem_str = "кIэ";
         let transitivity = Transitivity::Transitive;
-        let stem = wiki::template::VerbStem::new_from_str(stem_str, transitivity);
+        let stem = wiki::template::VerbStem::new(stem_str, transitivity);
         let mut strings = vec![];
         for polarity in Polarity::variants_iter() {
             for number in Number::variants_iter() {
                 let morphemes = new_imperative(
                     &polarity,
-                    &Some(Preverb::new(&preverb.to_owned())),
+                    &Some(Preverb::try_from(&preverb.to_owned()).unwrap()),
                     &stem,
                     &PersonMarker::new(
                         Person::Third,
