@@ -91,7 +91,6 @@ pub enum Vowel {
 impl TryFrom<&str> for Vowel {
     type Error = String;
     fn try_from(s: &str) -> Result<Self, Self::Error> {
-
         if s.chars().count() != 1 {
             return Err(format!("{} is too long or too short.", s));
         }
@@ -136,6 +135,16 @@ pub struct Consonant {
     pub is_labialized: bool,
 }
 impl Consonant {
+    /// Returns a `Consonant`. This is 'unchecked'.
+    fn new(place: Place, manner: Manner, voiceness: Voiceness, is_labialized: bool) -> Self {
+        Consonant {
+            place,
+            manner,
+            voiceness,
+            is_labialized,
+        }
+    }
+
     fn try_new(
         place: Place,
         manner: Manner,
@@ -155,7 +164,17 @@ impl Consonant {
         }
     }
     fn is_valid(&self) -> bool {
-        <&str>::try_from(self).is_ok()
+        if let Ok(string) = <&str>::try_from(self) {
+            if let Ok(cons) = Consonant::try_from(string) {
+                cons == *self
+                // Consonant::try_from(string).is_ok()
+            } else {
+                false
+            }
+        } else {
+            false
+        }
+        // <&str>::try_from(self).is_ok()
     }
 
     /// Returns `true` if the consonant is a labial plosive, e.g. 'п' or 'б'.
@@ -195,73 +214,73 @@ impl TryFrom<&str> for Consonant {
         use Voiceness::*;
         match s {
             // Nasals
-            "м" => Consonant::try_new(Labial, Nasal, Voiced, false),
-            "н" => Consonant::try_new(Alveolar, Nasal, Voiced, false),
+            "м" => Ok(Consonant::new(Labial, Nasal, Voiced, false)),
+            "н" => Ok(Consonant::new(Alveolar, Nasal, Voiced, false)),
             // Plosives Unvoiced
-            "п" => Consonant::try_new(Labial, Plosive, Voiceless, false),
-            "т" => Consonant::try_new(Alveolar, Plosive, Voiceless, false),
-            "к" => Consonant::try_new(Velar, Plosive, Voiceless, false),
-            "къ" => Consonant::try_new(Uvular, Plosive, Voiceless, false),
-            "I" => Consonant::try_new(Glottal, Plosive, Voiceless, false),
-            "Iу" => Consonant::try_new(Glottal, Plosive, Voiceless, true),
+            "п" => Ok(Consonant::new(Labial, Plosive, Voiceless, false)),
+            "т" => Ok(Consonant::new(Alveolar, Plosive, Voiceless, false)),
+            "к" => Ok(Consonant::new(Velar, Plosive, Voiceless, false)),
+            "къ" => Ok(Consonant::new(Uvular, Plosive, Voiceless, false)),
+            "I" => Ok(Consonant::new(Glottal, Plosive, Voiceless, false)),
+            "Iу" => Ok(Consonant::new(Glottal, Plosive, Voiceless, true)),
             // Plosives Unvoiced Labialized
-            "ку" => Consonant::try_new(Velar, Plosive, Voiceless, true),
-            "кьу" => Consonant::try_new(Uvular, Plosive, Voiceless, true),
+            "ку" => Ok(Consonant::new(Velar, Plosive, Voiceless, true)),
+            "кьу" => Ok(Consonant::new(Uvular, Plosive, Voiceless, true)),
 
             // Plosives Voiced
-            "б" => Consonant::try_new(Labial, Plosive, Voiced, false),
-            "д" => Consonant::try_new(Alveolar, Plosive, Voiced, false),
+            "б" => Ok(Consonant::new(Labial, Plosive, Voiced, false)),
+            "д" => Ok(Consonant::new(Alveolar, Plosive, Voiced, false)),
 
             // Plosives Voiced Labialized
-            "гу" => Consonant::try_new(Velar, Plosive, Voiced, true),
+            "гу" => Ok(Consonant::new(Velar, Plosive, Voiced, true)),
             // Plosives Ejective
-            "пI" => Consonant::try_new(Labial, Plosive, Ejective, false),
-            "тI" => Consonant::try_new(Alveolar, Plosive, Ejective, false),
+            "пI" => Ok(Consonant::new(Labial, Plosive, Ejective, false)),
+            "тI" => Ok(Consonant::new(Alveolar, Plosive, Ejective, false)),
             // Plosives Ejective Labialized
-            "кIу" => Consonant::try_new(Velar, Plosive, Ejective, true),
+            "кIу" => Ok(Consonant::new(Velar, Plosive, Ejective, true)),
             // Affricates Unvoiced
-            "ц" => Consonant::try_new(Alveolar, Affricative, Voiceless, false),
-            "ч" => Consonant::try_new(PostAlveolar, Affricative, Voiceless, false),
-            "кхъ" => Consonant::try_new(Uvular, Affricative, Voiceless, false),
+            "ц" => Ok(Consonant::new(Alveolar, Affricative, Voiceless, false)),
+            "ч" => Ok(Consonant::new(PostAlveolar, Affricative, Voiceless, false)),
+            "кхъ" => Ok(Consonant::new(Uvular, Affricative, Voiceless, false)),
             // Affricates Unvoiced Labialized
-            "кхъу" => Consonant::try_new(Uvular, Affricative, Voiceless, true),
+            "кхъу" => Ok(Consonant::new(Uvular, Affricative, Voiceless, true)),
             // Affricates Voiced
-            "дз" => Consonant::try_new(Alveolar, Affricative, Voiced, false),
-            "дж" => Consonant::try_new(PostAlveolar, Affricative, Voiced, false),
+            "дз" => Ok(Consonant::new(Alveolar, Affricative, Voiced, false)),
+            "дж" => Ok(Consonant::new(PostAlveolar, Affricative, Voiced, false)),
             // Affricates Ejecitive
-            "цI" => Consonant::try_new(Alveolar, Affricative, Ejective, false),
-            "кI" => Consonant::try_new(PostAlveolar, Affricative, Ejective, false),
+            "цI" => Ok(Consonant::new(Alveolar, Affricative, Ejective, false)),
+            "кI" => Ok(Consonant::new(PostAlveolar, Affricative, Ejective, false)),
             // Fricatives Unvoiced
-            "ф" => Consonant::try_new(Labial, Fricative, Voiceless, false),
-            "с" => Consonant::try_new(Alveolar, Fricative, Voiceless, false),
-            "лъ" => Consonant::try_new(Lateral, Fricative, Voiceless, false),
-            "ш" => Consonant::try_new(PostAlveolar, Fricative, Voiceless, false),
-            "щ" => Consonant::try_new(Palatal, Fricative, Voiceless, false),
-            "х" => Consonant::try_new(Velar, Fricative, Voiceless, false),
-            "хъ" => Consonant::try_new(Uvular, Fricative, Voiceless, false),
-            "хь" => Consonant::try_new(Pharyngeal, Fricative, Voiceless, false),
+            "ф" => Ok(Consonant::new(Labial, Fricative, Voiceless, false)),
+            "с" => Ok(Consonant::new(Alveolar, Fricative, Voiceless, false)),
+            "лъ" => Ok(Consonant::new(Lateral, Fricative, Voiceless, false)),
+            "ш" => Ok(Consonant::new(PostAlveolar, Fricative, Voiceless, false)),
+            "щ" => Ok(Consonant::new(Palatal, Fricative, Voiceless, false)),
+            "х" => Ok(Consonant::new(Velar, Fricative, Voiceless, false)),
+            "хъ" => Ok(Consonant::new(Uvular, Fricative, Voiceless, false)),
+            "хь" => Ok(Consonant::new(Pharyngeal, Fricative, Voiceless, false)),
             // Fricatives Unvoiced Labialized
-            "ху" => Consonant::try_new(Velar, Fricative, Voiceless, true),
-            "хъу" => Consonant::try_new(Uvular, Fricative, Voiceless, true),
+            "ху" => Ok(Consonant::new(Velar, Fricative, Voiceless, true)),
+            "хъу" => Ok(Consonant::new(Uvular, Fricative, Voiceless, true)),
             // Fricatives Voiced
-            "в" => Consonant::try_new(Labial, Fricative, Voiced, false),
-            "з" => Consonant::try_new(Alveolar, Fricative, Voiced, false),
-            "л" => Consonant::try_new(Lateral, Fricative, Voiced, false),
-            "ж" => Consonant::try_new(PostAlveolar, Fricative, Voiced, false),
-            "жь" => Consonant::try_new(Palatal, Fricative, Voiced, false),
-            "г" => Consonant::try_new(Velar, Fricative, Voiced, false), // Plosive?
-            "гъ" => Consonant::try_new(Uvular, Fricative, Voiced, false),
+            "в" => Ok(Consonant::new(Labial, Fricative, Voiced, false)),
+            "з" => Ok(Consonant::new(Alveolar, Fricative, Voiced, false)),
+            "л" => Ok(Consonant::new(Lateral, Fricative, Voiced, false)),
+            "ж" => Ok(Consonant::new(PostAlveolar, Fricative, Voiced, false)),
+            "жь" => Ok(Consonant::new(Palatal, Fricative, Voiced, false)),
+            "г" => Ok(Consonant::new(Velar, Fricative, Voiced, false)), // Plosive?
+            "гъ" => Ok(Consonant::new(Uvular, Fricative, Voiced, false)),
             // Fricatives Voiced Labialized
-            "гъу" => Consonant::try_new(Uvular, Fricative, Voiced, true),
+            "гъу" => Ok(Consonant::new(Uvular, Fricative, Voiced, true)),
             // Fricatives Ejective
-            "фI" => Consonant::try_new(Labial, Fricative, Ejective, false),
-            "лI" => Consonant::try_new(Lateral, Fricative, Ejective, false),
-            "щI" => Consonant::try_new(Palatal, Fricative, Ejective, false),
+            "фI" => Ok(Consonant::new(Labial, Fricative, Ejective, false)),
+            "лI" => Ok(Consonant::new(Lateral, Fricative, Ejective, false)),
+            "щI" => Ok(Consonant::new(Palatal, Fricative, Ejective, false)),
             // Trills
-            "р" => Consonant::try_new(Alveolar, Trill, Voiced, false),
-            "й" => Consonant::try_new(Palatal, Approximant, Voiced, false),
+            "р" => Ok(Consonant::new(Alveolar, Trill, Voiced, false)),
+            "й" => Ok(Consonant::new(Palatal, Approximant, Voiced, false)),
             // Consider actually using "w" for this, because у can also be a combi.
-            "у" => Consonant::try_new(Labial, Approximant, Voiced, false), // labialized ?
+            "у" => Ok(Consonant::new(Labial, Approximant, Voiced, false)), // labialized ?
 
             x => Err(format!("Unknown consonant: {}", x)),
         }
