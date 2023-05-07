@@ -3,17 +3,15 @@
 ///
 /// The main struct is `Letter`, which contains the letter itself, and a `LetterKind`.
 
-/// [`Letter`] is a struct which contains the letter itself, and a [`LetterKind`].
-#[derive(Debug, Clone, PartialEq)]
-pub struct Letter {
-    pub kind: LetterKind,
-    base: String,
-}
-
-/// [`LetterKind`] is an enum which contains the kind of the letter.
+// /// [`Letter`] is a struct which contains the letter itself, and a [`LetterKind`].
+// #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+// pub struct Letter {
+//     pub kind: LetterKind,
+// }
+/// [`Letter`] is an enum which contains the kind of the letter.
 /// It can be a consonant, a vowel, or a combination of consonant and vowel.
-#[derive(Debug, Clone, PartialEq)]
-pub enum LetterKind {
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum Letter {
     /// Represents a consonant letter.
     Consonant(Consonant),
     /// Represents a vowel letter.
@@ -30,30 +28,31 @@ pub enum LetterKind {
     ///
     Combi(Consonant, Vowel),
 }
+
 impl Letter {
     pub fn voiceness(&self) -> Voiceness {
-        match &self.kind {
-            LetterKind::Consonant(c) => c.voiceness,
-            LetterKind::Vowel(..) => Voiceness::Voiced,
-            LetterKind::Combi(..) => Voiceness::Voiced,
+        match &self {
+            Letter::Consonant(c) => c.voiceness,
+            Letter::Vowel(..) => Voiceness::Voiced,
+            Letter::Combi(..) => Voiceness::Voiced,
         }
     }
 
     pub fn is_vowel(&self) -> bool {
-        match &self.kind {
-            LetterKind::Vowel(..) => true,
+        match &self {
+            Letter::Vowel(..) => true,
             _ => false,
         }
     }
     pub fn is_consonant(&self) -> bool {
-        match &self.kind {
-            LetterKind::Consonant(..) => true,
+        match &self {
+            Letter::Consonant(..) => true,
             _ => false,
         }
     }
     pub fn is_combi(&self) -> bool {
-        match &self.kind {
-            LetterKind::Combi(..) => true,
+        match &self {
+            Letter::Combi(..) => true,
             _ => false,
         }
     }
@@ -67,10 +66,10 @@ impl Letter {
 
 impl std::fmt::Display for Letter {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-        let x = match &self.kind {
-            LetterKind::Consonant(c) => c.to_string(),
-            LetterKind::Vowel(v) => v.to_string(),
-            LetterKind::Combi(c, v) => {
+        let x = match &self {
+            Letter::Consonant(c) => c.to_string(),
+            Letter::Vowel(v) => v.to_string(),
+            Letter::Combi(c, v) => {
                 let x = combine_to_combi(&c.to_string(), &v.to_string())
                     .expect("Already checked that it is a combi");
                 x.to_string()
@@ -80,52 +79,46 @@ impl std::fmt::Display for Letter {
     }
 }
 
-#[derive(Debug, Clone, PartialEq)]
-pub struct Vowel {
-    pub kind: VowelKind,
-    base: String,
-}
-impl Vowel {
-    fn new(kind: VowelKind) -> Self {
-        let base = match kind {
-            VowelKind::AA => "а",
-            VowelKind::A => "э",
-            VowelKind::Y => "ы",
-        }
-        .to_owned();
-        Vowel { kind, base }
-    }
-}
-
-impl TryFrom<&String> for Vowel {
-    type Error = String;
-    fn try_from(s: &String) -> Result<Self, Self::Error> {
-        match s.as_str() {
-            "а" => Ok(Self::new(VowelKind::AA)),
-            "э" => Ok(Self::new(VowelKind::A)),
-            "ы" => Ok(Self::new(VowelKind::Y)),
-            _ => Err(format!("{} can not be transfromed into a `Vowel`", s)),
-        }
-    }
-}
-impl std::fmt::Display for Vowel {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-        let x = match self.kind {
-            VowelKind::AA => "а",
-            VowelKind::A => "э",
-            VowelKind::Y => "ы",
-        };
-        write!(f, "{}", x)
-    }
-}
-#[derive(Debug, Clone, PartialEq)]
-pub enum VowelKind {
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum Vowel {
     /// Represents the 'a' sound
     AA,
     /// Represents the 'э' sound
     A,
     /// Represents the 'ы' sound
     Y,
+}
+impl TryFrom<&str> for Vowel {
+    type Error = String;
+    fn try_from(s: &str) -> Result<Self, Self::Error> {
+
+        if s.chars().count() != 1 {
+            return Err(format!("{} is too long or too short.", s));
+        }
+
+        match s {
+            "а" => Ok(Vowel::AA),
+            "э" => Ok(Vowel::A),
+            "ы" => Ok(Vowel::Y),
+            _ => Err(format!("{} can not be transfromed into a `Vowel`", s)),
+        }
+    }
+}
+
+impl From<&Vowel> for &str {
+    fn from(c: &Vowel) -> Self {
+        match c {
+            Vowel::AA => "а",
+            Vowel::A => "э",
+            Vowel::Y => "ы",
+        }
+    }
+}
+
+impl std::fmt::Display for Vowel {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+        write!(f, "{}", <&str>::from(self))
+    }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -134,30 +127,37 @@ pub enum Voiceness {
     Voiced,
     Ejective,
 }
-#[derive(Debug, Clone, PartialEq, Eq)]
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct Consonant {
     pub place: Place,
     pub manner: Manner,
     pub voiceness: Voiceness,
     pub is_labialized: bool,
-    pub base: String,
 }
 impl Consonant {
-    fn new(
+    fn try_new(
         place: Place,
         manner: Manner,
         voiceness: Voiceness,
         is_labialized: bool,
-        base: String,
     ) -> Result<Self, String> {
-        Ok(Consonant {
+        let cons = Consonant {
             place,
             manner,
             voiceness,
             is_labialized,
-            base,
-        })
+        };
+        if cons.is_valid() {
+            Ok(cons)
+        } else {
+            Err(format!("{} is not a valid consonant", cons))
+        }
     }
+    fn is_valid(&self) -> bool {
+        <&str>::try_from(self).is_ok()
+    }
+
     /// Returns `true` if the consonant is a labial plosive, e.g. 'п' or 'б'.
     pub fn is_labial_plosive(&self) -> bool {
         self.is_place_and_manner(Place::Labial, Manner::Plosive)
@@ -186,171 +186,181 @@ impl Consonant {
     }
 }
 
-impl TryFrom<String> for Consonant {
+impl TryFrom<&str> for Consonant {
     type Error = String;
 
-    fn try_from(s: String) -> Result<Self, Self::Error> {
+    fn try_from(s: &str) -> Result<Self, Self::Error> {
         use Manner::*;
         use Place::*;
         use Voiceness::*;
-        match s.as_str() {
+        match s {
             // Nasals
-            "м" => Consonant::new(Labial, Nasal, Voiced, false, s.to_owned()),
-            "н" => Consonant::new(Alveolar, Nasal, Voiced, false, s.to_owned()),
+            "м" => Consonant::try_new(Labial, Nasal, Voiced, false),
+            "н" => Consonant::try_new(Alveolar, Nasal, Voiced, false),
             // Plosives Unvoiced
-            "п" => Consonant::new(Labial, Plosive, Voiceless, false, s.to_owned()),
-            "т" => Consonant::new(Alveolar, Plosive, Voiceless, false, s.to_owned()),
-            "к" => Consonant::new(Velar, Plosive, Voiceless, false, s.to_owned()),
-            "къ" => Consonant::new(Uvular, Plosive, Voiceless, false, s.to_owned()),
-            "I" => Consonant::new(Glottal, Plosive, Voiceless, false, s.to_owned()),
-            "Iу" => Consonant::new(Glottal, Plosive, Voiceless, true, s.to_owned()),
+            "п" => Consonant::try_new(Labial, Plosive, Voiceless, false),
+            "т" => Consonant::try_new(Alveolar, Plosive, Voiceless, false),
+            "к" => Consonant::try_new(Velar, Plosive, Voiceless, false),
+            "къ" => Consonant::try_new(Uvular, Plosive, Voiceless, false),
+            "I" => Consonant::try_new(Glottal, Plosive, Voiceless, false),
+            "Iу" => Consonant::try_new(Glottal, Plosive, Voiceless, true),
             // Plosives Unvoiced Labialized
-            "ку" => Consonant::new(Velar, Plosive, Voiceless, true, s.to_owned()),
-            "кьу" => Consonant::new(Uvular, Plosive, Voiceless, true, s.to_owned()),
+            "ку" => Consonant::try_new(Velar, Plosive, Voiceless, true),
+            "кьу" => Consonant::try_new(Uvular, Plosive, Voiceless, true),
 
             // Plosives Voiced
-            "б" => Consonant::new(Labial, Plosive, Voiced, false, s.to_owned()),
-            "д" => Consonant::new(Alveolar, Plosive, Voiced, false, s.to_owned()),
+            "б" => Consonant::try_new(Labial, Plosive, Voiced, false),
+            "д" => Consonant::try_new(Alveolar, Plosive, Voiced, false),
 
             // Plosives Voiced Labialized
-            "гу" => Consonant::new(Velar, Plosive, Voiced, true, s.to_owned()),
+            "гу" => Consonant::try_new(Velar, Plosive, Voiced, true),
             // Plosives Ejective
-            "пI" => Consonant::new(Labial, Plosive, Ejective, false, s.to_owned()),
-            "тI" => Consonant::new(Alveolar, Plosive, Ejective, false, s.to_owned()),
+            "пI" => Consonant::try_new(Labial, Plosive, Ejective, false),
+            "тI" => Consonant::try_new(Alveolar, Plosive, Ejective, false),
             // Plosives Ejective Labialized
-            "кIу" => Consonant::new(Velar, Plosive, Ejective, true, s.to_owned()),
+            "кIу" => Consonant::try_new(Velar, Plosive, Ejective, true),
             // Affricates Unvoiced
-            "ц" => Consonant::new(Alveolar, Affricative, Voiceless, false, s.to_owned()),
-            "ч" => Consonant::new(PostAlveolar, Affricative, Voiceless, false, s.to_owned()),
-            "кхъ" => Consonant::new(Uvular, Affricative, Voiceless, false, s.to_owned()),
+            "ц" => Consonant::try_new(Alveolar, Affricative, Voiceless, false),
+            "ч" => Consonant::try_new(PostAlveolar, Affricative, Voiceless, false),
+            "кхъ" => Consonant::try_new(Uvular, Affricative, Voiceless, false),
             // Affricates Unvoiced Labialized
-            "кхъу" => Consonant::new(Uvular, Affricative, Voiceless, true, s.to_owned()),
+            "кхъу" => Consonant::try_new(Uvular, Affricative, Voiceless, true),
             // Affricates Voiced
-            "дз" => Consonant::new(Alveolar, Affricative, Voiced, false, s.to_owned()),
-            "дж" => Consonant::new(PostAlveolar, Affricative, Voiced, false, s.to_owned()),
+            "дз" => Consonant::try_new(Alveolar, Affricative, Voiced, false),
+            "дж" => Consonant::try_new(PostAlveolar, Affricative, Voiced, false),
             // Affricates Ejecitive
-            "цI" => Consonant::new(Alveolar, Affricative, Ejective, false, s.to_owned()),
-            "кI" => Consonant::new(PostAlveolar, Affricative, Ejective, false, s.to_owned()),
+            "цI" => Consonant::try_new(Alveolar, Affricative, Ejective, false),
+            "кI" => Consonant::try_new(PostAlveolar, Affricative, Ejective, false),
             // Fricatives Unvoiced
-            "ф" => Consonant::new(Labial, Fricative, Voiceless, false, s.to_owned()),
-            "с" => Consonant::new(Alveolar, Fricative, Voiceless, false, s.to_owned()),
-            "лъ" => Consonant::new(Lateral, Fricative, Voiceless, false, s.to_owned()),
-            "ш" => Consonant::new(PostAlveolar, Fricative, Voiceless, false, s.to_owned()),
-            "щ" => Consonant::new(Palatal, Fricative, Voiceless, false, s.to_owned()),
-            "х" => Consonant::new(Velar, Fricative, Voiceless, false, s.to_owned()),
-            "хъ" => Consonant::new(Uvular, Fricative, Voiceless, false, s.to_owned()),
-            "хь" => Consonant::new(Pharyngeal, Fricative, Voiceless, false, s.to_owned()),
+            "ф" => Consonant::try_new(Labial, Fricative, Voiceless, false),
+            "с" => Consonant::try_new(Alveolar, Fricative, Voiceless, false),
+            "лъ" => Consonant::try_new(Lateral, Fricative, Voiceless, false),
+            "ш" => Consonant::try_new(PostAlveolar, Fricative, Voiceless, false),
+            "щ" => Consonant::try_new(Palatal, Fricative, Voiceless, false),
+            "х" => Consonant::try_new(Velar, Fricative, Voiceless, false),
+            "хъ" => Consonant::try_new(Uvular, Fricative, Voiceless, false),
+            "хь" => Consonant::try_new(Pharyngeal, Fricative, Voiceless, false),
             // Fricatives Unvoiced Labialized
-            "ху" => Consonant::new(Velar, Fricative, Voiceless, true, s.to_owned()),
-            "хъу" => Consonant::new(Uvular, Fricative, Voiceless, true, s.to_owned()),
+            "ху" => Consonant::try_new(Velar, Fricative, Voiceless, true),
+            "хъу" => Consonant::try_new(Uvular, Fricative, Voiceless, true),
             // Fricatives Voiced
-            "в" => Consonant::new(Labial, Fricative, Voiced, false, s.to_owned()),
-            "з" => Consonant::new(Alveolar, Fricative, Voiced, false, s.to_owned()),
-            "л" => Consonant::new(Lateral, Fricative, Voiced, false, s.to_owned()),
-            "ж" => Consonant::new(PostAlveolar, Fricative, Voiced, false, s.to_owned()),
-            "жь" => Consonant::new(Palatal, Fricative, Voiced, false, s.to_owned()),
-            "г" => Consonant::new(Velar, Fricative, Voiced, false, s.to_owned()), // Plosive?
-            "гъ" => Consonant::new(Uvular, Fricative, Voiced, false, s.to_owned()),
+            "в" => Consonant::try_new(Labial, Fricative, Voiced, false),
+            "з" => Consonant::try_new(Alveolar, Fricative, Voiced, false),
+            "л" => Consonant::try_new(Lateral, Fricative, Voiced, false),
+            "ж" => Consonant::try_new(PostAlveolar, Fricative, Voiced, false),
+            "жь" => Consonant::try_new(Palatal, Fricative, Voiced, false),
+            "г" => Consonant::try_new(Velar, Fricative, Voiced, false), // Plosive?
+            "гъ" => Consonant::try_new(Uvular, Fricative, Voiced, false),
             // Fricatives Voiced Labialized
-            "гъу" => Consonant::new(Uvular, Fricative, Voiced, true, s.to_owned()),
+            "гъу" => Consonant::try_new(Uvular, Fricative, Voiced, true),
             // Fricatives Ejective
-            "фI" => Consonant::new(Labial, Fricative, Ejective, false, s.to_owned()),
-            "лI" => Consonant::new(Lateral, Fricative, Ejective, false, s.to_owned()),
-            "щI" => Consonant::new(Palatal, Fricative, Ejective, false, s.to_owned()),
+            "фI" => Consonant::try_new(Labial, Fricative, Ejective, false),
+            "лI" => Consonant::try_new(Lateral, Fricative, Ejective, false),
+            "щI" => Consonant::try_new(Palatal, Fricative, Ejective, false),
             // Trills
-            "р" => Consonant::new(Alveolar, Trill, Voiced, false, s.to_owned()),
-            "й" => Consonant::new(Palatal, Approximant, Voiced, false, s.to_owned()),
+            "р" => Consonant::try_new(Alveolar, Trill, Voiced, false),
+            "й" => Consonant::try_new(Palatal, Approximant, Voiced, false),
             // Consider actually using "w" for this, because у can also be a combi.
-            "у" => Consonant::new(Labial, Approximant, Voiced, false, s.to_owned()), // labialized ?
+            "у" => Consonant::try_new(Labial, Approximant, Voiced, false), // labialized ?
 
-            _ => unimplemented!(),
+            x => Err(format!("Unknown consonant: {}", x)),
+        }
+    }
+}
+
+impl TryFrom<&Consonant> for &str {
+    type Error = String;
+    fn try_from(c: &Consonant) -> Result<Self, Self::Error> {
+        use Manner::*;
+        use Place::*;
+        use Voiceness::*;
+        match (c.place, c.manner, c.voiceness, c.is_labialized) {
+            // Plosives
+            (Labial, Nasal, Voiced, false) => Ok("н"),
+            (Alveolar, Nasal, Voiced, false) => Ok("м"),
+
+            (Labial, Plosive, Voiceless, false) => Ok("п"),
+            (Labial, Plosive, Voiced, false) => Ok("б"),
+            (Labial, Plosive, Ejective, false) => Ok("пI"),
+
+            (Alveolar, Plosive, Voiceless, false) => Ok("т"),
+            (Alveolar, Plosive, Voiced, false) => Ok("д"),
+            (Alveolar, Plosive, Ejective, false) => Ok("тI"),
+
+            (Velar, Plosive, Voiceless, false) => Ok("к"),
+            (Velar, Plosive, Voiced, true) => Ok("гу"),
+
+            (Uvular, Plosive, Voiceless, false) => Ok("къ"),
+            (Glottal, Plosive, Voiceless, false) => Ok("I"),
+
+            (Uvular, Plosive, Voiceless, true) => Ok("къу"),
+            (Glottal, Plosive, Voiceless, true) => Ok("Iу"),
+
+            // Fricatives
+            (Alveolar, Affricative, Voiceless, false) => Ok("ц"),
+            (Alveolar, Affricative, Voiced, false) => Ok("дз"),
+            (Alveolar, Affricative, Ejective, false) => Ok("цI"),
+
+            (PostAlveolar, Affricative, Voiceless, false) => Ok("ч"),
+            (PostAlveolar, Affricative, Voiced, false) => Ok("дж"),
+            (PostAlveolar, Affricative, Ejective, false) => Ok("кI"),
+            (Uvular, Affricative, Voiceless, false) => Ok("кхъ"),
+
+            (Uvular, Affricative, Voiceless, true) => Ok("кхъу"),
+
+
+
+            (Labial, Fricative, Voiceless, false) => Ok("ф"),
+            (Labial, Fricative, Voiced, false) => Ok("в"),
+            (Labial, Fricative, Ejective, false) => Ok("фI"),
+
+            (Alveolar, Fricative, Voiceless, false) => Ok("с"),
+            (Alveolar, Fricative, Voiced, false) => Ok("з"),
+
+            (Lateral, Fricative, Voiceless, false) => Ok("лъ"),
+            (Lateral, Fricative, Voiced, false) => Ok("л"),
+            (Lateral, Fricative, Ejective, false) => Ok("лI"),
+
+            (PostAlveolar, Fricative, Voiceless, false) => Ok("ш"),
+            (PostAlveolar, Fricative, Voiced, false) => Ok("ж"),
+
+            (Palatal, Fricative, Voiceless, false) => Ok("щ"),
+            (Palatal, Fricative, Voiced, false) => Ok("жь"),
+            (Palatal, Fricative, Ejective, false) => Ok("щI"),
+
+            (Velar, Fricative, Voiceless, false) => Ok("х"),
+            (Velar, Fricative, Voiced, false) => Ok("г"),
+            (Uvular, Fricative, Voiceless, false) => Ok("хъ"),
+            (Uvular, Fricative, Voiced, false) => Ok("гъ"),
+            (Pharyngeal, Fricative, Voiceless, false) => Ok("хь"),
+
+            (Velar, Fricative, Voiceless, true) => Ok("ху"),
+            (Uvular, Fricative, Voiceless, true) => Ok("хъу"),
+            (Uvular, Fricative, Voiced, true) => Ok("гьу"),
+
+            (Palatal, Approximant, Voiced, false) => Ok("й"),
+            (Labial, Approximant, Voiced, false) => Ok("у"),
+            (Alveolar, Trill, Voiced, false) => Ok("р"),
+
+
+            (Velar, Plosive, Voiced, false) => Err("kabardian doesn't have a voiced velar plosive, did you mean voiced velar fricative?".to_owned()),
+            (Labial, _, _, true) => Err("".to_owned()),
+            (Alveolar, _, _, true) => Err("".to_owned()),
+            (PostAlveolar, _, _, true) => Err("".to_owned()),
+            (Pharyngeal, _, _, true) => Err("".to_owned()),
+            // (Ignore, _, _, _) => panic!(""),
+            // (_, Manner::Ignore, _, _) => panic!(""),
+
+            x => Err(format!("{:?}", x)),
         }
     }
 }
 
 impl std::fmt::Display for Consonant {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-        use Manner::*;
-        use Place::*;
-        use Voiceness::*;
-        let x = match (self.place, self.manner, self.voiceness, self.is_labialized) {
-            // Plosives
-            (Labial, Nasal, Voiced, false) => "н".to_owned(),
-            (Alveolar, Nasal, Voiceless, false) => "м".to_owned(),
-
-            (Labial, Plosive, Voiceless, false) => "п".to_owned(),
-            (Labial, Plosive, Voiced, false) => "б".to_owned(),
-            (Labial, Plosive, Ejective, false) => "пI".to_owned(),
-
-            (Alveolar, Plosive, Voiceless, false) => "т".to_owned(),
-            (Alveolar, Plosive, Voiced, false) => "д".to_owned(),
-            (Alveolar, Plosive, Ejective, false) => "тI".to_owned(),
-
-            (Velar, Plosive, Voiceless, false) => "к".to_owned(),
-
-            (Uvular, Plosive, Voiceless, false) => "къ".to_owned(),
-            (Glottal, Plosive, Voiceless, false) => "I".to_owned(),
-
-            (Uvular, Plosive, Voiceless, true) => "къу".to_owned(),
-            (Glottal, Plosive, Voiceless, true) => "Iу".to_owned(),
-
-            // Fricatives
-            (Alveolar, Affricative, Voiceless, false) => "ц".to_owned(),
-            (Alveolar, Affricative, Voiced, false) => "дз".to_owned(),
-            (Alveolar, Affricative, Ejective, false) => "цI".to_owned(),
-
-            (PostAlveolar, Affricative, Voiceless, false) => "ч".to_owned(),
-            (PostAlveolar, Affricative, Voiced, false) => "дж".to_owned(),
-            (PostAlveolar, Affricative, Ejective, false) => "кI".to_owned(),
-            (Uvular, Affricative, Voiceless, false) => "кхъ".to_owned(),
-
-            (Uvular, Affricative, Voiceless, true) => "кхъу".to_owned(),
-
-
-
-            (Labial, Fricative, Voiceless, false) => "ф".to_owned(),
-            (Labial, Fricative, Voiced, false) => "в".to_owned(),
-            (Labial, Fricative, Ejective, false) => "фI".to_owned(),
-
-            (Alveolar, Fricative, Voiceless, false) => "с".to_owned(),
-            (Alveolar, Fricative, Voiced, false) => "з".to_owned(),
-
-            (Lateral, Fricative, Voiceless, false) => "лъ".to_owned(),
-            (Lateral, Fricative, Voiced, false) => "л".to_owned(),
-            (Lateral, Fricative, Ejective, false) => "лI".to_owned(),
-
-            (PostAlveolar, Fricative, Voiceless, false) => "ш".to_owned(),
-            (PostAlveolar, Fricative, Voiced, false) => "ж".to_owned(),
-
-            (Palatal, Fricative, Voiceless, false) => "щ".to_owned(),
-            (Palatal, Fricative, Voiced, false) => "жь".to_owned(),
-            (Palatal, Fricative, Ejective, false) => "щI".to_owned(),
-
-            (Velar, Fricative, Voiceless, false) => "х".to_owned(),
-            (Velar, Fricative, Voiced, false) => "г".to_owned(),
-            (Uvular, Fricative, Voiceless, false) => "хъ".to_owned(),
-            (Uvular, Fricative, Voiced, false) => "гъ".to_owned(),
-            (Pharyngeal, Fricative, Voiceless, false) => "хь".to_owned(),
-
-            (Velar, Fricative, Voiceless, true) => "ху".to_owned(),
-            (Uvular, Fricative, Voiceless, true) => "хъу".to_owned(),
-            (Uvular, Fricative, Voiced, true) => "гьу".to_owned(),
-
-            (Palatal, Approximant, Voiced, false) => "й".to_owned(),
-            (Labial, Approximant, Voiced, false) => "у".to_owned(),
-            (Alveolar, Trill, Voiced, false) => "р".to_owned(),
-
-
-            // 
-            (Velar, Plosive, Voiced, false) => unreachable!("kabardian doesn't have a voiced velar plosive, did you mean voiced velar fricative?"),
-            (Labial, _, _, true) => unreachable!(""),
-            (Alveolar, _, _, true) => unreachable!(""),
-            (PostAlveolar, _, _, true) => unreachable!(""),
-            (Pharyngeal, _, _, true) => unreachable!(""),
-            // (Ignore, _, _, _) => panic!(""),
-            // (_, Manner::Ignore, _, _) => panic!(""),
-
-            x => unimplemented!("{:?}", x),
+        let x = match <&str>::try_from(self) {
+            Ok(s) => s,
+            Err(e) => unreachable!("{}", e),
         };
         write!(f, "{}", x)
     }
@@ -368,6 +378,7 @@ pub enum Place {
     Pharyngeal,
     Glottal,
 }
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Manner {
     Nasal,
@@ -400,8 +411,8 @@ fn split_combi(combi: &char) -> Result<(Consonant, Vowel), String> {
     let first = first_of_combi(combi).expect("Parameter is a combi.");
     let last = last_of_combi(combi).expect("Parameter is a combi.");
 
-    let c = Consonant::try_from(first.to_string()).expect("This must be a consonant.");
-    let v = Vowel::try_from(&last.to_string()).expect("This must be a vowel.");
+    let c = Consonant::try_from(first.to_string().as_str()).expect("This must be a consonant.");
+    let v = Vowel::try_from(last.to_string().as_str()).expect("This must be a vowel.");
     Ok((c, v))
 }
 fn combine_to_combi(c_0: &String, c_1: &String) -> Option<char> {
@@ -446,19 +457,13 @@ fn is_char_consonant(c: &char) -> bool {
 }
 
 fn parse_vowel(vowel: &char) -> Result<Letter, String> {
-    let v = Vowel::try_from(&vowel.to_string())?;
-    Ok(Letter {
-        kind: LetterKind::Vowel(v),
-        base: vowel.to_string(),
-    })
+    let v = Vowel::try_from(vowel.to_string().as_str())?;
+    Ok(Letter::Vowel(v))
 }
 
 fn parse_combi(combi: &char) -> Result<Letter, String> {
     let (c, v) = split_combi(combi)?;
-    Ok(Letter {
-        kind: LetterKind::Combi(c, v),
-        base: combi.to_string(),
-    })
+    Ok(Letter::Combi(c, v))
 }
 
 fn parse_consonant(consonant: &char, chars: &[char], i: &mut usize) -> Result<Letter, String> {
@@ -547,12 +552,9 @@ fn parse_consonant(consonant: &char, chars: &[char], i: &mut usize) -> Result<Le
             _ => break 'bp,
         }
     }
-    let consonant = Consonant::try_from(consonant_str.iter().collect::<String>())
+    let consonant = Consonant::try_from(consonant_str.iter().collect::<String>().as_str())
         .expect("If this panics, there is a bug in the code");
-    Ok(Letter {
-        kind: LetterKind::Consonant(consonant.clone()),
-        base: consonant.base,
-    })
+    Ok(Letter::Consonant(consonant))
 }
 
 fn parse_letter(ch: &char, chars: &[char], i: &mut usize) -> Result<Letter, String> {

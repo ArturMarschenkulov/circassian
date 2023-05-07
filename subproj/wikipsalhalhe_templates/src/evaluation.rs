@@ -1,6 +1,4 @@
-use crate::morpho::{
-    Case, Morpheme, MorphemeKind, Number, Person, PersonMarker, Preverb, PreverbSoundForm,
-};
+use crate::morpho::{Case, Morpheme, Number, Person, PersonMarker, Preverb, PreverbSoundForm};
 use crate::ortho::{self, Consonant};
 use core::panic;
 use std::collections::VecDeque;
@@ -124,11 +122,9 @@ fn evaluate_person_marker(
     let _morpheme = morphemes[i].clone();
     let morpheme_prev = i.checked_sub(1).map(|i| &morphemes[i]);
     let morpheme_next = morphemes.get(i + 1);
-    let morpheme_prev_kind = morpheme_prev.map(|x| &x.kind);
-    let morpheme_next_kind = morpheme_next.map(|x| &x.kind);
 
-    let has_raj_prefix = morphemes.iter().any(|m| match &m.kind {
-        MorphemeKind::RajImperative => true,
+    let has_raj_prefix = morphemes.iter().any(|m| match &m {
+        Morpheme::RajImperative => true,
         _ => false,
     });
     // let has_o_prefix = morphemes.iter().any(|m| match &m.kind {
@@ -139,7 +135,7 @@ fn evaluate_person_marker(
     // 'я' is different in that it is only every phonologically changed if there is something before it. That form is 'а'.
     // Any vowel after it gets swallowed. That is я + о = я,
 
-    match (morpheme_prev_kind, morpheme_next_kind) {
+    match (morpheme_prev, morpheme_next) {
         (_, None) if has_raj_prefix => {
             unreachable!("Logic error: Raj imperative must be followed by a morpheme")
         }
@@ -149,22 +145,20 @@ fn evaluate_person_marker(
             assert!(x.is_none());
 
             let mut new_marker = *marker;
-            if morph_next == &MorphemeKind::RajImperative && marker.is_second_singular() {
+            if *morph_next == Morpheme::RajImperative && marker.is_second_singular() {
                 // NOTE: S2E hack
                 new_marker.case = Case::Absolutive;
-            } else if morph_next == &MorphemeKind::RajImperative && !marker.is_second_singular() {
+            } else if *morph_next == Morpheme::RajImperative && !marker.is_second_singular() {
                 new_marker.case = Case::Ergative;
             } else {
                 new_marker.case = Case::Absolutive;
             }
             new_marker.base_string()
         }
-        (mp, Some(MorphemeKind::Generic(base))) if base == "о" => {
+        (mp, Some(Morpheme::Generic(base))) if base == "о" => {
             match (marker.person, marker.number, marker.case) {
                 (Person::Third, Number::Singular, Case::Ergative) => "е".to_owned(), // 'и' + 'о' -> 'е'
-                (Person::Third, Number::Plural, Case::Ergative) => {
-                    ja_form(morpheme_prev_kind.is_some())
-                }
+                (Person::Third, Number::Plural, Case::Ergative) => ja_form(morpheme_prev.is_some()),
                 (_, _, Case::Absolutive) => marker.as_before_o(),
                 (_, _, Case::Ergative) => {
                     if mp.is_some() {
@@ -179,7 +173,7 @@ fn evaluate_person_marker(
         // They basically look like normal absolutive markers
         // However if there is something before that, like a preverb, the ergative markers behave normal again,
         // except the second person singular, which stays 'у' instead of becoming 'б'/'п'.
-        (morpheme_prev, Some(neg_prefix @ MorphemeKind::NegationPrefix)) => {
+        (morpheme_prev, Some(neg_prefix @ Morpheme::NegationPrefix)) => {
             assert_ne!((morpheme_prev.is_some(), marker.case), (true, Case::Absolutive), "If the person marker is absolutive and is followed by a negation prefix, then it must be the first morpheme of the verb, it was however {:?}", (morpheme_prev, marker.case));
 
             if morpheme_prev.is_none() {
@@ -187,27 +181,27 @@ fn evaluate_person_marker(
                 new_marker.case = Case::Absolutive;
 
                 new_marker.base_string()
-            } else if let Some(MorphemeKind::Preverb(preverb)) = morpheme_prev {
+            } else if let Some(Morpheme::Preverb(preverb)) = morpheme_prev {
                 use ortho::Manner::*;
-                match &marker.to_letters()[0].kind {
-                    ortho::LetterKind::Consonant(consonant) => {
-                        let mut consonant = consonant.clone();
-                        consonant.voiceness = neg_prefix.first_letter().unwrap().voiceness();
+                match &marker.to_letters()[0] {
+                    ortho::Letter::Consonant(consonant) => {
+                        let mut consonant_ = *consonant;
+                        consonant_.voiceness = neg_prefix.first_letter().unwrap().voiceness();
 
                         // NOTE: S2E hack
-                        if consonant.is_labial_plosive() {
-                            consonant.manner = Approximant;
+                        if consonant_.is_labial_plosive() {
+                            consonant_.manner = Approximant;
                         };
                         let empenthetic = give_epenthetic_if_needed(
-                            &consonant,
+                            &consonant_,
                             &preverb.last_consonant().unwrap(),
                         );
 
-                        empenthetic + &consonant.to_string()
+                        empenthetic + &consonant_.to_string()
                     }
-                    ortho::LetterKind::Combi(..) => {
+                    ortho::Letter::Combi(..) => {
                         if marker.is_third_plural_ergative() {
-                            ja_form(morpheme_prev_kind.is_some())
+                            ja_form(morpheme_prev.is_some())
                         } else {
                             marker.to_letters()[0].to_string()
                         }
@@ -219,13 +213,13 @@ fn evaluate_person_marker(
                 //marker.get_string()
             }
         }
-        (_, Some(MorphemeKind::Stem(stem, _))) => {
+        (_, Some(Morpheme::Stem(stem, _))) => {
             if marker.is_ergative() {
-                match &marker.to_letters()[0].kind {
-                    ortho::LetterKind::Consonant(consonant) => {
+                match &marker.to_letters()[0] {
+                    ortho::Letter::Consonant(consonant) => {
                         assert_ne!((marker.person, marker.number), (Person::Third, Number::Plural), "Second person singular ergative markers are not allowed to be followed by a stem");
                         // let x = preverb.first_letter().voiceness();
-                        let mut consonant = consonant.clone();
+                        let mut consonant = *consonant;
                         consonant.voiceness = stem
                             .first_consonant
                             .as_ref()
@@ -235,9 +229,9 @@ fn evaluate_person_marker(
 
                         consonant.to_string()
                     }
-                    ortho::LetterKind::Combi(..) => {
+                    ortho::Letter::Combi(..) => {
                         if marker.is_third_plural_ergative() {
-                            ja_form(morpheme_prev_kind.is_some())
+                            ja_form(morpheme_prev.is_some())
                         } else {
                             marker.to_letters()[0].to_string()
                         }
@@ -248,9 +242,9 @@ fn evaluate_person_marker(
                 marker.base_string()
             }
         }
-        (None, Some(..)) => match &marker.to_letters()[0].kind {
-            ortho::LetterKind::Consonant(consonant) => consonant.to_string(),
-            ortho::LetterKind::Combi(..) => marker.to_letters()[0].to_string(),
+        (None, Some(..)) => match &marker.to_letters()[0] {
+            ortho::Letter::Consonant(consonant) => consonant.to_string(),
+            ortho::Letter::Combi(..) => marker.to_letters()[0].to_string(),
             _ => unreachable!(),
         },
         x => unreachable!("{:?}", x),
@@ -264,37 +258,37 @@ fn evaluate_preverb(preverb: &Preverb, morphemes: &VecDeque<Morpheme>, i: usize)
 
     // let mut result = String::new();
     use PreverbSoundForm::*;
-    match &morpheme_next.unwrap().kind {
-        MorphemeKind::PersonMarker(marker) => {
+    match &morpheme_next.unwrap() {
+        Morpheme::PersonMarker(marker) => {
             assert!(marker.case == Case::Ergative);
 
             // let base = marker.get_base_string();
-            let first_letter = marker.to_letters()[0].clone();
-            let x = match first_letter.kind {
-                ortho::LetterKind::Combi(..) => preverb.form(&BeforeVowel),
-                ortho::LetterKind::Consonant(cons)
-                    if cons.base == "б"
+            let first_letter = marker.to_letters()[0];
+            let x = match first_letter {
+                ortho::Letter::Combi(..) => preverb.form(&BeforeVowel),
+                ortho::Letter::Consonant(cons)
+                    // NOTE: S2E hack
+                    if cons.is_labial_plosive() // == "б"
                         && morphemes
                             .get(i + 2)
-                            .map(|m| m.kind == MorphemeKind::NegationPrefix)
+                            .map(|m| m == &Morpheme::NegationPrefix)
                             .unwrap_or(false) =>
                 {
                     preverb.form(&BeforeVowel)
                 }
                 _ => {
                     let morpheme_next_next = morphemes.get(i + 2);
-                    let morpheme_next_next_kind = morpheme_next_next.map(|x| &x.kind);
-                    match morpheme_next_next_kind {
-                        Some(MorphemeKind::Generic(base)) if base == "о" => preverb.form(&Reduced),
+                    match morpheme_next_next {
+                        Some(Morpheme::Generic(base)) if base == "о" => preverb.form(&Reduced),
                         _ => preverb.form(&Full),
                     }
                 }
             };
             x
         }
-        MorphemeKind::Stem(..) => preverb.form(&Full),
-        MorphemeKind::NegationPrefix => preverb.form(&Full),
-        MorphemeKind::RajImperative => preverb.form(&BeforeVowel),
+        Morpheme::Stem(..) => preverb.form(&Full),
+        Morpheme::NegationPrefix => preverb.form(&Full),
+        Morpheme::RajImperative => preverb.form(&BeforeVowel),
         x => unimplemented!("{:?}", x),
     }
 }
@@ -309,36 +303,32 @@ fn evaluate_stem(
     let morpheme_next = morphemes.get(i + 1);
     let morpheme_prev_prev = i.checked_sub(2).map(|i| &morphemes[i]);
 
-    let morpheme_prev_kind = morpheme_prev.map(|x| &x.kind);
-    let morpheme_next_kind = morpheme_next.map(|x| &x.kind);
-    let morpheme_prev_prev_kind = morpheme_prev_prev.map(|x| &x.kind);
-
     // Because of orthography and phonological rules the ы letter, /ə/ sound, has to be treated in a special way.
     //
     let thematic_vowel = crate::wiki::template::treat_thematic_vowel(&stem.thematic_vowel, stem);
 
     let tv = match thematic_vowel.as_ref() {
-        "ы" => match (&morpheme_prev_kind, &morpheme_next_kind) {
+        "ы" => match (&morpheme_prev, &morpheme_next) {
             // If only the stem is present, the thematic vowel is pronounced.
             (None, None) => thematic_vowel,
 
             (_, _) => {
                 let is_last = morpheme_next.is_none();
-                let is_next_vowel = morpheme_next_kind
+                let is_next_vowel = morpheme_next
                     .map(|x| x.first_letter().unwrap().is_vowel_or_combi())
                     .unwrap_or(false);
 
                 if !is_next_vowel {}
 
-                let next_letter = morpheme_next_kind.and_then(|m| m.first_letter());
+                let next_letter = morpheme_next.and_then(|m| m.first_letter());
 
                 use ortho::*;
                 let still_needs_y = next_letter.map_or(false, |next_letter| {
-                    if let LetterKind::Consonant(consonant) = &next_letter.kind {
+                    if let Letter::Consonant(consonant) = &next_letter {
                         let is_n = consonant.is_place_and_manner(Place::Alveolar, Manner::Nasal);
                         let is_gh = consonant.is_place_and_manner(Place::Uvular, Manner::Fricative);
                         let is_r = consonant.is_trill()
-                            && !morpheme_next_kind.unwrap().is_generic_certain("рэ");
+                            && !morpheme_next.unwrap().is_generic_certain("рэ");
                         is_n || is_gh || is_r
                     } else {
                         false
@@ -347,7 +337,7 @@ fn evaluate_stem(
                 assert!(!(is_last && is_next_vowel));
 
                 let mut does_vowel_exist_before;
-                if let Some(x) = morpheme_prev_kind {
+                if let Some(x) = morpheme_prev {
                     let last_letter = x.last_latter().unwrap();
                     if last_letter.is_vowel_or_combi() {
                         does_vowel_exist_before = true;
@@ -362,7 +352,7 @@ fn evaluate_stem(
                 }
 
                 if !does_vowel_exist_before {
-                    if let Some(x) = morpheme_prev_prev_kind {
+                    if let Some(x) = morpheme_prev_prev {
                         let last_letter = x.last_latter().unwrap();
                         if last_letter.is_vowel() || last_letter.is_combi() {
                             does_vowel_exist_before = true;
@@ -412,8 +402,8 @@ fn evaluate_stem(
                 // }
             }
         },
-        v @ "э" => match morpheme_next_kind {
-            Some(MorphemeKind::Generic(gen)) => {
+        v @ "э" => match morpheme_next {
+            Some(Morpheme::Generic(gen)) => {
                 let first_letter_of_next_morpheme = gen.chars().next().unwrap().to_string();
                 if first_letter_of_next_morpheme == "а" {
                     "".to_owned()
@@ -434,22 +424,20 @@ fn evaluate_o(morphemes: &VecDeque<Morpheme>, i: usize) -> String {
     let morpheme = &morphemes[i];
     let morpheme_prev = i.checked_sub(1).map(|i| &morphemes[i]);
     let morpheme_next = morphemes.get(i + 1);
-    let morpheme_prev_kind = morpheme_prev.map(|x| &x.kind);
-    let morpheme_next_kind = morpheme_next.map(|x| &x.kind);
 
     // TODO: Assert whether the next morpheme is a stem
 
-    match (morpheme_prev_kind, morpheme_next_kind) {
-        (None, Some(MorphemeKind::Stem(..))) => "мэ".to_owned(),
+    match (morpheme_prev, morpheme_next) {
+        (None, Some(Morpheme::Stem(..))) => "мэ".to_owned(),
 
         // The third person ergative markers и and я, become е and я (no change) respectively, while о goes away.
-        (Some(MorphemeKind::PersonMarker(marker)), Some(MorphemeKind::Stem(..)))
+        (Some(Morpheme::PersonMarker(marker)), Some(Morpheme::Stem(..)))
             if marker.is_third_ergative() =>
         {
             "".to_owned()
         }
 
-        (_, Some(MorphemeKind::Stem(..))) => morpheme.to_string(),
+        (_, Some(Morpheme::Stem(..))) => morpheme.to_string(),
         _ => unreachable!(),
     }
 }
@@ -459,7 +447,7 @@ pub fn evaluate_morphemes(morphemes: &VecDeque<Morpheme>) -> String {
         .iter()
         .cloned()
         .filter(|m| {
-            if let MorphemeKind::Stem(..) = &m.kind {
+            if let Morpheme::Stem(..) = &m {
                 true
             } else {
                 !m.to_letters().is_empty()
@@ -468,19 +456,19 @@ pub fn evaluate_morphemes(morphemes: &VecDeque<Morpheme>) -> String {
         .collect::<VecDeque<_>>();
     let mut result = String::new();
 
-    let _has_raj_prefix = morphemes.iter().any(|m| match &m.kind {
-        MorphemeKind::RajImperative => true,
+    let _has_raj_prefix = morphemes.iter().any(|m| match &m {
+        Morpheme::RajImperative => true,
         _ => false,
     });
 
     for (i, morpheme) in morphemes.iter().enumerate() {
-        let x = match morpheme.kind {
-            MorphemeKind::PersonMarker(marker) => evaluate_person_marker(&marker, morphemes, i),
-            MorphemeKind::Stem(ref stem, _) => evaluate_stem(stem, morphemes, i),
-            MorphemeKind::Preverb(ref preverb) => evaluate_preverb(preverb, morphemes, i),
-            MorphemeKind::NegationPrefix => "мы".to_owned(),
-            MorphemeKind::Generic(ref base) if base == "о" => evaluate_o(morphemes, i),
-            MorphemeKind::Generic(..) | MorphemeKind::RajImperative => morpheme.to_string(), // _ => unimplemented!(),
+        let x = match morpheme {
+            Morpheme::PersonMarker(marker) => evaluate_person_marker(marker, morphemes, i),
+            Morpheme::Stem(ref stem, _) => evaluate_stem(stem, morphemes, i),
+            Morpheme::Preverb(ref preverb) => evaluate_preverb(preverb, morphemes, i),
+            Morpheme::NegationPrefix => "мы".to_owned(),
+            Morpheme::Generic(ref base) if base == "о" => evaluate_o(morphemes, i),
+            Morpheme::Generic(..) | Morpheme::RajImperative => morpheme.to_string(), // _ => unimplemented!(),
         };
         result += &x;
     }
@@ -619,7 +607,7 @@ mod tests {
             for number in Number::variants_iter() {
                 let morphemes = new_imperative(
                     &polarity,
-                    &Some(Preverb::try_from(&preverb.to_owned()).unwrap()),
+                    &Some(Preverb::try_from(preverb.to_owned().as_str()).unwrap()),
                     &stem,
                     &PersonMarker::new(
                         Person::Third,

@@ -568,7 +568,7 @@ fn test() {
     let stem = wiki::template::VerbStem::new(stem_str, Transitivity::Intransitive);
     let morphemes = new_masdar(
         &Polarity::Positive,
-        &Some(Preverb::try_from(&"хэ".to_owned()).unwrap()),
+        &Some(Preverb::try_from("хэ".to_owned().as_str()).unwrap()),
         &stem,
     );
     let string = evaluate_morphemes(&morphemes).replace("{{{псалъэпкъ}}}", stem_str);
@@ -621,7 +621,7 @@ pub fn main() {
     // спр-лъэӏ-зэхэ-д0д-ы
     let template = "спр-лъэмыӏ-0-0д-ы"; // tr. base. vl. e.g. хьын
                                         // let template = "спр-лъэмыӏ-0-0д-ы"; // intr. base. vl. e.g. плъэн
-    let template_desc = template::TemplateDesc::try_from(template.to_owned()).unwrap();
+    let template_desc = template::TemplateDesc::try_from(template.to_owned().as_str()).unwrap();
     let template_str = create_tables(&template_desc);
 
     // those are only test roots so that one can visually test the tables better.

@@ -56,9 +56,9 @@ pub enum ThematicVowel {
 
 impl From<&ortho::Vowel> for ThematicVowel {
     fn from(vowel: &ortho::Vowel) -> Self {
-        match vowel.kind {
-            ortho::VowelKind::A => ThematicVowel::A,
-            ortho::VowelKind::Y => ThematicVowel::Y,
+        match vowel {
+            ortho::Vowel::A => ThematicVowel::A,
+            ortho::Vowel::Y => ThematicVowel::Y,
             _ => unreachable!("The vowel {:?} is not a thematic vowel.", vowel),
         }
     }
@@ -145,7 +145,7 @@ impl VerbStem {
         let last_letter = letters.last().unwrap();
         let first_letter = letters.first().unwrap();
 
-        let thematic_vowel = if let ortho::LetterKind::Vowel(vowel) = &last_letter.kind {
+        let thematic_vowel = if let ortho::Letter::Vowel(vowel) = &last_letter {
             ThematicVowel::from(vowel)
         } else {
             ThematicVowel::Y
@@ -156,7 +156,7 @@ impl VerbStem {
             .rev()
             .find(|l| l.is_consonant())
             .map(|l| {
-                if let ortho::LetterKind::Consonant(consonant) = &l.kind {
+                if let ortho::Letter::Consonant(consonant) = &l {
                     LastConsonant::from(consonant)
                 } else {
                     panic!("The letter {:?} is not a consonant.", l);
@@ -168,7 +168,7 @@ impl VerbStem {
         let first_consonant = match transitivity {
             Transitivity::Intransitive => None,
             _ => {
-                if let ortho::LetterKind::Consonant(consonant) = &first_letter.kind {
+                if let ortho::Letter::Consonant(consonant) = &first_letter {
                     Some(FirstConsonant::from(consonant))
                 } else {
                     panic!("The letter {:?} is not a consonant.", first_letter);
@@ -259,7 +259,7 @@ fn extract_thematic_vowel(s: &str) -> Result<ThematicVowel, String> {
 fn extract_preverb(s: &str) -> Option<Preverb> {
     match s {
         "0" => None,
-        _ => Some(Preverb::try_from(&s.to_owned()).unwrap()),
+        _ => Some(Preverb::try_from(s.to_owned().as_str()).unwrap()),
     }
 }
 
@@ -339,9 +339,9 @@ pub struct TemplateDesc {
     pub original_string: String,
 }
 
-impl TryFrom<String> for TemplateDesc {
+impl TryFrom<&str> for TemplateDesc {
     type Error = String;
-    fn try_from(s: String) -> Result<TemplateDesc, String> {
+    fn try_from(s: &str) -> Result<TemplateDesc, String> {
         // _-transitivity-preverb-root-thematic_vowel
 
         let segments = s.split('-').collect::<Vec<&str>>();
@@ -382,7 +382,7 @@ impl TryFrom<String> for TemplateDesc {
                 thematic_vowel,
                 string: segments[3].to_owned(),
             },
-            original_string: s.clone(),
+            original_string: s.to_owned(),
         };
         Ok(template_desc)
     }

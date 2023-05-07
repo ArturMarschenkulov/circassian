@@ -176,9 +176,9 @@ pub struct Preverb {
     base: String,
 }
 
-impl TryFrom<&String> for Preverb {
+impl TryFrom<&str> for Preverb {
     type Error = String;
-    fn try_from(base: &String) -> Result<Self, Self::Error> {
+    fn try_from(base: &str) -> Result<Self, Self::Error> {
         if base.is_empty() {
             return Err("Preverb must not be empty".to_owned());
         }
@@ -192,13 +192,13 @@ impl TryFrom<&String> for Preverb {
 }
 impl Preverb {
     pub fn first_letter(&self) -> ortho::Letter {
-        ortho::parse(&self.base).unwrap()[0].clone()
+        ortho::parse(&self.base).unwrap()[0]
     }
     pub fn last_consonant(&self) -> Option<ortho::Consonant> {
         let letters = ortho::parse(&self.base).unwrap();
         let mut last_consonant = None;
         for letter in letters {
-            if let ortho::LetterKind::Consonant(consonant) = letter.kind {
+            if let ortho::Letter::Consonant(consonant) = letter {
                 last_consonant = Some(consonant)
             }
         }
@@ -264,7 +264,7 @@ impl Preverb {
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum MorphemeKind {
+pub enum Morpheme {
     Preverb(Preverb),
     PersonMarker(PersonMarker),
     NegationPrefix,
@@ -275,104 +275,67 @@ pub enum MorphemeKind {
     Generic(String),
 }
 
-impl MorphemeKind {
+impl Morpheme {
     pub fn first_letter(&self) -> Option<ortho::Letter> {
         self.to_letters().first().cloned()
     }
     pub fn last_latter(&self) -> Option<ortho::Letter> {
         self.to_letters().last().cloned()
     }
-    fn to_letters(&self) -> Vec<ortho::Letter> {
+    pub fn to_letters(&self) -> Vec<ortho::Letter> {
         ortho::parse(&self.to_string()).unwrap()
     }
 
     pub fn is_generic_certain(&self, generic: &str) -> bool {
         match self {
-            MorphemeKind::Generic(g) => g == generic,
+            Morpheme::Generic(g) => g == generic,
             _ => false,
-        }
-    }
-}
-
-impl std::fmt::Display for MorphemeKind {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-        match self {
-            MorphemeKind::Preverb(preverb) => write!(f, "{}", preverb.base),
-            MorphemeKind::PersonMarker(person_marker) => {
-                write!(f, "{}", person_marker.base_string())
-            }
-            MorphemeKind::NegationPrefix => write!(f, "мы"),
-            MorphemeKind::RajImperative => write!(f, "ре"),
-            MorphemeKind::Stem(_, base) => write!(f, "{}", base),
-            MorphemeKind::Generic(generic) => write!(f, "{}", generic),
-        }
-    }
-}
-
-#[derive(Debug, Clone)]
-pub struct Morpheme {
-    pub kind: MorphemeKind,
-    // base: String,
-}
-impl Morpheme {
-    pub fn first_letter(&self) -> Option<ortho::Letter> {
-        self.to_letters().first().cloned()
-    }
-    pub fn to_letters(&self) -> Vec<ortho::Letter> {
-        let base = self.kind.to_string();
-        ortho::parse(&base).unwrap()
-    }
-}
-
-// impl From<&String> for Morpheme {
-//     fn from(base: &String) -> Self {
-//         if base == "мы" {
-//             return Morpheme {
-//                 kind: MorphemeKind::NegationPrefix,
-//             };
-//         }
-//         if base == "ре" {
-//             return Morpheme {
-//                 kind: MorphemeKind::RajImperative,
-//             };
-//         }
-//         Morpheme {
-//             kind: MorphemeKind::Generic(base.to_owned()),
-//         }
-//     }
-// }
-
-impl Morpheme {
-    pub fn new_generic(base: &str) -> Self {
-        Morpheme {
-            kind: MorphemeKind::Generic(base.to_owned()),
-        }
-    }
-    pub fn new_negative_prefix() -> Self {
-        Morpheme {
-            kind: MorphemeKind::NegationPrefix,
-        }
-    }
-    pub fn new_imperative_raj() -> Self {
-        Morpheme {
-            kind: MorphemeKind::RajImperative,
-        }
-    }
-    pub fn new_preverb(preverb: &Preverb) -> Self {
-        Morpheme {
-            kind: MorphemeKind::Preverb(preverb.clone()),
-        }
-    }
-    pub fn new_person_marker(marker: &PersonMarker) -> Self {
-        Morpheme {
-            kind: MorphemeKind::PersonMarker(*marker),
         }
     }
 }
 
 impl std::fmt::Display for Morpheme {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-        write!(f, "{}", self.kind)
+        match self {
+            Morpheme::Preverb(preverb) => write!(f, "{}", preverb.base),
+            Morpheme::PersonMarker(person_marker) => {
+                write!(f, "{}", person_marker.base_string())
+            }
+            Morpheme::NegationPrefix => write!(f, "мы"),
+            Morpheme::RajImperative => write!(f, "ре"),
+            Morpheme::Stem(_, base) => write!(f, "{}", base),
+            Morpheme::Generic(generic) => write!(f, "{}", generic),
+        }
+    }
+}
+
+impl From<&str> for Morpheme {
+    fn from(base: &str) -> Self {
+        if base == "мы" {
+            return Morpheme::NegationPrefix;
+        }
+        if base == "ре" {
+            return Morpheme::RajImperative;
+        }
+        Morpheme::Generic(base.to_owned())
+    }
+}
+
+impl Morpheme {
+    pub fn new_generic(base: &str) -> Self {
+        Morpheme::Generic(base.to_owned())
+    }
+    pub fn new_negative_prefix() -> Self {
+        Morpheme::NegationPrefix
+    }
+    pub fn new_imperative_raj() -> Self {
+        Morpheme::RajImperative
+    }
+    pub fn new_preverb(preverb: &Preverb) -> Self {
+        Morpheme::Preverb(preverb.clone())
+    }
+    pub fn new_person_marker(marker: &PersonMarker) -> Self {
+        Morpheme::PersonMarker(*marker)
     }
 }
 
@@ -590,9 +553,7 @@ pub fn new_masdar(
     let root = "{{{псалъэпкъ}}}".to_owned();
     let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
 
-    morphemes.push_back(Morpheme {
-        kind: MorphemeKind::Stem(stem.clone(), root),
-    });
+    morphemes.push_back(Morpheme::Stem(stem.clone(), root));
     morphemes.push_back(Morpheme::new_generic("н"));
 
     // Prefix part
@@ -619,10 +580,7 @@ pub fn new_imperative_raj(
     let root = "{{{псалъэпкъ}}}".to_owned();
     let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
     // Add stem
-    morphemes.push_back(Morpheme {
-        kind: MorphemeKind::Stem(stem.clone(), root),
-        // base: root,
-    });
+    morphemes.push_back(Morpheme::Stem(stem.clone(), root));
 
     // Prefix part
 
@@ -670,10 +628,7 @@ pub fn new_masdar_personal(
     let root = "{{{псалъэпкъ}}}".to_owned();
     let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
 
-    morphemes.push_back(Morpheme {
-        kind: MorphemeKind::Stem(stem.clone(), root),
-        //base: root,
-    });
+    morphemes.push_back(Morpheme::Stem(stem.clone(), root));
     // Suffix part
 
     morphemes.push_back(Morpheme::new_generic("н"));
@@ -721,10 +676,7 @@ pub fn new_imperative(
     let root = "{{{псалъэпкъ}}}".to_owned();
     let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
 
-    morphemes.push_back(Morpheme {
-        kind: MorphemeKind::Stem(stem.clone(), root),
-        // base: root,
-    });
+    morphemes.push_back(Morpheme::Stem(stem.clone(), root));
 
     // Prefix part
 
@@ -811,9 +763,7 @@ pub fn new_indicative(
         Tense::Future1 => ("нщ", "нкъым"),
         Tense::Future2 => ("ну", "нукъым"),
     };
-    morphemes.push_back(Morpheme {
-        kind: MorphemeKind::Stem(stem.clone(), root),
-    });
+    morphemes.push_back(Morpheme::Stem(stem.clone(), root));
     morphemes.push_back(Morpheme::new_generic(if polarity == &Polarity::Positive {
         tense_suffix_pair.0
     } else {
@@ -867,9 +817,7 @@ pub fn new_interrogative(
         Tense::Future1 => ("нщ", "нкъэ"),
         Tense::Future2 => ("ну", "нукъэ"),
     };
-    morphemes.push_back(Morpheme {
-        kind: MorphemeKind::Stem(stem.clone(), root),
-    });
+    morphemes.push_back(Morpheme::Stem(stem.clone(), root));
 
     morphemes.push_back(Morpheme::new_generic(if polarity == &Polarity::Positive {
         tense_suffix_pair.0
@@ -916,9 +864,7 @@ pub fn new_conditional(
         Tense::Future2 => "ну",
         _ => unreachable!("Invalid tense for conditional: {:?}", tense),
     };
-    morphemes.push_back(Morpheme {
-        kind: MorphemeKind::Stem(stem.clone(), root),
-    });
+    morphemes.push_back(Morpheme::Stem(stem.clone(), root));
     if !tense_suffix.is_empty() {
         morphemes.push_back(Morpheme::new_generic(tense_suffix));
     }
@@ -967,9 +913,7 @@ pub fn new_conditional_2(
         Tense::Future2 => "нутэ",
         _ => unreachable!("Invalid tense for conditional: {:?}", tense),
     };
-    morphemes.push_back(Morpheme {
-        kind: MorphemeKind::Stem(stem.clone(), root),
-    });
+    morphemes.push_back(Morpheme::Stem(stem.clone(), root));
 
     if !tense_suffix.is_empty() {
         morphemes.push_back(Morpheme::new_generic(tense_suffix));
@@ -1016,9 +960,7 @@ pub fn new_subjunctive(
         Tense::Future2 => ("нут", "нутэкъым"),
         _ => unreachable!("Invalid tense for conditional: {:?}", tense),
     };
-    morphemes.push_back(Morpheme {
-        kind: MorphemeKind::Stem(stem.clone(), root),
-    });
+    morphemes.push_back(Morpheme::Stem(stem.clone(), root));
 
     morphemes.push_back(Morpheme::new_generic(if polarity == &Polarity::Positive {
         tense_suffix_pair.0
@@ -1065,9 +1007,7 @@ pub fn new_concessive(
         Tense::Future2 => "ну",
         _ => unreachable!("Invalid tense for conditional: {:?}", tense),
     };
-    morphemes.push_back(Morpheme {
-        kind: MorphemeKind::Stem(stem.clone(), root),
-    });
+    morphemes.push_back(Morpheme::Stem(stem.clone(), root));
     if !tense_suffix.is_empty() {
         morphemes.push_back(Morpheme::new_generic(tense_suffix));
     }
@@ -1116,9 +1056,7 @@ pub fn new_concessive_2(
         Tense::Future2 => "нутэ",
         _ => unreachable!("Invalid tense for conditional: {:?}", tense),
     };
-    morphemes.push_back(Morpheme {
-        kind: MorphemeKind::Stem(stem.clone(), root),
-    });
+    morphemes.push_back(Morpheme::Stem(stem.clone(), root));
 
     if !tense_suffix.is_empty() {
         morphemes.push_back(Morpheme::new_generic(tense_suffix));
