@@ -270,7 +270,7 @@ pub enum Morpheme {
     NegationPrefix,
     RajImperative,
 
-    Stem(template::VerbStem, String),
+    Stem(template::VerbStem),
 
     Generic(String),
 }
@@ -303,7 +303,7 @@ impl std::fmt::Display for Morpheme {
             }
             Morpheme::NegationPrefix => write!(f, "мы"),
             Morpheme::RajImperative => write!(f, "ре"),
-            Morpheme::Stem(_, base) => write!(f, "{}", base),
+            Morpheme::Stem(_) => write!(f, "{}", "{{{псалъэпкъ}}}"), // "{{{псалъэпкъ}}}"
             Morpheme::Generic(generic) => write!(f, "{}", generic),
         }
     }
@@ -550,10 +550,9 @@ pub fn new_masdar(
     preverb: &Option<Preverb>,
     stem: &template::VerbStem,
 ) -> VecDeque<Morpheme> {
-    let root = "{{{псалъэпкъ}}}".to_owned();
     let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
 
-    morphemes.push_back(Morpheme::Stem(stem.clone(), root));
+    morphemes.push_back(Morpheme::Stem(stem.clone()));
     morphemes.push_back(Morpheme::new_generic("н"));
 
     // Prefix part
@@ -577,10 +576,9 @@ pub fn new_imperative_raj(
     person: &Person,
     number: &Number,
 ) -> VecDeque<Morpheme> {
-    let root = "{{{псалъэпкъ}}}".to_owned();
     let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
     // Add stem
-    morphemes.push_back(Morpheme::Stem(stem.clone(), root));
+    morphemes.push_back(Morpheme::Stem(stem.clone()));
 
     // Prefix part
 
@@ -625,10 +623,9 @@ pub fn new_masdar_personal(
 ) -> VecDeque<Morpheme> {
     assert_eq!(abs_marker.case, Case::Absolutive);
 
-    let root = "{{{псалъэпкъ}}}".to_owned();
     let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
 
-    morphemes.push_back(Morpheme::Stem(stem.clone(), root));
+    morphemes.push_back(Morpheme::Stem(stem.clone()));
     // Suffix part
 
     morphemes.push_back(Morpheme::new_generic("н"));
@@ -673,10 +670,9 @@ pub fn new_imperative(
     erg_marker: &Option<PersonMarker>,
     transitivity: &Transitivity,
 ) -> VecDeque<Morpheme> {
-    let root = "{{{псалъэпкъ}}}".to_owned();
     let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
 
-    morphemes.push_back(Morpheme::Stem(stem.clone(), root));
+    morphemes.push_back(Morpheme::Stem(stem.clone()));
 
     // Prefix part
 
@@ -749,7 +745,6 @@ pub fn new_indicative(
         vec![TS::N, TS::Sh],
         vec![TS::Nu],
     ];
-    let root = "{{{псалъэпкъ}}}".to_owned();
     let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
     let tense_suffix_pair = match tense {
         Tense::Present => ("р", "ркъым"),
@@ -763,7 +758,7 @@ pub fn new_indicative(
         Tense::Future1 => ("нщ", "нкъым"),
         Tense::Future2 => ("ну", "нукъым"),
     };
-    morphemes.push_back(Morpheme::Stem(stem.clone(), root));
+    morphemes.push_back(Morpheme::Stem(stem.clone()));
     morphemes.push_back(Morpheme::new_generic(if polarity == &Polarity::Positive {
         tense_suffix_pair.0
     } else {
@@ -803,7 +798,6 @@ pub fn new_interrogative(
     abs_marker: &PersonMarker,
     erg_marker: &Option<PersonMarker>,
 ) -> VecDeque<Morpheme> {
-    let root = "{{{псалъэпкъ}}}".to_owned();
     let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
     let tense_suffix_pair = match tense {
         Tense::Present => ("рэ", "ркъэ"),
@@ -817,7 +811,7 @@ pub fn new_interrogative(
         Tense::Future1 => ("нщ", "нкъэ"),
         Tense::Future2 => ("ну", "нукъэ"),
     };
-    morphemes.push_back(Morpheme::Stem(stem.clone(), root));
+    morphemes.push_back(Morpheme::Stem(stem.clone()));
 
     morphemes.push_back(Morpheme::new_generic(if polarity == &Polarity::Positive {
         tense_suffix_pair.0
@@ -854,7 +848,6 @@ pub fn new_conditional(
     abs_marker: &PersonMarker,
     erg_marker: &Option<PersonMarker>,
 ) -> VecDeque<Morpheme> {
-    let root = "{{{псалъэпкъ}}}".to_owned();
     let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
     let tense_suffix = match tense {
         Tense::Present => "",
@@ -864,7 +857,7 @@ pub fn new_conditional(
         Tense::Future2 => "ну",
         _ => unreachable!("Invalid tense for conditional: {:?}", tense),
     };
-    morphemes.push_back(Morpheme::Stem(stem.clone(), root));
+    morphemes.push_back(Morpheme::Stem(stem.clone()));
     if !tense_suffix.is_empty() {
         morphemes.push_back(Morpheme::new_generic(tense_suffix));
     }
@@ -903,7 +896,6 @@ pub fn new_conditional_2(
     abs_marker: &PersonMarker,
     erg_marker: &Option<PersonMarker>,
 ) -> VecDeque<Morpheme> {
-    let root = "{{{псалъэпкъ}}}".to_owned();
     let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
     let tense_suffix = match tense {
         Tense::Present => "тэ",
@@ -913,7 +905,7 @@ pub fn new_conditional_2(
         Tense::Future2 => "нутэ",
         _ => unreachable!("Invalid tense for conditional: {:?}", tense),
     };
-    morphemes.push_back(Morpheme::Stem(stem.clone(), root));
+    morphemes.push_back(Morpheme::Stem(stem.clone()));
 
     if !tense_suffix.is_empty() {
         morphemes.push_back(Morpheme::new_generic(tense_suffix));
@@ -953,14 +945,13 @@ pub fn new_subjunctive(
     abs_marker: &PersonMarker,
     erg_marker: &Option<PersonMarker>,
 ) -> VecDeque<Morpheme> {
-    let root = "{{{псалъэпкъ}}}".to_owned();
     let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
     let tense_suffix_pair = match tense {
         Tense::Future1 => ("нт", "нтэкъым"),
         Tense::Future2 => ("нут", "нутэкъым"),
         _ => unreachable!("Invalid tense for conditional: {:?}", tense),
     };
-    morphemes.push_back(Morpheme::Stem(stem.clone(), root));
+    morphemes.push_back(Morpheme::Stem(stem.clone()));
 
     morphemes.push_back(Morpheme::new_generic(if polarity == &Polarity::Positive {
         tense_suffix_pair.0
@@ -997,7 +988,6 @@ pub fn new_concessive(
     abs_marker: &PersonMarker,
     erg_marker: &Option<PersonMarker>,
 ) -> VecDeque<Morpheme> {
-    let root = "{{{псалъэпкъ}}}".to_owned();
     let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
     let tense_suffix = match tense {
         Tense::Present => "",
@@ -1007,7 +997,7 @@ pub fn new_concessive(
         Tense::Future2 => "ну",
         _ => unreachable!("Invalid tense for conditional: {:?}", tense),
     };
-    morphemes.push_back(Morpheme::Stem(stem.clone(), root));
+    morphemes.push_back(Morpheme::Stem(stem.clone()));
     if !tense_suffix.is_empty() {
         morphemes.push_back(Morpheme::new_generic(tense_suffix));
     }
@@ -1046,7 +1036,6 @@ pub fn new_concessive_2(
     abs_marker: &PersonMarker,
     erg_marker: &Option<PersonMarker>,
 ) -> VecDeque<Morpheme> {
-    let root = "{{{псалъэпкъ}}}".to_owned();
     let mut morphemes: VecDeque<Morpheme> = VecDeque::new();
     let tense_suffix = match tense {
         Tense::Present => "тэ",
@@ -1056,7 +1045,7 @@ pub fn new_concessive_2(
         Tense::Future2 => "нутэ",
         _ => unreachable!("Invalid tense for conditional: {:?}", tense),
     };
-    morphemes.push_back(Morpheme::Stem(stem.clone(), root));
+    morphemes.push_back(Morpheme::Stem(stem.clone()));
 
     if !tense_suffix.is_empty() {
         morphemes.push_back(Morpheme::new_generic(tense_suffix));

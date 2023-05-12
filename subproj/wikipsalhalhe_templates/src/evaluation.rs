@@ -213,7 +213,7 @@ fn evaluate_person_marker(
                 //marker.get_string()
             }
         }
-        (_, Some(Morpheme::Stem(stem, _))) => {
+        (_, Some(Morpheme::Stem(stem))) => {
             if marker.is_ergative() {
                 match &marker.to_letters()[0] {
                     ortho::Letter::Consonant(consonant) => {
@@ -464,7 +464,7 @@ pub fn evaluate_morphemes(morphemes: &VecDeque<Morpheme>) -> String {
     for (i, morpheme) in morphemes.iter().enumerate() {
         let x = match morpheme {
             Morpheme::PersonMarker(marker) => evaluate_person_marker(marker, morphemes, i),
-            Morpheme::Stem(ref stem, _) => evaluate_stem(stem, morphemes, i),
+            Morpheme::Stem(ref stem) => evaluate_stem(stem, morphemes, i),
             Morpheme::Preverb(ref preverb) => evaluate_preverb(preverb, morphemes, i),
             Morpheme::NegationPrefix => "мы".to_owned(),
             Morpheme::Generic(ref base) if base == "о" => evaluate_o(morphemes, i),
