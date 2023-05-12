@@ -100,48 +100,44 @@ pub struct Pronoun {
 }
 
 impl Pronoun {
+    pub fn new(case: Case, number: Number, person: Person) -> Self {
+        Self {
+            case,
+            number,
+            person,
+        }
+    }
     pub fn variants_case(case: &Case) -> Vec<Self> {
         Number::variants_iter()
-            .flat_map(|n| {
-                Person::variants_iter().map(move |p| Pronoun {
-                    case: *case,
-                    number: n,
-                    person: p,
-                })
-            })
+            .flat_map(|n| Person::variants_iter().map(move |p| Pronoun::new(*case, n, p)))
             .collect::<Vec<_>>()
     }
     pub fn variants_person(person: &Person) -> Vec<Self> {
         Number::variants_iter()
-            .flat_map(|n| {
-                Case::variants_iter().map(move |c| Pronoun {
-                    case: c,
-                    number: n,
-                    person: *person,
-                })
-            })
+            .flat_map(|n| Case::variants_iter().map(move |c| Pronoun::new(c, n, *person)))
             .collect::<Vec<_>>()
+    }
+}
+
+impl From<&Pronoun> for &str {
+    fn from(pronoun: &Pronoun) -> Self {
+        match (pronoun.person, pronoun.number, pronoun.case) {
+            (Person::First, Number::Singular, _) => "сэ",
+            (Person::Second, Number::Singular, _) => "уэ",
+            (Person::First, Number::Plural, _) => "дэ",
+            (Person::Second, Number::Plural, _) => "фэ",
+
+            (Person::Third, Number::Singular, Case::Absolutive) => "ар",
+            (Person::Third, Number::Plural, Case::Absolutive) => "ахэр",
+            (Person::Third, Number::Singular, Case::Ergative) => "абы",
+            (Person::Third, Number::Plural, Case::Ergative) => "абыхэм",
+        }
     }
 }
 
 impl std::fmt::Display for Pronoun {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-        write!(
-            f,
-            "{}",
-            match (self.person, self.number, self.case) {
-                (Person::First, Number::Singular, _) => "сэ",
-                (Person::Second, Number::Singular, _) => "уэ",
-                (Person::First, Number::Plural, _) => "дэ",
-                (Person::Second, Number::Plural, _) => "фэ",
-
-                (Person::Third, Number::Singular, Case::Absolutive) => "ар",
-                (Person::Third, Number::Plural, Case::Absolutive) => "ахэр",
-                (Person::Third, Number::Singular, Case::Ergative) => "абы",
-                (Person::Third, Number::Plural, Case::Ergative) => "абыхэм",
-            }
-            .to_owned()
-        )
+        write!(f, "{}", <&str>::from(self).to_owned())
     }
 }
 
