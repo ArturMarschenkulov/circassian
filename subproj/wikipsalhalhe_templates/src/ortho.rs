@@ -3,11 +3,7 @@
 ///
 /// The main struct is `Letter`, which contains the letter itself, and a `LetterKind`.
 
-// /// [`Letter`] is a struct which contains the letter itself, and a [`LetterKind`].
-// #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-// pub struct Letter {
-//     pub kind: LetterKind,
-// }
+
 /// [`Letter`] is an enum which contains the kind of the letter.
 /// It can be a consonant, a vowel, or a combination of consonant and vowel.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -76,6 +72,141 @@ impl std::fmt::Display for Letter {
             }
         };
         write!(f, "{}", x)
+    }
+}
+
+/// A valid character which ensures that the character is part of the alphabet.
+/// This allowes for less checking down the line.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+enum ValidChar {
+    A,  // а
+    E,  // э
+    Y,  // ы
+    Je, // е
+    Ja, // я
+    I,  // и
+    O,  // о
+    U,  // у
+    J,  // й
+    //
+    M,
+    N,
+    L,
+    R,
+
+    F,
+    V,
+    S,
+    Z,
+    Sh,
+    Shj,
+    Zh,
+    X,
+
+    Ts,
+    Tsh,
+
+    P,
+    B,
+    T,
+    D,
+    K,
+    G,
+    //
+    MagkiyZnak,
+    TverdyyZnak,
+    Palotshka,
+}
+
+impl ValidChar {}
+
+impl TryFrom<char> for ValidChar {
+    type Error = String;
+    fn try_from(value: char) -> Result<Self, Self::Error> {
+        use ValidChar::*;
+        Ok(match value {
+            'а' => A,
+            'э' => E,
+            'ы' => Y,
+            'е' => Je,
+            'и' => I,
+            'о' => O,
+            'у' => U,
+            'й' => J,
+            'я' => Ja,
+            //
+            'м' => M,
+            'н' => N,
+            'л' => L,
+            'р' => R,
+            //
+            'ф' => F,
+            'в' => V,
+            'с' => S,
+            'з' => Z,
+            'ш' => Sh,
+            'щ' => Shj,
+            'ж' => Zh,
+            'х' => X,
+            'ц' => Ts,
+            'ч' => Tsh,
+            //
+            'п' => P,
+            'б' => B,
+            'т' => T,
+            'д' => D,
+            'к' => K,
+            'г' => G,
+            //
+            'ь' => MagkiyZnak,
+            'ъ' => TverdyyZnak,
+            'I' => Palotshka,
+            _ => return Err(format!("{} is not a valid character", value)),
+        })
+    }
+}
+
+impl From<ValidChar> for char {
+    fn from(c: ValidChar) -> Self {
+        use ValidChar::*;
+        match c {
+            A => 'а',
+            E => 'э',
+            Y => 'ы',
+            Je => 'е',
+            I => 'и',
+            O => 'о',
+            U => 'у',
+            J => 'й',
+            Ja => 'я',
+            //
+            M => 'м',
+            N => 'н',
+            L => 'л',
+            R => 'р',
+            //
+            F => 'ф',
+            V => 'в',
+            S => 'с',
+            Z => 'з',
+            Sh => 'ш',
+            Shj => 'щ',
+            Zh => 'ж',
+            X => 'х',
+            Ts => 'ц',
+            Tsh => 'ч',
+            //
+            P => 'п',
+            B => 'б',
+            T => 'т',
+            D => 'д',
+            K => 'к',
+            G => 'г',
+            //
+            MagkiyZnak => 'ь',
+            TverdyyZnak => 'ъ',
+            Palotshka => 'I',
+        }
     }
 }
 
@@ -613,6 +744,11 @@ pub fn parse(s: &str) -> Result<Vec<Letter>, String> {
             return Err(format!("invalid character: {}", c));
         }
     }
+
+    let valid_chars = chars
+        .iter()
+        .map(|c| ValidChar::try_from(*c).expect("Already checked that the input is valid."))
+        .collect::<Vec<ValidChar>>();
 
     let mut i = 0;
     while i < chars.len() {
