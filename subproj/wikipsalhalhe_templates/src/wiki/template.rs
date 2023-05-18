@@ -92,9 +92,12 @@ impl FirstConsonant {
 
 impl From<&ortho::Consonant> for FirstConsonant {
     fn from(consonant: &ortho::Consonant) -> Self {
+        use ortho::*;
+        use Manner::*;
+        use Place::*;
         match (consonant.place, consonant.manner, consonant.voiceness) {
-            (ortho::Place::Labial, ortho::Manner::Approximant, _) => FirstConsonant::Wy,
-            (_, _, ortho::Voiceness::Voiced) => FirstConsonant::Voiced,
+            (Labial, Approximant, _) => FirstConsonant::Wy,
+            (_, _, Voiceness::Voiced) => FirstConsonant::Voiced,
             _ => FirstConsonant::Unvoiced,
             // _ => panic!("The consonant {:?} is not a first consonant.", consonant),
         }
@@ -111,10 +114,13 @@ pub enum LastConsonant {
 
 impl From<&ortho::Consonant> for LastConsonant {
     fn from(consonant: &ortho::Consonant) -> Self {
+        use ortho::*;
+        use Manner::*;
+        use Place::*;
         match (consonant.place, consonant.manner, consonant.is_labialized) {
             (_, _, true) => LastConsonant::Labial,
-            (ortho::Place::Velar, _, _) => LastConsonant::Velar,
-            (ortho::Place::Palatal, ortho::Manner::Approximant, _) => LastConsonant::Yy,
+            (Velar, _, _) => LastConsonant::Velar,
+            (Palatal, Approximant, _) => LastConsonant::Yy,
             _ => LastConsonant::Ordinary,
             // _ => panic!("The consonant {:?} is not a last consonant.", consonant),
         }
@@ -136,19 +142,17 @@ impl VerbStem {
         let letters = ortho::parse(s).unwrap();
         assert!(!letters.is_empty(), "The verb stem can't be empty.");
 
-        let vowel = if letters.len() == 1 {
-            VowelKind::Without
-        } else {
-            VowelKind::With
+        let vowel = match letters.len() {
+            1 => VowelKind::Without,
+            _ => VowelKind::With,
         };
 
         let last_letter = letters.last().unwrap();
         let first_letter = letters.first().unwrap();
 
-        let thematic_vowel = if let ortho::Letter::Vowel(vowel) = &last_letter {
-            ThematicVowel::from(vowel)
-        } else {
-            ThematicVowel::Y
+        let thematic_vowel = match &last_letter {
+            ortho::Letter::Vowel(vowel) => ThematicVowel::from(vowel),
+            _ => ThematicVowel::Y,
         };
 
         let last_consonant = letters
@@ -167,13 +171,10 @@ impl VerbStem {
         // The first consonant is only relevant for transitive verbs.
         let first_consonant = match transitivity {
             Transitivity::Intransitive => None,
-            _ => {
-                if let ortho::Letter::Consonant(consonant) = &first_letter {
-                    Some(FirstConsonant::from(consonant))
-                } else {
-                    panic!("The letter {:?} is not a consonant.", first_letter);
-                }
-            }
+            _ => match &first_letter {
+                ortho::Letter::Consonant(consonant) => Some(FirstConsonant::from(consonant)),
+                _ => panic!("The letter {:?} is not a consonant.", first_letter),
+            },
         };
 
         // в / вы

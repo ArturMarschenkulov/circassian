@@ -179,9 +179,7 @@ impl TryFrom<&str> for Preverb {
             return Err("Preverb must not be empty".to_owned());
         }
         // TODO: Add checks for valid preverbs
-
         Ok(Preverb {
-            // form: PreverbSoundForm::Full,
             base: base.to_owned(),
         })
     }
@@ -319,6 +317,8 @@ impl From<&str> for Morpheme {
 
 impl Morpheme {
     pub fn new_generic(base: &str) -> Self {
+        // // TODO: make return Option<Self>
+        // assert!(!base.is_empty());
         Morpheme::Generic(base.to_owned())
     }
     pub fn new_negative_prefix() -> Self {
@@ -422,6 +422,7 @@ impl TryFrom<&str> for PersonMarker {
             "" => PersonMarker::new(Third, Singular, Absolutive),
             "ды" => PersonMarker::new(First, Plural, Absolutive),
             "фы" => PersonMarker::new(Second, Plural, Absolutive),
+            // "" => PersonMarker::new(Third, Plural, Absolutive), // This doesn't exist
             "с" => PersonMarker::new(First, Singular, Ergative),
             "п" | "б" => PersonMarker::new(Second, Singular, Ergative),
             "и" => PersonMarker::new(Third, Singular, Ergative),
@@ -444,6 +445,7 @@ impl PersonMarker {
     }
 
     pub fn to_letters(self) -> Vec<ortho::Letter> {
+        // ortho::Word::try_from(&self.base_string()).unwrap()
         ortho::parse(&self.base_string()).unwrap()
     }
 }
@@ -710,7 +712,6 @@ pub fn new_imperative(
                 &Transitivity::Intransitive,
             )
         {
-            let marker = PersonMarker::try_from("у").unwrap();
             let marker = PersonMarker::new(Person::Second, abs_marker.number, Case::Absolutive);
             let m = Morpheme::new_person_marker(&marker);
             morphemes.push_front(m);
@@ -729,7 +730,7 @@ pub fn new_indicative(
     erg_marker: &Option<PersonMarker>,
 ) -> VecDeque<Morpheme> {
     use TenseSuffix as TS;
-    let ss = vec![
+    let _ss = vec![
         vec![TS::R],
         vec![TS::R, TS::Ta],
         vec![TS::A, TS::Sh],

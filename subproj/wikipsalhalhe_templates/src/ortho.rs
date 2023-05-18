@@ -114,9 +114,19 @@ impl From<&Vowel> for &str {
     }
 }
 
+impl From<&Vowel> for char {
+    fn from(c: &Vowel) -> Self {
+        match c {
+            Vowel::AA => 'а',
+            Vowel::A => 'э',
+            Vowel::Y => 'ы',
+        }
+    }
+}
+
 impl std::fmt::Display for Vowel {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-        write!(f, "{}", <&str>::from(self))
+        write!(f, "{}", <char>::from(self))
     }
 }
 
@@ -166,15 +176,10 @@ impl Consonant {
     fn is_valid(&self) -> bool {
         if let Ok(string) = <&str>::try_from(self) {
             if let Ok(cons) = Consonant::try_from(string) {
-                cons == *self
-                // Consonant::try_from(string).is_ok()
-            } else {
-                false
+                return cons == *self;
             }
-        } else {
-            false
         }
-        // <&str>::try_from(self).is_ok()
+        false
     }
 
     /// Returns `true` if the consonant is a labial plosive, e.g. 'п' or 'б'.
@@ -434,15 +439,15 @@ fn split_combi(combi: &char) -> Result<(Consonant, Vowel), String> {
     let v = Vowel::try_from(last.to_string().as_str()).expect("This must be a vowel.");
     Ok((c, v))
 }
-fn combine_to_combi(c_0: &String, c_1: &String) -> Option<char> {
-    match (&c_0.as_ref(), &c_1.as_ref()) {
-        (&"й", &"э") => Some('e'),
-        (&"й", &"ы") => Some('и'),
-        (&"й", &"а") => Some('я'),
-        (&"у", &"э") => Some('о'),
-        (&"у", &"ы") => Some('у'),
-        _ => None,
-    }
+fn combine_to_combi(c_0: &str, c_1: &str) -> Option<char> {
+    Some(match (c_0, c_1) {
+        ("й", "э") => 'e',
+        ("й", "ы") => 'и',
+        ("й", "а") => 'я',
+        ("у", "э") => 'о',
+        ("у", "ы") => 'у',
+        _ => return None,
+    })
 }
 fn is_char_combi(c: &char) -> bool {
     match c {

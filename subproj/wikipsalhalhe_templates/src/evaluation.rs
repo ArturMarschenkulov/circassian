@@ -91,7 +91,7 @@ fn ja_form(is_after_consonant: bool) -> String {
 /// The transformation of 'e' to 'э' is not as aggressive as in case of 'я' to 'а'. It only happen in certain cases, where the morphemes are very close to each other.
 /// For example, the "фэ" in "фэстащ" ``I gave it to y'all``, is composed of "ф+е".
 /// The "къызэ" in "къызэплъащ" is composed of "къы-с+е".
-/// The "зэ" in "зэдзэр" "what X is reads" is composed of "зы+е".
+/// The "зэ" in "зэдзэр" "what X reads" is composed of "зы+е".
 ///
 /// However, фестащ "I gave y'all to him" doesn't become фэстащ, as firstly it is composed of "фы+е",
 /// and secondly, they are "further" apart, as фы, is not a suffix which is "attached to" "е", but is in its own slot.
@@ -100,7 +100,10 @@ fn je_form(is_after_consonant: bool) -> String {
 }
 
 fn give_epenthetic_if_needed(c_0: &Consonant, c_1: &Consonant) -> String {
-    let is_wy = (ortho::Manner::Approximant, ortho::Place::Labial) == (c_0.manner, c_0.place);
+    use ortho::*;
+    use Manner::*;
+    use Place::*;
+    let is_wy = (Approximant, Labial) == (c_0.manner, c_0.place);
     let needs_it = c_1.needs_epenthetic_y();
     if is_wy && needs_it {
         "ы".to_owned()
@@ -253,8 +256,6 @@ fn evaluate_person_marker(
 fn evaluate_preverb(preverb: &Preverb, morphemes: &VecDeque<Morpheme>, i: usize) -> String {
     let _morpheme_prev = i.checked_sub(1).map(|i| &morphemes[i]);
     let morpheme_next = morphemes.get(i + 1);
-    // let morpheme_prev_kind = morpheme_prev.map(|x| &x.kind);
-    // let morpheme_next_kind = morpheme_next.map(|x| &x.kind);
 
     // let mut result = String::new();
     use PreverbSoundForm::*;
@@ -322,11 +323,13 @@ fn evaluate_stem(
 
                 let next_letter = morpheme_next.and_then(|m| m.first_letter());
 
-                use ortho::*;
                 let still_needs_y = next_letter.map_or(false, |next_letter| {
+                    use ortho::*;
                     if let Letter::Consonant(consonant) = &next_letter {
-                        let is_n = consonant.is_place_and_manner(Place::Alveolar, Manner::Nasal);
-                        let is_gh = consonant.is_place_and_manner(Place::Uvular, Manner::Fricative);
+                        use Manner::*;
+                        use Place::*;
+                        let is_n = consonant.is_place_and_manner(Alveolar, Nasal);
+                        let is_gh = consonant.is_place_and_manner(Uvular, Fricative);
                         let is_r = consonant.is_trill()
                             && !morpheme_next.unwrap().is_generic_certain("рэ");
                         is_n || is_gh || is_r
