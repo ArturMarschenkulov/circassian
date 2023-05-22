@@ -263,6 +263,7 @@ pub enum Morpheme {
     PersonMarker(PersonMarker),
     NegationPrefix,
     RajImperative,
+    O,
 
     Stem(template::VerbStem),
 
@@ -298,6 +299,7 @@ impl std::fmt::Display for Morpheme {
             Morpheme::NegationPrefix => write!(f, "мы"),
             Morpheme::RajImperative => write!(f, "ре"),
             Morpheme::Stem(_) => write!(f, "{}", "{{{псалъэпкъ}}}"), // "{{{псалъэпкъ}}}"
+            Morpheme::O => write!(f, "о"),
             Morpheme::Generic(generic) => write!(f, "{}", generic),
         }
     }
@@ -320,6 +322,9 @@ impl Morpheme {
         // // TODO: make return Option<Self>
         // assert!(!base.is_empty());
         Morpheme::Generic(base.to_owned())
+    }
+    pub fn new_o() -> Self {
+        Morpheme::O
     }
     pub fn new_negative_prefix() -> Self {
         Morpheme::NegationPrefix
@@ -763,7 +768,7 @@ pub fn new_indicative(
     }));
 
     if (polarity, tense) == (&Polarity::Positive, &Tense::Present) {
-        morphemes.push_front(Morpheme::new_generic("о"));
+        morphemes.push_front(Morpheme::new_o());
     }
 
     // Add ergative person marker

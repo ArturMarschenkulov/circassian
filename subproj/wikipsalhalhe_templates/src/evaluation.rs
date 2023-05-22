@@ -131,7 +131,7 @@ fn evaluate_person_marker(
         _ => false,
     });
     // let has_o_prefix = morphemes.iter().any(|m| match &m.kind {
-    //     MorphemeKind::Generic(base) => base == "о",
+    //     MorphemeKind::O => true,
     //     _ => false,
     // });
 
@@ -158,7 +158,7 @@ fn evaluate_person_marker(
             }
             new_marker.base_string()
         }
-        (mp, Some(Morpheme::Generic(base))) if base == "о" => {
+        (mp, Some(Morpheme::O)) => {
             match (marker.person, marker.number, marker.case) {
                 (Person::Third, Number::Singular, Case::Ergative) => "е".to_owned(), // 'и' + 'о' -> 'е'
                 (Person::Second, Number::Singular, Case::Ergative) => "б".to_owned(),
@@ -295,7 +295,7 @@ fn evaluate_preverb(preverb: &Preverb, morphemes: &VecDeque<Morpheme>, i: usize)
                 _ => {
                     let morpheme_next_next = morphemes.get(i + 2);
                     match morpheme_next_next {
-                        Some(Morpheme::Generic(base)) if base == "о" => preverb.form(&Reduced),
+                        Some(Morpheme::O) => preverb.form(&Reduced),
                         _ => preverb.form(&Full),
                     }
                 }
@@ -485,7 +485,7 @@ pub fn evaluate_morphemes(morphemes: &VecDeque<Morpheme>) -> String {
             Morpheme::Stem(ref stem) => evaluate_stem(stem, morphemes, i),
             Morpheme::Preverb(ref preverb) => evaluate_preverb(preverb, morphemes, i),
             Morpheme::NegationPrefix => "мы".to_owned(),
-            Morpheme::Generic(ref base) if base == "о" => evaluate_o(morphemes, i),
+            Morpheme::O => evaluate_o(morphemes, i),
             Morpheme::Generic(..) | Morpheme::RajImperative => morpheme.to_string(), // _ => unimplemented!(),
         };
         result += &x;
