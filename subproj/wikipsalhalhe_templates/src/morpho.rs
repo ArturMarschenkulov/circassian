@@ -169,7 +169,7 @@ impl Polarity {
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Preverb {
-    base: String,
+    pub base: String,
 }
 
 impl TryFrom<&str> for Preverb {
