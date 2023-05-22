@@ -326,17 +326,72 @@ pub struct TemplateDesc {
     pub original_string: String,
 }
 
+impl TryFrom<TemplateDesc> for String {
+    type Error = String;
+    fn try_from(template_desc: TemplateDesc) -> Result<String, String> {
+        if template_desc.stem.first_consonant.is_some()
+            && template_desc.transitivity == Transitivity::Intransitive
+        {
+            return Err(format!(
+                "Intransitive verbs cannot have first consonant. Got {:?}",
+                template_desc
+            ));
+        }
+
+        let mut s = String::new();
+        s.push_str("спр-");
+        s.push_str(match template_desc.transitivity {
+            Transitivity::Intransitive => "лъэмыӏ",
+            Transitivity::Transitive => "лъэӏ",
+        });
+
+        s.push('-');
+
+        match template_desc.preverb {
+            Some(preverb) => s.push_str(&preverb.base),
+            None => s.push('0'),
+        };
+
+        s.push('-');
+
+        if let Some(fc) = template_desc.stem.first_consonant {
+            match fc {
+                FirstConsonant::Unvoiced => s.push('д'),
+                FirstConsonant::Voiced => s.push_str("жь"),
+                FirstConsonant::Wy => s.push('у'),
+            }
+        }
+
+        s.push(match template_desc.stem.vowel {
+            VowelKind::With | VowelKind::Alternating => 'б',
+            VowelKind::Without => '0',
+        });
+        s.push(match template_desc.stem.last_consonant {
+            LastConsonant::Ordinary => 'д',
+            LastConsonant::Velar => 'т',
+            LastConsonant::Labial => 'л',
+            LastConsonant::Yy => 'й',
+        });
+        if let VowelKind::Alternating = template_desc.stem.vowel {
+            s.push_str("эа");
+        }
+
+        s.push('-');
+
+        s.push(match template_desc.stem.thematic_vowel {
+            ThematicVowel::A => 'э',
+            ThematicVowel::Y => 'ы',
+        });
+
+        Ok(s)
+    }
+}
 impl TryFrom<&str> for TemplateDesc {
     type Error = String;
     fn try_from(s: &str) -> Result<TemplateDesc, String> {
-        // _-transitivity-preverb-root-thematic_vowel
-
         let segments = s.split('-').collect::<Vec<&str>>();
-        if segments.len() != 5 {
-            return Err(format!(
-                "The string must have 5 segments, instead it has {}",
-                segments.len()
-            ));
+        if segments.is_empty() {
+            return Err("The string is empty.".to_owned());
         }
 
         if segments[0] != "спр" {
@@ -346,9 +401,16 @@ impl TryFrom<&str> for TemplateDesc {
             ));
         }
 
+        if segments.len() != 5 {
+            return Err(format!(
+                "The string must have 5 segments, instead it has {}",
+                segments.len()
+            ));
+        }
+
         let transitivity = extract_transitivity(segments[1]).unwrap();
         let preverb = extract_preverb(segments[2]);
-        let (fc, v, lc, alternating) = extract_root(segments[3]);
+        let (fc, v, lc, alternating) = extract_root(segments[3]).unwrap();
         let thematic_vowel = extract_thematic_vowel(segments[4]).unwrap();
 
         if fc.is_none() && transitivity == Transitivity::Transitive {
