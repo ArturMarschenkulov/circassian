@@ -266,72 +266,56 @@ fn extract_preverb(s: &str) -> Option<Preverb> {
     }
 }
 
-fn extract_root(s: &str) -> (Option<FirstConsonant>, VowelKind, LastConsonant, bool) {
-    //  let segments = s.split('-').collect::<Vec<&str>>();
-    let root = <&str>::clone(&s).to_string();
-    // the root string can only contain either 2, 3 or 5 characters.
-    assert!(
-        [2, 3, 4].contains(&root.chars().count()),
-        "The root string is not 2, 3 or 5 characters long {} {}",
-        &root.len(),
-        root
-    );
+fn extract_root(
+    potential_root: &str,
+) -> Result<(Option<FirstConsonant>, VowelKind, LastConsonant, bool), String> {
+    let root_length = potential_root.chars().count();
+
+    if ![2, 3, 4].contains(&root_length) {
+        return Err(format!(
+            "The root string is not 2, 3 or 5 characters long {} {}",
+            &root_length, potential_root
+        ));
+    }
 
     // parsing first consonant
-    let c = &root.chars().next().unwrap();
-    let (root, fc) = if !['б', '0'].contains(c) {
-        // this means it's transitive.
-        let c = &root.chars().next().unwrap();
-        let fc = match c {
+    let mut chars_iter = potential_root.chars();
+    let first_char = chars_iter.next().unwrap();
+
+    // Transitive verbs don't have 'б' and '0' as its first character.
+    // Thus if it is contained, then it is intransitive, otherwise transitive.
+    let fc = if !['б', '0'].contains(&first_char) {
+        match first_char {
             'д' => Some(FirstConsonant::Unvoiced),
             'у' => Some(FirstConsonant::Wy),
-            'ж' => Some(FirstConsonant::Voiced),
-            _ => panic!("The first consonant is not one of the allowed consonants"),
-        };
-
-        let root = if c == &'ж' {
-            root.replacen("жь", "", 1)
-        } else {
-            root.replacen(*c, "", 1)
-        };
-        (root, fc)
+            'ж' => {
+                let next_char = chars_iter.next().unwrap();
+                if next_char != 'ь' {
+                    return Err(format!("Must be 'ь' after 'ж'. Got {}", next_char));
+                }
+                Some(FirstConsonant::Voiced)
+            }
+            x => return Err(format!("Must be 'д', 'у' or 'ж'. Got {}", x)),
+        }
     } else {
-        // this means it's intransitive, because such verbs don't have phonological processes where the first letter matters.
-        (root, None)
+        None
     };
 
-    let c = &root.chars().next().unwrap();
-    let (root, v) = if ['б', '0'].contains(c) {
-        let v = match c {
-            'б' => VowelKind::With,
-            '0' => VowelKind::Without,
-            _ => panic!("The first consonant is not one of the allowed consonants"),
-        };
-        let root = root.replacen(*c, "", 1);
-        (root, v)
-    } else {
-        panic!("")
+    let v = match &chars_iter.next().unwrap() {
+        'б' => VowelKind::With,
+        '0' => VowelKind::Without,
+        x => return Err(format!("Must be 'б' or '0'. Got {}", x)),
     };
 
-    let c = &root.chars().next().unwrap();
-    let (root, lc) = if !['б', '0'].contains(c) {
-        // this means it's transitive.
-        let c = &root.chars().next().unwrap();
-        let fc = match c {
-            'д' => LastConsonant::Ordinary,
-            'т' => LastConsonant::Velar,
-            'л' => LastConsonant::Labial,
-            _ => panic!(""),
-        };
-
-        let root = root.replacen(*c, "", 1);
-        (root, fc)
-    } else {
-        panic!("")
+    let lc = match &chars_iter.next().unwrap() {
+        'д' => LastConsonant::Ordinary,
+        'т' => LastConsonant::Velar,
+        'л' => LastConsonant::Labial,
+        x => return Err(format!("Must be 'д', 'т' or 'л'. Got {}", x)),
     };
 
-    let alternating = root.ends_with("эа");
-    (fc, v, lc, alternating)
+    let alternating = chars_iter.collect::<String>().ends_with("эа");
+    Ok((fc, v, lc, alternating))
 }
 
 #[derive(Debug, Clone)]
