@@ -424,7 +424,7 @@ impl TryFrom<&str> for PersonMarker {
             "фы" => PersonMarker::new(Second, Plural, Absolutive),
             // "" => PersonMarker::new(Third, Plural, Absolutive), // This doesn't exist
             "с" => PersonMarker::new(First, Singular, Ergative),
-            "п" | "б" => PersonMarker::new(Second, Singular, Ergative),
+            "ў" => PersonMarker::new(Third, Singular, Ergative),
             "и" => PersonMarker::new(Third, Singular, Ergative),
             "д" => PersonMarker::new(First, Plural, Ergative),
             "ф" => PersonMarker::new(Second, Plural, Ergative),
@@ -483,7 +483,7 @@ impl PersonMarker {
         let new = match old {
             'с' => 'з',
             'ф' => 'в',
-            x if ['б', 'д', 'и'].contains(&x) => x,
+            x if ['ў', 'д', 'и'].contains(&x) => x,
             x => unreachable!("Unexpected letter: {}", x),
         };
         base.replacen(old, &new.to_string(), 1)
@@ -493,7 +493,7 @@ impl PersonMarker {
         let base = self.base_string();
         let old = base.chars().next().unwrap();
         let new = match old {
-            'б' => 'п',
+            'ў' => 'п',
             'д' => 'т',
             x if ['с', 'ф', 'и'].contains(&x) => x,
             x => unreachable!("Unexpected letter: {}", x),
@@ -531,7 +531,7 @@ impl PersonMarker {
             (Third, Plural, Absolutive) => "",
 
             (First, Singular, Ergative) => "с",
-            (Second, Singular, Ergative) => "б", // ў
+            (Second, Singular, Ergative) => "ў", // ў
             (Third, Singular, Ergative) => "и",
             (First, Plural, Ergative) => "д",
             (Second, Plural, Ergative) => "ф",

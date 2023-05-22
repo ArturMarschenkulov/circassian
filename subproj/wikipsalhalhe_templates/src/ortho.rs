@@ -132,6 +132,7 @@ impl TryFrom<char> for ValidChar {
             'о' => O,
             'у' => U,
             'й' => J,
+            'ў' => U, // TODO: This is wrong, but it's a temporary solution
             'я' => Ja,
             //
             'м' => M,
@@ -303,9 +304,9 @@ impl Consonant {
         false
     }
 
-    /// Returns `true` if the consonant is a labial plosive, e.g. 'п' or 'б'.
-    pub fn is_labial_plosive(&self) -> bool {
-        self.is_place_and_manner(Place::Labial, Manner::Plosive)
+    pub fn is_labial_approximant_voice(&self) -> bool {
+        self.is_place_and_manner(Place::Labial, Manner::Approximant)
+            && self.voiceness == Voiceness::Voiced
     }
 
     pub fn is_place_and_manner(&self, place: Place, manner: Manner) -> bool {
@@ -405,6 +406,8 @@ impl TryFrom<&str> for Consonant {
             // Trills
             "р" => Ok(Consonant::new(Alveolar, Trill, Voiced, false)),
             "й" => Ok(Consonant::new(Palatal, Approximant, Voiced, false)),
+            // NOTE: 'ў' is strictly an internal character!!!!
+            "ў" => Ok(Consonant::new(Labial, Approximant, Voiced, false)), // labialized ?
             // Consider actually using "w" for this, because у can also be a combi.
             "у" => Ok(Consonant::new(Labial, Approximant, Voiced, false)), // labialized ?
 
@@ -484,7 +487,8 @@ impl TryFrom<&Consonant> for &str {
             (Uvular, Fricative, Voiced, true) => Ok("гьу"),
 
             (Palatal, Approximant, Voiced, false) => Ok("й"),
-            (Labial, Approximant, Voiced, false) => Ok("у"),
+            (Labial, Approximant, Voiced, false) => Ok("ў"), // ў
+            (Labial, Approximant, Voiceless, false) => Err("This is WRONG!!!".to_owned()), // ў
             (Alveolar, Trill, Voiced, false) => Ok("р"),
 
 
@@ -594,7 +598,7 @@ fn is_char_consonant(c: &char) -> bool {
         'м' | 'н' => true,
         'I' => true,
         'п' | 'б' | 'т' | 'д' | 'к' | 'г' => true,
-        'ф' | 'в' | 'с' | 'з' | 'ш' | 'щ' | 'х' | 'ж' | 'р' | 'л' | 'й' | 'ч' | 'ц' => {
+        'ф' | 'в' | 'с' | 'з' | 'ш' | 'щ' | 'х' | 'ж' | 'р' | 'л' | 'й' | 'ў' | 'ч' | 'ц' => {
             true
         }
         _ => false,
@@ -727,7 +731,7 @@ pub fn parse(s: &str) -> Result<Vec<Letter>, String> {
         'п', 'б', 'т', 'д', 'к', 'г', 'I', //
         'ф', 'в', 'с', 'з', 'ш', 'щ', 'х', 'ж', //
         'ч', 'ц', //
-        'р', 'л', 'й', //
+        'р', 'л', 'й', 'ў', //
     ];
     for c in &chars {
         if !possible_charaters.contains(c) {

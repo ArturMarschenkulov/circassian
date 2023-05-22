@@ -161,6 +161,7 @@ fn evaluate_person_marker(
         (mp, Some(Morpheme::Generic(base))) if base == "о" => {
             match (marker.person, marker.number, marker.case) {
                 (Person::Third, Number::Singular, Case::Ergative) => "е".to_owned(), // 'и' + 'о' -> 'е'
+                (Person::Second, Number::Singular, Case::Ergative) => "б".to_owned(),
                 (Person::Third, Number::Plural, Case::Ergative) => ja_form(morpheme_prev.is_some()),
                 (_, _, Case::Absolutive) => marker.as_before_o(),
                 (_, _, Case::Ergative) => {
@@ -176,7 +177,7 @@ fn evaluate_person_marker(
         // They basically look like normal absolutive markers
         // However if there is something before that, like a preverb, the ergative markers behave normal again,
         // except the second person singular, which stays 'у' instead of becoming 'б'/'п'.
-        (morpheme_prev, Some(neg_prefix @ Morpheme::NegationPrefix)) => {
+        (morpheme_prev, Some(Morpheme::NegationPrefix)) => {
             assert_ne!((morpheme_prev.is_some(), marker.case), (true, Case::Absolutive), "If the person marker is absolutive and is followed by a negation prefix, then it must be the first morpheme of the verb, it was however {:?}", (morpheme_prev, marker.case));
 
             if morpheme_prev.is_none() {
@@ -185,24 +186,26 @@ fn evaluate_person_marker(
 
                 new_marker.base_string()
             } else if let Some(Morpheme::Preverb(preverb)) = morpheme_prev {
-                use ortho::Manner::*;
+                use ortho::*;
                 match &marker.to_letters()[0] {
-                    ortho::Letter::Consonant(consonant) => {
+                    Letter::Consonant(consonant) => {
                         let mut consonant_ = *consonant;
-                        consonant_.voiceness = neg_prefix.first_letter().unwrap().voiceness();
+                        consonant_.voiceness = Voiceness::Voiced;
 
-                        // NOTE: S2E hack
-                        if consonant_.is_labial_plosive() {
-                            consonant_.manner = Approximant;
+                        let cons = if let Ok("ў") = <&str>::try_from(&consonant_) {
+                            "у".to_owned()
+                        } else {
+                            consonant_.to_string()
                         };
                         let empenthetic = give_epenthetic_if_needed(
                             &consonant_,
                             &preverb.last_consonant().unwrap(),
-                        );
+                        )
+                        .to_owned();
 
-                        empenthetic + &consonant_.to_string()
+                        empenthetic + &cons
                     }
-                    ortho::Letter::Combi(..) => {
+                    Letter::Combi(..) => {
                         if marker.is_third_plural_ergative() {
                             ja_form(morpheme_prev.is_some())
                         } else {
@@ -218,21 +221,33 @@ fn evaluate_person_marker(
         }
         (_, Some(Morpheme::Stem(stem))) => {
             if marker.is_ergative() {
+                use ortho::*;
                 match &marker.to_letters()[0] {
-                    ortho::Letter::Consonant(consonant) => {
+                    Letter::Consonant(consonant) => {
+                        use Voiceness::*;
                         assert_ne!((marker.person, marker.number), (Person::Third, Number::Plural), "Second person singular ergative markers are not allowed to be followed by a stem");
                         // let x = preverb.first_letter().voiceness();
-                        let mut consonant = *consonant;
-                        consonant.voiceness = stem
+
+                        let voiceness = stem
                             .first_consonant
                             .as_ref()
                             .unwrap()
                             .to_voiceness()
                             .to_owned();
 
-                        consonant.to_string()
+                        if let Ok("ў") = <&str>::try_from(consonant) {
+                            match voiceness {
+                                Voiced => "б",
+                                Voiceless | Ejective => "п",
+                            }
+                            .to_owned()
+                        } else {
+                            let mut consonant = *consonant;
+                            consonant.voiceness = voiceness;
+                            consonant.to_string()
+                        }
                     }
-                    ortho::Letter::Combi(..) => {
+                    Letter::Combi(..) => {
                         if marker.is_third_plural_ergative() {
                             ja_form(morpheme_prev.is_some())
                         } else {
@@ -261,15 +276,15 @@ fn evaluate_preverb(preverb: &Preverb, morphemes: &VecDeque<Morpheme>, i: usize)
     use PreverbSoundForm::*;
     match &morpheme_next.unwrap() {
         Morpheme::PersonMarker(marker) => {
+            use ortho::*;
             assert!(marker.case == Case::Ergative);
 
             // let base = marker.get_base_string();
             let first_letter = marker.to_letters()[0];
             let x = match first_letter {
-                ortho::Letter::Combi(..) => preverb.form(&BeforeVowel),
-                ortho::Letter::Consonant(cons)
-                    // NOTE: S2E hack
-                    if cons.is_labial_plosive() // == "б"
+                Letter::Combi(..) => preverb.form(&BeforeVowel),
+                Letter::Consonant(cons)
+                    if cons.is_labial_approximant_voice()
                         && morphemes
                             .get(i + 2)
                             .map(|m| m == &Morpheme::NegationPrefix)
