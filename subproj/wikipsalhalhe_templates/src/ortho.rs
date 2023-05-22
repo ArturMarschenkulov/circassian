@@ -3,7 +3,6 @@
 ///
 /// The main struct is `Letter`, which contains the letter itself, and a `LetterKind`.
 
-
 /// [`Letter`] is an enum which contains the kind of the letter.
 /// It can be a consonant, a vowel, or a combination of consonant and vowel.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -235,15 +234,6 @@ impl TryFrom<&str> for Vowel {
     }
 }
 
-impl From<&Vowel> for &str {
-    fn from(c: &Vowel) -> Self {
-        match c {
-            Vowel::AA => "а",
-            Vowel::A => "э",
-            Vowel::Y => "ы",
-        }
-    }
-}
 
 impl From<&Vowel> for char {
     fn from(c: &Vowel) -> Self {

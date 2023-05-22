@@ -554,7 +554,10 @@ fn create_tables(desc: &template::TemplateDesc) -> String {
     }
     // result += &r.join("\n-\n");
 
-    result += "|}<noinclude>\n[[Category:Wt/kbd]]\n</noinclude>";
+    result += "|}";
+    result += "<noinclude>\n";
+    result += "[[Category:Wt/kbd]]\n";
+    result += "</noinclude>";
 
     result
 }

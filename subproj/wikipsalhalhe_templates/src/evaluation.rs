@@ -99,16 +99,16 @@ fn je_form(is_after_consonant: bool) -> String {
     if is_after_consonant { "е" } else { "э" }.to_owned()
 }
 
-fn give_epenthetic_if_needed(c_0: &Consonant, c_1: &Consonant) -> String {
+fn give_epenthetic_if_needed(c_0: &Consonant, c_1: &Consonant) -> &'static str {
     use ortho::*;
     use Manner::*;
     use Place::*;
     let is_wy = (Approximant, Labial) == (c_0.manner, c_0.place);
     let needs_it = c_1.needs_epenthetic_y();
     if is_wy && needs_it {
-        "ы".to_owned()
+        "ы"
     } else {
-        "".to_owned()
+        ""
     }
 }
 fn evaluate_person_marker(

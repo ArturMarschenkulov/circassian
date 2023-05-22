@@ -63,6 +63,7 @@ impl From<&ortho::Vowel> for ThematicVowel {
         }
     }
 }
+
 impl std::fmt::Display for ThematicVowel {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         match self {
@@ -139,7 +140,8 @@ pub struct VerbStem {
 
 impl VerbStem {
     pub fn new(s: &str, transitivity: morpho::Transitivity) -> Self {
-        let letters = ortho::parse(s).unwrap();
+        use ortho::*;
+        let letters = parse(s).unwrap();
         assert!(!letters.is_empty(), "The verb stem can't be empty.");
 
         let vowel = match letters.len() {
@@ -151,7 +153,7 @@ impl VerbStem {
         let first_letter = letters.first().unwrap();
 
         let thematic_vowel = match &last_letter {
-            ortho::Letter::Vowel(vowel) => ThematicVowel::from(vowel),
+            Letter::Vowel(vowel) => ThematicVowel::from(vowel),
             _ => ThematicVowel::Y,
         };
 
@@ -160,7 +162,7 @@ impl VerbStem {
             .rev()
             .find(|l| l.is_consonant())
             .map(|l| {
-                if let ortho::Letter::Consonant(consonant) = &l {
+                if let Letter::Consonant(consonant) = &l {
                     LastConsonant::from(consonant)
                 } else {
                     panic!("The letter {:?} is not a consonant.", l);
@@ -172,7 +174,7 @@ impl VerbStem {
         let first_consonant = match transitivity {
             Transitivity::Intransitive => None,
             _ => match &first_letter {
-                ortho::Letter::Consonant(consonant) => Some(FirstConsonant::from(consonant)),
+                Letter::Consonant(consonant) => Some(FirstConsonant::from(consonant)),
                 _ => panic!("The letter {:?} is not a consonant.", first_letter),
             },
         };
