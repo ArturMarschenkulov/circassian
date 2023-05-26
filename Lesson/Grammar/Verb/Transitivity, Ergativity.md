@@ -12,6 +12,31 @@ absolutive/nominative (-r) ergative (-m)
 # Labile/neutral/diffuse verbs
 Those are verbs which can be treated as transitive and intransitive verbs without any derivation morphology. One has to however use the appropriate conjugation paradigm.
 
+Among those there are two types. The agent preserving ones and the patient preserving ones.
+
+Agent preserving ones:
+>- **_вэн_** - _to plow Y_
+>	- **_тракторыр мавэ_** - _the tractor plows_
+>	- **_тракторым щӀыр евэ_** - _the tractor plows land_
+>- **_пщIэн_** - _to weed Y_
+>	- **_ар мапщӀэ_** - _he weeds_
+>	- **_абы хадэр епщӀэ_** - _he weeds the garden_
+>- **_сэн_** - _to sow Y_
+>	- **_ар масэ_** - __
+>	- **_абы ар есэ_** - __
+
+
+Patient preserving ones:
+>- **_къутэн_** - _to break Y_
+>	- **_стаканыр мэкъутэ_** - _the cup breaks_
+>	- **_сабийм стаканыр екъутэ_**
+>- **_тIатэн_** - _to untie Y_
+>	- **_лъэпсыр мэтIатэ_** - _the shoelace unties
+>	- **_абы лъэпсыр етIатэ_** - _he unties the shoelace_
+>- **_сын_** - _to burn Y_
+>	- **_пхъэр мэс** - _the triee burns_
+>	- **_мафӀэм пхъэр ес_** - _fire burns the tree_
+
 
 - **_qʷətan_**
 	- **_aːbə ɕħaʁʷəbʒar jaqʷəta_** - _he breaks the window_

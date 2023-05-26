@@ -28,6 +28,7 @@ Verbs of motion are:
 >- **dzən** - _to throw Y_
 >- **_ħən_**
 
+Such verbs have the speciality that ablaut alteration leads to direction change. **_э_** refers to motion towards something, while **ы** refers to motion away from something.
 
 # Bound stems
 Note: There is another term for that.
@@ -46,3 +47,17 @@ The below are special, as they can be suffixed to verbs as well as being combine
 >- **_tʃʼə-_** refers to moving away (exiting).
 >- **_xə-_** refers to moving down.
 >- **_jə-_** refers to moving up.
+
+# Verbs based on how they interact with common vallency change.
+
+Verbs chose basic 1 to 2 valency change is done by changing transitivity + alternate ablaut
+**_тхэн_** _to write_
+**_шхэн_** _to eat_
+**_псэлъэн_** _to talk_
+
+
+**_плъэн_** _to look_
+**_лъэIуэн_** _to ask_
+**_бгэн_** _to curse_
+**_бэнэн_** _to fight_
+**_Iэбэн_** _to touch_

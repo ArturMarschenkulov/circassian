@@ -24,7 +24,8 @@ Some verbs go even further.
 
 **__** (intr **__**) __ vs **__** (tr **__**) __
 
-### intr. 1-pers to intr. 2-pers
+### with preverb (intr. 1-pers to intr. 2-pers)
+Frequently when a plain stem gets a preverb attached, a/ə alteration happens.
 
 >- **_pɬan_** (**_maːpɬa_**) _to look_ -> **_japɬən_** (**_jawpɬ_**) _to look at Y_
 >- **_bɣan_** (**_maːbɣa_**) _to curse_ -> **_jabɣən_** (**_jawbɣ_**) _to curse Y_
@@ -32,6 +33,21 @@ Some verbs go even further.
 >- **_kʷʼan_** (**_maːkʷʼa_**) _to go_ -> **_jakʷʼən_** (**_jawkʷʼ_**) _to go through Y_
 >- **_ɬaːʔʷan_** (**_ɬaːʔʷa)_** _to request_ -> **_jaɬa ːʔʷən_** (**_jawɬaːʔʷ_**) _to go through Y_
 
+Verbs with direction frequently have a futher differentiation. Preverb plus stem on _-a_ means motions towards, while _-ə_ means towards away.
+
+>-**_xaʃən_** (**_xajʃ_**) _to lead Y out of Z_
+>-**_xaʃan_** (**_xajʃa_**) _to lead Y into Z_
+
+When combined with the passt tense suffix **_-aː_** this differentiation gets eliminated. That's why frequently to restore the meaning of a **_-ə_** stems, the preverbn **_qə-_** is used.
+
+**_bzəwr mazəm xaɬataːɕ_** could technically mean both _the bird flew into the forest_ OR _the bird flew out of the forest_. Effectively, however it meanxs the the former. **_bzəwr mazəm qəxaɬataːɕ_** would refer to latter.
+
+Verbs with such a feature are:
+>- **_dzən_** - _to throw Y_
+>- **_ʃan_** - _to lead Y_
+>- **_xʷən_** - _to drive Y_
+>- **_ɬafən_** - _to pull/drag Y_
+>- **_-tsʼafta_** - _to move fast_
 ## preverb + a/e alteration
 Verbs of movement when combined with a locational preverb, the a/ə alteration denotes whether the verb is towards the subject or away from it.
 

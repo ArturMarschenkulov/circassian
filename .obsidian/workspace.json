@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "b4c69d7165434525",
+        "id": "5e4540743e4815c1",
         "type": "tabs",
         "children": [
           {
-            "id": "818c050d83b9f9c8",
+            "id": "9c4e2adef02ba45e",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -20,77 +20,16 @@
             }
           },
           {
-            "id": "88f3e662927eb711",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Lesson/Grammar/Clause, Adjective clause.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "c82f4916f1fbedb3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Lesson/Grammar/Verb/Derivation.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "bf9c1744eed2db34",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Lesson/Grammar/Verb/Preverbs.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "e9ec595f4fe22fe6",
+            "id": "e3fedd02ec196e03",
             "type": "leaf",
             "state": {
               "type": "release-notes",
               "state": {
-                "currentVersion": "1.0.0"
-              }
-            }
-          },
-          {
-            "id": "078c4965184e5695",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Kabardian Dictionary/Lemmas/jaɬan.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "6dce3f9e9c678fea",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Lesson/Grammar/Verb/Verb conjugation paradigm.md",
-                "mode": "source",
-                "source": false
+                "currentVersion": "1.2.8"
               }
             }
           }
-        ],
-        "currentTab": 6
+        ]
       }
     ],
     "direction": "vertical"
@@ -127,12 +66,20 @@
                 "sortOrder": "alphabetical"
               }
             }
+          },
+          {
+            "id": "263857f55b4e19d8",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 405.5086555480957
+    "width": 200
   },
   "right": {
     "id": "91ac3f9085a0b7b4",
@@ -176,17 +123,51 @@
     "direction": "horizontal",
     "width": 200
   },
-  "active": "6dce3f9e9c678fea",
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "command-palette:Open command palette": false,
+      "markdown-importer:Open format converter": false
+    }
+  },
+  "active": "9c4e2adef02ba45e",
   "lastOpenFiles": [
-    "Lesson/Grammar/Verb/Derivation.md",
     "Lesson/Grammar/Verb/Verb conjugation paradigm.md",
-    "Lesson/Grammar/Verb/Transitivity, Ergativity.md",
-    "Lesson/Grammar/Verb/Preverbs.md",
+    "Lesson/Grammar/Verb/a ə alteration.md",
+    "subproj/wikipsalhalhe_templates/target/debug/incremental/wikipsalhalhe_templates-290xnd56kjxoq/s-gl31jytfkk-1d0yxbn-132lnux0ydhem/work-products.bin",
+    "subproj/wikipsalhalhe_templates/target/debug/incremental/wikipsalhalhe_templates-290xnd56kjxoq/s-gl31jytfkk-1d0yxbn-132lnux0ydhem/query-cache.bin",
+    "subproj/wikipsalhalhe_templates/target/debug/incremental/wikipsalhalhe_templates-290xnd56kjxoq/s-gl31jytfkk-1d0yxbn-132lnux0ydhem/dep-graph.bin",
+    "subproj/wikipsalhalhe_templates/target/debug/incremental/wikipsalhalhe_templates-290xnd56kjxoq/s-gl31jytfkk-1d0yxbn-132lnux0ydhem",
+    "subproj/wikipsalhalhe_templates/target/debug/incremental/wikipsalhalhe_templates-22s5z1zw2it0c/s-gl31jytfmc-13u69z9-hsz6mghg44r4/dep-graph.bin",
+    "subproj/wikipsalhalhe_templates/target/debug/incremental/wikipsalhalhe_templates-22s5z1zw2it0c/s-gl31jytfmc-13u69z9-hsz6mghg44r4/work-products.bin",
+    "subproj/wikipsalhalhe_templates/target/debug/incremental/wikipsalhalhe_templates-22s5z1zw2it0c/s-gl31jytfmc-13u69z9-hsz6mghg44r4/query-cache.bin",
+    "subproj/wikipsalhalhe_templates/target/debug/incremental/wikipsalhalhe_templates-22s5z1zw2it0c/s-gl31jytfmc-13u69z9-hsz6mghg44r4",
+    "subproj/wikipsalhalhe_templates/target/debug/incremental/wikipsalhalhe_templates-290xnd56kjxoq/s-gl31jytfkk-1d0yxbn-working/dep-graph.part.bin",
+    "subproj/wikipsalhalhe_templates/target/debug/incremental/wikipsalhalhe_templates-22s5z1zw2it0c/s-gl31jytfmc-13u69z9-working/dep-graph.part.bin",
+    "Lesson/Translations/50-languages.md",
+    "Lesson/Grammar/Derivation.md",
+    "Lesson/Grammar/Interjections.md",
+    "Kabardian Dictionary/Lemmas/jaɬan.md",
+    "Lesson/Comparing northwestern Caucasian.md",
     "Lesson/Grammar/Verb/Reflexive verbs.md",
-    "Lesson/Grammar/Verb/Semantic verb types.md",
     "Lesson/Grammar/Verb/Tense.md",
+    "Lesson/Grammar/Verb/Transitivity, Ergativity.md",
+    "Lesson/Grammar/Verb/Verb types.md",
+    "Lesson/Grammar/Verb/Preverbs.md",
+    "Lesson/Grammar/Verb/Potential form.md",
     "Lesson/Grammar/Verb/Optative form.md",
+    "Lesson/Grammar/Verb/Participles.md",
+    "Lesson/Grammar/Verb/Passive Voice.md",
+    "Lesson/random phrases.md",
+    "Lesson/Dialectal Variation.md",
+    "Lesson/Grammar/Verb/Derivation.md",
     "Lesson/Grammar/Verb/Imperative.md",
-    "Lesson/Grammar/Verb/Passive Voice.md"
+    "Lesson/Grammar/Verb/-tʃʼa.md",
+    "Lesson/Grammar/Correlatives.md",
+    "Lesson/Grammar/Conjunctions.md",
+    "Lesson/Translations/Songs.md",
+    "Lesson/Grammar/Exploring stems.md"
   ]
 }

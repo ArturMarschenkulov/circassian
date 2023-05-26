@@ -2,12 +2,70 @@ The Kabardian verb conjugation paradigm is very complex.
 
 The verb can be divided into several group, which determine how the verb is to be conjugated.
 
+
+abs-(erg)-stem
 # Transitivity
+The main overarching category for a verb is transitivity. A verb can be transitive (**_лъэIэс_**) and intransitive (**_лъэмыIэс_**). The main difference is that a base intransitive verb governs only over 1 argument, the subject in the absolutive/nominative case (**_-р_**), while a base transitive verb governs over 2 arguments, the subject in the ergative case (**_-м_**) and the direct object in the absolutive/nominative case (**_-р_**).
+
+Below the intransitive verb **_плъэн_** _to look_ and transitive verb **_лъагъун_** _to see Y_ are used to demonstrate that. With **_лIы_** _man_ and **_жыг_** _tree_.
+
+>- **_лIыр плъэнщ_** - _the man will look_
+>- **_лIым жыгыр илъагъунщ_** - _the man will see the tree_
+
+However, in both cases, those base verbs can get indirect objects in the ergative case (**_-м_**), usually by deploying preverbs. A frequent example is the use of the preverb **_е-_** with intransitive verbs, which is a very generic way to add an indirect object. In many ways it is equivalent to 'to' or 'at' or the French 'à'. Thus leading to the verb **_еплъын_** (not that **_э_** became **_ы_**).
+
+>- **_лIыр жыгым еплъынщ_** - _the man will look at the tree_
+>- **_лIым жыгыр илъэгъунщ_** - _the man will see the tree_
+
+As one can see, intransitive and transitive verbs can have 2 arguments and if that is the case the cases are switched. While with an intransitive with 2 arguments the subject is in the absolutive/nominative with an (indirect) object in the ergative, the transitive verb has it the other way around, the subject is in the ergative case while the (direct) object is in the absolutive/nominative. 
+
+Important to note, that while morphologically there is only one ergative case, it is useful to differentiate between the 'pure' ergative and the oblique case. The 'pure' usage would be only in regards to the use as subject, while the oblique usage would be everything else. More on that later.
+## Patterns
+There are certain patterns in regards to verbs and transitivity.
+
+Base stems for motion verbs are for the most part intransitive.
+
+In perception verbs, intransitive ones indicate more agency while that's less so the case with transitive verbs. Compare:
+**_сыноплъащ_** _I looked at you_ vs **_услъэгъуащ_** _I saw you_
+**_сынодэIуащ_** _I listened to you_ vs **_узэхэсхащ_** _I heard you_
+
+
+## Syntactical and morphological transitivity
+Most Kabardian verbs have  morphologically and syntactically the same transitivity, yet some verbs are special.
+
+### Morphologically transitive, syntactically intranstive   
+Basically, simply by looking at their morphology one would assume that it is a normal transitive, yet semantically/syntactically this is not the case. One can divide them up into several types.
+
+#### Type 0
+These verbs are flexible. Either they can remain "normal" or their 
+
+>- **_ухын_** (**_еух_**) _to end Y_
+>	- **_илъэсым иухащ_** - _the year started_
+>	- **_ар илъэсым иухащ_** - _he started the year_
+>- **_щIэдзэн_** (**_щIедзэ_**) _to begin Y_
+>	- **_урокым щIидзащ_** - _the class started_
+>	- **абы урокыр щIидзащ** - _he/she started the class_
+>	- **_жэщ сменэм вэн щIидзакIэщ_** - _the night shift started plowing_
+
+#### Type 1
+
+>
+>- **_къэкIухьын_** (**_къекIухь_**) _to walk_
+>	- **__**
+### Morphologically intransitive, syntactically transtive
+
+**_щыгъупщэн_** _to forget_ is morphologically intransitive, yet it acts like a transitive verb
+
+
+>-**_сыпщыгъупщэнщ_** /**_səpɕəʁʷəpɕanɕ_**/ - _you will forget me_
+>
+
 The most important overarching category is transitivity. Both transitive (**_ɬaʔas_**) and intransitive (**_ɬaməʔas_**) verbs can have multiple persons marked. The main difference is the order of the personal prefixes and what case the subject and object take.
 
 The main differences is that the subject of intransitive verbs is in the absolutive case (**_-r_**) (however it is also frequently called nominative), while the subject of the transitive verb is in the ergative case (**_-m_**).  An intransitive verb can only have indirect objects, which always have the ergative case (**_-m_**), while transitive verbs can have direct objects (**_-r_**) and indirect objects (**_-m_**), though they can't be without an object. However usually when a transitive object has 2 persons it's the subject and direct object. Meaning that effectively speaking, the cases switch between intransitive and transitive verbs.
 
 >- **_ɬʼər ʒəɣəm jawpɬ_** - _the man looks at the tree_
+>- **_лIыр жыгым йоплъ_**
 >- **_ɬʼəm ʒəɣər jaɬaːʁʷ_** - _the man sees the tree  _
 
 The two verbs are **_japɬən_** _to look at Y_ and **_ɬaʁʷən_** _to see Y_, the former is intransitive, the later transitive, but both take 2 persons. While this parallel in the English language might only be a coincidence, it's actually a good analogy, because indirect objects can always be seen as 'preposition' + 'object', like 'at/to him'.
@@ -21,6 +79,15 @@ Below is a short overview of the different conjugations:
 >- **_sənawpɬaːɕ_** vs **_wəsɬaʁʷaːɕ_** - _I looked at you_ vs _I saw you_
 >- **_wəqəzawpɬ_** vs **_səbawɬaʁʷ_** - _you look at me_ vs _you see me_
 >- **_wəqəzapɬaːɕ_** vs **_səpɬaʁʷaːɕ_** - _you looked at me_ vs _you saw me_
+
+>- **_соплъ_** vs **_солъэгъу_** - _I look at Y_ vs _I see Y_
+>- **_сыплъащ_** vs **_слъэгъуащ_** - _I looked at Y_ vs _I saw Y_
+>- **_къызоплъ_** vs **_sajɬaʁʷ_** - _X looks at me_ vs _X sees me_
+>- **_къызэплъащ_** vs **_səjɬaʁʷaːɕ_** - _X looked at me_ vs _X saw me_
+>- **_сыноплъ_** vs **_wəzawɬaʁʷ_** - _I look at you_ vs _I see you_
+>- **_сыноплъащ_** vs **_wəsɬaʁʷaːɕ_** - _I looked at you_ vs _I saw you_
+>- **_укъызоплъ_** vs **_səbawɬaʁʷ_** - _you look at me_ vs _you see me_
+>- **_укъызэплъащ_** vs **_səpɬaʁʷaːɕ_** - _you looked at me_ vs _you saw me_
 
 As you might have noticed, it seems like the order has changed. In intransitive verbs the marker for the subject comes first and then the indirect object, while in intransitive verbs the marker for the direct object comes first and then subject. And this is true, however one can also regard it as having the same order, if you analyze it as (abs)-(erg as indirect object)-(erg as subject). 
 
@@ -40,6 +107,7 @@ A good example of this are the two verbs **_gʷərəʔʷan_** and **_qəgʷərə
 >- **_zgʷərawʔʷa_** vs **_səqəgʷərawʔʷa_** - _X agrees with me_ vs _X understands me_
 >- **_səbgʷərawʔʷa_** vs **_wəqəzgʷərawʔʷa_** - _I agree with you_ vs _I understand you_
 >- **_wəzgʷərawʔʷa_** vs **_səqəbgʷərawʔʷa_** - _you agree with me_ vs _you understand me_
+>- **_сыкъыбгурыIуэрэ_** /**_səqəbgʷərəʔʷara_**/
 >- **_səbgʷərəʔʷarqəm_** vs **_wəqəzgʷərəʔʷarqəm_** - _I don't agree with you_ vs _I don't understand you_
 >- **_zgʷərəʔʷa_** vs **_səqəgʷərəʔʷa_** - _agree with me!_ vs _understand me!_
 >- **_zgʷərəwməʔʷa_** vs **_səqəgʷərəwməʔʷa_** - _don't agree with me!_ vs _don't understand me!
@@ -52,12 +120,19 @@ As you can see, the personal prefixes are more or less switched
 >- **_səj aːdam səj aːnar jaɬaːʁʷ_** - _my father sees my mother_
 
 # Dynamic vs Static
-Dynamicity is another major distinction.
-Other than that, the other rather important distinction is whether the verb is static or dynamic. If it is dynamic it takes the prefix **_aw-_** in the present indicative positive form.
+Dynamicity is another major distinction, whether the verb is static or dynamic. The rule of thumb is that dynamic verbs are more action-like, while static verbs are more state/adjective-like. I fact, every noun can be turned into a static verb with the meaning of _to be NOUN_.
 
->- **_sawpɬa_** - _I watch_
->- **_səpɬarqəm_** - _I don't watch_
->- **_səpɬanəw_** - _I'll watch_
+Dynamic verbs have the signature **_о-_** prefix, which only appears in the positive indicative present tense, and the suffix **_-р_** which appears in some forms, however when it is the last element it is optional.
+
+>- **_плъэн_** - _to look_
+>	- **_соплъэ(р)_** - _I look_
+>	- **_сыплъэркъым_** - _I don't look_
+
+Static verbs do not get the **_о-_** prefix and in a sense replace the partially optional **_р_** with the required **_щ_**, however their distribution differse.
+>- **_щытын_** - _to stand_
+>	- **_сыщытщ_** - _I stand_
+>	- **_сыщыткъым_** - _I don't stand_
+
 
 Another thing, is also whether the verb is simple or whether it has some sort of prefix, preverb, causative etc attached to it.
 
@@ -83,13 +158,13 @@ This is about intranstivie verbs with only 1 person without any preverbs.
 Verbs which use that conjugation are:
 >- **_ʒan_** (**_maːʒa(r)_**) - _to run_
 >- **_ʑan_** (**_maːʑa(r)_**) - _to boil/fry/roast_
->- **_psaːɬan_** (**_mapsaːɬa(r)_**) - _to speak_
+>- **_psaɬan_** (**_mapsaːɬa(r)_**) - _to speak_
 >- **_gʷəpsəsan_** (**_magʷəpsəsa(r)_**) - _to think_
 >- **_txan_** (**_maːtxa(r)_**) - _to write_
 >- **_ɮaʑan_** (**_maɮaːʑa(r)_**) - _to work_
 >- **_dəħaʃxən_** (**_madəħaʃx(ər)_**) - _to laugh_
 >- **_gʷəfʼa_** (**_magʷəfʼa(r)_**) - _to be happy_
->- **_naɕχajjən_** (**_manaɕχaj(r)_**) - _to be sad_
+>- **_naɕχajən_** (**_manaɕχaj(r)_**) - _to be sad_
 >- **_ʁʷən_** (**_maːʁʷ(ər)_**) - _to dry_
 >- **_ʁən_** (**_maːʁ(ər)_**) - _to cry_
 >- **_ʁʷaχʷan_** (**_maʁʷaːχʷa(r)_**) - _to cry loudly_
@@ -122,7 +197,7 @@ Verbs which use that conjugation are:
 >- **_ɕəsən_** (**_ɕəsɕ_**) - _to sit_
 >- **_ɕəɬən_** (**_ɕəɬɕ_**) - _to lie_
 
-## intr. 2-pers. base
+    ## intr. 2-pers. base
 
 Verbs which use that conjugation are:
 >- **_japɬən_** (**_jawpɬ_**) - _to look at Y_
@@ -211,11 +286,11 @@ Intransitivie 2-person with prefix
 |     |me   |you |him/her/it|us   |y'all |them|
 |-----|-----|----|----------|-----|------|----|
 |I    |(zəz-P-)|səb-P-|sə-P-|%|səv-P-|saː-P-|
-|you  |wəz-P-|(zəb-P-)|wə-P-|wəd-P-|%|waː-P-|
-|he   |s-P-|p-P-|P-(/zə-P-)|d-P-|f-P-|jaː-P-|
-|we   |%|dəv-P-|də-P-|(zə)|dəv-P-|daː-P-|
-|y'all|fəz-P-|%|fə-P-|fəd-P-|%|faː-P-|
-|they |s-P-|p-P-|P-|d-P-|f-P-|jaː-P-|
+|you  |wəz-P-|(wəz-P-)|wə-P-|wəd-P-|%|waː-P-|
+|he   |s-P-|p-P-|P-/zə-P-)|d-P-|f-P-|jaː-P-|
+|we   |%|dəv-P-|də-P-|(dəz-P)|dəv-P-|daː-P-|
+|y'all|fəz-P-|%|fə-P-|fəd-P-|(fəz-P)|faː-P-|
+|they |s-P-|p-P-|P-|d-P-|f-P-|jaː-P-/%|
 
 The subject (absolutive -r) markers are: **_sə-_**, **_wə-_**, **_∅-_**, **_də-_**, **_fə-_**, **_∅-_**.
 
@@ -228,7 +303,7 @@ Verbs which use that conjugation are:
 >- **_ħən_** (**_jaħ_**) - _to carry Y_
 >- **_ɬaʁʷən_** (**_jeɬaʁʷ_**) - _to see Y_
 >- **_ɕʼan_** (**_jaɕʼa_**) - _to know Y_
->- **_jatən_** (**_jat_**) - _to give Y_
+>- **_tən_** (**_jat_**) - _to give Y_
 >- **_wəxən_** (**_jawəx_**) - _to finish Y_
 >- **_tħaɕʼən_** (**_jatħaɕʼ_**) - _to wash Y_
 >- **__** - __
@@ -306,8 +381,8 @@ Transitive 2-person with prefix
 |he   |sə-P-əj-|wə-P-əj-|P-əj-|də-P-əj-|fə-P-əj-|P-əj-|
 |we   |%|wə-P-t-|P-t-|(zə-P-d)|fə-P-t-|P-t-|
 |y'all|sə-P-f-|%|P-f-|də-P-f-|(zə-P-f-)|P-f-|
-|they |sə-P-əj-|wə-P-əj-|P-əj-|də-P-əj-|fə-P-əj-|P-əj-|
-The subject (ergative -m) markers are: **_s-_**, **_w-/p-_**, **_jə-_**, **_d-_**, **_f-_**, **_jə-_**.
+|they |sə-P-aː-|wə-P-aː-|P-aː-|də-P-aː-|fə-P-aː-|P-aː-|
+The subject (ergative -m) markers are: **_s-_**, **_w-/p-_**, **_jə-_**, **_d-_**, **_f-_**, **_ja-_**.
 
 The object (absolutive -r) markers are: **_sə-_**, **_wə-_**, **_∅-_**, **_də-_**, **_fə-_**, **_∅-_**.
 ## tr. 3-pers.
@@ -366,4 +441,6 @@ direct_object-indirect_object-subject
 |3S 3S 2P|he V him to y'all |qəfaj-V|
 |3S 3S 3P|he V him to them  |jaːraj-V|
 
-
+The subject (ergative -m) markers are: **_s-_**, **_b-_**, **_jə-_**, **_d-_**, **_f-_**, **_aː-_**.
+The direct object (absolutive -r) markers are: **_sə-_**, **_wə-_**,   
+The indirect object (ergative -m) markers are: **_sa-_**, **wa-**, **ja-**, **_da-_**, **_fa-_**, **_ja-_**

@@ -1,3 +1,13 @@
+### -ей trees
+This suffix creates trees
+>- **_нартей_** - _yew_ (lit. nart tree)
+>- **_псей_** - _fir_
+>- **_бжей_** - _beech_
+>- **_жыгей_** - _oak_
+>- **_мышхумпIей_** - _oak_
+>- **_пхъэхуей_** - _birch_
+
+>-**_къуэрэдэрэ_** /**_qʷaradara_**/
 # To adjectives
 ## From nouns
 ### **_-nʃa_**
