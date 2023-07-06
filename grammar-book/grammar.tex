@@ -1,4 +1,7 @@
-\documentclass[a4paper,11pt]{book}
+
+% document which as two columns on one page.
+% \documentclass[a4paper, twocolumn, 8pt]{book}
+\documentclass[a4paper, 10pt]{book}
 
 % Load necessary packages
 \usepackage{fontspec}
@@ -17,26 +20,136 @@
 \author{Artur Marschenkulov}
 \date{\today}
 
+
+% all my new commands start with `my'
+% this creates a command which takes 3 arguments, the first one is the word in the latin script, the second one is the word in the cyrillic script, and the third one is the translation of the word
+% \newcommand{\mywordrce}[3]{\textit{#1} -- #2 -- `#3'}
+\newcommand{\mywordcre}[3]{\textbf{#1} \textit{#2} `{#3}'}
+\newcommand{\mywordcr}[2]{\textbf{#1} \textit{#2}}
+\newcommand{\myworde}[1]{`{#1}'}
+
+
+
 \maketitle
 
 \tableofcontents
 
 
 \chapter{Introduction}
-\section{Goal}
-The goal of this book is to provide a comprehensive description of the Eastern Circassian language, i.e. Kabardian. It is intended to be a living document that will be continuously worked on and updated. The intended target audience are linguists, language learners, and native speakers of Kabardian.
+% Preface
+\section{Goal and motivation}
+This book is intended to be a living document that will be continuously worked on and updated. Because of that, it is important to have a clear goal in mind.
 
-Because of the wide range of audiences, one has to strike a balance between being linguistically precise and being accessible to non-linguists. Thus this book will contain a lot of examples, which might be redundant for linguists, but will be helpful for non-linguists.
+The main goal of this book is to provide a comprehensive description of the Eastern Circassian language, i.e. Kabardian. However, this book will also contain a lot of information about the speakers of the language, their culture, and their history. 
 
-The book will be divided into three parts. The first part will be a general introduction to the language, its history, and its speakers. The second part will be a comprehensive description of the grammar of the language. The third part will be a learning guide specifically targeted at language learners, where a big emphasis will be put on expressing certain ideas and explaining certain quirks and concepts in a way that is easy to understand for non-linguists.
+The intended target audience are linguists, language learners, and native speakers of Kabardian. It might seem weird and overkill that a comprehensive descriptive grammar is targeted at language learners, however in my experience there are far too few resources which go into adequate detail about the grammar of the language without it only being understandable to linguists. In my honest opinion, learning Circassian is made much easier once one understands the grammar better. Because of that this book will try to strike a balance between being linguistically precise and being accessible to non-linguists. Thus, for example, this book will contain a lot of examples, which might be redundant for linguists, but will be helpful for non-linguists, either to get a better feel for the language or to make it easier to learn.
+
+% The main reason being because there is a lack of comprehensive information about this language, be it in the linguistics domain or in the language learning domain, especially in English (though I could find more resources in the linguistics domain). With this book I intend to fill that gap. Of the few resources for language learners, most of them do not talk much about the grammar of 
+
+The book will be divided into three parts. The first part will be a general introduction to the language, its history, and its speakers. The second part will be a comprehensive description of the grammar of the language. The third part will be a learning guide specifically targeted at lang  uage learners, where a big emphasis will be put on expressing certain ideas and explaining certain quirks and concepts in a way that is easy to understand for non-linguists.
+
+While this book mainly focuses on Eastern Circassian (Kabardian), it will also contain information about Western Circassian (Adyghe) where it is relevant, as well as Ubykh, Abkhaz and Abaza, as comparing them can create more insight. Maybe there will be even their own parts in the book, but that is not certain yet. A secondary goal is to promote everything which is adjacent to the Circassians in some way.
 
 \part{Society, Culture and History}
 \part{Grammar}
 \chapter{Phonology}
 \chapter{Morphology}
-\chapter{Syntax}
-\chapter{Semantics}
-\chapter{Pragmatics}
+\section{Verb}
+The verb is the 
+\subsection{Transitivity}
+The main overarching category for a verb is transitivity. A verb can be transitive (лъэIэс) and intransitive (лъэмыIэс). The main difference is that a base intransitive verb governs only over 1 argument, the subject in the absolutive/nominative case (-р), while a base transitive verb governs over 2 arguments, the subject in the ergative case (-м) and the direct object in the absolutive/nominative case (-р).
+
+Below the intransitive verb \mywordcre{плъэн}{pɬan}{to look} and transitive verb \mywordcre{лъагъун}{ɬaːʁʷən}{to see Y} are used to demonstrate that. With \mywordcre{лIы}{ɬʼə}{man} man and \mywordcre{жыг}{ʒəɣ}{tree}.
+
+\begin{itemize}
+    \item \mywordcre{лIыр плъэнщ}{ɬʼər pɬanɕ}{the man will look}
+    \item \mywordcre{лIым жыгыр илъагъунщ}{ɬʼəm ʒəɣər jəɬaːʁʷənɕ}{the man will see the tree}
+\end{itemize}
+
+However, in both cases, those base verbs can get indirect objects in the ergative case (-м), usually by deploying preverbs. A frequent example is the use of the preverb е- with intransitive verbs, which is a very generic way to add an indirect object. In many ways it is equivalent to 'to' or 'at' or the French 'à'. Thus leading to the verb еплъын (not that э became ы).
+
+
+\begin{itemize}
+    \item \mywordcre{лIыр жыгым еплъынщ}{}{the man will look at the tree}
+    \item \mywordcre{лIым жыгыр илъэгъунщ}{}{the man will see the tree}
+\end{itemize}
+
+As one can see, intransitive and transitive verbs can have 2 arguments and if that is the case the cases are switched. While with an intransitive with 2 arguments the subject is in the absolutive/nominative with an (indirect) object in the ergative, the transitive verb has it the other way around, the subject is in the ergative case while the (direct) object is in the absolutive/nominative. 
+
+Important to note, that while morphologically there is only one ergative case, it is useful to differentiate between the 'pure' ergative and the oblique case. The 'pure' usage would be only in regards to the use as subject, while the oblique usage would be everything else. More on that later.
+% \chapter{Syntax}
+% \chapter{Semantics}
+% \chapter{Pragmatics}
+
+\chapter{Vocabulary}
+This chapter will explore the vocabulary.
+\section{Semantic Categories}
+\subsection{Kinship}
+This category is about family.
+
+    
+\begin{table}[h]    
+    \caption{Kinship Terms}\
+    \begin{tabular}{ l | c | r }
+        Term & Translation & Notes \\
+        \hline
+        \mywordcr{адэ}{aːda} & \myworde{father} &  \\
+        \mywordcr{анэ}{aːnа} & \myworde{mother} &  \\
+        \mywordcr{дадэ}{daːdа} & \myworde{grandfather} &  \\
+        \mywordcr{нанэ}{nаːnа} & \myworde{grandmother} &  \\
+        \mywordcr{адэшхуэ}{aːdаʃxʷa} & \myworde{grandfather} & more formal \\
+        \mywordcr{анэшхуэ}{аːnаʃxʷa} & \myworde{grandmother} & more formal \\
+        \hline
+        \mywordcr{бын}{bən} & \myworde{child} &  \\
+        \mywordcr{къуэ}{qʷa} & \myworde{son} &  \\
+        \mywordcr{пхъу}{pχʷə} & \myworde{daughter} &  \\
+        \mywordcr{бынырылъху}{bənərəɬxʷ} & \myworde{} &  \\
+        \mywordcr{къуэрылъху}{qʷarəɬxʷ} & \myworde{} &  \\
+        \mywordcr{пхъурылъху}{pχʷərəɬxʷ} & \myworde{} &  \\
+        \hline
+        \mywordcr{къуэш}{qʷaʃ} & \myworde{brother} & said by males \\
+        \mywordcr{дэлъху}{daɬxʷ} & \myworde{brother} & said by females \\
+        \mywordcr{шыпхъу}{ʃəpχʷ} & \myworde{sister} &  \\
+        \mywordcr{къуэшырылъху}{qʷaʃərəɬxʷ} & \myworde{} &  \\
+        %\mywordcr{дэлъхурылъху}{daɬxʷərəɬxʷ} & \myworde{} &  \\
+        \mywordcr{шыпхъурылъху}{ʃəpχʷərəɬxʷ} & \myworde{} &  \\
+        \hline
+
+    \end{tabular}
+\end{table}
+\begin{table}[h]    
+    \caption{Kinship Terms}\
+    \begin{tabular}{ l | c | r }
+        Term & Translation & Notes \\
+        \hline       
+        \mywordcr{тхьэмадэ}{tħamaːda} & \myworde{husband's father} & \\
+        \mywordcr{гуащэ}{gʷaːɕa} & \myworde{husband's mother} & \\
+        \mywordcr{пщыкъуэ}{pɕəqʷa} & \myworde{husband's brother} & \\
+        \mywordcr{пщыпхъу}{pɕəpχʷ} & \myworde{husband's sister} & \\
+        \hline
+        \mywordcr{щыкъу адэ}{ɕəqʷ aːda} & \myworde{wife's father} & \\
+        \mywordcr{щыкъу анэ}{ɕəqʷ aːnа} & \myworde{wife's mother} & \\
+        \mywordcr{щыкъу щIалэ}{ɕəqʷ ɕʼaːɬa} & \myworde{wife's son} & \\
+        \mywordcr{щыкъу хъыджэбз}{ɕəqʷ χədʒabz} & \myworde{wife's daughter} & \\
+        \hline
+        \mywordcr{фызабэ}{fəzaːba} & \myworde{widow} & \\
+        \mywordcr{лIыгъуабэ}{ɬʼəʁʷaːba} & \myworde{widower} & \\
+        \mywordcr{зэиншэ}{zajənʃa} & \myworde{orphan} & \\
+        \mywordcr{ибэ}{jəba} & \myworde{orphan} & \\
+
+    \end{tabular}
+\end{table}
+
+
+The terms \mywordcr{адэ}{aːdа} and \mywordcr{анэ}{аːnа} denote \myworde{father} and \myworde{mother}, respectively. For the generation above, \mywordcr{адэшхуэ}{aːdaʃxʷa} and \mywordcr{анэшхуэ}{аːnаʃxʷa} denote \myworde{grandfather} and \myworde{grandmother}, respectively, derived with the suffix \mywordcr{шхуэ}{ʃxʷa} which denotes biggness, thus literally \myworde{big father} and \myworde{big mother}. On the other hand, \mywordcr{дадэ}{daːdа} and \mywordcr{нанэ}{nаːnа} are the more endearing forms of the former and are also used when referring to them.
+
+The terms describing the direct offspring are \mywordcre{бын}{bən}{child}, \mywordcre{къуэ}{qʷa}{son} and \mywordcre{пхъу}{pχʷə}{daughter}. The term \mywordcre{пхъу}{pχʷə}{daughter} had likely \myworde{woman} as its main meaning, as it is frequently combined with other words to refer to females, some of them will be seen below.
+
+The terms describing siblings are \mywordcr{къуэш}{qʷaʃ}, \mywordcr{дэлъху}{daɬxʷ} for \myworde{brother} and \mywordcre{шыпхъу}{ʃəpχʷ}{sister}. Females always refer to their brother as \mywordcr{дэлъху}{daɬxʷ}, while males as \mywordcr{къуэш}{qʷaʃ}.
+The term \mywordcre{къуэш}{qʷaʃ}{brother} appears to be a compound word of \mywordcre{къуэ}{qʷa}{son} and \mywordcr{шы}{ʃə} which is an archaic way to refer to \myworde{brother}, as it is still used in Western Circassian \mywordcre{шы}{ʃə}{brother}. The term \mywordcre{шыпхъу}{ʃəpχʷ}{sister} is a compound word of \mywordcr{шы}{ʃə} \myworde{brother} and \mywordcr{пхъу}{pχʷə} \myworde{daughter}. This and some other uses suggest that the original meaning of \mywordcr{шы}{ʃə} was closer to \myworde{relative}, \myworde{kin} or \myworde{sibling}.
+
+
 \part{Learning Guide}
+\chapter{Learning}
 
 \end{document}
