@@ -1,7 +1,15 @@
 
 % document which as two columns on one page.
-% \documentclass[a4paper, twocolumn, 8pt]{book}
 \documentclass[a4paper, 10pt]{book}
+% \documentclass[a4paper, twocolumn, 10pt]{book}
+\usepackage[margin=3cm]{geometry}
+
+\usepackage{gb4e}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks = true,
+    linkcolor = blue
+}
 
 % Load necessary packages
 \usepackage{fontspec}
@@ -37,46 +45,328 @@
 
 \chapter{Introduction}
 % Preface
-\section{Goal and motivation}
-This book is intended to be a living document that will be continuously worked on and updated. Because of that, it is important to have a clear goal in mind.
+% \section{Goal and motivation}
+This book is intended to be a living document that will be continuously worked on and updated. This also means that it will be incomplete for a long time. However, I believe that it is better to have something incomplete than nothing at all. Also, I hope that that motivates others to contribute to this book. Note, that I intend it to be mainly an online document, thus calling it a book might be out of place, nonetheless this document will be referred to as a book. Because of the nature of this book, it is important to create guidelines as to what this book is about.
 
-The main goal of this book is to provide a comprehensive description of the Eastern Circassian language, i.e. Kabardian. However, this book will also contain a lot of information about the speakers of the language, their culture, and their history. 
+I decided to write this book with the main overarching goal to make it easier for others to learn Circassian. In my view a big problem is that most good resources about Circassian are either in Russian, Turkish or Circassian itself. While there are still some very good resources in English, they are either incomplete or not very accessible to non-linguists. This is bad, because it makes it harder for people to learn Circassian, including Circassians who want to relearn the language of their ancestors.
 
-The intended target audience are linguists, language learners, and native speakers of Kabardian. It might seem weird and overkill that a comprehensive descriptive grammar is targeted at language learners, however in my experience there are far too few resources which go into adequate detail about the grammar of the language without it only being understandable to linguists. In my honest opinion, learning Circassian is made much easier once one understands the grammar better. Because of that this book will try to strike a balance between being linguistically precise and being accessible to non-linguists. Thus, for example, this book will contain a lot of examples, which might be redundant for linguists, but will be helpful for non-linguists, either to get a better feel for the language or to make it easier to learn.
+The secondary goal is to actually write a comprehensive descriptive grammar. While reading a grammar might not be the most productive way to learn a language, I think in the context of Circassian it is a worthwhile endeavor. The main reason is simply because of how different the language structure is from most other languages (ergative agreement, polypersonality, preverbs, etc). Thus having a comprehensive grammar can be very helpful for linguists and language learners alike, as the main point of that is to study the structure of the language.
 
-% The main reason being because there is a lack of comprehensive information about this language, be it in the linguistics domain or in the language learning domain, especially in English (though I could find more resources in the linguistics domain). With this book I intend to fill that gap. Of the few resources for language learners, most of them do not talk much about the grammar of 
+To reconcile these two goals, I intend to write this book in a way that it can be used as a reference for linguists and language learners alike. First of all, the idea is that the book would have two big parts, the grammar part and the learning part. The grammar part will resemble most other comprehensive descriptive grammars, however with the explicit goal to also be a potential learning resource. This would inlcude many examples, maybe even in excessive amount, which might be too much for are comprehensive descriptive grammar, however it might give a better feel for the language. In addition, while the book will try to keep a linguistics appropriate language, an attempt will be made to explain the various concepts. The learning part will be much more focused on simply understanding how to form various phrases and meanings without a big emphasis on the grammatical structure.
 
-The book will be divided into three parts. The first part will be a general introduction to the language, its history, and its speakers. The second part will be a comprehensive description of the grammar of the language. The third part will be a learning guide specifically targeted at lang  uage learners, where a big emphasis will be put on expressing certain ideas and explaining certain quirks and concepts in a way that is easy to understand for non-linguists.
+Another goal of this book is to describe the history, culture and society. For that there will be its own part.
 
 While this book mainly focuses on Eastern Circassian (Kabardian), it will also contain information about Western Circassian (Adyghe) where it is relevant, as well as Ubykh, Abkhaz and Abaza, as comparing them can create more insight. Maybe there will be even their own parts in the book, but that is not certain yet. A secondary goal is to promote everything which is adjacent to the Circassians in some way.
 
+% About me
+Another function of this book is compile my Circassian language learning into one source. This means I am not a native speaker, however I am of Circassian descent and thus I have a personal connection to this language. This will probably assure that work on this project will never be completely halted, at worst only paused. Also keep in mind, I'm not a linguist, however I had big interest in linguistics since my childhood.
+
 \part{Society, Culture and History}
+
 \part{Grammar}
-\chapter{Phonology}
-\chapter{Morphology}
-\section{Verb}
+\part{Phonology}
+\part{Morphology}
+
+\chapter{Adjective}
+\section{Qualitative Adjectives}
+
+
+\begin{exe}
+\ex
+\begin{xlist}
+    \ex color:
+    \begin{xlist}
+        \ex \mywordcre{плъыжь}{pɬəʑ}{red}
+        \ex \mywordcre{хужь}{xʷəʑ}{white}
+        \ex \mywordcre{щхъуэ}{ɕχʷa}{gray}
+        \ex \mywordcre{щIыху}{ɕʼəxʷ}{blue}
+        \ex \mywordcre{щхъуантIэ}{ɕχʷaːntʼa}{green}
+    \end{xlist}
+    \ex fell/hair color:
+    \begin{xlist}
+        \ex \mywordcre{гъуэ}{ʁʷa}{red}
+        \ex \mywordcre{къуэху}{qʷaxʷ}{brown-gray}
+        \ex \mywordcre{брул}{bʁəwɮ}{chaly}
+        \ex \mywordcre{тхъуэ}{tχʷa}{bulany}
+    \end{xlist}
+    \ex spatial and temporal qualities:
+    \begin{xlist}
+        \ex \mywordcre{ин}{jən}{big}
+        \ex \mywordcre{бгъуэ}{bʁʷa}{wide}
+        \ex \mywordcre{жыжьэ}{ʒəʑa}{far}
+        \ex \mywordcre{лъахъшэ}{ɬaːχʃa}{low}
+        \ex \mywordcre{куу}{kʷəw}{deep}
+    \end{xlist}
+    \ex properties and qualities of things directly perceived by the senses:
+    \begin{xlist}
+        \ex \mywordcre{IэфI}{ʔʷəfʼ}{sweet}
+        \ex \mywordcre{сыр}{sər}{bitter}
+        \ex \mywordcre{щабэ}{ɕaːbə}{soft}
+        \ex \mywordcre{хъурeй}{χʷəraj}{round}
+        \ex \mywordcre{псынщIэ}{psənɕʼa}{light}
+        \ex \mywordcre{хуабэ}{χʷaːbə}{warm}
+    \end{xlist}
+    \ex physical qualities of people and animals:
+    \begin{xlist}
+        \ex \mywordcre{щIалэ}{ɕʼaːɮa}{young}
+        \ex \mywordcre{уэд}{wad}{thin}
+        \ex \mywordcre{дэгу}{dagʷ}{deaf}
+        \ex \mywordcre{хуахуэ}{xʷaːxʷa}{brave}
+    \end{xlist}
+    \ex qualities of character and mental disposition:
+    \begin{xlist}
+        \ex \mywordcre{бзаджэ}{bzaːdʒa}{evil, cunning}
+        \ex \mywordcre{пагэ}{paːɣa}{proud}
+        \ex \mywordcre{нэпсей}{napsaj}{greedy}
+    \end{xlist}
+\end{xlist}
+\end{exe}
+
+
+\subsection{Relative Adjectives}
+All relative adjectives are derived in the Kabardino-Circassian language.
+Relative adjectives, unlike qualitative adjectives, do not change by degrees of comparison, do not form the form of evaluations.
+Native relative adjectives can express:
+\begin{exe}
+\ex
+\begin{xlist}
+    \ex relation of time:
+    \begin{xlist}
+        \ex \mywordcre{нобэрей}{nawbaraj}{today} (cf. \mywordcre{нобэ}{nawba}{today})
+        \ex \mywordcre{дыгъуэпшыхьырей}{dəʁʷapʃəħəraj}{yesterday, evening} (cf. \mywordcre{дыгъуэпшыхь}{dəʁʷapʃəħ}{yesterday evening})
+        \ex \mywordcre{нэгъабэрей}{naʁaːbaraj}{last year} (cf. \mywordcre{нэгъабэ}{naʁaːba}{last year})
+        \ex \mywordcre{зымахуэрей}{zəmaːxʷaraj}{referring to some past day}
+        \ex \mywordcre{ещанэгъэрей}{jaɕaːnaʁaraj}{referring to the third year}
+    \end{xlist}
+    \ex relation to place:
+    \begin{xlist}
+        \ex \mywordcre{ищхьэ}{jəɕħa}{upper} (cf. \mywordcre{щхьэ}{ɕħa}{head})
+        \ex \mywordcre{ипэ/япэ}{jəpa/jaːpa}{front} (cf. \mywordcre{пэ}{pa}{nose})
+        \ex \mywordcre{модрэй}{mawdraj}{other}
+        \ex \mywordcre{икIэ}{jətʃʼa}{last} (cf. \mywordcre{кIэ}{tʃʼa}{tail})
+    \end{xlist}
+    \ex numerical relations:
+    \begin{xlist}
+        \ex \mywordcre{защIэ}{zaːɕʼa}{single} (cf. \mywordcre{зы}{zə}{one})
+        \ex \mywordcre{тIуащIэ}{tʼwaːɕʼa}{double} (cf. \mywordcre{тIу}{tʼəw}{two})
+    \end{xlist}
+\end{xlist}
+\end{exe}
+
+\chapter{Verb}
 The verb is the 
-\subsection{Transitivity}
-The main overarching category for a verb is transitivity. A verb can be transitive (лъэIэс) and intransitive (лъэмыIэс). The main difference is that a base intransitive verb governs only over 1 argument, the subject in the absolutive/nominative case (-р), while a base transitive verb governs over 2 arguments, the subject in the ergative case (-м) and the direct object in the absolutive/nominative case (-р).
+\section{Transitivity}
+The main overarching category for a verb is transitivity. A verb can be transitive (\mywordcr{лъэIэс}{ɬaʔas}) and intransitive (\mywordcr{лъэмыIэс}{ɬaməʔas}). The main difference is that a base intransitive verb governs only over 1 argument, the subject in the absolutive/nominative case (\mywordcr{-р}{-r}), while a base transitive verb governs over 2 arguments, the subject in the ergative case (\mywordcr{-м}{-m}) and the direct object in the absolutive/nominative case (\mywordcr{-р}{-r}).
 
 Below the intransitive verb \mywordcre{плъэн}{pɬan}{to look} and transitive verb \mywordcre{лъагъун}{ɬaːʁʷən}{to see Y} are used to demonstrate that. With \mywordcre{лIы}{ɬʼə}{man} man and \mywordcre{жыг}{ʒəɣ}{tree}.
 
-\begin{itemize}
+\begin{exe}
+    \ex
+    \begin{xlist}
     \item \mywordcre{лIыр плъэнщ}{ɬʼər pɬanɕ}{the man will look}
     \item \mywordcre{лIым жыгыр илъагъунщ}{ɬʼəm ʒəɣər jəɬaːʁʷənɕ}{the man will see the tree}
-\end{itemize}
+\end{xlist}
+\end{exe}
 
-However, in both cases, those base verbs can get indirect objects in the ergative case (-м), usually by deploying preverbs. A frequent example is the use of the preverb е- with intransitive verbs, which is a very generic way to add an indirect object. In many ways it is equivalent to 'to' or 'at' or the French 'à'. Thus leading to the verb еплъын (not that э became ы).
+However, in both cases, those base verbs can get indirect objects in the ergative case (\mywordcr{-м}{-m}), usually by deploying preverbs. A frequent example is the use of the preverb \mywordcr{е-}{ja-} with intransitive verbs, which is a very generic way to add an indirect object. In many ways it is equivalent to \myworde{to} or \myworde{at} or the French \myworde{à}. Thus leading to the verb \mywordcr{еплъын}{japɬən} (not that \mywordcr{э}{a} became \mywordcr{ы}{ə}).
 
 
-\begin{itemize}
-    \item \mywordcre{лIыр жыгым еплъынщ}{}{the man will look at the tree}
-    \item \mywordcre{лIым жыгыр илъэгъунщ}{}{the man will see the tree}
-\end{itemize}
+\begin{exe}
+\ex
+\begin{xlist}
+    \item \mywordcre{лIыр жыгым еплъынщ}{ɬʼər ʒəɣəm japɬənɕ}{the man will look at the tree}
+    \item \mywordcre{лIым жыгыр илъэгъунщ}{ɬʼəm ʒəɣər jəɬaʁʷənɕ}{the man will see the tree}
+\end{xlist}
+\end{exe}
 
 As one can see, intransitive and transitive verbs can have 2 arguments and if that is the case the cases are switched. While with an intransitive with 2 arguments the subject is in the absolutive/nominative with an (indirect) object in the ergative, the transitive verb has it the other way around, the subject is in the ergative case while the (direct) object is in the absolutive/nominative. 
 
 Important to note, that while morphologically there is only one ergative case, it is useful to differentiate between the 'pure' ergative and the oblique case. The 'pure' usage would be only in regards to the use as subject, while the oblique usage would be everything else. More on that later.
+
+\section{Potential Form}
+There are two potential forms which modify the verb in a such a way that it expresses a potential. One form is formed through the prefix \mywordcr{хуэ-}{xʷa-} while the the other is formed through the suffix \mywordcr{-ф}{-f}. The latter can only be used with transitive verbs (as it makes them intransitive) and the latter can be used by all verbs.
+
+\subsection{Suffix {\mywordcr{-ф}{-f}}}
+\begin{exe}
+    \ex
+    \begin{xlist}
+    \item \mywordcre{бзу мэлъэтэ\underline{ф}}{bzəw maɬata\underline{f}}{birds \underline{can} fly}
+    \item \mywordcre{сыжеи\underline{фы}къым}{səʒajə\underline{fə}qəm}{I \underline{can}'t sleep}
+    \item \mywordcre{сыжеи\underline{фы}нутэкъым}{səʒajə\underline{fə}nəwtaqəm}{I \underline{can}'t sleep}
+\end{xlist}
+\end{exe}
+\subsection{Prefix \mywordcr{хуэ-}{xʷa-}}
+The prefix potential form is morphologically more complex. It only works with transitive verbs, since it works be `deleting' the subject in the ergative and transfers the subject role to the argument of the prefix \mywordcr{хуэ-}{xʷa-}.
+
+\begin{exe}
+    \ex
+    \begin{xlist}
+    \item \mywordcre{с\underline{ху}ошх}{s\underline{xʷ}awʃx}{I \underline{can}'t eat it}
+    \item \mywordcre{мыщэ сэ сы\underline{ху}ошх}{məɕa sa sə\underline{xʷ}awʃx}{the bear \underline{can} eat me}
+    % \item \mywordcre{сыжеи\underline{фы}нутэкъым}{səʒajə\underline{fə}nəwtaqəm}{I \underline{can}'t sleep}
+\end{xlist}
+\end{exe}
+
+It seems posssible that this prefix and the benefactive \mywordcr{xуэ-}{xʷa-} are related.
+\begin{exe}
+    \ex
+    \begin{xlist}
+    \item \mywordcre{X сэ сишхащ}{}{X ate me}
+    \item \mywordcre{X сэ Z сыхуишхащ}{}{X ate me for Z}
+    \item \mywordcre{сэ Z сыхуэшхащ}{}{ate me for Z} or \myworde{I was eaten for Z}
+    \item \mywordcre{сэ Z сыхуэшхащ}{}{Z was able to eat me}
+\end{xlist}
+\end{exe}
+
+
+\section{Participles}
+Kabardian has a rich participle morphology. In fact, Kabardian is a very participle heavy language and one can even argue that many verb forms, which are usually not regarded as participles, are in fact participles.
+
+The various participle types are divided into whether they represent an argument of a verb, where in this case they take on the slot of that argument, or whether they represent something else, usually more adverbial in nature, like place, time, reason, manner, etc.
+
+Other than not being able to change the grammatical category of mood, participle can mark for everything else what normal verbs can. 
+
+\subsection{Absolutive Participle}
+The absolutive participle denotes the absolutive argument of a verb. If that verb is intransitive, it refers to the subject, if it is transitive it refers to the direct object. Absolutive participles are marked by a null morpheme. 
+
+Intransitive verbs:
+\begin{exe}
+\ex
+\begin{xlist}
+    \ex \mywordcre{кIуэр}{kʷʼar}{one, who goes} (cf. \mywordcre{кIуэн}{kʷʼaн}{to go})
+    \ex \mywordcre{жэр}{ʒar}{one, who runs} (cf. \mywordcre{жэн}{ʒan}{to run})
+\end{xlist}
+\end{exe}
+
+Intransitive verbs with preverbs: 
+\begin{exe}
+\ex
+\begin{xlist}
+    \ex \mywordcre{ежьэр}{jaʑar}{one who waits for Y} (cf. \mywordcre{ежьэн}{jaʑan}{to wait for Y})  
+    \ex \mywordcre{еплъыр}{japɬər}{one who looks at Y} (cf. \mywordcre{еплъын}{japɬən}{to look at Y})    
+    \ex \mywordcre{едэIуэр}{jadaʔʷar}{one who listens to Y} (cf. \mywordcre{едэIуэн}{jadaʔʷan}{to listen to Y})
+\end{xlist}
+\end{exe}
+
+Transitive verbs:
+\begin{exe}
+\ex
+\begin{xlist}
+    \ex \mywordcre{илъэгъур}{jəɬaʁʷər}{one, whom X sees} (cf. \mywordcre{лъагъун}{ɬaːʁʷən}{to see Y})
+    \ex \mywordcre{ишэр}{jəʃar}{one, whom X leads} (cf. \mywordcre{шэн}{ʃan}{to lead Y})
+    \ex \mywordcre{итыр}{jətər}{that, what X gives} (cf. \mywordcre{тын}{tən}{to give Y})
+\end{xlist}
+\end{exe}
+
+Transitive verbs with preverb:
+\begin{exe}
+\ex
+\begin{xlist}
+    \item \mywordcre{зэхихыр}{zaxəjxər}{one, whom X hears} (cf. \mywordcre{зэхэхын}{zaxaxən}{to hear Y})
+    \item \mywordcre{жыпIар}{ʒəpʔaːr}{that, what you said} (cf. \mywordcre{жыIэн}{ʒəʔan}{to say Y})
+    \item \mywordcre{иритыр}{jərəjtər}{that, what X gives to Z} (cf. \mywordcre{етын}{jatən}{to give Y to Z})
+\end{xlist}
+\end{exe}
+
+\subsection{Ergative Participle}
+The ergative participle denotes the ergative argument of a verb. This participle is only present in transitive verbs and refers to the subject. It is marked by \mywordcr{зы-}{zə-}.
+
+Transitive verbs:
+\begin{exe}
+\ex
+\begin{xlist}
+    \item \mywordcre{\underline{зы}лъэгъур}{\underline{zə}ɬaʁʷər}{one, who sees Y} (cf. \mywordcre{лъагъун}{ɬaːʁʷən}{to see Y})
+    \item \mywordcre{\underline{зы}шэр}{\underline{zə}ʃar}{one, who leads Y} (cf. \mywordcre{шэн}{ʃan}{to lead Y})
+    \item \mywordcre{\underline{зы}тыр}{\underline{zə}tər}{one, who gives Y} (cf. \mywordcre{тын}{tən}{to give Y})
+\end{xlist}
+\end{exe}
+
+Transitive verbs with preverb:
+\begin{exe}
+    \ex
+    \begin{xlist}
+    \item \mywordcre{зэхэ\underline{зы}хыр}{zaxa\underline{zə}xər}{one, who hears Y} (cf. \mywordcre{зэхэхын}{zaxaxən}{to hear Y})
+    \item \mywordcre{жы\underline{зы}Iар}{ʒə\underline{zə}ʔaːr}{one, who said Y} (cf. \mywordcre{жыIэн}{ʒəʔan}{to say Y})
+    \item \mywordcre{е\underline{зы}тыр}{ja\underline{zə}tər}{one, who gives Y to Z} (cf. \mywordcre{етын}{jatən}{to give Y to Z})
+\end{xlist}
+\end{exe}
+
+\subsection{Oblique Participle}
+The oblique participle denotes the oblique argument of a verb. This participle is present in every verb which has an oblique argument, usually only possible by having a preverb. It is marked by \mywordcr{зы-}{zə-}. One can argue that it is simply the ergative participle, but simply applied on a preverb, however it may be useful to differentiate them, because oblique participles don't denote the subject of a verb (the ergative participle can only denote the subject) in addition they exist for transitive and intransitive verbs (the ergative participle only exists for transitive verbs). 
+
+Intransitive verbs with preverbs: 
+\begin{exe}
+    \ex
+    \begin{xlist}
+    \item \mywordcre{\underline{з}эжьэр}{\underline{z}aʑar}{one, whom X waits for} (cf. \mywordcre{ежьэн}{jaʑan}{to wait for Y})
+    \item \mywordcre{\underline{з}эплъыр}{\underline{z}apɬər}{one, who X looks at} (cf. \mywordcre{еплъын}{japɬən}{to look at Y})
+    \item \mywordcre{\underline{з}эдэIуэр}{\underline{z}adaʔʷar}{one, who X listens to} (cf. \mywordcre{едэIуэн}{jadaʔʷan}{to listen to Y})
+    \item \mywordcre{сы\underline{зы}тесыр}{sə\underline{zə}tajsər}{that, what I sit on} (cf. \mywordcre{тесын}{tajsən}{to sit on Y})
+\end{xlist}
+\end{exe}
+
+Transitive verbs with preverb:
+\begin{exe}
+    \ex
+    \begin{xlist} 
+    \item \mywordcre{\underline{зы}ритыр}{\underline{zə}rəjtər}{one, to whom X gives Y} (cf. \mywordcre{етын}{jatən}{to give Y to Z})
+\end{xlist}
+\end{exe}
+
+
+Sentence Examples:
+\begin{exe}
+    \ex
+    \begin{xlist}   
+    \item \mywordcre{дыгъуасэ хъыджэбз сы\underline{зы}хуэзар дахэщ}{dəʁʷaːsa χədʒabz sə\underline{zə}xʷazaːr daːxaɕ}{the girl, whom I met yesterday is pretty} (cf. \mywordcre{хуэзэн}{xʷazan}{to meet Y})
+\end{xlist}
+\end{exe}
+
+\subsection{Temporal Participle \mywordcr{щы-}{ɕə-}}
+This participle denotes time as well as location, depending on the context. It is marked by щы-.
+\begin{exe}
+\ex
+\begin{xlist} 
+    \item \mywordcre{\underline{щы}лажьэр}{\underline{ɕə}ɮaːʑar}{when X works} (cf. \mywordcre{лэжьэн}{ɮaʑan}{to work})
+\end{xlist}
+\end{exe}
+
+Sentence Examples:
+\begin{exe}
+    \ex
+    \begin{xlist}   
+    \item \mywordcre{ар \underline{щы}лажьэр унэрщ}{aːr \underline{ɕə}ɮaːʑar wənarɕ}{he works at home} (lit. \myworde{where he works is home})
+    \item \mywordcre{ар \underline{щы}лажьэр сощIэ}{aːr \underline{ɕə}ɮaːʑar sawɕʼa}{I know where/when he works}
+    \item \mywordcre{уэ укъы\underline{щы}кIуэжам щыгъуэ сэ унэм сыщыIакъым}{wa wəqə\underline{ɕə}kʷʼaʒaːm ɕəʁʷa sa wənam səɕəʔaːqəm}{I wasn't home when you arrived}
+    \item \mywordcre{сы\underline{щ}илъэгъум, ар жащ}{sə\underline{ɕə}jɬaʁʷəm, ar ʒaːɕ}{When he saw me, he ran away}
+    % \item \mywordcre{}{}{}
+\end{xlist}
+\end{exe}
+
+\subsection{Adverbial Participle \mywordcr{зэры-}{zarə-}}
+The manner participle denotes the manner. It is marked by \mywordcr{зэры-}{zarə-}.
+
+\begin{exe}
+\ex
+\begin{xlist}
+    \ex \mywordcre{\underline{зэры}лажьэр}{\underline{zarə}ɮaːʑar}{how, X works} (cf. \mywordcre{лажьэн}{ɮaːʑan}{to work})
+    \ex \mywordcre{\underline{зэр}илъэгъур}{\underline{zar}əjɬaʁʷər}{how, X sees} (cf. \mywordcre{лъагъун}{ɬaːʁʷən}{to see Y})
+\end{xlist}
+\end{exe}
+
+This is frequently used in complement clauses as a generic complementizer.
+\begin{exe}
+\ex
+\begin{xlist}
+    \ex \mywordcre{анэм ещIэ и кIуэр къы\underline{зэры}кIуэжынур}{aːnam jaɕʼa jə kʷʼar qə\underline{zarə}kʷʼaʒənəwr}{mother knows, \underline{that} her son will return (home)}
+    \ex \mywordcre{щIалэм хъыбар сигъэщIащ фы\underline{зэры}сымаджар}
+    {ɕʼaːɮam χəbaːr səjʁaɕʼaːɕ fə\underline{zarə}səmaːdʒaːr}
+    {the boy let me know, \underline{that} you were sick}
+    \ex \mywordcre{сэ сщыгъупщэнкъым у\underline{зэры}лэжьэнур}{sa sɕəʁʷəpɕanqəm wə\underline{zarə}ɮaʑanəwr}{I won't forget, \underline{that} you'll work}
+    % \ex \mywordcre{}{}{}
+\end{xlist}
+\end{exe}
+
 % \chapter{Syntax}
 % \chapter{Semantics}
 % \chapter{Pragmatics}
@@ -88,7 +378,7 @@ This chapter will explore the vocabulary.
 This category is about family.
 
     
-\begin{table}[h]    
+\begin{table}[ht]    
     \caption{Kinship Terms}\
     \begin{tabular}{ l | c | r }
         Term & Translation & Notes \\
@@ -148,7 +438,10 @@ The terms describing the direct offspring are \mywordcre{бын}{bən}{child}, \
 The terms describing siblings are \mywordcr{къуэш}{qʷaʃ}, \mywordcr{дэлъху}{daɬxʷ} for \myworde{brother} and \mywordcre{шыпхъу}{ʃəpχʷ}{sister}. Females always refer to their brother as \mywordcr{дэлъху}{daɬxʷ}, while males as \mywordcr{къуэш}{qʷaʃ}.
 The term \mywordcre{къуэш}{qʷaʃ}{brother} appears to be a compound word of \mywordcre{къуэ}{qʷa}{son} and \mywordcr{шы}{ʃə} which is an archaic way to refer to \myworde{brother}, as it is still used in Western Circassian \mywordcre{шы}{ʃə}{brother}. The term \mywordcre{шыпхъу}{ʃəpχʷ}{sister} is a compound word of \mywordcr{шы}{ʃə} \myworde{brother} and \mywordcr{пхъу}{pχʷə} \myworde{daughter}. This and some other uses suggest that the original meaning of \mywordcr{шы}{ʃə} was closer to \myworde{relative}, \myworde{kin} or \myworde{sibling}.
 
-
+\part{Syntax}
+\chapter{Relative Clause}
+\chapter{Adverbial Clause}
+\chapter{Complement Clause}
 \part{Learning Guide}
 \chapter{Learning}
 
