@@ -10,6 +10,7 @@
 **_dana jədʒə ʁʷəɕʼ ʁʷagʷ wəpraːvɮajna qəzdəjpxəʒənər_** - _Where you'll find the railroad department now?_
 **_ʃə zəzəʁapsaxʷaːxar, fʼəwa ʃxaːxar ɕʼawəɕəħt_** - The rested, well-fed horses walked briskly...
 **_wəzarəsɬaːʁʷ ɬaːndara, zapəməwwa sənawgʷəpsəs_** - _Since I saw you, I've been thinking about you all the time_
+**_узэрыслъагъу лъандэрэ зэпымыуэ сыногупсыс_**
 
 **_aːr gʷəbʑaːwa datʃʼəʒaːɕəj qaʃaʒəfəj səj pχʷəm wəxʷafaːɕaɕ, - ʒəjʔaːɕ dʒəɮaːχstan, sawsrəqʷar badənawqʷam tʃʼaɮəʒantʃʼa ʃənan qəfʼaɕʼrəj_** - _He is in a state of anger: if you can bring him back, you are worthy of my daughter," said Djilahstan, thinking that Sosruko would not dare to run after Badinoko_
 

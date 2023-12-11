@@ -13,19 +13,9 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Lesson/Grammar/Verb/Verb conjugation paradigm.md",
+                "file": "Lesson/Expressing/Cognitive verbs.md",
                 "mode": "source",
                 "source": false
-              }
-            }
-          },
-          {
-            "id": "e3fedd02ec196e03",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.2.8"
               }
             }
           }
@@ -95,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Lesson/Grammar/Verb/Verb conjugation paradigm.md",
+                "file": "Lesson/Expressing/Cognitive verbs.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -112,7 +102,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Lesson/Grammar/Verb/Verb conjugation paradigm.md"
+                "file": "Lesson/Expressing/Cognitive verbs.md"
               }
             }
           }
@@ -134,6 +124,26 @@
   },
   "active": "9c4e2adef02ba45e",
   "lastOpenFiles": [
+    "Lesson/Expressing/Expressing emotion.md",
+    "Lesson/Expressing/Cognitive verbs.md",
+    "Lesson/Expressing/Expressing because.md",
+    "Lesson/Expressing/Expressing communication.md",
+    "Lesson/Expressing/Expressing cooking.md",
+    "Lesson/README.md",
+    "Lesson/Own attempts for expressions.md",
+    "Lesson/Verb ɕʼən and ɕʼan.md",
+    "resources/README.md.md",
+    "Lesson/Phrases.md",
+    "Lesson/Comparing northwestern Caucasian.md",
+    "Lesson/Dialectal Variation.md",
+    "Lesson/random phrases.md",
+    "resources/GRAMMATICALIZATION_IN_THE_NORTH_CAUCASIA.pdf",
+    "Lesson/Expressing/Expressing desire.md",
+    "Lesson/Expressing/Expressing eating consumption.md",
+    "README.md",
+    "Kabardian Grammar in two volumes (translation).pdf",
+    "Kabardian.pdf",
+    "grammar-book/grammar.pdf",
     "Lesson/Grammar/Verb/Verb conjugation paradigm.md",
     "Lesson/Grammar/Verb/a ə alteration.md",
     "subproj/wikipsalhalhe_templates/target/debug/incremental/wikipsalhalhe_templates-290xnd56kjxoq/s-gl31jytfkk-1d0yxbn-132lnux0ydhem/work-products.bin",
@@ -142,32 +152,13 @@
     "subproj/wikipsalhalhe_templates/target/debug/incremental/wikipsalhalhe_templates-290xnd56kjxoq/s-gl31jytfkk-1d0yxbn-132lnux0ydhem",
     "subproj/wikipsalhalhe_templates/target/debug/incremental/wikipsalhalhe_templates-22s5z1zw2it0c/s-gl31jytfmc-13u69z9-hsz6mghg44r4/dep-graph.bin",
     "subproj/wikipsalhalhe_templates/target/debug/incremental/wikipsalhalhe_templates-22s5z1zw2it0c/s-gl31jytfmc-13u69z9-hsz6mghg44r4/work-products.bin",
-    "subproj/wikipsalhalhe_templates/target/debug/incremental/wikipsalhalhe_templates-22s5z1zw2it0c/s-gl31jytfmc-13u69z9-hsz6mghg44r4/query-cache.bin",
-    "subproj/wikipsalhalhe_templates/target/debug/incremental/wikipsalhalhe_templates-22s5z1zw2it0c/s-gl31jytfmc-13u69z9-hsz6mghg44r4",
-    "subproj/wikipsalhalhe_templates/target/debug/incremental/wikipsalhalhe_templates-290xnd56kjxoq/s-gl31jytfkk-1d0yxbn-working/dep-graph.part.bin",
-    "subproj/wikipsalhalhe_templates/target/debug/incremental/wikipsalhalhe_templates-22s5z1zw2it0c/s-gl31jytfmc-13u69z9-working/dep-graph.part.bin",
     "Lesson/Translations/50-languages.md",
     "Lesson/Grammar/Derivation.md",
     "Lesson/Grammar/Interjections.md",
     "Kabardian Dictionary/Lemmas/jaɬan.md",
-    "Lesson/Comparing northwestern Caucasian.md",
     "Lesson/Grammar/Verb/Reflexive verbs.md",
     "Lesson/Grammar/Verb/Tense.md",
     "Lesson/Grammar/Verb/Transitivity, Ergativity.md",
-    "Lesson/Grammar/Verb/Verb types.md",
-    "Lesson/Grammar/Verb/Preverbs.md",
-    "Lesson/Grammar/Verb/Potential form.md",
-    "Lesson/Grammar/Verb/Optative form.md",
-    "Lesson/Grammar/Verb/Participles.md",
-    "Lesson/Grammar/Verb/Passive Voice.md",
-    "Lesson/random phrases.md",
-    "Lesson/Dialectal Variation.md",
-    "Lesson/Grammar/Verb/Derivation.md",
-    "Lesson/Grammar/Verb/Imperative.md",
-    "Lesson/Grammar/Verb/-tʃʼa.md",
-    "Lesson/Grammar/Correlatives.md",
-    "Lesson/Grammar/Conjunctions.md",
-    "Lesson/Translations/Songs.md",
-    "Lesson/Grammar/Exploring stems.md"
+    "Lesson/Grammar/Verb/Verb types.md"
   ]
 }

@@ -29,7 +29,6 @@ In perception verbs, intransitive ones indicate more agency while that's less so
 **_сыноплъащ_** _I looked at you_ vs **_услъэгъуащ_** _I saw you_
 **_сынодэIуащ_** _I listened to you_ vs **_узэхэсхащ_** _I heard you_
 
-
 ## Syntactical and morphological transitivity
 Most Kabardian verbs have  morphologically and syntactically the same transitivity, yet some verbs are special.
 

@@ -1,5 +1,5 @@
-**_ʃxan_** - _to eat_
-**_ʃxən_** - _to eat Y_
+**_шхэн_** - _to eat_
+**_шхын_** - _to eat Y_
 
 **_bzajn_** - _to lick_
 **_ɕʼafən_** - _to suck_

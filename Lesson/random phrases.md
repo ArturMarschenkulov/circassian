@@ -2,12 +2,12 @@
 **_jədʒəpstəw mə naːpakʷʼatsʼər naɕʼ. wəzxʷanəqʷam jəgʷəʁ bʁatəfənəw naʁʷaɕʼ naːpakʷʼatsʼxamk_**
 
 
-- **_qawfa_**, **_qafarqəm_** - _he dances_, _he danced_
-- **_qajfəħ_**, **_qəjfəħərqəm_** - _he dances around Y_, _he danced around Y_
-- **_səqajfəħ_** - _he dances around me_
+- **_къофэ_**, **_къэфэркъым_** - _he dances_, _he danced_
+- **_къефыхь_**, **_къифыхьыркъым_** - _he dances around Y_, _he danced around Y_
+- **_сыкъефыхь_** - _he dances around me_
 - **_səqawfa_**, **_səqafarqəm_** - _I dance_
 - **_qəzawfəħ_**, **_qasfəħərqəm_** - _I dance around Y_
-- **_wəqəzawfəħ_** - _I dance around Y_          
+- **_укъызофыхь_** - _I dance around you_          
 
-- **_fəzər psəm jətħaɮaːɕ_** - _the water choked the woman_
+- **_фызыр псым итхьэлащ_** - _the water choked the woman_
 - **_psəm dəjtħaɮaːɕ_**
