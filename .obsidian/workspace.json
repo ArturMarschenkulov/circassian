@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Lesson/Expressing/Cognitive verbs.md",
+                "file": "Lesson/Grammar/Clause, Complement clause.md",
                 "mode": "source",
                 "source": false
               }
@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "nose",
+                "query": "girl",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -69,7 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 432.5
   },
   "right": {
     "id": "91ac3f9085a0b7b4",
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Lesson/Expressing/Cognitive verbs.md",
+                "file": "Lesson/Grammar/Clause, Complement clause.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Lesson/Expressing/Cognitive verbs.md"
+                "file": "Lesson/Grammar/Clause, Complement clause.md"
               }
             }
           }
@@ -124,41 +124,41 @@
   },
   "active": "9c4e2adef02ba45e",
   "lastOpenFiles": [
+    "Lesson/Grammar/Clause, Adjective clause.md",
+    "Lesson/Expressing/purpose.md",
+    "Lesson/Expressing/searching.md",
+    "Lesson/Expressing/temp.md",
+    "Lesson/Expressing/trade.md",
+    "Lesson/Expressing/Expressing sensing.md",
+    "Lesson/Expressing/Expressing fear.md",
     "Lesson/Expressing/Expressing emotion.md",
+    "Lesson/Grammar/Adjectives.md",
+    "Lesson/Grammar/Clause, Adverbial clause.md",
+    "Lesson/Grammar/Clause, Subordinate clause.md",
+    "Lesson/Translations/Sample Texts.md",
+    "Lesson/Translations/Lord prayer.md",
+    "Lesson/Translations/Declaration of human rights.md",
+    "Lesson/Translations/Istanbylikwa.md",
+    "Lesson/Translations/Adyghe Nysa.md",
+    "Lesson/Translations/bible.md",
+    "Lesson/Translations/ddd.md",
+    "Lesson/Translations/Quotes.md",
+    "Lesson/Translations/Songs.md",
+    "Lesson/Translations/Schleicher's Fable.md",
+    "Lesson/Translations/SharerHythm.md",
+    "Lesson/Translations/Conlang Sytax Test.md",
+    "Lesson/Grammar/Conjunctions.md",
     "Lesson/Expressing/Cognitive verbs.md",
     "Lesson/Expressing/Expressing because.md",
-    "Lesson/Expressing/Expressing communication.md",
-    "Lesson/Expressing/Expressing cooking.md",
-    "Lesson/README.md",
-    "Lesson/Own attempts for expressions.md",
-    "Lesson/Verb ɕʼən and ɕʼan.md",
-    "resources/README.md.md",
-    "Lesson/Phrases.md",
-    "Lesson/Comparing northwestern Caucasian.md",
-    "Lesson/Dialectal Variation.md",
-    "Lesson/random phrases.md",
     "resources/GRAMMATICALIZATION_IN_THE_NORTH_CAUCASIA.pdf",
-    "Lesson/Expressing/Expressing desire.md",
-    "Lesson/Expressing/Expressing eating consumption.md",
-    "README.md",
     "Kabardian Grammar in two volumes (translation).pdf",
     "Kabardian.pdf",
     "grammar-book/grammar.pdf",
-    "Lesson/Grammar/Verb/Verb conjugation paradigm.md",
-    "Lesson/Grammar/Verb/a ə alteration.md",
     "subproj/wikipsalhalhe_templates/target/debug/incremental/wikipsalhalhe_templates-290xnd56kjxoq/s-gl31jytfkk-1d0yxbn-132lnux0ydhem/work-products.bin",
     "subproj/wikipsalhalhe_templates/target/debug/incremental/wikipsalhalhe_templates-290xnd56kjxoq/s-gl31jytfkk-1d0yxbn-132lnux0ydhem/query-cache.bin",
     "subproj/wikipsalhalhe_templates/target/debug/incremental/wikipsalhalhe_templates-290xnd56kjxoq/s-gl31jytfkk-1d0yxbn-132lnux0ydhem/dep-graph.bin",
     "subproj/wikipsalhalhe_templates/target/debug/incremental/wikipsalhalhe_templates-290xnd56kjxoq/s-gl31jytfkk-1d0yxbn-132lnux0ydhem",
     "subproj/wikipsalhalhe_templates/target/debug/incremental/wikipsalhalhe_templates-22s5z1zw2it0c/s-gl31jytfmc-13u69z9-hsz6mghg44r4/dep-graph.bin",
-    "subproj/wikipsalhalhe_templates/target/debug/incremental/wikipsalhalhe_templates-22s5z1zw2it0c/s-gl31jytfmc-13u69z9-hsz6mghg44r4/work-products.bin",
-    "Lesson/Translations/50-languages.md",
-    "Lesson/Grammar/Derivation.md",
-    "Lesson/Grammar/Interjections.md",
-    "Kabardian Dictionary/Lemmas/jaɬan.md",
-    "Lesson/Grammar/Verb/Reflexive verbs.md",
-    "Lesson/Grammar/Verb/Tense.md",
-    "Lesson/Grammar/Verb/Transitivity, Ergativity.md",
-    "Lesson/Grammar/Verb/Verb types.md"
+    "subproj/wikipsalhalhe_templates/target/debug/incremental/wikipsalhalhe_templates-22s5z1zw2it0c/s-gl31jytfmc-13u69z9-hsz6mghg44r4/work-products.bin"
   ]
 }

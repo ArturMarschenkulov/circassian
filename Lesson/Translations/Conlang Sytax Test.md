@@ -1,4 +1,4 @@
-The sun shines. - **_dəʁar qawps_**
+The sun shines. - **_дыгъэр къопс_**
 The sun is shining.
 The sun shone. - **_dəʁar qapsaːɕ _**
 The sun will shine. - **_dəʁar qapsənəw_**
@@ -20,7 +20,7 @@ The rain came down. - **_waʃx qajʃxaːɕ_**
 The kitten is playing in the rain. - **_dʒadəw ʃər waʃxəm ɕawdʒagʷ_**
 The rain has stopped. - **_waʃx wəxaːɕ_**
 Soon the rain will stop. - **_waʃx ɕʼaxəw wəxənəw_**
-I hope the rain stops soon.
+I hope the rain stops soon. - **_уэшхыр щӀэхыу иувыӀэну согугъэ._**
 Once wild animals lived here.
 Slowly she looked around.
 Go away!
@@ -31,9 +31,9 @@ He will arrive soon.
 The baby's ball has rolled away.
 The two boys are working together.
 This mist will probably clear away. - **_pʃaːʁʷar ... zatʃʼaɕʼatʃʼaːɕ_**
-Lovely flowers are growing everywhere. - **_danəj wədz ʁaʁaː daːxa dəda qawtʃʼ_**
+Lovely flowers are growing everywhere. - **_удз гъэгъа дахэр дэни къыщокI_**
 We should eat more slowly. - **_da naχ xʷaməw dəʃxan xʷaj_**
-You have come too soon.
+You have come too soon. - **_жьыӀуэу укъэкӀуащ_**
 You must write more neatly.
 Directly opposite stands a wonderful palace.
 Henry's dog is lost. **_xajnrəj jə ħar kʷʼadaːɕ_**

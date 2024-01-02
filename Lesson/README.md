@@ -5,5 +5,14 @@ There are many language learning blogs out there, which serve as an inspiration 
 
 Below is a list of blogs (or any similar resources) which I have found.
 - Russian
+	- https://www.russianlessons.net/
+	- https://learnrussianstepbystep.com/
+- Hebrew
+	- https://www.pealim.com/
+	- https://uhg.readthedocs.io/en/latest/
+	- https://hebrew4christians.com/
+- Finnish
+	- https://uusikielemme.fi/
+	- 
 - Japanese
 - Arabic

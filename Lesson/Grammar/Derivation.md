@@ -21,7 +21,7 @@ without
 - **_ɕħanʃa_** - _dumb_ (cf. **_ɕħa_** _head_)
 
 ### **_-gʷa_**
-short, cut off
+short, cut off:
 - **_ɬaːgʷa_** - _short-legged_
 - **_bzaːgʷa_** - _short-tongued_
 - **_ɕħagʷa_** - _short-headed_

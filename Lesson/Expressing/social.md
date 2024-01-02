@@ -4,5 +4,5 @@
 
 
 
-- **_sa səj tsʼəxʷʁam səxʷazaːɕ_** - _I met my acquitance/friend_
-- **_sa səj tsʼəxʷʁam səxʷawza_** - _I met my acquitance/friend_
+- **_сэ си цIыхугъэмсыхуэзащ** - _I met my acquitance/friend_
+- **_sa səj tsʼəxʷʁam сыхуозэ** - _I meet my acquitance/friend_

@@ -8,27 +8,27 @@ Let's look at few senteces:
 
 
 # Examples
-- **_ɕʼaːɮam ʃər jəʔaɕ_** - _the boy has the horse_ (lit. the horse belongs to the boy)
-	- **_ʃər zəjʔa ɕʼaːɮa(r)_** - _the boy, who has a horse_ (lit. the boy, to whom money belongs)
-		- **_ɕʼaːɮawə ʃər zəjʔa(r)_**
-		- **_ɕʼaːɮa ʃər zəjʔa(r)_**
-	- **_ɕʼaːɮam jəʔa ʃə(r)_** - _the horse, the boy has_ (lit. the horse, who belongs to the boy)
-		- **_ʃəraːwa ɕʼaːɮa jəʔa(r)_**
+- **_щIалэм  шыр иIэщ_** - _the boy has the horse_ (lit. the horse belongs to the boy)
+	- **_шыр зиIэ щIалэ(р)_** - _the boy, who has a horse_ (lit. the boy, to whom money belongs)
+		- **_щIалэу шыр зиIэ(р)_**
+		- **_щIалэ шыр зиIэ(р)_**
+	- **_щIалэм иIэ шы(р)_** - _the horse, the boy has_ (lit. the horse, who belongs to the boy)
+		- **_шырауэ щIалэ иIэ(р)_**
 		- **_aːχʃa ɕʼaːɮa jəʔa(r)_**
 
 - **_ɕʼaːɮam ʃə daːxar jəʔaɕ_** - _the boy has the pretty horse_ (lit. the pretty horse belongs to the boy)
 	- **_ɕʼaːɮam jəʔa ʃər daːxaɕ_** - _the horse, the boy has, is pretty_
 		- **_ʃəwa ɕʼaːɮam jəʔar daːxaɕ_**
 
-- **_pɕaːɕar qəddawpsawə_** - _the girl lives with us_
-	- **_pɕaːɕa qəddapsawər_** - _the girl living with us_
-- **_sət ɕəʁʷəj ħar mabaːna_** - _the dog always barks_
-	- **_sət ɕəʁʷəj ħa baːnar_** - _the dog which always barks_
+- **_пщащэр къыддопсэу_** - _the girl lives with us_
+	- **_пщащэ къыддопсэур_** - _the girl whoe lives with us_
+- **_сыт щыгъуи хьэр мэбанэ_** - _the dog always barks_
+	- **_сыт щыгъуи хьэ банэр_** - _the dog which always barks_
 - **_ɕʼaːɮam dajɬaʁʷ_** - _the boy looks at us_
 	- **_ɕʼaːɮa dəzəɬaʁʷər_** - _the boy looking at us_
-- **_ɕʼaːɮaʁʷaːɮar ɣazajtəm jawdʒa_** - _the youth reads newspaper_
-	- **_ɕʼaːɮaʁʷaːɮa ɣazajtəm jadʒar_** - _the youth who reads newspaper_
-	- **_ɣazajt ɕʼaːɮaʁʷaːɮar zadʒar_** - _the newspaper whom the youth reads
+- **_щIалэгъуалэр гэзетым йоджэ_** - _the youth reads newspaper_
+	- **_щIалэгъуалэ гэзетым еджэр_** - _the youth who reads newspaper_
+	- **_гэзет щIалэгъуалэр зэджэр_** - _the newspaper whom the youth reads
 - **_ɕʼaːɮaʁʷaːɮam ɣazajtər qawdʒa_** - _the youth reads newspaper_
 	- **_ɕʼaːɮaʁʷaːɮa ɣazajtər zəqadʒar_** - _the youth who reads newspaper_
 	- **_ɣazajt ɕʼaːɮaʁʷaːɮam qadʒar_** - _the newspaper whom the youth reads
@@ -129,3 +129,6 @@ For **_ʁʷatən_** (2 tr.) _to find Y_
 	- **_dəʁʷəʑəm ʁʷataː məɕʼa_** - _the bear whom the wolf found_
 	- **_məɕʼawə dəʁʷəʑəm ʁʷataː_** - "
 
+
+#### 1
+- **_дыгъуасэ къызэпта санэр жьыщ_** - _the wine, which you gave me yesterday, is old._

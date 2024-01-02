@@ -3,5 +3,5 @@
 
 # Kabardian frequently uses participles where English wouldn't
 
-А хьэпӀацӀэхэращ жыгыуӀум ишхыр.
-**_aː ħapʼaːtsʼaxaraːɕ ʒəɣəwəʔʷəm jəʃxər_** - _the wooodpecker eats these worms_ (lit. _what the wood pecker eats is these worms_)
+**_А хьэпӀацӀэхэращ жыгыуӀум ишхыр_** - _the woodpecker eats these worms_ (lit. _what the wood pecker eats is these worms_)
+

@@ -1,19 +1,18 @@
-kkkioi9okju9hziß0kj8hinzi90u
 There is the base assumption that usually the intransitive version ending on -э (-a) is the most base one. This might not be actually true in all cases but it frequently seems like that.
 
-Then there are also bound stems, stems which don't appear in isolation. This usually means it has to be used with a preverb, usually that preverb is either **_ja-_** or **_ɕə-_**
+Then there are also bound stems, stems which don't appear in isolation. This usually means it has to be used with a preverb, usually that preverb is either **_е-_** or **_щы-_**
 
-It has to be noted, that some bound intransitive stems ending on **_ə_** have a high likelihood of actually being derived from a stem ending on **_a_**, which isn't used anymore. The reason why it might be still not noted here like this, is because I couldn't find an example.
+It has to be noted, that some bound intransitive stems ending on **_ы_** have a high likelihood of actually being derived from a stem ending on **_a_**, which isn't used anymore. The reason why it might be still not noted here like this, is because I couldn't find an example.
 
 Below derived stems will be included, however not the ones which can be productive derived today.
 
-**_sə-_** (intr.) - _to burn_
-**_sə-_** (intr.) - *to sit* (bound with **_ɕə-_**)
-**_sə-_** (intr.) - *to swim* (bound with **_ja-_**)
-**_sa-_** (intr.) - *to bring up/raise (e.g. children)*; *to get used to*, *to get trained*
-**_sa-_** (tr.) - *to sow Y*, *to plant Y*
+**_сы-_** (intr.) - _to burn_
+**_сы-_** (intr.) - *to sit* (bound with **_ɕə-_**)
+**_сы-_** (intr.) - *to swim* (bound with **_ja-_**)
+**_сэ-_** (intr.) - *to bring up/raise (e.g. children)*; *to get used to*, *to get trained*
+**_сэ-_** (tr.) - *to sow Y*, *to plant Y*
 
-**_zə-_** (tr.) - _to strain_
+**_зы-_** (tr.) - _to strain_
 
 **_tə-_** (intr.) - *to stand*
 **_ta-_** (intr.) - *to give*, *to present*

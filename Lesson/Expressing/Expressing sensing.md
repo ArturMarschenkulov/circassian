@@ -1,34 +1,34 @@
 This note mainly talks about expressing sensing in Kabardian,
 
 # With eyes / sight
-Kabardian has two main roots for sensing with the eyes. One for active seeing (**_pɬan_** (**_maːpɬa_**)) and the other for passive seeing (**_ɬaːʁʷən_** (**_jaɬaːʁʷ_**)), basically equivalent to _to look at Y_ and _to see Y_.
+Kabardian has two main roots for sensing with the eyes. One for active seeing (**_плъэн_** (**_маплъэ_**)) and the other for passive seeing (**_лъагъун_** (**_елъагъу_**)), basically equivalent to _to look at Y_ and _to see Y_.
 
 The active seeing one is intransitive, the passive seeing one is transitive.
 
-The active seing one has only one person. 
+The active seeing one has only one person. 
 
-**_sa sawpɬa_** - _I watch_
-**_aːr jawpɬa_** - _he watches_
+**_сэ соплъэ_** - _I watch_
+**_ар йоплъэ_** - _he watches_
 
-**_sajpɬanəw_** - _I will watch_
-**_japɬanəw_** - _he will watch_
+**_сыплъэну_** - _I will watch_
+**_плъэну_** - _he will watch_
 
-**_sajpɬaːɕ_** - _I watched_
-**_japɬaːɕ_** - _he watched_
+**_сыплъащ_** - _I watched_
+**_плъащ_** - _he watched_
 
-To express two persons, one has to use the derived verb **_japɬən_** (**_jawpɬ_**). This verb is also intransitive.
+To express two persons, one has to use the derived verb **_еплъын_** (**_йоплъ_**). This verb is also intransitive.
 
-**_sa aːbə sawpɬ_** - _I look at him_
-**_aːr sa qəzawpɬ_** - _he looks at me_
-**_aːr wa qawpɬ_** - _he looks at you_
+**_сэ абы соплъ_** - _I look at him_
+**_ар сэ къызоплъ_** - _he looks at me_
+**_ар уэ къоплъ_** - _he looks at you_
 
-**_sa aːbə sajpɬənəw_** - _I will loook at him_
-**_aːr sa qəzapɬənəw_** - _he will look at me_
-**_aːr wa qawpɬənəw_** - _he will look at you_
+**_сэ абы сеплъыну_** - _I will loook at him_
+**_ар сэ къызэплъыну_** - _he will look at me_
+**_ар уэ къоплъыну_** - _he will look at you_
 
-**_sa aːbə sajpɬaːɕ_** - _I loooked at him_
-**_aːr sa qəzapɬaːɕ_** - _he looked at me_
-**_aːr wa qawpɬaːɕ_** - _he looked at you_
+**_сэ абы сеплъащ_** - _I looked at him_
+**_ар сэ къызэплъащ_** - _he looked at me_
+**_ар уэ къоплъащ_** - _he looked at you_
 
 **__**
 
@@ -40,8 +40,8 @@ To express two persons, one has to use the derived verb **_japɬən_** (**_jawp�
 
 
 
-**_japɬatʃʼən_** (**_jawpɬatʃʼ_**) - _to look around_
-**_japɬəxən_** (**_jawpɬəx_**) - _to look down from above_
+**_еплъэкIын_** (**_йоплъэкI_**) - _to look around_
+**_еплыхын_** (**_йоплъых_**) - _to look down from above_
 
 The passive seeing one, is as mentioned above, transitive and has two persons.
 

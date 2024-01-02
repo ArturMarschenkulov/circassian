@@ -1,4 +1,4 @@
-**_xʷajn_**
+The modal verb **_хуеин_** can express desire and obligation.
 
 **_сэ абы сыхуейщ_** - _I want that_
 **_сыхуейкъым сыкIуэну_**
@@ -12,3 +12,8 @@
 
 
 **_хуейми хуэмейми_**
+
+**_сефэну сыхуейщ_** - _I want to drink_
+
+**_мы дзэр Iучын хейщ_** - _this tooth needs to be removed_
+**_сефэн хуейщ_** - _I need to drink_

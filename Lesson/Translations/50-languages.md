@@ -66,11 +66,11 @@ _They do not like to dance._ - **_абыхэм къэфэныр яфIэфIкъы
 # 69 To need
 __ - **__**
 
-_I need a bed_ - **__**
-_I want to sleep_ - **_сэ сыжейну сыхуей_**
-_Is there a bed here?_ - **__**
+_I need a bed_ - **_сэ гъуэлъыпӀэ сыхуейщ._**
+_I want to sleep_ - **_сэ сыжеину сыхуейщ_**
+_Is there a bed here?_ - **_мыбдеж гъуэлъыпӀэ щыӀэ?_**
 
-_I need a lamp_ - **__**
+_I need a lamp_ - **_сэ уэздыгъэ сыхуейщ_**
 _I want to read_ - **_сэ седжэну сыхуейщ_**
 _Is there a lamp here?_ - **__**
 
@@ -87,7 +87,7 @@ _I want to send an email_ - **_сэ эмейл згъэхьыну сыхуейщ
 _Is there a computer here?_ - **__**
 
 _I need a pen_ - **__**
-_I want to write something_ - **_сэ гуэр стхыну сыхуейщ_**
+_I want to write something_ - **_сэ зыгуэр стхыну сыхуейщ_**
 _Is there a sheet of paper and a pen here?_ - **__**
 
 # 94 Conjunctions 1
