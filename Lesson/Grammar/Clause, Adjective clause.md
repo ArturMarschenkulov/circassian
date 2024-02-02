@@ -1,4 +1,4 @@
-This article talks about adjective clauses. These are clauses which can be regarded as adjectives to a noun.
+This article talks about adjective clauses. These are clauses which can be regarded as adjectives to a noun. This also includes relative clauses.
 
 
 # Frequent use of participles

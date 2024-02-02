@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "5e4540743e4815c1",
+        "id": "21331618fd274bd0",
         "type": "tabs",
         "children": [
           {
-            "id": "9c4e2adef02ba45e",
+            "id": "8e16abaa91971e89",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Lesson/Grammar/Clause, Complement clause.md",
+                "file": "Lesson/Expressing/Modal Verb хуеин.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Lesson/Grammar/Clause, Complement clause.md",
+                "file": "Lesson/Expressing/Modal Verb хуеин.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Lesson/Grammar/Clause, Complement clause.md"
+                "file": "Lesson/Expressing/Modal Verb хуеин.md"
               }
             }
           }
@@ -122,34 +122,35 @@
       "markdown-importer:Open format converter": false
     }
   },
-  "active": "9c4e2adef02ba45e",
+  "active": "8e16abaa91971e89",
   "lastOpenFiles": [
-    "Lesson/Grammar/Clause, Adjective clause.md",
-    "Lesson/Expressing/purpose.md",
-    "Lesson/Expressing/searching.md",
-    "Lesson/Expressing/temp.md",
-    "Lesson/Expressing/trade.md",
-    "Lesson/Expressing/Expressing sensing.md",
-    "Lesson/Expressing/Expressing fear.md",
-    "Lesson/Expressing/Expressing emotion.md",
-    "Lesson/Grammar/Adjectives.md",
-    "Lesson/Grammar/Clause, Adverbial clause.md",
-    "Lesson/Grammar/Clause, Subordinate clause.md",
-    "Lesson/Translations/Sample Texts.md",
-    "Lesson/Translations/Lord prayer.md",
-    "Lesson/Translations/Declaration of human rights.md",
-    "Lesson/Translations/Istanbylikwa.md",
+    "Lesson/Translations/50-languages.md",
     "Lesson/Translations/Adyghe Nysa.md",
-    "Lesson/Translations/bible.md",
+    "Lesson/Expressing/Correlatives.md",
+    "Lesson/Grammar/Clause, Adverbial clause.md",
+    "Lesson/Grammar/Clause, Complement clause.md",
+    "Lesson/Grammar/Clause, Adjective clause.md",
+    "Lesson/Expressing/Causative.md",
+    "Lesson/Translations/Conlang Sytax Test.md",
     "Lesson/Translations/ddd.md",
-    "Lesson/Translations/Quotes.md",
+    "Lesson/Translations/Declaration of human rights.md",
     "Lesson/Translations/Songs.md",
     "Lesson/Translations/Schleicher's Fable.md",
-    "Lesson/Translations/SharerHythm.md",
-    "Lesson/Translations/Conlang Sytax Test.md",
-    "Lesson/Grammar/Conjunctions.md",
+    "Lesson/Dialectal Variation.md",
+    "Lesson/Expressing/preverb prefixes.md",
+    "Lesson/Expressing/Adverbs.md",
     "Lesson/Expressing/Cognitive verbs.md",
-    "Lesson/Expressing/Expressing because.md",
+    "Lesson/Expressing/Directions.md",
+    "Lesson/Grammar/Correlatives.md",
+    "Lesson/Grammar/Conjunctions.md",
+    "Lesson/Grammar/Clause, Subordinate clause.md",
+    "resources/north-west-caucasian/kabardian/КЧЯ-в-двух-томах.pdf",
+    "Lesson/Grammar/Verb/Verb conjugation paradigm.md",
+    "Lesson/Expressing/Temporal Adverbs.md",
+    "Lesson/Expressing/temp.md",
+    "Lesson/Expressing/clothing.md",
+    "Lesson/Expressing/__Expressing random stuff.md",
+    "Kabardian Dictionary/Categories/CAT.Animal.md",
     "resources/GRAMMATICALIZATION_IN_THE_NORTH_CAUCASIA.pdf",
     "Kabardian Grammar in two volumes (translation).pdf",
     "Kabardian.pdf",
@@ -158,7 +159,6 @@
     "subproj/wikipsalhalhe_templates/target/debug/incremental/wikipsalhalhe_templates-290xnd56kjxoq/s-gl31jytfkk-1d0yxbn-132lnux0ydhem/query-cache.bin",
     "subproj/wikipsalhalhe_templates/target/debug/incremental/wikipsalhalhe_templates-290xnd56kjxoq/s-gl31jytfkk-1d0yxbn-132lnux0ydhem/dep-graph.bin",
     "subproj/wikipsalhalhe_templates/target/debug/incremental/wikipsalhalhe_templates-290xnd56kjxoq/s-gl31jytfkk-1d0yxbn-132lnux0ydhem",
-    "subproj/wikipsalhalhe_templates/target/debug/incremental/wikipsalhalhe_templates-22s5z1zw2it0c/s-gl31jytfmc-13u69z9-hsz6mghg44r4/dep-graph.bin",
-    "subproj/wikipsalhalhe_templates/target/debug/incremental/wikipsalhalhe_templates-22s5z1zw2it0c/s-gl31jytfmc-13u69z9-hsz6mghg44r4/work-products.bin"
+    "subproj/wikipsalhalhe_templates/target/debug/incremental/wikipsalhalhe_templates-22s5z1zw2it0c/s-gl31jytfmc-13u69z9-hsz6mghg44r4/dep-graph.bin"
   ]
 }

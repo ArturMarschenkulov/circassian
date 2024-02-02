@@ -3,26 +3,26 @@ the Kabardian language does not have a passive voice per se, but it can be of co
 
 
 
-**_ɬʼəm məɕar jəwətʃʼaːɕ_** - _the man killed the bear_
-**_məɕar ɬʼəmtʃʼa wətʃʼaːɕ_** - _the bear was killed by the man_
-**_məɕar jaːwətʃʼaːɕ_** - _the wolf was killed_ (lit. _they killed the wolf_)
+**_лIым мыщэр иукIащ_** - _the man killed the bear_
+**_мыщэр  лIымкIэ укIащ_** - _the bear was killed by the man_
+**_мыщэр яукIащ_** - _the bear was killed_ (lit. _they killed the wolf_)
 
-**_ɬʼəm gʷaʒər jəʔʷəxəʒaːɕ_** - _the man harvested the wheat_
-**_gʷaʒər ɬʼəmtʃʼa ʔʷəxəʒaːɕ _** - _the wheat was harvested by the man_
-**_gʷaʒər jaːʔʷəxəʒaːɕ_** - _the wheat was harvested_ (lit. they harvested the wheat)
+**_лIым  гуэжыр иIухыжащ_** - _the man harvested the wheat_
+**_гуэжыр лIымкIэ Iухыжащ_** - _the wheat was harvested by the man_
+**_гуэжыр яIухыжащ_** - _the wheat was harvested_ (lit. they harvested the wheat)
 
-**_wənar tɕʼaː maχʷ_** - _the house is being built by us_
-**_dartʃʼa wənar ɕʼaː maχʷaːɕ_** - _the house was built by us_
-
-
-
-
-**_ħaɕʼaxar ħaɕʼaɕəmtʃʼa jəraːʁabɮaʁaːɕ_** - _guests were invited into the guestroom_
+**_унэр тщIа мэхъу_** - _the house is being built by us_
+**_дэркIэ унэр щIа мэхъуащ_** - _the house was built by us_
 
 
 
-- **_ɮaʑaːkʷʼam majbajɮ jaɕʼ_** - _the worker makes furniture_
-- **_majbajɮ ɮaʑaːkʷʼamtʃʼa ɕʼaː maχʷ_** - _furniture is made by the worker_
+
+**_хьэщIэхэр хьэщIэщымкIэ ирагъэблагъащ_** - _guests were invited into the guestroom_
+
+
+
+- **_лэжьакIуэм мебел ещI_** - _the worker makes furniture_
+- **_мебел лэжьакIуэмкIэ щIа мэхъу_** - _furniture is made by the worker_
 
 - **_aːr_**
 - **_təkʷanəm tajtraːd ɕaːɕa_** - _notebooks are sold in the store_

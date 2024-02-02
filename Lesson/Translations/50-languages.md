@@ -4,8 +4,28 @@ This will be a big undertaking
 
 # 1 People
 
+
+# 4 At School
+
+__ - **__**
+
+- _Where are we?_ - **_дэнэ дыщыIэр_**
+- _We are at school_ - **_дэ еджапIэм дыщыIэщ_**
+- _We are having class/a lesson_ - **_дэ урокхэр диIэщ_**
+
+- _those are school children_ - **_ахэр еджакIуэхэщ_**
+- _that is the teacher_ - **__**
+- _that is the class_ - **__**
+
+- _what are we doing?_ - **__**
+- _we are learning_ - **__**
+- _we are learning a language_ - **_дэ бзэр зыдогъэщIэ_**
+
+- _we want to understand people_ - **_цIыхухэр къыдгурыIуэну дыхуейщ_**
+- __ - **__**
+- __ - **__**
 # 7 Numbers
-_I count_ - **_sa sawbʒa/qasɬəta_**
+_I count_ - **_сэ собжэ/къэслъытэ_**
 _I count further_ - **_sa aːdatʃʼa_**
 
 # 12 Bevarages
@@ -74,7 +94,7 @@ _I need a lamp_ - **_сэ уэздыгъэ сыхуейщ_**
 _I want to read_ - **_сэ седжэну сыхуейщ_**
 _Is there a lamp here?_ - **__**
 
-_I need a telephone_ - **__**
+_I need a telephone_ - **_сэ телефон сыхуейщ_**
 _I want to make a call_ - **__**
 _Is there a telephon here?_ - **__**
 
@@ -89,6 +109,32 @@ _Is there a computer here?_ - **__**
 _I need a pen_ - **__**
 _I want to write something_ - **_сэ зыгуэр стхыну сыхуейщ_**
 _Is there a sheet of paper and a pen here?_ - **__**
+
+# 73 to be allowed to
+
+
+- __ - **__**
+
+- _Are you already allowed to drive?_ - **__**
+- _Are you already allowed to drink alcohol?_ - **__**
+- _Are you already allowed to travel abroad alone?_ - **__**
+
+- _may / to be allowed_ - **__**
+- _May we smoke here?_ - **_мыбдеж дыщефэ хъуну пӀэрэ?_**
+- _Is smoking allowed here?_ - **_мыбдеж ущефэ хъуну пӀэрэ?_**
+
+- _May one pay by credit card?_ - **_кредит карткIэ пщIэ птын_**
+- _May one pay by check?_ - **__**
+- _May one only pay in cash?_ - **__**
+
+- __ - **__**
+- __ - **__**
+- __ - **__**
+
+- __ - **__**
+- __ - **__**
+- __ - **__**
+
 
 # 94 Conjunctions 1
 
