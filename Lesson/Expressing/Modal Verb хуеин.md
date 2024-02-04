@@ -4,10 +4,14 @@ The verb **_хуеин_** is a rather important verb and has some particularitie
 
 The modal verb **_хуеин_** can express desire and obligation.
 
+In combination with **_-ну_** it expresses desire and want. 
 
 - **_сэ абы сыхуейщ_** - _I want that_
-- **_сыхуейкъым сыкIуэну_**
+- **_сыхуейкъым сыкIуэну_** - _I don't want to go_
+- **_сефэну сыхуейщ_** - _I want to drink_
+- **_сыкъэфэну сыхуейщ_** - _I want to dance_
 
+Below is the participle form of the verb **_хуеин_**:
 - **_сызыхуейр_** - _that what I want_
 - **_узыхуейр_** - _that what you want_
 - **_зыхуейр_** - _that what he wants_
@@ -16,16 +20,15 @@ The modal verb **_хуеин_** can express desire and obligation.
 - **_зыхуейр_** - _that what they want_
 
 
-- **_хуейми хуэмейми_**
-
-- **_сефэну сыхуейщ_** - _I want to drink_
-- **_сыкъэфэну сыхуейщ** - _I want to dance_
-
-
 In combination with the infinitive form or rather the form ending on **_-н_** it expresses necessity.
 
 
-**_мы дзэр Iучын хейщ_** - _this tooth needs to be removed_
-**_сефэн хуейщ_** - _I need to drink_
-**_къыбгурыIуэну ухуеймэ, укъызэдэIуэн хуейщ_** - _if you want to understand it, you need to listen to me_
-**_къызгурыIуэну сыхуеймэ, сынодэIуэн хуейщ_** - _if I want to understand it, I need to listen to you_
+- **_мы дзэр Iучын хейщ_** - _this tooth needs to be removed_
+- **_сефэн хуейщ_** - _I need to drink_
+- **_къыбгурыIуэну ухуеймэ, укъызэдэIуэн хуейщ_** - _if you want to understand it, you need to listen to me_
+- **_къызгурыIуэну сыхуеймэ, сынодэIуэн хуейщ_** - _if I want to understand it, I need to listen to you_
+
+
+
+
+- **_хуейми хуэмейми_** - _Whether he wants it or not_
