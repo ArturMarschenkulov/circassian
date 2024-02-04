@@ -30,6 +30,11 @@ For this adverbial clause, **_ипэкIэ_**, **_ипэ къихуэу_**.
 - **_[хъыбарыр щызэхихым], щIалэщIэр къалэм къикIыжащ_** - _[having heard the news], the young men came from the city_
 - 
 # Reason
+[[reason]]
+
+# Purpose
+[[purpose]]
+
 # Condition
 
 # Postpositions
