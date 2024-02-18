@@ -6,11 +6,11 @@ This form is only possible with transitive verbs.
 
 There the agent/subject in the ergative gets promotes/demontes to the indirect object of the potential prefix **_хуэ-_**.
 
-**_сшхыркъым_** - _I don't eat it_
-**_схуэшхыркъым_** - _I can't eat it_
+- **_сшхыркъым_** - _I don't eat it_
+- **_схуэшхыркъым_** - _I can't eat it_
 
-**_сошх_** vs **_схуошх_** - _I eat it_ vs _I can eat it_
-**_сшхащ_** vs **_схуэшхащ_** - _I ate it_ vs _I could eat it/I was able to eat it_
+- **_сошх_** vs **_схуошх_** - _I eat it_ vs _I can eat it_
+- **_сшхащ_** vs **_схуэшхащ_** - _I ate it_ vs _I could eat it/I was able to eat it_
 
 
 >**_мыщэм сэ сешх_** - _the bear eats me_

@@ -61,3 +61,13 @@ One way to express reason is to use the suffix **_-и_**.
 Another way is to use the **_щIэ-_** participle.
 - **_блэр щIысукIар_** - _the reason why I killed the snake_
 - **_блэр щIысукIар уи пхъуращ_** - _the reason why I killed the snake is your daughter_
+
+- **_сыт цIыхухэр щIэлIэр?_** - _why are people dying?_ (lit. _what is the reason why people die)
+- **_сыт сыщIумыцIыхур_** - _why don't you know me?_
+- **_сыт ущIицIыхур_** - _why does he know you?_
+
+
+# Comparing
+_Because I don't know you, I won't talk to you_:
+- **_усцIыхуркъыми сынопсэлъэнукъым_**
+- **_узэрызмыцIыхум щхьэкIэ сынопсэлъэнукъым_**

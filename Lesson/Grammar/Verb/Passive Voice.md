@@ -1,11 +1,13 @@
-the Kabardian language does not have a passive voice per se, but it can be of course expressed
+the Kabardian language does not have a passive voice per se, but it can be of course expressed.
+
+There are 3 strategies. The impersonal form. Third person plural. Auxiliary verb **_хъун_**
 
 
 
 
-**_лIым мыщэр иукIащ_** - _the man killed the bear_
-**_мыщэр  лIымкIэ укIащ_** - _the bear was killed by the man_
-**_мыщэр яукIащ_** - _the bear was killed_ (lit. _they killed the wolf_)
+- **_лIым мыщэр иукIащ_** - _the man killed the bear_
+- **_мыщэр  лIымкIэ укIащ_** - _the bear was killed by the man_
+- **_мыщэр яукIащ_** - _the bear was killed_ (lit. _they killed the wolf_)
 
 **_лIым  гуэжыр иIухыжащ_** - _the man harvested the wheat_
 **_гуэжыр лIымкIэ Iухыжащ_** - _the wheat was harvested by the man_
@@ -16,8 +18,14 @@ the Kabardian language does not have a passive voice per se, but it can be of co
 
 
 
+- **_абы хъыбархэр бзэ тыншкIэ къиIуэтэжащ_** - _he tells the stories with easy language_
+- **_хъыбархэр бзэ тыншкIэ къаIуэтэжащ_** - _the stories were told with easy language_
+- **_хъыбархэр бзэ тыншкIэ къэIуэтэжащ_** - _the stories were told with easy language_
 
-**_хьэщIэхэр хьэщIэщымкIэ ирагъэблагъащ_** - _guests were invited into the guestroom_
+
+
+
+- **_хьэщIэхэр хьэщIэщымкIэ ирагъэблагъащ_** - _guests were invited into the guestroom_
 
 
 
