@@ -1,15 +1,15 @@
 
 
-**_pɬəʑ_** - red
-**_ʁʷapɬ_** - copper-red
-**_pɬəʑəfa_** - reddish, pale red
-**_tsʼəpɬ_** - red, scarlet
+**_плъыжь_** - red
+**_гъуэплъ_** - copper-red
+**_плъыжьыфэ_** - reddish, pale red
+**_цIыплъ_** - red, scarlet
 
-**_ʁʷaʑ_** - yellow
-**_ʁʷa_** - light yellow
+**_гъуэжь_** - yellow
+**_гъуэ_** - light yellow
 
-**_ɕʼəxʷ_** - blue
-**_wədzəfa_** - green
+**_щIыху_** - blue
+**_удзыфэ _** - green
 
 **_mawra_** - brown
 **_ʁʷaːbʒa_** - _grey_, _brown_

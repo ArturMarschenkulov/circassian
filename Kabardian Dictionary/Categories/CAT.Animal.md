@@ -1,10 +1,10 @@
 
-**_gʷəw_** - bull
-**_xəv_** - bison
-**_ħara_** - bison
+**_гуу_** - bull
+**_хыв_** - bison
+**_хьэрэ_** - bison
 
-**_ɕəħ_** - _deer_
-**_bʑaw_** _elk_, _moose_
+**_щыхь_** - _deer_
+**_бжьэу_** - _elk_, _moose_
 
 **_ʁaɬaχʷ_** - wether (castrated buck ram/sheep) ?
 **_ʁaɬaχʷətʼəwɕʼa_**
@@ -12,94 +12,96 @@
 **_ʁaɬaχʷəɕʼa_**
 
 
-**_maɮ_** - _sheep_
-**_tʼə_** _sheep_
+**_мэл_** - _sheep_
+**_тIы_** _sheep_
 **_txʷəɕʼa_** - _five years old sheep_
-**_tʼəwɕʼa_** - _two years old sheep_
-**_ɕənaːbʁa_** - _two years old infertile sheep_
-**_ɕənaːɬxʷa_** - _gestating yearling ewe_
-**_maɮɕħaza_** - _sheep with chicken pox_
+**_тIущIэ_** - _two years old sheep_
+**_щынабгъэ_** - _two years old infertile sheep_
+**_щыналъхуэ_** - _gestating yearling ewe_
+**_мэлщхьэзэ_** - _sheep with chicken pox_
 
-**_bʒan_** - _she-goat_
-**_aːʒa_** - _he-goat_
-**_dadʒaːʒa_** - _one years old goat_
-**_dadʒaχʷ_** - _castrated goat_:
-**_qʷərʃ aːʒa_**
-**_xəɕʼa_** - _six years old castrated goat/sheep_
-**_ɕəna_** - _lamb_
-**_maːʔ_** - _lamb_
+**_бжэн_** - _she-goat_
+**_ажэ_** - _he-goat_
+**_дэджажэ_** - _one years old goat_
+**_дэджэхъу_** - _castrated goat_:
+**_къуршажэ_**
+**_хыщIэ_** - _six years old castrated goat/sheep_
+**_щынэ_** - _lamb_
+**_маI_** - _lamb_
 
-**_və_**
-**_qχʷawəs_** - wild boar
-**_qχʷa_** - _pig_, _swine_
+**_вы_** - _ox_
+**_жэм_** - _cow_
+
+**_кхъуэус_** - wild boar
+**_кхъуэ_** - _pig_, _swine_
 **_qχʷapʼaːɕa_** - _boar_ (lit. **_qχʷa_** _pig_ + **_pʼaːɕa_** _big, massive_)
 **_mazəqχʷa_** - _boar_ (lit. **_maz_** _forest_ + **_qχʷa_** _pig_)
 
 
-**_ʃəɕʼa_** - foal (horse baby/child)
-**_nabʁaf_** - 1 to 2 years old foal
-**_qʷənaːn_** - 3 years old foal
-**_xaːkʷʼa_** - stallion
-**_xaːkʷʼapɕʼa** - 3-4 years old stallion
-**_dəwnaːn_** - 4 years old stallion
+**_шыщIэ_** - foal (horse baby/child)
+**_нэбгъэф_** - 1 to 2 years old foal
+**_къунан_** - 3 years old foal
+**_хакIуэ_** - stallion
+**_хакIуэпщIэ_** - _3-4 years old stallion_
+**_дунан_** - 4 years old stallion
 
-**_aːɬpʑaj_** - foal of a fairy tale horse
-
-
-**_ʃəd_** - donkey
+**_алъпжьей_** - foal of a fairy tale horse
 
 
+**_шыд_** - donkey
 
 
-**_bɮaːʁʷa_** - dragon
 
 
-**_ʔaɕəʃxʷa_** - cattle
-
-**_məɕa_** - _bear_
-**_baːʒa_** - _fox_
-**_ħa_** - _dog_
-**_dəʁʷəʑ_** - _wolf_ (lit. _old thief_)
+**_благъуэ_** - dragon
 
 
-**_dzəʁʷa_** - _mouse_
-**_dzəʁʷaʃxʷa_** - _rat_
-**_tʃʼapχ_** - _squirrel_
-**_tsəʑbaːna_** - _hedgehog_
-**_pəʑbaːna_** - _hedgehog_
-**_qʷəndəwz_** - _beaver_
-**_ɕʼəʔʷəbnaf_** - _mole_
+**_Iэщышхуэ_** - cattle
 
+**_мыщэ_** - _bear_
+**_бажэ_** - _fox_
+**_хьэ_** - _dog_
+**_дыгъужь_** - _wolf_ (lit. _old thief_)
+
+
+**_дзыгъуэ_** - _mouse_
+**_дзыгъуэшхуэ_** - _rat_
+**_дзыгъуэнэф_** - _mouse_
+**_кIэпхъ_** - _squirrel_
+**_цыжьбанэ_** - _hedgehog_
+**_пыжьбанэ_** - _hedgehog_
+**_къундуз_** - _beaver_
+**_щIыIубнэф_** - _mole_
+**_тхьэкIумэкIыхь_** - _rabbit_ (cf. **_тхьэкIумэ_** _ear_ + **_кIыхь_** _long_)
 
 
 # Reptiles
-**_ʃəndərχʷaw_** - _lizard_
-**_ħapɕxʷəpɕ_** - _worms, caterpillars, snakes, lizards, beetles (only about crawlers)_
-**_ħandərqʷaːqʷa_** - _frog_, _toad_
+**_шындырхъэу_** - _lizard_
+**_хьэпщхупщ_** - _worms, caterpillars, snakes, lizards, beetles (only about crawlers)_
+**_хьэндыркъуакъуэ_** - _frog_, _toad_
 **хьэндыркъуакъуэцIэнлъ**
-**_ħandərqʷaːqʷatsʼanɬ_**
-**_ʃəɬagʷ_** - _turtle_
+**_шылъэгу_** - _turtle_
 
 # Anthropods
 ## Insect
 
-**_tsʼa_** - _louse_
-**_bʑədza_** - _flea_
-**_tsʼəv_** - _beetle_
+**_цIэ_** - _louse_
+**_бжьыдзэ_** - _flea_
+**_цIыв_** - _beetle_
 
-**_baːdza_**- _fly_
-**_bʑa_** - _bee_
-**_χʷən_** - _moth_
-**_aːrʁʷaj_** - _mosquito_
-**_ʁʷəda_** - _botfly_
-**_tħaʁaɮadʒ_** - _firefly_, _glowworm_
+**_бадзэ_**- _fly_
+**_бжьэ_** - _bee_
+**_хъун_** - _moth_
+**_аргъуей_** - _mosquito_
+**_гъудэ_** - _botfly_
+**_тхьэгъэлэдж_** - _firefly_, _glowworm_
 
-**_ħandəraːbʁʷa_** - _butterfly_
-**_ħambəɮəw_** - _worm_
-**_ħapʼaːtsʼa_** - _worm_, _larva_
-**_ħadzəʁʷaːna_** - _wasp_
+**_хьэндырабгъуэ_** - _butterfly_
+**_хьэмбылу_** - _worm_
+**_хьэпIацIэ_** - _worm_, _larva_
+**_хьэдзыгъуанэ_** - _wasp_
 
-**_ɕʼəbʑa_** - _bummble bee_ (**_ɕʼə_** _earth_ + **_bʑa_** _bee_)
+**_щIыбжьэ_** - _bummble bee_ (**_ɕʼə_** _earth_ + **_bʑa_** _bee_)
 **_ħandəraːbʁʷa ʒəʁaj_** - _moth_
 **_ħadzəʁʷaːnaʃxʷa_** - _hornet_ (**_ħadzəʁʷaːna** _wasp_ + **_-ʃxʷa_** _big_)
 **_baːdzaːptsʼa_** - _midge_ (**_baːdza_** _fly_ + **_pts'a_** _??_)
@@ -110,7 +112,7 @@
 ## Crustecians
 **_jaɮərqaʃ_** - _crab_, _crayfish_
 ## Arichnids
-**_badʒ_** - _spider_
+**_бэдж_** - _spider_
 **_maɮħapʼatʼa_** - _tick_
 
 
@@ -122,8 +124,8 @@
 **_dʒad_** - _chicken_
 **_aːdaːqa_** - _rooster_
 
-**_babəɕ_** - _duck_
-**_psədʒad_** - _duck_ (**_psə_** _water_ + **_dʒad_** _chicken_)
+**_бэбыщ_** - _duck_
+**_псыджэд_** - _duck_ (**_псы_** _water_ + **_джэд_** _chicken_)
 
 **_qʷaːrʁ_** - crow
 **_qʷaːɮa_** - jackdaw
@@ -155,12 +157,12 @@
 **_bʁar jəqʷətʃʼa qʷaːɮabzəw jənɕ_** - _an eagle is a very big bird_
 **_ʒəɣəwəʔʷər qʷaːɮabzəw pʼaːɕaɕ_** - __
 
-**_sət xʷada qʷaːɮabzəwxa ʁatxam qaɬataʒra:qq_** - _which birds fly away in spring_
+**_sət xʷada qʷaːɮabzəwxa ʁatxam qaɬataʒra_** - _which birds fly away in spring_
 
 # Fish
-**_bdzaʑaj_** - _fish_ (cf. orginally meant _small fish_)
-**_bdza_** - _sturgeon_ (cf. in the past it probably meant _big fish_)
-**_aːrʁaj_** - _salmon_
+**_бдзэжьей_** - _fish_ (cf. orginally meant _small fish_)
+**_бдзэ_** - _sturgeon_ (cf. in the past it probably meant _big fish_)
+**_аргъей_** - _salmon_
 
 
 # a
