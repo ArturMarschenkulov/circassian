@@ -63,8 +63,49 @@ A quite special on is the singular second markers, aka _you_. It's special for t
 - **_сыплъагъунщ_** - _you'll see me_
 
 
+
+
+# The present tense prefix о-/мэ-
+Before talking about the big topic of prefixes in Kabardian, one needs to talk about the special prefix **_о-_**/**_мэ-_**.
+
+This is an important prefix which only happens in the positive affirmative present tense with dynamic verbs. It its usage it is somewhat analogous to English's **_-s_**, as it also only happens in a very specific case and otherwise verbs have rarely any markings. The **_о-_** prefix is similarly only used in that one setting and is otherwise not used, but because it is a frequent setting it is important to learn.
+
+This prefix has quite a lot of phonological interaction with its environment.
+
+When at the start of word, it is **_мэ-_**:
+- **_маплъэ_** - _he/she looks_
+- **_матхэ_** - _he writes_
+
+When inside a word, it is **_о-_**:
+- **_йоплъ_** - _he/she looks at it_ (cf. **_е-_**+**_о-_**=**_йо-_**)
+- **_соплъ_** - _I look_ (cf. **_с-_**+**_йо-_**=**_со-_**)
+
+
+If it is before the third person singular ergative person marker **_и-_**, it fuses with it into **_е-_**:
+- **_елъэгъу_** - _he sees it_ (cf. **_и-_**+**_o-_**)
+- **_етх_** - _he writes it_
+
+
+Actually because of the interactions of the **_о-_** prefix with its environment it creates some ambiguities and those might be confusing for language learners. For example, let's take the word forms **_сотхэ_** _I write_ and **_сотх_** _I write it_, one might think that the main morphological difference between them is this **_э_**, but in fact the **_с_** of the first one comes from absolutive **_сы-_**, while of the second one, it comes from the ergative **_с-_**. Note, **_тхэн_** is an intransitive verb and means _to write_ as in writing in general, while **_тхын_** is transitive and means _to write Y_, aka write something specific.
+
+The above mentioned ambiguity might not be a major problem, however one has also the case of **_соплъэ_** _I look_ and **_соплъ_** _I look at it_. If one simply took the above example by analogy one would again assume a intransitive transitive pair, but you would be mistaken. The pair is not **_плъэн_** and **_плъын_**, but **_плъэн_** and **_еплъын_** and both are intransitive verbs. This is because the combination of **_сы+е+о_** fuses to **_со-_**.
+
+This means that verbs with **_о-_** can be more ambiguous and as a learner one has to watch one and keep that stuff in mind.
+
+Another source of confusion might be that **_и-_** and **_о-_** fuse into **_е-_**, which looks the same as the **_e-_** preverb. The good thing is that the both forms have mutual exclusive distribution.
+
+
+## Reduction of other preverbs
+This prefix causes other preverbs to appear in their reduced form, if that is different from their full form.
+
+For example, **_тесхащ_** _I took it from above it_ becomes **_тызох_** _I take it from above it_. The preverb **_те-_** reduces to **_ты-_**.
+
+In fact this happens very frequently anyways whenever more than 2 preverbs are used. The rightmost preverb/prefix is in its full form, while every preverb to the left is in its reduces form. But since interaction with the prefix **_о-_** is crucial to understand, it is treated in a special way. 
+- **_къэкIуэн_** - _to come_ becomes **_къыдэкIуэн_** - _to come together with Y_
 # Preverbs/prefixes
 
+Preverbs are a major and central part of the Kabardian verb. To get a conceptual understanding, you can imagine it as if English would fuse together it's verb + preposition phrasal verbs into simply the verb. That means, instead of saying **_I looked at you_**, one would say **_I at-looked you_** or something along those lines.
+- **_I live in a city_** becomes **_I in-live a city_**
+- **_I bought food for you_** becomes **_I for-bought food you_**
 
-
-# The present tense prefx о-/мэ-
+We have already met some preverbs beforehand in this blog, like **_те-_**, **_къэ-_**, **_е-_**, etc.
