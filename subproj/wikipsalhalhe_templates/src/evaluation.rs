@@ -100,10 +100,9 @@ fn je_form(is_after_consonant: bool) -> String {
 }
 
 fn give_epenthetic_if_needed(c_0: &Consonant, c_1: &Consonant) -> &'static str {
-    use ortho::*;
-    use Manner::*;
-    use Place::*;
-    let is_wy = (Approximant, Labial) == (c_0.manner, c_0.place);
+    use ortho::Manner as M;
+    use ortho::Place as P;
+    let is_wy = (M::Approximant, P::Labial) == (c_0.manner, c_0.place);
     let needs_it = c_1.needs_epenthetic_y();
     if is_wy && needs_it {
         "ы"
@@ -333,18 +332,15 @@ fn evaluate_stem(
                 let is_next_vowel = morpheme_next
                     .map(|x| x.first_letter().unwrap().is_vowel_or_combi())
                     .unwrap_or(false);
-
-                if !is_next_vowel {}
-
                 let next_letter = morpheme_next.and_then(|m| m.first_letter());
 
                 let still_needs_y = next_letter.map_or(false, |next_letter| {
                     use ortho::*;
                     if let Letter::Consonant(consonant) = &next_letter {
-                        use Manner::*;
-                        use Place::*;
-                        let is_n = consonant.is_place_and_manner(Alveolar, Nasal);
-                        let is_gh = consonant.is_place_and_manner(Uvular, Fricative);
+                        use Manner as M;
+                        use Place as P;
+                        let is_n = consonant.is_place_and_manner(P::Alveolar, M::Nasal);
+                        let is_gh = consonant.is_place_and_manner(P::Uvular, M::Fricative);
                         let is_r = consonant.is_trill()
                             && !morpheme_next.unwrap().is_generic_certain("рэ");
                         is_n || is_gh || is_r

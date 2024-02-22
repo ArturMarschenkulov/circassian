@@ -140,8 +140,8 @@ pub struct VerbStem {
 
 impl VerbStem {
     pub fn new(s: &str, transitivity: morpho::Transitivity) -> Self {
-        use ortho::*;
-        let letters = parse(s).unwrap();
+        use ortho::Letter as L;
+        let letters = ortho::parse(s).unwrap();
         assert!(!letters.is_empty(), "The verb stem can't be empty.");
 
         let vowel = match letters.len() {
@@ -153,7 +153,7 @@ impl VerbStem {
         let first_letter = letters.first().unwrap();
 
         let thematic_vowel = match &last_letter {
-            Letter::Vowel(vowel) => ThematicVowel::from(vowel),
+            L::Vowel(vowel) => ThematicVowel::from(vowel),
             _ => ThematicVowel::Y,
         };
 
@@ -162,7 +162,7 @@ impl VerbStem {
             .rev()
             .find(|l| l.is_consonant())
             .map(|l| {
-                if let Letter::Consonant(consonant) = &l {
+                if let L::Consonant(consonant) = &l {
                     LastConsonant::from(consonant)
                 } else {
                     panic!("The letter {:?} is not a consonant.", l);
@@ -174,7 +174,7 @@ impl VerbStem {
         let first_consonant = match transitivity {
             Transitivity::Intransitive => None,
             _ => match &first_letter {
-                Letter::Consonant(consonant) => Some(FirstConsonant::from(consonant)),
+                L::Consonant(consonant) => Some(FirstConsonant::from(consonant)),
                 _ => panic!("The letter {:?} is not a consonant.", first_letter),
             },
         };

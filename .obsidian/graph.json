@@ -1,6 +1,6 @@
 {
   "collapse-filter": false,
-  "search": "path:Lesson  ",
+  "search": "",
   "showTags": false,
   "showAttachments": false,
   "hideUnresolved": false,
@@ -9,7 +9,7 @@
   "colorGroups": [],
   "collapse-display": false,
   "showArrow": true,
-  "textFadeMultiplier": 0,
+  "textFadeMultiplier": -3,
   "nodeSizeMultiplier": 1,
   "lineSizeMultiplier": 1,
   "collapse-forces": false,
@@ -17,6 +17,6 @@
   "repelStrength": 14.3405088062622,
   "linkStrength": 1,
   "linkDistance": 30,
-  "scale": 0.5441025523730512,
+  "scale": 2.0928818964586755,
   "close": false
 }

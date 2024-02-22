@@ -326,6 +326,8 @@ impl Consonant {
         self.is_manner(Manner::Trill)
     }
     /// Returns `true` if the consonant is a velar, uvular or pharyngeal plosive, aka it needs an 'ы' before 'у'.
+    /// This is needed because for some consonsants 'у'  indicates labialization, while for others it indicates a vowel.
+    /// For those that it indicates labialization, we need the epenthetic 'ы'.
     pub fn needs_epenthetic_y(&self) -> bool {
         use Place::*;
         [Velar, Uvular, Glottal].contains(&self.place)

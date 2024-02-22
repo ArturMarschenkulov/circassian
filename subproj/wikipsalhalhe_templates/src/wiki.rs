@@ -629,8 +629,7 @@ pub fn main() {
 
     // those are only test roots so that one can visually test the tables better.
     // In many cases the resulting table won't correspond to real words.
-    let mut test_roots: std::collections::HashMap<&str, &str>;
-    test_roots = std::collections::HashMap::new();
+    let mut test_roots = std::collections::HashMap::new();
     test_roots.insert("0д", "в");
     test_roots.insert("0л", "гъу");
     test_roots.insert("0т", "гъ");
