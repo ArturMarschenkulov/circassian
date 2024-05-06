@@ -1,9 +1,11 @@
 
-**_ʒəɣ_** - _tree_
-**_pχaxʷaj_** - _birch tree_
-**_daʑaj_** - _hazel tree_
+- **_жыг_** - _tree_
+- **_пхъэхуей_** - _birch tree_
+- **_дэшхуей_** - _waltnut tree_
+- **_жыгей_** - _oak tree_
+- **_daʑaj_** - _hazel tree_
 
-**_wədz ʁaʁaː_** - _flower_
+**_удз гъэгъа_** - _flower_
 **_dəʁaʁaːza_** - _sun flower_
 **_gʷaːɕanaːbdza_** - _rose_ (cf. **_gʷaːɕa_** _princess; puppet; stepmother_ + **_naːbdza_** _brow_)
 

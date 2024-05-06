@@ -9,12 +9,12 @@ There are 3 strategies. The impersonal form. Third person plural. Auxiliary verb
 - **_мыщэр  лIымкIэ укIащ_** - _the bear was killed by the man_
 - **_мыщэр яукIащ_** - _the bear was killed_ (lit. _they killed the wolf_)
 
-**_лIым  гуэжыр иIухыжащ_** - _the man harvested the wheat_
-**_гуэжыр лIымкIэ Iухыжащ_** - _the wheat was harvested by the man_
-**_гуэжыр яIухыжащ_** - _the wheat was harvested_ (lit. they harvested the wheat)
+- **_лIым  гуэжыр иIухыжащ_** - _the man harvested the wheat_
+- **_гуэжыр лIымкIэ Iухыжащ_** - _the wheat was harvested by the man_
+- **_гуэжыр яIухыжащ_** - _the wheat was harvested_ (lit. they harvested the wheat)
 
-**_унэр тщIа мэхъу_** - _the house is being built by us_
-**_дэркIэ унэр щIа мэхъуащ_** - _the house was built by us_
+- **_унэр тщIа мэхъу_** - _the house is being built by us_
+- **_дэркIэ унэр щIа мэхъуащ_** - _the house was built by us_
 
 
 

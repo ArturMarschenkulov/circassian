@@ -72,7 +72,7 @@ For **_zaxaxən_** (2 tr.) _to hear Y_ (cf. **_zaxa-_** is a preverb)
 .
 
 - **_waraːməm qrajkʷʼa pɕʼaːɕa_** - _girl waking down the street_
-- **_wədzəfa χʷə ʒəɣ_** - _the green turning tree_
+- **_удзыфэ хъу  жыг_** - _the green turning tree_
 
 
 **_ħar sət ɕəʁʷəj mabaːna_** - _the dog always barks_

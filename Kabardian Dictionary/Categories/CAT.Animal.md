@@ -147,12 +147,12 @@
 **_bʒandaχʷ_** - _startling_
 **_ptsʼaɕχʷa_** - _swallow_
 **_ħarħwəp_** - _hoopoe_
-**_ʒəɣəwəʔʷ_** - _woodpecker_ (cf. **_ʒəɣ_** _tree_ + **_wəʔʷən_**)
+**_жыгыуIу_** - _woodpecker_ (cf. **_жыг_** _tree_ + **_уIун_**)
 **_tʃʼəgʷəwgʷ_** - _cuckoo_
 
 **_qʷədaːmam qʷaːrʁ  tajsɕ_** - _a crow sits on the branch_
 **_wənaɕħam tħarəqʷa tajsɕ_**- _a pidgeon sits on the roof_
-**_ʒəɣəm ʑəndəw tajsɕ_** - _an owl sits on the tree_
+**_жыгым жьынду тесщ_** - _an owl sits on the tree_
 **_bʁar qʷaːɮabzəw jən dədaɕ_** - _an eagle is a very big bird_
 **_bʁar jəqʷətʃʼa qʷaːɮabzəw jənɕ_** - _an eagle is a very big bird_
 **_ʒəɣəwəʔʷər qʷaːɮabzəw pʼaːɕaɕ_** - __

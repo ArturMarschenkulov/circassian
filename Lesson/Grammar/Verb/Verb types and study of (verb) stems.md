@@ -48,6 +48,20 @@ The below are special, as they can be suffixed to verbs as well as being combine
 >- **_xə-_** refers to moving down.
 >- **_jə-_** refers to moving up.
 
+
+
+**_гъы_** as a bound stem (the unbound stem usually means _to cry_) means something in regards to wearing clothes. This bound prefix is usually combined with preverbs denoting body parts.
+- **__** - _to be clothed on a head_
+- **_лъыгъын_** - _to be clothed on the legs_
+- **_щыгъын_** - _to be clothed on Y_
+- **_Iыгъын_** - _to hold Y_
+
+**_Iыгъын_** is the one sticking out, since there it is in fact not bound to the rare preverb **_Iы-_**, but actually fused with it. This can be seen that **_Iыгъын_** does not seem to form a causative form.
+- **_щхьэрыгъагъын_** - _to wear Y on the head_
+- **_лъыгъагъын_** - _to wear Y on the legs_
+- **_щыгъагъын_** - _to wear Y_ (???)
+There does not seem to be a form like **_*Iыгъагъын_** or **_*егъэIыгъын_**, however there is **_Iэрыгъагъын_**
+
 # Verbs based on how they interact with common vallency change.
 
 Verbs chose basic 1 to 2 valency change is done by changing transitivity + alternate ablaut

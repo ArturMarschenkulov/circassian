@@ -1,3 +1,5 @@
+
+- **_сэ мэзым сыкӀуэну жьыуэ сыкъэушащ_** - _I wake up early to go to the forest_
 # Phrases
 
 - **_уэр папщIэ сэ сымыщIэн зыри щыIэкъым_** - _There's nothing I wouldn't do for you_

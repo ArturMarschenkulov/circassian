@@ -1,13 +1,13 @@
 Vocab. list
-> - **_waːfaʁʷaːʁʷa_** - _thunder_
-> - **_waːfaχʷapstʃʼ_** - _lightning_
-> - **_ɕəbɮa_** - _lightning_
-> - **_waːfa_** - _sky_
-> - **pʃa** - _cloud_
+> - **_уафэгъуагъуэ_** - _thunder_
+> - **_уафэхъуэпскI_** - _lightning_
+> - **_щыблэ_** - _lightning_
+> - **_уафэ_** - _sky_
+> - **_пшэ_** - _cloud_
 > - 
 
 
 
-- **_maːxʷa bzəʁa waːfaʁʷaːʁʷa xʷada_** - _like thunder between clear sky/day_
-- **_waːfar χʷapstʃʼaːɕ_** - _the lightning stroke_
+- **_махуэ бзыгъэ уафэгъуагъуэ хуэдэ_** - _like thunder between clear sky/day_
+- **_уафэр хъуэпскIащ_** - _the lightning stroke_
 - 

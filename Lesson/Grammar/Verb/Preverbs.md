@@ -1,18 +1,20 @@
 
 
-# **_xa-_**, **_jə-_** and **_da-_**
+# **_хэ-_**, **_и-_** and **_дэ-_**
 The main 'inside' preverbs are **_xa-_**, **_jə-_** and **_da-_**. 
-**_xa-_** refers to being inside an entity, some sort of volume, like **_psə_** _water_, **_jaːtʼa_** _dirt_, **_was_** _snow_, **_maz_** _forest_.
-**_psəm xatʃʼan_** _to pour into the water_
-**_psəm xasən_** _to sit in the water_
-**jaːtʼam xanan** _to get stuck in dirt_
-**_wasəm xakʷan_** _to drop somebody into snow_
-**_wasəm xatən_** _to stand in snow_
-**_mazəm xəħan_** _to enter the forest_
-**_mazəm xasən_** _to sit in the forest_
+**_xa-_** refers to being inside an entity, some sort of volume, like **_псы_** _water_, **_ятIэ_** _dirt_, **_уэс_** _snow_, **_мэз_** _forest_.
+**_псым хэкIэн_** _to pour into the water_
+**_псым хэсын_** _to sit in the water_
+**ятIэм хэнэн** _to get stuck in dirt_
+**_уэсым хэкуэн_** _to drop somebody into snow_
+**_уэсым хэтын_** _to stand in snow_
+**_мэзым хыхьэн_** _to enter the forest_
+**_мэзым хэсын_** _to sit in the forest_
 
-**_jə-_** refers to being inside some container, like **_ʒəp_** _pocket_, **_bətəwɬtʃʼa_** _bottle_, **maːta** _basket_.
-**_da-_** refers to being inside some sort of flat landscape, like **_qaːɮa_** _city_, **_pɕʼaːntʼa_** _yard_.
+**_и-_** refers to being inside some container, like **_жып_** _pocket_, **_бытулъкIэ_** _bottle_, **матэ** _basket_.
+**_дэ-_** refers to being inside some sort of flat landscape, like **_къалъ_** _city_, **_пщIантIэ_** _yard_.
+
+
 From those three, **_xa-_** is the most used and is the most generic, while **_da-_** is the least used one.
 
 
@@ -52,12 +54,12 @@ Nouns usually going with **_jə-_** are:
 Noun usually going with **da-** are:
 **_qʷaʒa_** _village_, **_qaːɮa_** _city_, **_pɕʼantʼa_** _yard_, **_nədʒa_** _river floodplain, flood meadow_, **_psəχʷa_** _shore_, **_waraːm_** _street_, **_pχʷaːntʼa_** _trunk_, **_ʃkaːf_** _wardrobe_
 
-# **_ɕʼa-_**
-It comes from the noun **_ɕʼa_** _bottom_ and it means _under_, prototypically. However another meaning refers to action or being inside a room.
+# **_щIэ-_**
+It comes from the noun **_щIэ-_** _bottom_ and it means _under_, prototypically. However another meaning refers to action or being inside a room.
 
 **_məvafʼaːməɕʼər ɕʼəm ɕʼaɬɕ_** - _stone coal lies under the ground_
 **_pχaɕħaməɕħar ɕʼəwənam ɕʼaːɬħaːɕ_** - _fruits are put in the cellar_
-**_ɕʼaːɮar ʒəɣ ɕʼaːʁəm ɕʼasɕ_** _the guy is sitting under a tree_
+**_щIалэр жыг щIагъым щIэсщ_** _the guy is sitting under a tree_
 **_pχar gʷaɕəm ɕʼaɬɕ_** - _the wood lies in the barn_
 # **_ɕə-_**
 **_ɕə-_** is is the 'general locative' preverb.

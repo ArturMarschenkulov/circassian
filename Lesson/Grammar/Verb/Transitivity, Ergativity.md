@@ -34,8 +34,8 @@ Patient preserving ones:
 >	- **_лъэпсыр мэтIатэ_** - _the shoelace unties
 >	- **_абы лъэпсыр етIатэ_** - _he unties the shoelace_
 >- **_сын_** - _to burn Y_
->	- **_пхъэр мэс** - _the triee burns_
->	- **_мафӀэм пхъэр ес_** - _fire burns the tree_
+>	- **_пхъэр мэс** - _the wood burns_
+>	- **_мафӀэм пхъэр ес_** - _fire burns the wood
 
 
 - **_qʷətan_**

@@ -37,11 +37,18 @@ short, cut off:
 - **_jəʁʷadʒa_** - _untimely_ (cf. **_jəʁʷa_**)
 
 ### **_-fʼa_**
-- **_ɕanəfʼa_** - _polite, well-mannered, humble_
-- **_gʷaɕʼafʼa_** - _strong, energetic_
-- **_pqəfʼa_** - _stately_
-- **_naːsəpəfʼa_** - _happy_ (cf. **_naːsəp_** _happiness_)
-- **_bʁʷəfʼa_** - _wide_ (cf. **_bʁʷə_** _side_)
+- **_щэныфIэ_** - _polite, well-mannered, humble_
+- **_пкъыфIэ_** - _stately, slender_ (cf. **_пкъы_** _body_)
+- **_насыпыфIэ_** - _happy_ (cf. **_насып_** _happiness_)
+- **_бгъуфIэ_** - _wide_ (cf. **_бгъу_** _side_)
+
+- **_уасафIэ_** - _expensive; good quality_ (cf. **_уасэ_** _price_)
+
+
+- **_гъащIафIэ_** - _long living person_ (cf. **_гъащIэ_** _life)
+- **_гуащIафIэ_** - _strong, energetic_
+
+Is is in many cases the opposite of **_-гуэ_**, **_-ншэ_**, **_-джэ_**. 
 
 ### **_-ɬa_**
 - **_məvaːɬa_** - _stone-ey_

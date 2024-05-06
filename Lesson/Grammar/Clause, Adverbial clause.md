@@ -55,15 +55,14 @@ For this adverbial clause, **_ипэкIэ_**, **_ипэ къихуэу_**.
 
 ## %
 
-Сэ къалэм сыкъикIыжу Борис къысхуэзащ
-**_sa qaːɮam səqəjtʃʼəʒəw bawrəjs qəsxʷazaːɕ_** - _when I returned from the city, Boris met me_
+**_сэ къалэм сыкъикIыжу Борис къысхуэзащ_** - _when I returned from the city, Boris met me_
 
 
-- **_ʒəɣəm [txəɬəm jadʒaw] ɕʼasaːɕ_**- _he sat under a tree, [while reading a book]_
-- **_[jagʷəpsəsəw] ʁʷaɬəʒaːɕ_** - _she went to bed [thinking about him]_
-- **_[qəzagʷəpsəsəw] ʁʷaɬəʒaːɕ_** - _she went to bed [thinking about me]_
+- **_жыгым [тхылъым еджэу] щIэсащ_**- _he sat under a tree, [while reading a book]_
+- **_[егупсысу] гъуэлъыжащ__** - _she went to bed [thinking about him]_
+- **_[къызэгупсысу] гъуэлъыжащ_** - _she went to bed [thinking about me]_
 
-- **_bzəwr [daːma jəməʔawə] ɬatafərqəm_** - _a bird can't fly [without a wing]_ (lit. _a bird can't fly [not having a wing]_)
+- **_бзур [дамэ имыIэу] лъэтэфыркъым_** - _a bird can't fly [without a wing]_ (lit. _a bird can't fly [not having a wing]_)
 ## **_-məj_**
 
 Дыгъэм дэнэкIэ зигъазэ-ми, сэхураныщхьэм абыкIэ зегъазэр

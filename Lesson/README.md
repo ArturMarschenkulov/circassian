@@ -5,6 +5,7 @@ There are many language learning blogs out there, which serve as an inspiration 
 
 Below is a list of blogs (or any similar resources) which I have found.
 
+https://talkpal.ai/grammar/
 https://blogs.transparent.com/
 - Russian
 	- https://www.russianlessons.net/
@@ -30,4 +31,8 @@ https://blogs.transparent.com/
 	- https://uusikielemme.fi/
 	- 
 - Japanese
+	- https://mygenerationjapan.wordpress.com/
+	- https://guidetojapanese.org
+	- https://www.japanesepod101.com/
+	- https://talkpal.ai/japanese-grammar/
 - Arabic

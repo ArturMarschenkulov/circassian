@@ -12,6 +12,26 @@ Some preverbs can be combined and some are mutually exclusive.
 
 The next group consists of preverbs which are less grammaticalized and generally have a meaning also outside the preverb context. This is also the group which has the most preverbs which can only exist with the former group, something similar to **_те-_**. **_лъы-_**/**_кIэлъы-_**/**_пэ-_**/**_къуэцI-_**/**_бгъэ(дэ)-_**/**_бгъуры-_**/**_кIэры-_**
 
+.
+
+**_къы-_**/**_нэ-_** are the farthest possible. They are mutually exclusive.
 
 
-**_къы-_**/**_нэ-** are the farthest possible. They are mutually exclusive.
+# List
+
+## Iы-
+This preverb denotes the hand and is derived from **Iэ** _hand_.
+
+The only case where I have found it to be used like a preverb is **_Iыхын_** _to take Y from Z's hand(s)_, it being a transitive verb thus resulting into **_Iех_** _X takes Y from Z's hands_. It is quite analogous with **_лъыхын_**.
+
+
+
+Another one which might be thought of as a contender is **_Iыгъын_**, however there it seems that it is actually fused together with the root, as one does not say **_*Iигъ_**, but **_иIыгъ_**. Even more strange is that this verb is actually transitive and static, AFAIK this is the only verb which behaves like that. Its **_лъы-_** analogue is **_лъыгъын_**, but it is static and intransitive.
+
+# Iэры-
+As the above one, it also denotes the hand.
+
+- **_Iэрыхын_** - _to remove Y from the hand_
+- **_Iэрыху_** - _to fall from hands_
+- **_Iэрыхьэн_** - __
+- **_Iэрылъхьэн_** - __
