@@ -77,3 +77,51 @@ jənəʔʷaɕ
 - ХеилъкIэ фи Iэ кIыхь иIахэр Культурэм и лъыр зыгъэдийщ. - _Ваши длинные руки, обагренные кровью невинных, убивают культуру. lit. Кровью невинных ваши длинные руки обагренные Культуры душу леденящие есть.
 - **_xajjəɬtʃʼa fəj ʔa tʃʼəħ jəʔaːxar kəwɬtəwram jə ɬər zəʁadəjɕ_**
 - **_xajjəɬtʃʼa jəʔaːxa fəj ʔa tʃʼəħər kəwɬtəwram jə ɬər zəʁadəjɕ_** - _your long arms, who_
+
+
+**_qəbgʷərəʔʷaː ʒəsʔaːr_** - _did you understand what I said?_
+ЖесIар аркъудей къыгурыIуакъым
+**_ʒajsʔaːr aːrqʷədaj qəgʷərəʔʷaːqəm_** - He didn't even understand what I said
+
+**_aːdəɣa waradxar, psawm xʷamədaw qajmat ʒəjʔa qaradəʑxar, vaːsəjɮ tamaməw qəgʷərəʔʷartaqəm_**- _Adyghe songs, especially the old songs sung by Kaymet were not intelligible to Vasilii_
+
+ЖаIар ерагъыу абы къыгурыIуащ – ЖаIар ерагъыу абы и щхьэм къихьащ
+**_ʒaːʔaːr jaraːʁəw aːbə qəgʷərəʔʷaːɕ - ʒaːʔaːr jaraːʁəw aːbə jə ɕħam qəjħaːɕ_** - _He could hardly understand the meaning of what was said - What was said hardly got through to him_	
+
+Сэри пасэу къызгурыIуагъэнщ ауэ сытми къызэрыгуэкI угъуэгу къудейуэ ущыт нэхърэ зэпэщIэха лъэныкъуитI зэзыпхыф лъэмыжу цIыхум ураIэныр зэрынэхъыфIыр
+**_sarəj paːsaw qəzgʷərəʔʷaːʁanɕ aːwa sətməj qəzarəgʷatʃʼ wəʁʷagʷ qʷədajwa wəɕət naχra zapaɕʼaxaː ɬanəqʷəjtʼ zazəpxəf ɬaməʒəw tsʼəxʷəm wəraːʔanər zarənaχəfʼər_**- _I, too, probably realized early on that it was better to serve people as a bridge connecting two sides than to be just a (ordinary) road_
+
+
+Къемэт жиIэхэр зэхимыщIыкI хуэдэ, Сурэ и щхьэр къиIэту и нэгу щIэплъакъым
+
+**_qajmat ʒəjʔaxar zaxəjməɕʼətʃʼ xʷada, səwra jə ɕħar qəjʔatəw jə nagʷ ɕʼapɬaːqəm_** - _As if she didn't understand what Kemat was saying, Sura never looked him in the face_
+
+Удзгъэгъам тхьэмпэхэр къыпидзащ
+**_wədzʁaʁaːm tħampaxar qəpəjdzaːɕ_** - _Leaves appeared on a flower_
+
+
+ЩIалэр уэшхым иуфэнщIащ.
+**_ɕaːɮar waʃxəm jəwəfanɕʼaːɕ_** - _A guy got soaked in the rain_
+
+ДэIэпыкъуэгъу нэскIэ абы щыгугъыртэкъым, сыт щхьэкIэ жыпIэмэ абы и узыншагъэр щIагъуэтэкъым
+**_daʔapəqʷaʁʷ nastʃʼa abə ɕəgʷəʁərtaqəm, sət ɕħatʃʼa ʒəpʼama abə jə wəzənʃaːʁar ɕʼaːʁʷataqəm_** - _No real help was expected from him because his health was already weak_
+
+
+
+# Own phrases
+_I looked for my keys_ - **_sa ʔʷəntʃʼəbzaʔʷəxəm sajɬəχʷaː_**
+
+**_ʔʷəntʃʼəbzaʔʷəx_** - _key_
+
+# Own attempts for expressions
+_forests burn and glaciers melt_ - **_mazxam jasra məɮaɕxar matkʷʼəra_** (мэзхэм есрэ мылэщxэр мэткIурэ)
+**_jəs mazra t_** - _the burning forest_
+
+
+**_dəwnaj mazxam zədjəsər_**
+**_dəwnajəw mazxam zədjəsər_**
+**_mazxam zədjəs dəwnajr_**
+_world where the forets burn_ - 
+
+къы-з-ды-щы-хъуар
+**_qəzdəɕəχʷaːr_**
