@@ -5,9 +5,8 @@
 - **_къофэ_**, **_къэфэркъым_** - _he dances_, _he danced_
 - **_къефыхь_**, **_къифыхьыркъым_** - _he dances around Y_, _he danced around Y_
 - **_сыкъефыхь_** - _he dances around me_
-- **_səqawfa_**, **_səqafarqəm_** - _I dance_
-- **_qəzawfəħ_**, **_qasfəħərqəm_** - _I dance around Y_
+- **_сыкъофэ_**, **_сыкъэфэркъым_** - _I dance_
+- **_къызофыхь_**, **_къэсфыхьыркъым_** - _I dance around Y_
 - **_укъызофыхь_** - _I dance around you_          
 
 - **_фызыр псым итхьэлащ_** - _the water choked the woman_
-- **_psəm dəjtħaɮaːɕ_**

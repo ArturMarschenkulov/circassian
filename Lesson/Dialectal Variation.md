@@ -3,17 +3,17 @@ Kabardian: Baksan
 Adyghean: Chemgui/Temirgoy
 
 
-**_vaːqa_** - **_tsʷaːqa_** - _shoe_
-**_vaːʁʷa_** - **_ʒʷaːʁʷa_** - _star_
-**_maːfʼa_** - **_maːʃʷʼa_** - _fire_
-**_fəz_** - **_ʃʷəz_** - _wife_
-**_zavə_** - **_zaʒʷə_** - _narrow_
-**_txʷə_** - **_tfə_** - _five_
+- **_vaːqa_** - **_tsʷaːqa_** - _shoe_
+- **_vaːʁʷa_** - **_ʒʷaːʁʷa_** - _star_
+- **_maːfʼa_** - **_maːʃʷʼa_** - _fire_
+- **_fəz_** - **_ʃʷəz_** - _wife_
+- **_zavə_** - **_zaʒʷə_** - _narrow_
+- **_txʷə_** - **_tfə_** - _five_
 
-**__** - **__** - __
-**_sɕʼːa_** - **_sʃʼaːʁ_** - _I knew_
-**_sɕarqəm_** - **_sʃʼarap_** - _I don't know_
-**__** - **_sʃʷʼaʃʼəʁ_** - _I thought_
+- **__** - **__** - __
+- **_sɕʼːa_** - **_sʃʼaːʁ_** - _I knew_
+- **_sɕarqəm_** - **_sʃʼarap_** - _I don't know_
+- **__** - **_sʃʷʼaʃʼəʁ_** - _I thought_
 
 
 
@@ -83,16 +83,17 @@ Adyghean: Chemgui/Temirgoy
 |ʂʰ|ʃ|ɕ|
 
 
+From a Kabardian point of view how they can guess the pronunciation of a word based on their own words.
 
-**_v_** becomes **_dzʷ_** if from **_dʑʷ_**
-**_v_** becomes **_tsʷ_** if from **_tɕʷ_**
-**_v_** becomes **_ʒʷ_** if from **_ʑʷ_**
+- **_v_** becomes **_dzʷ_** if from **_dʑʷ_**
+- **_v_** becomes **_tsʷ_** if from **_tɕʷ_**
+- **_v_** becomes **_ʒʷ_** if from **_ʑʷ_**
 
-**_f_** becomes **_ʃʷ_** if from **_ɕʷ_**
-**_f_** becomes **_tsʷ_** if from **_tɕʰʷ_**
-**_fʼ_** becomes **_ʃʷʼ_** if from **_ɕʷʼ_**
+- **_f_** becomes **_ʃʷ_** if from **_ɕʷ_**
+- **_f_** becomes **_tsʷ_** if from **_tɕʰʷ_**
+- **_fʼ_** becomes **_ʃʷʼ_** if from **_ɕʷʼ_**
 
-**_ʒ_** - **_tʃ_**
-**_ʒ_** - **_dʒ_**
-**_ʒ_** - **_dʒ_**
+- **_ʒ_** - **_tʃ_**
+- **_ʒ_** - **_dʒ_**
+- **_ʒ_** - **_dʒ_**
 
