@@ -4,3 +4,6 @@
 
 Президиумым хэсыну хахахэр игъэтIысыным Дэгъуэтлыкъуэ куэдрэ емылIалIэу хъуакъым, сыт щхьэкIэ жыпIэмэ дэкIуеипIэм япэ теувэн къахэкIыртэкъым, зым адрейм нэмыс хуищIырти...
 **_prajzəjdəjwəməm xasənəw xaːxaːxar jəʁatʼəsənəm daʁʷatɮəqʷa kʷadra jaməɬʼaːɬʼaw χʷaːqəm, sət ɕħatʃʼa _**- _Dogotluko could not immediately identify the presidium, because no one dared to go up the steps first, respectfully yielding to the other_
+
+
+

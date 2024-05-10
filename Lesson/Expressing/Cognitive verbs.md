@@ -1,4 +1,4 @@
-
+#vocabulary
 
 
 **_а Iуэхум  сэ куэдрэ сегупсысащ_** - _I thought about that thing a lot_

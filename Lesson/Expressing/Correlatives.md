@@ -1,3 +1,4 @@
+#vocabulary
 
 **_-и_**
 Creates universal quantifiers from interrogatives.

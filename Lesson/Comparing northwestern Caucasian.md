@@ -13,14 +13,15 @@
 |nine |bʁʷə|bʁʷə|bʁʲə|ʒʷba|ʒʷba|
 |ten |pɕʼa||ʒʷə|ʒʷaba|ʒʷaba|
 
-|english|Kabardian|Adyghe|Ubykh|Abkhaz|
-|--------|---|-|-|-|
-|sunday|||||
-|monday|||||
-|tuesday|||||
-|wednesday|||||
-|thursday|||||
-|friday|||||
-|saturday|||||
-|week|||||
-|day |maːxʷa|maːfa|məɕʷa|amʂ|
+| english   | Kabardian | Adyghe | Ubykh | Abkhaz | Abaza |
+| --------- | --------- | ------ | ----- | ------ | ----- |
+| sunday    |           |        |       |        |       |
+| monday    |           |        |       |        |       |
+| tuesday   |           |        |       |        |       |
+| wednesday |           |        |       |        |       |
+| thursday  |           |        |       |        |       |
+| friday    |           |        |       |        |       |
+| saturday  |           |        |       |        |       |
+| week      |           |        |       |        |       |
+| day       | maːxʷa    | maːfa  | məɕʷa | amʂ    |       |
+| snow      | уэс       |        |       | асы    | сы    |

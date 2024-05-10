@@ -20,10 +20,18 @@ I will also list in this file, various authors who are relevant.
 - Karina Vamling ([academia.edu](https://mah.academia.edu/KarinaVamling)): 
 - Yury Lander ([uni](https://www.hse.ru/en/staff/yulander#sci)):
 - Hewitt:
+- John Colarusso:
+- Bernard Comrie:
+- Aert H. Kuipers:
+	- A Dictionary of Proto-Circassian Roots
+	- Phoneme and Morpheme in Kabardian
+	- Typologically Salient Features of Some North-West Caucasian Languages
+- Allan R. Bomhard
+	- Additional Proto-Indo-European/Northwest Caucasian Lexical Parallels
 
 # Links
 - [starting database](https://starlingdb.org/cgi-bin/main.cgi?flags=eygtnnl): database for language roots
 - wiktionary links:
 	- [proto-northwest caucasian reconstructions](https://en.wiktionary.org/wiki/Appendix:Proto-Northwest_Caucasian_reconstructions)
 	- [caucasian word list](https://en.wiktionary.org/wiki/Appendix:Caucasian_word_lists)
-	- 
+	- https://circassianstudies.org/en/library/

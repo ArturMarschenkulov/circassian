@@ -14,10 +14,10 @@ This is a temporary location for basic stems I have found.
 
 # Verbs of motion
 Verbs of motion are:
->- **_ɬatan_** - _to fly_
->- **_kʷʼatan_** - _to move_
->- **_pɕən_** - _to crawl_
->- **_ʒan_** - _to run_
+>- **_лъэтэн_** - _to fly_
+>- **_кIуэтэн_** - _to move_
+>- **_пщын_** - _to crawl_
+>- **_жэн_** - _to run_
 >- **_tʃʼan_**
 >- **_ɬadan_** - _to run fast_
 >- **_ɬan_** - _to jump_
@@ -35,21 +35,23 @@ Note: There is another term for that.
 
 Kabardian has a few verbal stems with a clear meaning, where maybe in the past was also used by itself, but now it has to be used bounded with some other morpheme.
 
-Those bound roots' basic forms are usually with the preverb **_ɕə-_**.
->- **_sə-_** refers to sitting. **_ɕəsən_** - _to sit_
->- **_tə-_** refers to standing. **_ɕətən_** - _to stand_
->- **_ɬə-_** refers to lying. **_ɕəɬən_** - _to lie_
+Those bound roots' basic forms are usually with the preverb **_щы-_**.
+>- **_сы-_** refers to sitting. **_щысын_** - _to sit_
+>- **_ты-_** refers to standing. **_щытын_** - _to stand_
+>- **_лъы-_** refers to lying. **_щылъын_** - _to lie_
 >- 
 >- **_ɕat-_** refers to falling or slipping from something. **_ɕəɕatən_** - _to fall/slip from Y_
-
+## хьэ-, кIы-, хы-, и-
 The below are special, as they can be suffixed to verbs as well as being combined with preverbs.
->- **_ħa-_** refers to moving towards (entering).
->- **_tʃʼə-_** refers to moving away (exiting).
->- **_xə-_** refers to moving down.
->- **_jə-_** refers to moving up.
+>- **_хьэ-_** refers to moving towards (entering).
+>- **_кIы-_** refers to moving away (exiting).
+>- **_хы-_** refers to moving down.
+>- **_и-_** refers to moving up.
 
+They are all used slightly different and are not really that "parallel" as the other ones, but they are still quite similar in how they are used.
 
-
+**_хьэ-_** is especially frequently used with 
+## гъы-
 **_гъы_** as a bound stem (the unbound stem usually means _to cry_) means something in regards to wearing clothes. This bound prefix is usually combined with preverbs denoting body parts.
 - **__** - _to be clothed on a head_
 - **_лъыгъын_** - _to be clothed on the legs_

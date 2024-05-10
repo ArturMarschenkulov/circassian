@@ -4,9 +4,9 @@ This note is about giving an introduction to the verb system of Kabardian. The v
 
 The most important thing before one starts to understands the verb is to understand that Kabardian is an ergative language, this is different from accusative languages. Most languages you probably know are accusative languages, for example English, Russian, Turkish, Arabic, German etc. In fact, around and in Europe only Basque and Caucasian languages, like Circassian, Georgian, etc, are ergative.
 
-In essence, ergative languages differ from accusative languages by how the subject of the sentence is marked depending on the verb's transitivity. While transitivity is expressed differently in different languages, the rough gist is that base intransitive verbs have only a subject, while base transitive verbs have a subject and a (direct) object. In an accusative language, while not always accurate, one can say that the main cases are the nominative and accusative case. The main cases in ergative languages are absolutive and ergative. In case of Circassian, unfortunately the established tradition is to call the absolutive case the nominative case. This might create confusion, thus I will not use that to describe the absolutive case.
+In essence, ergative languages differ from accusative languages by how the subject of the sentence is marked depending on the verb's transitivity. While transitivity is expressed differently in different languages, the rough gist is that base intransitive verbs have only a subject, while base transitive verbs have a subject and a (direct) object. In an accusative language, while not always accurate, one can say that the main cases are the nominative and accusative case. The main cases in ergative languages are absolutive and ergative. In case of Circassian, unfortunately the established tradition is to call the absolutive case the nominative case. This might create confusion, thus I will not use that here, however know that usually when you hear "nominative case" in other sources, the absolutive case is meant.
 
-In accusative languages, it does not matter what the transitivity is of the verb, the subject is usually expressed by the nominative case.
+In accusative languages, it does not matter what the transitivity of the verb is, the subject is usually expressed by the nominative case.
 
 - **_He looks_**. 
 	- **_to look_** is intransitive. The subject is **_he_** and is in the nominative case. One cannot say **_he looks him_**, to express that meaning one would have to say **_he looks at him_**, but that is not a base form as one added **_at_** to the verb and in this context **_him_** would be an indirect object and not a direct object.
@@ -16,12 +16,12 @@ In accusative languages, it does not matter what the transitivity is of the verb
 Note English is a rather bad showcase language for this, as it has lost case distinction in many places, except a few, like pronouns. Languages like Russian and Turkish are better for that.
 
 
-In Kabardian, however the subject of an intrasitive verb is expressed by the absolutive case. The subject of a transitive verb is expressed by the ergative case, while the direct object is expressed by the accusative.
+In Kabardian, however the subject of an intrasitive verb is expressed by the absolutive case. The subject of a transitive verb is expressed by the ergative case, while the direct object is expressed by the absolutive case.
 
 - **_ар плъэнщ_** - _he/she/it will look_
 	- **_плъэн_** is intransitive, with the subject **_ар_** being in the absolutive case.
 - **_абы ар илъагъунщ_** - _he/she/it will see it/him/her_
-	- **_лъагъун_** is transitive, with the subject **_абы_** being in the ergative case and the (direct) object being in the absolutive case.
+	- **_лъагъун_** is transitive, with the subject **_абы_** being in the ergative case and the (direct) object being **_ар_** in the absolutive case.
 
 
 Another way to think about it, is to think of transitive verbs as passive verbs. Compare **_he looks_** and **_he is seen by him_**. You can imagine that **_he_** is in the absolutive case, while **_by him_** is in the ergative case. This is not how the verb forms are perceived by speakers, but this gives you an idea of how to understand ergative languages.
@@ -33,21 +33,18 @@ As one might have noticed, Kabardian marks not only one person on its verb, like
 
 Below are the person markers. As you can see, the absolutive and ergative forms are related to each other, with the absolutive form having a **_ы-_** and the absolutive lacking any marker for the third person. In fact, the first and second person markers are related to the personal pronouns **_сэ_**, **_уэ_**, **_дэ_** and **_фэ_**.
 
-|  | Absolutive | Ergative |
-| ---- | ---- | ---- |
-| sing. first | сы- | с- |
-| sing. second | у(ы) - | у- (/б-) |
-| sing. third | - | и- |
-| plur. first | ды- | д- |
-| plur. second | фы- | ф- |
-| plur. third | - | я- |
+|              | Absolutive | Ergative    |
+| ------------ | ---------- | ----------- |
+| sing. first  | сы-        | с-          |
+| sing. second | у(ы) -     | у- (/б-) ў- |
+| sing. third  | -          | и-          |
+| plur. first  | ды-        | д-          |
+| plur. second | фы-        | ф-          |
+| plur. third  | -          | я-          |
 
-
-Unfortunately it is not as easy as simply remembering those markers, as those markers interact with its surroundings. One very important interaction is the sound change to voiced or unvoiced. Before an unvoiced consonant, a consonant becomes unvoiced, resulting into **_п-_** and **_т-_**. 
+Those markers interact with its surroundings. This means that the ergative markers, because they only consists of consonants, change their voiceness, like **_д-_** and **_у-/ў-_** become **_т-_** and **_п-_**, respectively, before unvoiced consonants, while **_с-_** and **_ф-_** become **_з-_** and **_в-_**, respectively, before voiced consonants.
 - **_уолъэгъу_** _you see it_ becomes **_плъэгъуащ_** _you saw it_
 - **_долъэгъу_** _we see it_ becomes **_тлъэгъуащ_** _we saw it_
-
-Before voiced consonants, the consonant becomes voiced, resulting into **_з-_**, **_б-_** and **_в-_**.
 
 - **_содз_** _I throw it_ becomes **_здзащ_** _I threw it_
 - **_уодз_** _you throw it_ becomes **_бдзащ_** _you threw it_
@@ -55,9 +52,11 @@ Before voiced consonants, the consonant becomes voiced, resulting into **_з-_**
 
  Since only the ergatives have consonant which touch, they change the most. However also absolutive ones, become voiced when between vowels.
  - **_къызэплъынщ_** - _he'll look at me_
- - **къопъынщ** - _he'll look at you_
 
-A quite special on is the singular second markers, aka _you_. It's special for two reasons, because of orthography and because of phonology. A quirk of Kabardian orthology is that that usually **_у_** and **_и_** are shorthand versions of **_уы_** and **_йы_**. Unfortunately, **_у_** does not have **_ў_**, similar how **_и_** has **_й_**, thus **_у_** has double duty. The problem however is that the base form of the ergative singular second person marker is more aptly described as **_ў_**, as a very short **у** and that is the reason why it is usually seen as **п-** or **_б-_** depending on whether the consonant is voiced or unvoiced respectively. It has only the form of **_у-_** sometimes when it is between vowels or in special configurations. And even then between vowels one frequently simply uses **_б-_** and in those special configurations it fuses with other vowels. Thus it is surprisingly difficult to spot that base form, but it is there and it might help understand the sound changes.
+
+A quite special one is the singular second markers, aka _you_. It's special for two reasons, because of orthography and because of phonology. A quirk of Kabardian orthography is that usually **_у_** and **_и_** are shorthand versions of **_уы_** and **_йы_**. Unfortunately, **_у_** does not have **_ў_**, similar how **_и_** has **_й_**, thus **_у_** has double duty. The problem however is that the base form of the ergative singular second person marker is more aptly described as the consonant **_ў_**, basically a very short **у** and that is the reason why it is usually seen as **п-** or **_б-_** depending on whether the consonant is voiced or unvoiced respectively. It has only the form of **_у-_** sometimes when it is between vowels or in special configurations. And even then between vowels one frequently simply uses **_б-_** and in those special configurations it fuses with other vowels. Thus it is surprisingly difficult to spot that base form, but it is there and it might help understand the sound changes.
+
+Because the singular second person marker has a murky border between being a vowel and consonant, it leads to sound changes where the actual marker might seem to be disappeared, but it is still there. A great example is **къоплъынщ** _he'll look at you_, which can be said to come from **_къыўэплъынщ_**, thus making it analogous to **_къызэплъынщ_** _he'll look at me_.
 
 - **_услъагъунщ_** - _I'll see you_
 - **_сыплъагъунщ_** - _you'll see me_
@@ -109,3 +108,10 @@ Preverbs are a major and central part of the Kabardian verb. To get a conceptual
 - **_I bought food for you_** becomes **_I for-bought food you_**
 
 We have already met some preverbs beforehand in this blog, like **_те-_**, **_къэ-_**, **_е-_**, etc.
+
+Preverbs can be found in at most 3 forms, the full form, the unstressed form and the reduced form. For example:
+- **_те-, ты-, т-_**
+- **_хэ-, хы-, х-_**
+
+However some have only two forms, as they start with a schwa already,
+- **_щы-, щы-, щ-_**

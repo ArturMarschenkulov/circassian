@@ -14,23 +14,24 @@
 
 **_мэл_** - _sheep_
 **_тIы_** _sheep_
+**_щынэ_** - _lamb_
 **_txʷəɕʼa_** - _five years old sheep_
 **_тIущIэ_** - _two years old sheep_
 **_щынабгъэ_** - _two years old infertile sheep_
 **_щыналъхуэ_** - _gestating yearling ewe_
 **_мэлщхьэзэ_** - _sheep with chicken pox_
 
-**_бжэн_** - _she-goat_
+**_бжэн_** - _she-goat_, _ewe_
 **_ажэ_** - _he-goat_
+**_чыцI_** - _kid_
 **_дэджажэ_** - _one years old goat_
 **_дэджэхъу_** - _castrated goat_:
-**_къуршажэ_**
 **_хыщIэ_** - _six years old castrated goat/sheep_
-**_щынэ_** - _lamb_
-**_маI_** - _lamb_
+**_къуршажэ_** - _mountain goat_
 
 **_вы_** - _ox_
 **_жэм_** - _cow_
+**_виплIэкъу**
 
 **_кхъуэус_** - wild boar
 **_кхъуэ_** - _pig_, _swine_
@@ -44,7 +45,6 @@
 **_хакIуэ_** - stallion
 **_хакIуэпщIэ_** - _3-4 years old stallion_
 **_дунан_** - 4 years old stallion
-
 **_алъпжьей_** - foal of a fairy tale horse
 
 
