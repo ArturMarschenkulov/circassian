@@ -2,25 +2,25 @@ This list is more for spontaneous ideas.
 
 __ - **__**
 # General adjectives
-_small_ - **_tsʼəkʷʼ_**
-_big_ - **jən**
+- _small_ - **_tsʼəkʷʼ_**
+- _big_ - **jən**
 
-_short_ - **_tʃʼaɕʼ_**
-_long_ - **_tʃʼəħ_**
+- _short_ - **_tʃʼaɕʼ_**
+- _long_ - **_tʃʼəħ_**
 
-_low_ - **_ɬaːχʃa_**
-_tall_ - **_ɬaːɣa_**
+- _low_ - **_ɬaːχʃa_**
+- _tall_ - **_ɬaːɣa_**
 
-_deep_ - **_kʷəw_**
+- _deep_ - **_kʷəw_**
 
-_narrow_ - **_bʁʷəza, zav_**
-_wide_ - **_bʁʷa, bʁʷəfʼa_**
+- _narrow_ - **_bʁʷəza, zav_**
+- _wide_ - **_bʁʷa, bʁʷəfʼa_**
 
-_tight_ - **_zav_**
-_spacious_ - **_bəχʷ_**?
+- _tight_ - **_zav_**
+- _spacious_ - **_bəχʷ_**?
 
-_light_ - **_psənɕʼaːʁʷa_**
-_heavy_ - **_ħaɬa_**
+- _light_ - **_psənɕʼaːʁʷa_**
+- _heavy_ - **_ħaɬa_**
 
 
 
