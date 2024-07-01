@@ -1,3 +1,4 @@
+#vocabulary
 - **_шхэн_** - _to eat_
 - **_шхын_** - _to eat Y_
 
@@ -12,3 +13,5 @@
 - **_zaxaɕʼan_**
 
 - **_ħantχʷəps_** - _soup_
+
+https://semdom.org/v4/5.2.2

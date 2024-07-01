@@ -1,3 +1,5 @@
+#grammar 
+
 the Kabardian language does not have a passive voice per se, but it can be of course expressed.
 
 There are 3 strategies. The impersonal form. Third person plural. Auxiliary verb **_хъун_**

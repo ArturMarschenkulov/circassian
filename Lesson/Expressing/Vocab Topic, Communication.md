@@ -1,3 +1,4 @@
+#vocabulary
 - **_псэлъэн_** - _to talk_
 - **_епсэлъэн_** - _to talk with Y_
 - **_къэпсэлъэн_** - __
@@ -17,3 +18,7 @@
 
 
 - **_сыщыгубжьам зыгуэрым сепсалъэну сыхуейкъым._** - _When I'm angry, I don't want to talk to anybody_
+
+
+
+https://semdom.org/v4/3.5

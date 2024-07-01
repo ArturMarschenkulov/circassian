@@ -1,3 +1,5 @@
+#grammar
+#vocabulary
 
 - **_ЕгъэджакIуэу еджэну и мурадти, Астемыр и шыр ищащ_** - _Astemir sold his horse because he decided to teach_
 

@@ -1,3 +1,4 @@
+#vocabulary
 This article discusses how to talk about time in Kabardian.
 
 One of the main vocab is the following.

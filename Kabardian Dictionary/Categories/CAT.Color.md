@@ -11,12 +11,12 @@
 **_щIыху_** - blue
 **_удзыфэ _** - green
 
-**_mawra_** - brown
-**_ʁʷaːbʒa_** - _grey_, _brown_
-**_ɕχʷa_** - _grey_
-**_ɕχʷaːntʼa_** - _green_, _light blue_
-**_xʷəʑ_** - white
-**_fʼətsʼa_** - black
+**_морэ_** - brown
+**_гъуабжэ_** - _grey_, _brown_
+**_щхъуэ_** - _grey_
+**_щхъуантIэ_** - _green_, _light blue_
+**_хужь_** - white
+**_фIыцIэ_** - black
 
 **_tʃʼəfʼ_**
 

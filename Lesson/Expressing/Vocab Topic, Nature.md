@@ -1,3 +1,4 @@
+#vocabulary 
 Vocab. list
 > - **_уафэгъуагъуэ_** - _thunder_
 > - **_уафэхъуэпскI_** - _lightning_

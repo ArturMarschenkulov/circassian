@@ -1,3 +1,5 @@
+#vocabulary
+
 **_jaʑan_** (**_jawʑa_**)
 
 - **sawʑa** - _I wait for him_
@@ -13,3 +15,5 @@
 - **_wəɕajʑanəwr_** - _where, you will wait for him_
 - **_ɕajʑanəwr_** - _where, he will wait for him_
 - **_səɕəwajʑanəwr_** - _where, I will wait for him_
+
+https://semdom.org/v4/7.2.7.3

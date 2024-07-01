@@ -1,3 +1,5 @@
+#grammar 
+#vocabulary
 The verb **_хуеин_** is a rather important verb and has some particularities. First, it is interesting to note that it consists of the preverb **_хуэ-_** and that can be seen negative prefix form is **_хуэмей_**.
 
 

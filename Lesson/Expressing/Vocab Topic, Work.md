@@ -1,3 +1,10 @@
+#vocabulary
+
+- **_лэжьэн_** - _to work_
+- **_елэжьын_** - _to work on Y_
+- **_лэжьын_** - _to earn Y_
+- **_къэлэжьын_** - _to earn Y_
+
 **_ɮaʑan_** - _to work_
 **_sawɮaʑa_** - _I work_
 **_wawɮaʑa_** - _I work_
@@ -27,3 +34,4 @@
 **_qajɮaʑ_** - _he earns Y_
 **_qəjɮaʑaːɕ_** - _he earns Y_
 
+https://semdom.org/v4/6.1

@@ -25,3 +25,7 @@
 
 **_сэ адыгэбзэ зызогъащIэ_** - _I'm learning the Circassian language_
 **_абы адыгэбзэ зегъащIэ_** - _he is learning the Circassian language_
+
+
+
+https://semdom.org/v4/3.2

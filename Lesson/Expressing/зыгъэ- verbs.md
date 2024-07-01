@@ -1,0 +1,1 @@
+**_зыгъэ-_** is commonly found in verbs and basically means _make oneself do something_.

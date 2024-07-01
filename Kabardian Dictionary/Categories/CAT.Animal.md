@@ -6,16 +6,16 @@
 **_щыхь_** - _deer_
 **_бжьэу_** - _elk_, _moose_
 
-**_ʁaɬaχʷ_** - wether (castrated buck ram/sheep) ?
-**_ʁaɬaχʷətʼəwɕʼa_**
-**_ʁaɬaχʷəɕəɕʼa_**
-**_ʁaɬaχʷəɕʼa_**
+**_гъэлъэхъу_** - wether (castrated buck ram/sheep) ?
+**_гъэлъэхъутущIэ_**
+**_гъэлъэхъущыщIэ_**
+**_гъэлъэхъущIэ_**
 
 
 **_мэл_** - _sheep_
 **_тIы_** _sheep_
 **_щынэ_** - _lamb_
-**_txʷəɕʼa_** - _five years old sheep_
+**_тхущIэ_** - _five years old sheep_
 **_тIущIэ_** - _two years old sheep_
 **_щынабгъэ_** - _two years old infertile sheep_
 **_щыналъхуэ_** - _gestating yearling ewe_
@@ -31,12 +31,12 @@
 
 **_вы_** - _ox_
 **_жэм_** - _cow_
-**_виплIэкъу**
+**_виплIэкъу_**
 
 **_кхъуэус_** - wild boar
 **_кхъуэ_** - _pig_, _swine_
-**_qχʷapʼaːɕa_** - _boar_ (lit. **_qχʷa_** _pig_ + **_pʼaːɕa_** _big, massive_)
-**_mazəqχʷa_** - _boar_ (lit. **_maz_** _forest_ + **_qχʷa_** _pig_)
+**_кхъуэпIащэ_** - _boar_ (lit. **_кхъуэ_** _pig_ + **_пIащэ_** _big, massive_)
+**_мэзыкхъуэ_** - _boar_ (lit. **_мэз_** _forest_ + **_кхъуэ_** _pig_)
 
 
 **_шыщIэ_** - foal (horse baby/child)
@@ -79,7 +79,7 @@
 **_шындырхъэу_** - _lizard_
 **_хьэпщхупщ_** - _worms, caterpillars, snakes, lizards, beetles (only about crawlers)_
 **_хьэндыркъуакъуэ_** - _frog_, _toad_
-**хьэндыркъуакъуэцIэнлъ**
+**_хьэндыркъуакъуэцIэнлъ_**
 **_шылъэгу_** - _turtle_
 
 # Anthropods
@@ -101,19 +101,19 @@
 **_хьэпIацIэ_** - _worm_, _larva_
 **_хьэдзыгъуанэ_** - _wasp_
 
-**_щIыбжьэ_** - _bummble bee_ (**_ɕʼə_** _earth_ + **_bʑa_** _bee_)
-**_ħandəraːbʁʷa ʒəʁaj_** - _moth_
-**_ħadzəʁʷaːnaʃxʷa_** - _hornet_ (**_ħadzəʁʷaːna** _wasp_ + **_-ʃxʷa_** _big_)
-**_baːdzaːptsʼa_** - _midge_ (**_baːdza_** _fly_ + **_pts'a_** _??_)
-**_baːdzaʃxʷa_** - _horsefly_ (**_baːdza_** _fly_ + **_-ʃxʷa_** _big_)
+**_щIыбжьэ_** - _bumble bee_ (**_ɕʼə_** _earth_ + **_bʑa_** _bee_)
+**_хьэндырабгъуэ жгъей_** - _moth_
+**_хьэдзыгъуанэшхуэ_** - _hornet_ (**_хьэдзыгъуанэ_** _wasp_ + **_-шхуэ_** _big_)
+**_бадзапцIэ_** - _midge_ (**_бадзэ_** _fly_ + **_пцIэ_** _??_)
+**_бадзэшхуэ_** - _horsefly_ (**_бадзэ_** _fly_ + **_-шхуэ_** _big_)
 
 
-**_χʷəmpʼatsʼadʒ_** - _ant_
+**_хъумпIэцIэдж_** - _ant_
 ## Crustecians
-**_jaɮərqaʃ_** - _crab_, _crayfish_
+**_елыркъэш_** - _crab_, _crayfish_
 ## Arichnids
 **_бэдж_** - _spider_
-**_maɮħapʼatʼa_** - _tick_
+**_мэлхьэпIэтIэ_** - _tick_
 
 
 

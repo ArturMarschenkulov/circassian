@@ -4,3 +4,5 @@
 - **_шырыкъу_** - _boot_
 - **_кIагуэ_** - _jacket_
 - **_джанэ_** - _shirt_
+
+https://semdom.org/v4/5.3

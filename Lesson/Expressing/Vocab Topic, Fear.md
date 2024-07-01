@@ -1,3 +1,4 @@
+#vocabulary
 - **_qaʃənan_**
 - **_səqawʃəna_** - I fear
 - **_wəqawʃəna_** - you fear
@@ -29,3 +30,6 @@
 - **_dəʃənaːɕ_** - we feared
 - **_fəʃənaːɕ_** - y'all feared
 - **_ʃənaːɕ_** - they feared
+
+
+https://semdom.org/v4/3.4.2.4

@@ -1,3 +1,5 @@
+#vocabulary
+
 **_ипщэ_** - _south_ (cf. **_пщэ_** - _neck_)
 **_ищхъэрэ_** - _north_
 **_къухьэпIэ_** - _west_ (cf. **_къухьэн_** - _to go behind Y_)

@@ -17,11 +17,19 @@ I will also list in this file, various authors who are relevant.
 # List of authors 
 - Peter Arkadiev ([academia.edu](https://inslav.academia.edu/PeterArkadiev), ): writes a lot of papers about Circassian
 - Ranko Matasović ([academia.edu](https://ffzg.academia.edu/RankoMatasovi%C4%87)): writes a lot of papers about Circassian
+	- Transitivity in Kabardian (2008), found in Investigations of Syntax-Semantics-Pragmatics Interface
 - Karina Vamling ([academia.edu](https://mah.academia.edu/KarinaVamling)): 
 - Yury Lander ([uni](https://www.hse.ru/en/staff/yulander#sci)):
 - Hewitt:
+	- Antipassive and ‘labile’ constructions in North Caucasian (1982)
 - John Colarusso:
 - Bernard Comrie:
+- Kumakhov:
+	- Ergative case in the Circassian languages
+- Rohan Fenwick:
+	- A Grammar of Ubykh
+- Hans, Vogt
+	- Dictionnaire de la langue Oubykh (1963)
 - Aert H. Kuipers:
 	- A Dictionary of Proto-Circassian Roots
 	- Phoneme and Morpheme in Kabardian

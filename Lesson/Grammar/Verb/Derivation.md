@@ -1,23 +1,22 @@
 
 # Null morpheme
 ## intr. 1-pers to intr. 2-pers
->- **_daːʔʷan (madaːʔʷa)_** ->**_jadaːʔʷan (jawdaːʔʷa)_**
->- **_ɬan (maːɬa)_** ->**_jaɬan (jawɬa)_**
->- **_χʷaːpsan (maχʷaːpsa)_** ->**_jaχʷaːpsan (jawχʷaːpsa)_**
-
+>- **_даIуэн (мэдаIуэ)_** ->**_едаIуэн (йодаIуэ)_**
+>- **_лъэн (малъэ)_** ->**_елъэн (йолъэ)_**
+>- **_хъуапсэн (мэхъуапсэ)_** ->**_jaχʷaːpsan (йохъуапсэ)_**
 
 # Ablaut
 In Kabardian, ablaut alteration is a common derivation technique.
-## plain a/e alteration
+## plain э/ы alteration
 ### intr. 1-pers to tr. 2-pers
-a/ə alteration usually is a way to create transitive verbs from intransitive ones, **_-a_** denoting an intransitive verb, while **_-ə/-∅_** denotes a transitive one. It is usually assumed that the intransitive form is the base one, so here we will treat it like that.
+a/ə alteration usually is a way to create transitive verbs from intransitive ones, **_-э_** denoting an intransitive verb, while **_-ы/-∅_** denotes a transitive one. It is usually assumed that the intransitive form is the base one, so here we will treat it like that.
 
->- **_dan_** (**_maːda_**) _to sew_ -> **_dən_** (**_jad_**) to sew Y
->- **_txan_** (**_maːtxa_**) _to write_ -> **_txən_** (**_jatx_**) _to write Y_
->- **_ɬʼan_** (**_maːɬʼa_**) _to die_ -> **_ɬʼən_** (**_jaɬʼ_**) _to kill Y_
->- **_ʃxan_** (**_maːʃxa_**) _to eat_ -> **_ʃxən_** (**_jaʃx_**) _to eat Y_
->- **_ɕəpan_** (**_maɕəpa_**) _to collect_ -> **_ɕəpən_** (**_jaɕəp_**) _to collect Y_
->- **_tħaɕʼan_** (**_matħaɕʼa_**) _to wash_ -> **_tħaɕən_** (**_jatħaːɕʼ_**) _to wash Y_
+>- **_дэн_** (**_мадэ_**) _to sew_ -> **_дын_** (**_ед_**) to sew Y
+>- **_тхэн_** (**_матхэ_**) _to write_ -> **_тхын_** (**_етх_**) _to write Y_
+>- **_лIэн_** (**_малIэ_**) _to die_ -> **_лIын_** (**_елI_**) _to kill Y_
+>- **_шхэн_** (**_машхэ_**) _to eat_ -> **_шхын_** (**_ешх_**) _to eat Y_
+>- **_щыпэн_** (**_мэщыпэ_**) _to collect_ -> **_щыпын_** (**_ещып_**) _to collect Y_
+>- **_тхьэщIэн_** (**_мэтхьэщIэ_**) _to wash_ -> **_тхьэщIын_** (**_етхьэщI_**) _to wash Y_
 
 Some verbs go even further.
 >- **_tan_** (intr **maːta**) _to give present_ -> **_tən_** (tr **_jat_**) _to give Y_ -> **_jatən_** (tr **_jərajt_**) _to give Y to Z_
@@ -27,27 +26,27 @@ Some verbs go even further.
 ### with preverb (intr. 1-pers to intr. 2-pers)
 Frequently when a plain stem gets a preverb attached, a/ə alteration happens.
 
->- **_pɬan_** (**_maːpɬa_**) _to look_ -> **_japɬən_** (**_jawpɬ_**) _to look at Y_
->- **_bɣan_** (**_maːbɣa_**) _to curse_ -> **_jabɣən_** (**_jawbɣ_**) _to curse Y_
->- **_banan_** (**_mabaːna_**) _to fight_ -> **_jabanən_** (**_jawban_**) _to fight (with/against) Y_
->- **_kʷʼan_** (**_maːkʷʼa_**) _to go_ -> **_jakʷʼən_** (**_jawkʷʼ_**) _to go through Y_
->- **_ɬaːʔʷan_** (**_ɬaːʔʷa)_** _to request_ -> **_jaɬa ːʔʷən_** (**_jawɬaːʔʷ_**) _to go through Y_
+>- **_плъэн_** (**_маплъэ_**) _to look_ -> **_еплъын_** (**_йоплъ_**) _to look at Y_
+>- **_бгэн_** (**_мабгэ_**) _to curse_ -> **_ебгын_** (**_йобг_**) _to curse Y_
+>- **_бэнэн_** (**_мэбанэ_**) _to fight_ -> **_ебэнын_** (**_йобэн_**) _to fight (with/against) Y_
+>- **_кIуэ_** (**_макIуэ_**) _to go_ -> **_екIун_** (**_йокIу_**) _to go through Y_
+>- **_лъаIуэн_** (**_мэлъаIуэ_**) _to request_ -> **_елъаIун_** (**_йолъаIу_**) _to go through Y_
 
-Verbs with direction frequently have a futher differentiation. Preverb plus stem on _-a_ means motions towards, while _-ə_ means towards away.
+Verbs with direction frequently have a futher differentiation. Preverb plus stem on **_-э_** means motions towards, while **_-ы_** means towards away.
 
->-**_xaʃən_** (**_xajʃ_**) _to lead Y out of Z_
->-**_xaʃan_** (**_xajʃa_**) _to lead Y into Z_
+>-**_хэшын_** (**_хеш_**) _to lead Y out of Z_
+>-**_хэшэн_** (**_хешэ_**) _to lead Y into Z_
 
-When combined with the passt tense suffix **_-aː_** this differentiation gets eliminated. That's why frequently to restore the meaning of a **_-ə_** stems, the preverbn **_qə-_** is used.
+When combined with the past tense suffix **_-а_** this differentiation gets eliminated. That's why frequently to restore the meaning of a **_-ы_** stems, the preverb **_къы-_** is used.
 
-**_bzəwr mazəm xaɬataːɕ_** could technically mean both _the bird flew into the forest_ OR _the bird flew out of the forest_. Effectively, however it meanxs the the former. **_bzəwr mazəm qəxaɬataːɕ_** would refer to latter.
+**_бзур мэзым хэлъэтащ_** could technically mean both _the bird flew into the forest_ OR _the bird flew out of the forest_. Effectively, however it means the the former. **_бзур мэзым къыхэлъэтащ_** would refer to latter.
 
 Verbs with such a feature are:
->- **_dzən_** - _to throw Y_
->- **_ʃan_** - _to lead Y_
->- **_xʷən_** - _to drive Y_
->- **_ɬafən_** - _to pull/drag Y_
->- **_-tsʼafta_** - _to move fast_
+>- **_дзынdzən_** - _to throw Y_
+>- **_шэн_** - _to lead Y_
+>- **_хун_** - _to drive Y_
+>- **_лъэфын_** - _to pull/drag Y_
+>- **_-цIэфтэн_** - _to move fast_
 ## preverb + a/e alteration
 Verbs of movement when combined with a locational preverb, the a/ə alteration denotes whether the verb is towards the subject or away from it.
 

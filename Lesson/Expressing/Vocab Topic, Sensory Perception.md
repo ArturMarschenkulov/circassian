@@ -1,3 +1,4 @@
+#vocabulary
 This note mainly talks about expressing sensing in Kabardian,
 
 # With eyes / sight
@@ -97,3 +98,4 @@ The passive seeing one, is as mentioned above, transitive and has two persons.
 # With other
 
 
+https://semdom.org/v4/2.3
