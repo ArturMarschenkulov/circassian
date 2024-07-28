@@ -265,57 +265,91 @@ fn extract_preverb(s: &str) -> Option<Preverb> {
         _ => Some(Preverb::try_from(s.to_owned().as_str()).unwrap()),
     }
 }
+fn split_and_combine(input: &str, combined_chars: &Vec<&str>) -> Vec<String> {
+    let mut result = Vec::new();
+    let mut i = 0;
 
-fn extract_root(
-    potential_root: &str,
+    while i < input.len() {
+        let mut matched = false;
+        for combined in combined_chars {
+            if input[i..].starts_with(combined) {
+                result.push(combined.to_string());
+                i += combined.len();
+                matched = true;
+                break;
+            }
+        }
+        if !matched {
+            let c = input[i..].chars().next().unwrap(); // Get the next char
+            result.push(c.to_string());
+            i += c.len_utf8();
+        }
+    }
+
+    result
+}
+
+fn extract_root_form(
+    root_form: &str,
 ) -> Result<(Option<FirstConsonant>, VowelKind, LastConsonant, bool), String> {
-    let root_length = potential_root.chars().count();
+    fn parse_vowel_kind(s: &str) -> Result<VowelKind, String> {
+        match s {
+            "б" => Ok(VowelKind::With),
+            "0" => Ok(VowelKind::Without),
+            _ => Err(format!(
+                "The vowel kind must be either 'б' or '0', but it is {}.",
+                s
+            )),
+        }
+    }
+    fn parse_first_consonant_kind(s: &str) -> Result<FirstConsonant, String> {
+        match s {
+            "д" => Ok(FirstConsonant::Unvoiced),
+            "жь" => Ok(FirstConsonant::Voiced),
+            "у" => Ok(FirstConsonant::Wy),
+            _ => Err(format!(
+                "The first consonant kind must be either 'д', 'жь' or 'у', but it is {}.",
+                s
+            )),
+        }
+    }
+    fn parse_last_consonant_kind(s: &str) -> Result<LastConsonant, String> {
+        match s {
+            "д" => Ok(LastConsonant::Ordinary),
+            "т" => Ok(LastConsonant::Velar),
+            "л" => Ok(LastConsonant::Labial),
+            _ => Err(format!(
+                "The last consonant kind must be either 'д', 'т' or 'л', but it is {}.",
+                s
+            )),
+        }
+    }
+    let letters: Vec<String> = split_and_combine(root_form, &vec!["жь", "эа"]);
+    println!("LETTERS: {:?}", letters);
 
-    if ![2, 3, 4].contains(&root_length) {
+    let accepted_lengths = vec![2, 3, 4];
+    if !accepted_lengths.contains(&letters.len()) {
         return Err(format!(
-            "The root string is not 2, 3 or 5 characters long {} {}",
-            &root_length, potential_root
+            "The root form must be 2, 3 or 4 characters long. Got {} of {}",
+            letters.len(),
+            root_form
         ));
     }
 
-    // parsing first consonant
-    let mut chars_iter = potential_root.chars();
-    let first_char = chars_iter.next().unwrap();
+    let is_alternating = letters.last().unwrap().ends_with("эа");
 
-    // Transitive verbs don't have 'б' and '0' as its first character.
-    // Thus if it is contained, then it is intransitive, otherwise transitive.
-    let fc = if !['б', '0'].contains(&first_char) {
-        match first_char {
-            'д' => Some(FirstConsonant::Unvoiced),
-            'у' => Some(FirstConsonant::Wy),
-            'ж' => {
-                let next_char = chars_iter.next().unwrap();
-                if next_char != 'ь' {
-                    return Err(format!("Must be 'ь' after 'ж'. Got {}", next_char));
-                }
-                Some(FirstConsonant::Voiced)
-            }
-            x => return Err(format!("Must be 'д', 'у' or 'ж'. Got {}", x)),
-        }
+    if letters.len() == 2 && !is_alternating || letters.len() == 3 && is_alternating {
+        let vowel = parse_vowel_kind(&letters[0]).unwrap();
+        let last_consonant = parse_last_consonant_kind(&letters[1]).unwrap();
+        return Ok((None, vowel, last_consonant, is_alternating));
+    } else if letters.len() == 3 && !is_alternating || letters.len() == 4 && is_alternating {
+        let first_consonant = parse_first_consonant_kind(&letters[0]).unwrap();
+        let vowel = parse_vowel_kind(&letters[1]).unwrap();
+        let last_consonant = parse_last_consonant_kind(&letters[2]).unwrap();
+        return Ok((Some(first_consonant), vowel, last_consonant, is_alternating));
     } else {
-        None
-    };
-
-    let v = match &chars_iter.next().unwrap() {
-        'б' => VowelKind::With,
-        '0' => VowelKind::Without,
-        x => return Err(format!("Must be 'б' or '0'. Got {}", x)),
-    };
-
-    let lc = match &chars_iter.next().unwrap() {
-        'д' => LastConsonant::Ordinary,
-        'т' => LastConsonant::Velar,
-        'л' => LastConsonant::Labial,
-        x => return Err(format!("Must be 'д', 'т' or 'л'. Got {}", x)),
-    };
-
-    let alternating = chars_iter.collect::<String>().ends_with("эа");
-    Ok((fc, v, lc, alternating))
+        unimplemented!("It is not implemented yet. Work in progress.");
+    }
 }
 
 #[derive(Debug, Clone)]
@@ -410,12 +444,18 @@ impl TryFrom<&str> for TemplateDesc {
 
         let transitivity = extract_transitivity(segments[1]).unwrap();
         let preverb = extract_preverb(segments[2]);
-        let (fc, v, lc, alternating) = extract_root(segments[3]).unwrap();
+        let (fc, v, lc, alternating) = extract_root_form(segments[3]).unwrap();
         let thematic_vowel = extract_thematic_vowel(segments[4]).unwrap();
 
         if fc.is_none() && transitivity == Transitivity::Transitive {
             return Err(
                 "The first consonant is not allowed to be None if the verb is transitive."
+                    .to_owned(),
+            );
+        }
+        if fc.is_some() && transitivity == Transitivity::Intransitive {
+            return Err(
+                "The first consonant is not allowed to be Some if the verb is intransitive."
                     .to_owned(),
             );
         }
@@ -434,5 +474,122 @@ impl TryFrom<&str> for TemplateDesc {
             original_string: s.to_owned(),
         };
         Ok(template_desc)
+    }
+}
+
+mod tests {
+    use super::*;
+    #[test]
+    fn test_split_and_combine() {
+        let combined_chars = vec!["жь", "эа"];
+
+        let input = "жь0й";
+        let result = split_and_combine(input, &combined_chars);
+        assert_eq!(result, vec!["жь", "0", "й"]);
+
+        let input = "дблэа";
+        let result = split_and_combine(input, &combined_chars);
+        assert_eq!(result, vec!["д", "б", "л", "эа"]);
+    }
+
+    fn test_templates_creation() {
+        let mut map = std::collections::HashMap::<String, TemplateDesc>::new();
+
+        map.insert(
+            "спр-лъэмыӏ-0-0д-э".to_owned(),
+            TemplateDesc {
+                transitivity: Transitivity::Intransitive,
+                preverb: None,
+                stem: VerbStem {
+                    first_consonant: None,
+                    vowel: VowelKind::Without,
+                    last_consonant: LastConsonant::Ordinary,
+                    is_alternating: false,
+                    thematic_vowel: ThematicVowel::A,
+                    string: "0д".to_owned(),
+                },
+                original_string: "спр-лъэмыӏ-0-0д-э".to_owned(),
+            },
+        );
+        map.insert(
+            "спр-лъэмыӏ-0-0д-ы".to_owned(),
+            TemplateDesc {
+                transitivity: Transitivity::Intransitive,
+                preverb: None,
+                stem: VerbStem {
+                    first_consonant: None,
+                    vowel: VowelKind::Without,
+                    last_consonant: LastConsonant::Ordinary,
+                    is_alternating: false,
+                    thematic_vowel: ThematicVowel::Y,
+                    string: "0д".to_owned(),
+                },
+                original_string: "спр-лъэмыӏ-0-0д-э".to_owned(),
+            },
+        );
+        map.insert(
+            "спр-лъэмыӏ-0-0л-ы".to_owned(),
+            TemplateDesc {
+                transitivity: Transitivity::Intransitive,
+                preverb: None,
+                stem: VerbStem {
+                    first_consonant: None,
+                    vowel: VowelKind::Without,
+                    last_consonant: LastConsonant::Labial,
+                    is_alternating: false,
+                    thematic_vowel: ThematicVowel::Y,
+                    string: "0л".to_owned(),
+                },
+                original_string: "спр-лъэмыӏ-0-0л-ы".to_owned(),
+            },
+        );
+        
+        // let _possible_templates = [
+        //     "спр-лъэмыӏ-0-0д-э",
+        //     "спр-лъэмыӏ-0-0д-ы",
+        //     "спр-лъэмыӏ-0-0л-ы",
+        //     "спр-лъэмыӏ-0-0т-ы",
+        //     "спр-лъэмыӏ-0-бд-э",
+        //     "спр-лъэмыӏ-0-бдэа-э",
+        //     "спр-лъэмыӏ-0-бт-ы",
+        //     "спр-лъэмыӏ-0-бй-ы",
+        //     "спр-лъэӏ-0-дблэа-ы",
+        //     "спр-лъэӏ-0-дбд-ы",
+        //     "спр-лъэӏ-0-жь0й-ы",
+        //     "спр-лъэӏ-0-д0д-э",
+        //     "спр-лъэӏ-0-убт-ы",
+        //     "спр-лъэӏ-0-д0д-ы",
+        //     "спр-лъэӏ-0-д0л-ы",
+        //     // "спр-лъэмыӏ-е-бд-ы",
+        // ];
+        for (k, must_be_template) in map.iter() {
+            let gen_template = TemplateDesc::try_from(k.as_str()).unwrap();
+            let mut is_equal = true;
+            if gen_template.transitivity != must_be_template.transitivity {
+                is_equal = false;
+            }
+            if gen_template.preverb != must_be_template.preverb {
+                is_equal = false;
+            }
+            if gen_template.stem.first_consonant != must_be_template.stem.first_consonant {
+                is_equal = false;
+            }
+            if gen_template.stem.vowel != must_be_template.stem.vowel {
+                is_equal = false;
+            }
+            if gen_template.stem.last_consonant != must_be_template.stem.last_consonant {
+                is_equal = false;
+            }
+            if gen_template.stem.thematic_vowel != must_be_template.stem.thematic_vowel {
+                is_equal = false;
+            }
+            if gen_template.original_string != must_be_template.original_string {
+                is_equal = false;
+            }
+            assert!(is_equal);
+
+            let string = String::try_from(gen_template).unwrap();
+            assert_eq!(string, k.to_owned());
+        }
     }
 }
