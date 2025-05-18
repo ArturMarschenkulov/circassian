@@ -1,109 +1,115 @@
 
 
 - 
-- **_sət ɕəʁʷəj_** - _always_
-- **_zazaməza_** - _sometimes_
-- **_jədʒə_** - _now_
-- **_jədʒəpstəw_** - _now_
-- **_ɕʼaxəw_** - _now_ (in a short while)
-- **_jətʃʼaɕʼəpʼatʃʼa_** 
-- **_zajətʃʼ_** - _never_
-- **_zazaməza qaχʷ_**, **_ʁʷatəʁʷaj_**, 
-- **_kʷadra wəzəxʷaməza_**
+- **_сыт щыгъуи_** - _always_
+- **_зэпымыууэ_** - _without stopping_
+- **_зэпымычу_**
+- **_зэзэмызэ_** - _sometimes_
+- **_зэикI_** - _never_
+- **_щIэх-щIэхыурэ_** - _frequently_
+
+- **_иджы_** - _now_
+- **_иджыпсту_** - _now_
+- **_щIэхыу_** - _now_ (in a short while)
+- **_икIэщIыпIэкIэ_** - _immediately_
+- **_зэзэмызэ къэхъу_**, **_гъуэтыгъуей_**, 
+- **_куэдрэ узыхуэмызэ_**
 
 
-- **_nawba_** - today
-- **_nəʃadəjba_** - today's morning
-- **_nəɕħaba_** - _today's evening_
-- **_pɕəħaɕħa_** - _today's evening_
-- **_nəʒaba_** - today's night, tonight
+- **_нобэ_** - _today_
+- **_нышэдибэ_** - today's morning
+- **_ныщхьэбэ_** - _today's evening_
+- **_пщыхьэщхьэ_** - _today's evening_
+- **_ныжэбэ_** - _today's night_, _tonight_
 
-- **_pɕadaj_** - tomorrow
-- **_pɕadaj ʒaɕ_** - tomorrow evening
+- **_пщэдей_** - _tomorrow_
+- **_пщэдей жэщ_** - _tomorrow evening_
 
-- **_pɕadajməɕtʃ'a_** - 1 day after tomorrow
+- **_пщэдеймыщкIэ_** - _1 day after tomorrow_
 
-- **_qaːbəɕtʃʼaʒ_** - 2 days after tomorrow
-
-
-
-- **_pɕaddʒəʑ_** - morning
-
-- **_dəʁʷaːsa_** - yesterday
-- **_dəʁʷapʃəħ_** - yesterday evening
-
-- **_vasamaːxʷa_** - day before yesterday
-- **_vasapʃəħ_** - day before yesterday evening
-- **_vasaʒaɕ_** - day before yesterday night
-
-- **_naʁaːba_** - last year
-
-The combination of **_nə-_** **_-ba_** seems to denote "today", which with the infixes such as **_aw_**, **_ʃadəj_**, **_ɕħa_** and **ʒa**, create "today", "today's morning", "today's evening" and "today's night".
-
-The stem **_vasa_** is used to _the day before yesterday_ or _2 days ago_. It is not used independently.
-The stem **_pɕad_** is used to refer to the _morning_.
-The stem **_dəʁʷa_** is used to refer to tomorrow, though only as a dependent root. It has no semantic relation to the independent root **_dəʁʷ a_** _theft_
+- **_къабыщкIэж_** - _2 days after tomorrow_
 
 
+
+- **_пщэдджыжь_** - _morning_
+
+- **_дыгъуасэ_** - _yesterday_
+- **_дыгъуэпшыхь_** - _yesterday evening_
+
+- **_вэсэмахуэ_** - _day before yesterday_
+- **_вэсэпшыхь_** - _day before yesterday evening_
+- **_вэсэжэщ_** - _day before yesterday night_
+
+- **_нэгъабэ_** - _last year_
+
+The combination of **_ны-_** **_-бэ_** seems to denote "today", which with the infixes such as **_о_**, **_шэди_**, **_щхьэ_** and **_жэ_**, create "today", "today's morning", "today's evening" and "today's night".
+
+The stem **_вэсэ_** is used to _the day before yesterday_ or _2 days ago_. It is not used independently.
+The stem **_пщэд_** is used to refer to the _morning_.
+The stem **_дыгъуэ_** is used to refer to tomorrow, though only as a dependent root. It has no semantic relation to the independent root **_дыгъуэ_** _theft_
+
+- **_секунд_** - _second_
+- **_дакъикъэ_** - _minute_
+- **_сыхьэт_** - _hour_
 
 # Week
-- **_tħamaːxʷa_** - week
+- **_тхьэмахуэ_** - _week_
 
-- **_bɮəɕħa_** - _Monday_
-- **_ʁʷəbʒ_** - Tuesday
-- **_baraʑaj_** - Wednesday
-- **_maːxʷakʷ_** - Thursday
-- **_marajm_** - Friday
-- **_ɕabat_** - Saturday
-- **_tħamaːxʷa_** - Sunday
+- **_блыщхьэ_** - _Monday_
+- **_гъубж_** - _Tuesday_
+- **_бэрэжьей_** - _Wednesday_
+- **_махуэку_** - _Thursday_
+- **_мэрем_** - _Friday_
+- **_щэбэт_** - _Saturday_
+- **_тхьэмахуэ_** - _Sunday_
 
 # Seasons
  
-- **_ ʁaːtxa_** - Spring
-- **_ ʁaːmaːxʷa_** - Summer
-- **_ bʑəħa_** - Fall
-- **_ ɕʼəmaːxʷa_** - Winter
+- **_гъатхэ_** - _Spring_
+- **_гъамахуэ_** - _Summer_
+- **_бжьыхьэ_** - _Fall_
+- **_щIымахуэ_** - _Winter_
 
-- **_ʒaɕəmra maːxʷamra zaxʷadəjz ɕəχʷ zamaːn_** - _equinox_
-- **_maːxʷam jə tʃʼəħəʁʷa zamaːn_** - _summer solstice_
-- **_maːxʷam jə tʃʼaɕʼəʁʷa zamaːn_** - _winter solstice_
+- **_жэщымрэ махуэмрэ зэхуэдиз щыхъу зэман_** - _equinox_
+- **_махуэм и кIыхьыгъуэ зэман_** - _summer solstice_
+- **_махуэм и кIэщIыгъуэ зэман_** - _winter solstice_
 
  
  
  
 # Months
  
-- **_ɕʼəʃəɮa_** - January (cf. **_ɕʼə_** _cold_ + )
-- maːzajaj - February
+- **_щIышылэ_** - _January_ (cf. **_щIы_** _cold_ + )
+- **_мазае_** - _February_
 
-- ʁaːtxapa - March
-- maɮəʑəħ - April
-- naːqəʁa - May
-
-
-- **_maqʷaːwaʁʷa_** - June (cf. **_waʁʷa_** _hit_)
-- **_baːdzawaʁʷa_** - July (cf. **baːdza** _fly_ + **_waʁʷa_** _hit_)
-- **_ʃəɕħaʔʷ_** - August
-- **_fawtʃʼaːda_** - September (cf. **faw** _honey_ + **tʃʼaːda** _tub_)
- - october
-- **_ɕakʷʼaʁʷa_** - November (cf. **_ɕakʷʼa_** _hunter, hunting_ + **_ʁʷa_** _time_)
-- **_dəʁaʁaːza_** - December (cf. **_dəʁa_** _sun_ + **_ʁaːza_** _turning_)
-
-Another way to form the month names is to use the season names and _pa_, _kʷ_ and _tʃʼa_, to denote the beginning, middle and end ofa seasons.
+- **_гъатхэпэ_** - _March_
+- **_мэлыжь_** - _April_
+- **_накъыгъэ_** - _May_
 
 
-_ ʁaːtxapa_ - March
-_ ʁaːtxakʷ_ - April
-_ ʁaːtxatʃʼa_ - May
+- **_мэкъуауэгъуэ_** - _June_ (cf. **_уэгъуэ_** _hit_)
+- **_бадзэуэгъуэ_** - _July_ (cf. **_бадзэ_** _fly_ + **_уэгъуэ_** _hit_)
+- **_шыщхьэIу_** - _August_
+- **_фокIадэ_** - _September_ (cf. **_фо_** _honey_ + **_кIадэ_** _tub_)
+- **_Iуэгъуэ_** - _October_
+- **_щэкIуэгъуэ_** - _November_ (cf. **_щэкIуэ_** _hunter, hunting_ + **_гъуэ_** _time_)
+- **_дыгъэгъазэ_** - _December_ (cf. **_дыгъэ_** _sun_ + **_гъазэ_** _turning_)
 
-_ ʁaːmaːxʷapa_ - June
-_ ʁaːmaːxʷakʷ_ - July
-_ ʁaːmaːxʷatʃʼa_ - August
+Another way to form the month names is to use the season names and **_пэ_**, **_ку_** and **_кIэ_**, to denote the beginning, middle and end ofa seasons.
 
-_ bʑəħapa_ - September
-_ bʑəħakʷ_ - October
-_ bʑəħatʃʼa_ - November
 
-_ ɕʼəmaːxʷapa_ - December
-_ ɕʼəmaːxʷakʷ_ - January
-_ ɕʼəmaːxʷatʃʼa_ - February
+- **_гъатхэпэ_** - _March_
+- **_гъатхэку_** - _April_
+- **_гъатхэкIэ_** - _May_
+
+- **_гъамахуэпэ_** - _June_
+- **_гъамахуэку_** - _July_
+- **_гъамахуэкIэ_** - _August_
+
+- **_бжьыхьэпэ_** - _September_
+- **_бжьыхьэку_** - _October_
+- **_бжьыхьэкIэ_** - _November_
+
+- **_щIымахуэпэ_** - _December_
+- **_щIымахуэку_** - _January_
+- **_щIымахуэкIэ_** - _February_

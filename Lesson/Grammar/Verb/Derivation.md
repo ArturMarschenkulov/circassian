@@ -3,7 +3,7 @@
 ## intr. 1-pers to intr. 2-pers
 >- **_даIуэн (мэдаIуэ)_** ->**_едаIуэн (йодаIуэ)_**
 >- **_лъэн (малъэ)_** ->**_елъэн (йолъэ)_**
->- **_хъуапсэн (мэхъуапсэ)_** ->**_jaχʷaːpsan (йохъуапсэ)_**
+>- **_хъуапсэн (мэхъуапсэ)_** ->**_ехъуапсэн (йохъуапсэ)_**
 
 # Ablaut
 In Kabardian, ablaut alteration is a common derivation technique.
@@ -19,7 +19,7 @@ a/ə alteration usually is a way to create transitive verbs from intransitive on
 >- **_тхьэщIэн_** (**_мэтхьэщIэ_**) _to wash_ -> **_тхьэщIын_** (**_етхьэщI_**) _to wash Y_
 
 Some verbs go even further.
->- **_tan_** (intr **maːta**) _to give present_ -> **_tən_** (tr **_jat_**) _to give Y_ -> **_jatən_** (tr **_jərajt_**) _to give Y to Z_
+>- **_tan_** (intr **_матэ_**) _to give present_ -> **_тын_** (tr. **_ет_**) _to give Y_ -> **_етын_** (tr **_ирет_**) _to give Y to Z_
 
 **__** (intr **__**) __ vs **__** (tr **__**) __
 
@@ -32,7 +32,7 @@ Frequently when a plain stem gets a preverb attached, a/ə alteration happens.
 >- **_кIуэ_** (**_макIуэ_**) _to go_ -> **_екIун_** (**_йокIу_**) _to go through Y_
 >- **_лъаIуэн_** (**_мэлъаIуэ_**) _to request_ -> **_елъаIун_** (**_йолъаIу_**) _to go through Y_
 
-Verbs with direction frequently have a futher differentiation. Preverb plus stem on **_-э_** means motions towards, while **_-ы_** means towards away.
+Verbs with direction frequently have a further differentiation. Preverb plus stem on **_-э_** means motions towards, while **_-ы_** means towards away.
 
 >-**_хэшын_** (**_хеш_**) _to lead Y out of Z_
 >-**_хэшэн_** (**_хешэ_**) _to lead Y into Z_
@@ -42,38 +42,38 @@ When combined with the past tense suffix **_-а_** this differentiation gets eli
 **_бзур мэзым хэлъэтащ_** could technically mean both _the bird flew into the forest_ OR _the bird flew out of the forest_. Effectively, however it means the the former. **_бзур мэзым къыхэлъэтащ_** would refer to latter.
 
 Verbs with such a feature are:
->- **_дзынdzən_** - _to throw Y_
+>- **_дзын_** - _to throw Y_
 >- **_шэн_** - _to lead Y_
 >- **_хун_** - _to drive Y_
 >- **_лъэфын_** - _to pull/drag Y_
 >- **_-цIэфтэн_** - _to move fast_
 ## preverb + a/e alteration
-Verbs of movement when combined with a locational preverb, the a/ə alteration denotes whether the verb is towards the subject or away from it.
+Verbs of movement when combined with a locational preverb, the **_э_**/**_ы_** alteration denotes whether the verb is towards the subject or away from it.
 
-- **_bʁadaɬatan_** (intr **_bʁadawɬaːta_**) _to fly towards Y_ vs **_bʁadaɬatən_** (intr **_bʁadawɬat_**) _to fly away from Y_
-- **_jəɬatan_** (intr **_jawɬaːta_**) _to fly into Y_ vs **_jəɬatən_** (intr **_jawɬat_**) _to fly out from Y_
-- **_bʁadakʷʼatan_** (intr **_bʁadawkʷʼaːta_**) _to move towards Y_ vs **_bʁadakʷʼatən_** (intr **_bʁadawkʷʼat_**) _to move away from Y_
+- **_бгъэдэлъэтэн_** (intr. **_бгъэдолъатэ_**) _to fly towards Y_ vs **_бгъэдэлъэтын_** (intr. **_бгъэдолъэт_**) _to fly away from Y_
+- **_илъэтэн_** (intr. **_йолъатэ_**) _to fly into Y_ vs **_илъэтын_** (intr. **_йолъэт_**) _to fly out from Y_
+- **_бгъэдэкIуэтэн_** (intr. **_бгъэдокIуатэ_**) _to move towards Y_ vs **_бгъэдэкIуэтын_** (intr. **_бгъэдокIуэт_**) _to move away from Y_
 
-# **_jə-_** suffix
-The **_jə-_** suffix describes the motion up.
+# **_и-_** suffix
+The **_и-_** suffix describes the motion up.
 
 
 # ??
-There are few verbs which en in **_-əjən_**. I research whether this is connected with this suffix.
-**_wəqʷadəjən_** (**_jawəqʷadəj_**) _to stretch Y_
-**_fəjən_** (**_mafəj_**) _to whistle_
-**_tʃʼəjən_** (**_matʃʼəj_**) _to shout_
+There are few verbs which en in **_-иин_**. I research whether this is connected with this suffix.
+**_укъуэдиин_** (**_еукъуэдий_**) _to stretch Y_
+**_фиин_** (**_мэфий_**) _to whistle_
+**_кIиин_** (**_мэкIий_**) _to shout_
 
 ## with **_da-_** preverb
-Most verbs, use the **_jə-_** in conjuction with the preverb **_da-_**.
+Most verbs, use the **_и-_** in conjunction with the preverb **_дэ-_**.
 
 
->- **_ɬan_** (**_maːɬa_**) _to jump_ ->**_daɬajən_** (**_dawɬaj_**) - _to jump up_
->- **_kʷʼatan_** (**_makʷʼaːta_**) _to move_ ->**_dakʷʼatajən_** (**_dawkʷʼataj_**) - _to move up_
->- **_kʷʼan_** (**_maːkʷʼa_**) _to go_/walk ->**_dakʷʼajən_** (**_dawkʷʼaj_**) - _to go up_
->- **_pɬan_** (**_maːpɬa_**) _to look_ ->**_dapɬajən_** (**_dawpɬaj_**) - _to look up_
+>- **_лъэн_** (**_малъэ_**) _to jump_ -> **_дэлъеин_** (**_долъей_**) - _to jump up_
+>- **_кIуэтэн_** (**_мэкIуатэ_**) _to move_ -> **_дэкIуэтеин_** (**_докIуэтей_**) - _to move up_
+>- **_кIуэн_** (**_макIуэ_**) _to go_/walk ->**_дэкIуеин_** (**_докIуей_**) - _to go up_
+>- **_плъэн_** (**_маплъэ_**) _to look_ ->**_дэплеин_** (**_доплъей_**) - _to look up_
 >- d
->- **_ħən_** (**__**) __ ->**_daħajən_** (**_drajħaj_**) - _to carry/bring Y up_
->- **_dzən_** (**_jadz_**) _to throw Y_ ->**_dadzajən_** (**_drajdzaj_**) - _to _throw Y up_
+>- **_хьын_** (**__**) __ ->**_дэхьеин_** (**_дрехьей_**) - _to carry/bring Y up_
+>- **_дзын_** (**_едз_**) _to throw Y_ ->**_дэдзеин_** (**_дредзей_**) - _to throw Y up_
 
 >- **__** (**__**) __ ->**__** (**__**) - __

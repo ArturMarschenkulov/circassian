@@ -1,35 +1,35 @@
 #vocabulary
-- **_qaʃənan_**
-- **_səqawʃəna_** - I fear
-- **_wəqawʃəna_** - you fear
-- **_qawʃəna_** - he fears
-- **_dəqawʃəna_** - we fear
-- **_fəqawʃəna_** - y'all fear
-- **_qawʃəna_** - they fear
+- **_къэшынэн_**
+	- **_сыкъошынэ_** - I fear
+	- **_укъошынэ_** - you fear
+	- **_къошынэ_** - he fears
+	- **_дыкъошынэ_** - we fear
+	- **_фыкъошынэ_** - y'all fear
+	- **_къошынэ_** - they fear
 
-- **_səqaʃənaːɕ_** - I fear
-- **_wəqaʃənaːɕ_** - you fear
-- **_qaʃənaːɕ_** - he fears
-- **_dəqaʃənaːɕ_** - we fear
-- **_fəqaʃənaːɕ_** - y'all fear
-- **_qaʃənaːɕ_** - they fear
+	- **_сыкъэшынащ_** - I feared
+	- **_укъэшынащ_** - you feared
+	- **_къэшынащ_** - he feared
+	- **_дыкъэшынащ_** - we feared
+	- **_фыкъэшынащ_** - y'all feared
+	- **_къэшынащ_** - they feared
 
 
-- **_ʃənan_** - to fear
+- **_шынэн_** - to fear
 
-- **_sawʃəna_** - I fear
-- **_wawʃəna_** - you fear
-- **_maʃəna_** - he fears
-- **_dawʃəna_** - we fear
-- **_fawʃəna_** - y'all fear
-- **_maʃəna_** - they fear
+	- **_сошынэ_** - I fear
+	- **_уошынэ_** - you fear
+	- **_мэшынэ_** - he fears
+	- **_дошынэ_** - we fear
+	- **_фошынэ_** - y'all fear
+	- **_мэшынэ_** - they fear
 
-- **_səʃənaːɕ_** - I feared
-- **_wəʃənaːɕ_** - you feared
-- **_ʃənaːɕ_** - he feared
-- **_dəʃənaːɕ_** - we feared
-- **_fəʃənaːɕ_** - y'all feared
-- **_ʃənaːɕ_** - they feared
+	- **_сышынащ_** - I feared
+	- **_ушынащ_** - you feared
+	- **_шынащ_** - he feared
+	- **_дышынащ_** - we feared
+	- **_фышынащ_** - y'all feared
+	- **_шынащ_** - they feared
 
 
 https://semdom.org/v4/3.4.2.4

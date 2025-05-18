@@ -15,7 +15,7 @@ Also creates negatives from existential quantifiers
 - **_щI_**
 
 - **_дапщэ_** - _how much?_
-- **сыт хуэдиз** - _how much?_
+- **_сыт хуэдиз_** - _how much?_
 
 - **_хуэдиз_** - _this/that much_
 

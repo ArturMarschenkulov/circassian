@@ -3,4 +3,4 @@
 # Noun
 1. pear tree
 
-[[CAT.Plant]]
+[[CAT.Flora]]

@@ -7,36 +7,36 @@ This suffix creates trees
 >- **_мышхумпIей_** - _oak_
 >- **_пхъэхуей_** - _birch_
 
->-**_къуэрэдэрэ_** /**_qʷaradara_**/
+>-**_къуэрэдэрэ_**
 # To adjectives
 ## From nouns
-### **_-nʃa_**
+### **_-ншэ_**
 without
-- **_pʼaːɬanʃa_** - _without a time limit_ (cf. **_pʼaːɬa_** _time period_)
-- **_gʷəɕʼaʁʷənʃa_** - _merciless_ (cf. **_gʷəɕʼaʁʷ_** _compassion_)
-- **_wəzənʃa_** - _healthy_
-- **_fanʃa_** - _colorless_
-- **_aːqəɮənʃa_** - _intelligenceless_
-- **_naːsəpənʃa_** - _unhappy_ (cf. **_naːsəp_** _happiness_)
-- **_ɕħanʃa_** - _dumb_ (cf. **_ɕħa_** _head_)
+- **_пIалъэншэ_** - _without a time limit_ (cf. **_пIалъэ_** _time period_)
+- **_гущIыгъуншэ_** - _merciless_ (cf. **_гущIыгъу_** _compassion_)
+- **_узыншэ_** - _healthy_
+- **_фэншэ_** - _colorless_
+- **_акъылыншэ_** - _intelligenceless_
+- **_насыпыншэ_** - _unhappy_ (cf. **_насып_** _happiness_)
+- **_щхьэншэ_** - _dumb_ (cf. **_щхьэ_** _head_)
 
-### **_-gʷa_**
+### **_-гуэ_**
 short, cut off:
-- **_ɬaːgʷa_** - _short-legged_
-- **_bzaːgʷa_** - _short-tongued_
-- **_ɕħagʷa_** - _short-headed_
-- **_paːgʷa_** - _short-nosed_
-- **_pɕaːgʷa_** - _short-necked_
-- **_dzaːgʷa_** - _teethless_
-- **_tʃʼaːgʷa_** - _tailless_
-- **_daːgʷa_** - _earless_
+- **_лъагуэ_** - _short-legged_
+- **_бзагуэ_** - _short-tongued_
+- **_щхьэгуэ_** - _short-headed_
+- **_пагуэ_** - _short-nosed_
+- **_пщагуэ_** - _short-necked_
+- **_дзагуэ_** - _teethless_
+- **_кIагуэ_** - _tailless_
+- **_дагуэ_** - _earless_
 
-### **_-dʒa_**
-- **_gʷaːɕʼadʒa_** - _powerless_ (cf. **_gʷaːɕʼa_** _labor_)
-- **_nəbaːdʒa_** - _skinny_ (cf. **_nəba_** stomach_)
-- **_jəʁʷadʒa_** - _untimely_ (cf. **_jəʁʷa_**)
+### **_-джэ_**
+- **_гуащIэджэ_** - _powerless_ (cf. **_гуащIэ_** _labor_)
+- **_ныбаджэ_** - _skinny_ (cf. **_ныбэ_** stomach_)
+- **_игъуэджэ_** - _untimely_ (cf. **_игъуэ_**)
 
-### **_-fʼa_**
+### **_-фIэ_**
 - **_щэныфIэ_** - _polite, well-mannered, humble_
 - **_пкъыфIэ_** - _stately, slender_ (cf. **_пкъы_** _body_)
 - **_насыпыфIэ_** - _happy_ (cf. **_насып_** _happiness_)
@@ -50,50 +50,49 @@ short, cut off:
 
 Is is in many cases the opposite of **_-гуэ_**, **_-ншэ_**, **_-джэ_**. 
 
-### **_-ɬa_**
-- **_məvaːɬa_** - _stone-ey_
-- **_pʃaːχʷaːɬa_** - _sandy_
-- **_psəɬa_** - _watery_
-- **_wədzəɬa_** - _grassy_
+### **_-лъэ_**
+- **_мывалъэ_** - _stone-ey_
+- **_пшахъуалъэ_** - _sandy_
+- **_псылъэ_** - _watery_
+- **_удзылъэ_** - _grassy_
 ### **_-fa_**
 
-### **_-tsa_**
+### **_-цэ_**
 having
-- **_ʑaːtʃʼatsa_** -
-- **_ɕħatsa_** -
-- **_qʷaːtsa_** - _shaggy_
-### **_-ptsʼa_**
-- **_ɬaːptsʼa_** - _barefoot_
-- **_paːptsʼa_** - _sharp_
-- **_naːbdzaːptsʼa_** - _black-browed_
-- **_qʷaːptsʼa_** - _swarthy_
+- **_жьакIацэ_** -
+- **_щхьэцэ_** -
+- **_къуацэ_** - _shaggy_
+### **_-пцIэ_**
+- **_лъапцIэ_** - _barefoot_
+- **_папцIэ_** - _sharp_
+- **_набдзапцIэ_** - _black-browed_
+- **_къуапцIэ_** - _swarthy_
 
-### **_-za_**
-- **_ʔʷəza_** - _narrow_
-- **_naːza_** -
-- **_sħaza_** -
-### **_-xa_**
-### **_-ɮa_**
-- **_psaːɬaːɮa_** - _talkative_
+### **_-зэ_**
+- **_Iузэ_** - _narrow_
+- **_назэ_** -
+- **_щхьэзэ_** -
+### **_-хэ_**
+### **_-лэ_**
+- **_псалъалэ_** - _talkative_
 
-### **_-aʃa_**
-- **_ʔaʃa_** - _armless_, _one-armed_
-- **_naːʃa_** - _cross-eyed_
+### **_-эшэ_**
+- **_Iэшэ_** - _armless_, _one-armed_
+- **_нашэ_** - _cross-eyed_
 
 
 
-### **_-ʔa_**
+### **_-Iэ_**
 possessing
-- **_psəʔa_**
-- **_ɕʼəʔa_**
+- **_псыIэ_**
+- **_щIыIэ_**
 
 
-### **_-ɕ_**
-- **_ħaɕ_** - _doghouse_
-- **_ʃaɕ_** - _horse stable_
-- **_qχʷaɕ_** - _pigsty_
-- **_ħaɕ_** - _doghouse_
-- **_gʷaɕ_** - _garage_
+### **_-щ_**
+- **_хьэщ_** - _doghouse_
+- **_шэщ_** - _horse stable_
+- **_кхъуэщ_** - _pigsty_
+- **_гуэщ_** - _garage_
 
 
 ## From verbs
@@ -101,26 +100,26 @@ possessing
 ## Composition
 ### Productive
 #### Both components are antonyms
-**_məfʼməʔaj_** - _not bad_
-**_məjənmətsʼəkʷʼ_**
+**_мыфIмыIей_** - _not bad_
+**_мыинмыцIыкIу_**
 
 ### Non-productive
 
-# Usage of **_gʷə_**
-- **_gʷəjmətʃʼəʒ_** - _unforgettable_ (cf. )(**_səj gʷəm jətʃʼəʒərqəm_** _I can't forget_ (lit. it does not leave my heart))
-- **_gʷəjməxʷəʒ_** - _unforgettable_ (**_səj gʷəm jəxʷəʒərqəm_** _I can't forget_ (lit. _my heart does not drive it back_))
-- **_gʷəjx_** - _fear_ (**_səj gʷər jərəjxaːɕ_** _he scared me a lot_)
-- **_gʷəqajwa_** - _sorrow, sadness_ (**_jə gʷəm qajwaːɕ_** _he got sad_)
-- **_gʷərəħ_** - _pleasent, attractive_
-- **_gʷəɕətʃʼ_** - _disgust, dislike_
-- **_gʷəɕʼaʁʷ_** - _humanity, compassion_
-# **_-ɕʼa_**
+# Usage of **_гу_**
+- **_гуимыкIыж_** - _unforgettable_ (cf. )(**_си гум икIыжыркъым_** _I can't forget_ (lit. it does not leave my heart))
+- **_гуимыхуж_** - _unforgettable_ (**_си гум ихужыркъым_** _I can't forget_ (lit. _my heart does not drive it back_))
+- **_гуих_** - _fear_ (**_си гур ирихащ_** _he scared me a lot_)
+- **_гукъеуэ_** - _sorrow, sadness_ (**_и гум къеуащ_** _he got sad_)
+- **_гурыхь_** - _pleasent, attractive_
+- **_гущыкI_** - _disgust, dislike_
+- **_гущIэгъу_** - _humanity, compassion_
+# **_-щIэ_**
 
-# **_-zajħa_**
-- **_baraːqzajħa_** - _flag bearer_
-- **_nəpzajħa_** - _flag bearer_
-- **_ɕaːkʷʼazajħa_** - _servant_
-- **_ħaɬazajħa_** - _loader_
-- **_bzagʷəzajħa_** - _snitch, gossip_
-- **_ɮajzajħa_**
-# **_-zajʃa_**
+# **_-зехьэ_**
+- **_бэракъзехьэ_** - _flag bearer_
+- **_ныпзехьэ_** - _flag bearer_
+- **_щакIуэзехьэ_** - _servant_
+- **_хьэлъэзехьэ_** - _loader_
+- **_бзэгузехьэ_** - _snitch, gossip_
+- **_лейзехьэ_**
+# **_-зешэ_**

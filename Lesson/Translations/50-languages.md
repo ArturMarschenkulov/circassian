@@ -13,13 +13,13 @@ This will be a big undertaking
 - _Hello!_ - **__**
 - _How are you_ - **__
 
-- _Do you come from Europe?_ - **__**
+- _Do you come from Europe?_ - **_европэм укъикIа?_**
 - _Do you come from America_ - **__**
 - _Do you come from Asia?_ - **__
 
 - _In which hotel are you staying?_ - **__**
 - _How long have you been here?_ - **__**
-- _How long will you be staying?_ - **__
+- _How long will you be staying?_ - **_сыт хуэдизрэ ущыӀэну уэ мыбы?_**
 
 - _Do you like it here?_ - **__**
 - _Are you here on vacation?_ - **__**
@@ -95,7 +95,20 @@ This will be a big undertaking
 - _The baby likes milk_ - **_сабийр шэм фIэфIщ_**
 - _The child likes cocoa and apple juice_ - **_сабийр какао икIи мыIэрысэпс фIэфIщ_**
 - _The woman likes orange and grapefruit juice._ - **_фызыр апельсиныпс икIи грейпфрутыпс фIэфIщ_**
+# 17 Around the house
+- __ - **__**
 
+- _Our house is here._ - **_ди унэр мыбдеж_**
+- _The roof is on top._ - **_унащхьэр ищхьэмкӀэ._**
+- _The basement is below._ - **_щIыунэ ищӀагъым щӀэтӀысхьащ._
+
+- _There is a garden behind the house_ - **__**
+- _There is no street in front of the house_ - **__**
+- _There are trees next to the house_ - **__
+
+- __ - **__**
+- __ - **__**
+- __ - **__
 # Activities
 
 - _What does Martha do?_ - **__**

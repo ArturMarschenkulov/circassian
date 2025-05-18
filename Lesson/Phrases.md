@@ -6,17 +6,16 @@
 - **_ар щыжейр, зыщигъэпсэхур зыми ищIэркъым_** - _nobody knows when he sleeps when he rests_
 
 
-- **_игъащIэ псокIэ щымыгъупщэжынщ абы есщIэныр_** - _What I'll do to him, he'll never forget._
-- **_дэнэ иджы гъущI гъуэгу управленэ къыздипхыжыныр_** - _Where you'll find the railroad department now?_
+
 - **_шы зызыгъэпсэхуахэр, фIыуэ шхахэр щIэущыхьт_** - The rested, well-fed horses walked briskly...
-- **_узэрыслъагъу лъандэрэ зэпымыуэ сыногупсыс_** - _Since I saw you, I've been thinking about you all the time_
+
 
 - **_aːr gʷəbʑaːwa datʃʼəʒaːɕəj qaʃaʒəfəj səj pχʷəm wəxʷafaːɕaɕ, - ʒəjʔaːɕ dʒəɮaːχstan, sawsrəqʷar badənawqʷam tʃʼaɮəʒantʃʼa ʃənan qəfʼaɕʼrəj_** - _He is in a state of anger: if you can bring him back, you are worthy of my daughter," said Djilahstan, thinking that Sosruko would not dare to run after Badinoko_
 
-- **_fəməʃəna zəvʁapstʃʼən_** - _don't be afraid to swim_
-- **_sa zaxasxərqəm aːr kʷʼawa_** - _I don't hear that he come_
-- **_sawsrəqʷa sɬaʁʷaːqəm, aːr zədaɕəʔar səməɕʼa_** - _I didn't see Sosruko, I don't know where he is_
-- **_za dəzəɬaʁʷaːməj, dawʔʷar, naːrt wədən ɕəməʁʷəpɕantʃʼa_** - _He who has seen us once, we swear, will not forget the beatings of the Narts_
+- **_фымышынэ зывгъэпскIын_** - _don't be afraid to bathe_
+- **_сэ зэхэсхыркъым ар кIуауэ_** - _I don't hear that he come_
+- **_сосрыкъуэ слъэгъуакъым, ар зыдэщыIэр сымыщIэ_** - _I didn't see Sosruko, I don't know where he is_
+- **_зэ дызылъэгъуами, доIуэр, нарт удын щымыгъупщэнкIэ_** - _He who has seen us once, we swear, will not forget the beatings of the Narts_
 
 - **_Нарт Щэбэтэныкъуэ сипсэлъыхъущ, Бэрэ укъыслъыхъу щхьэкIэ сыбдэмыкIуэн_** - _Nart Shabatinuko wants to take me as his wife, No matter how many times I ask for you, I won't marry you_
 
@@ -52,10 +51,10 @@
 - **_Сэ нартхэ с-ырапхъущ_** - _I am a daughter of the Narts_
 
  (М. З.) – «Я тебе скажу почему мир потемнел»
-- **_Сэ уэ ны-б-же-с-Iэнщ дунейм зыщIиуфIыцIар_** - _I'll tell you why the world has gone dark_
+- **_Сэ уэ ныбжесIэнщ дунейм зыщIиуфIыцIар_** - _I'll tell you why the world has gone dark_
 
  (А. З.) – «Известие вы мне передайте»
-- **_Фэ хъыбарыр сэ къы-з-же-ф-Iэ_** - _tell me the news_
+- **_Фэ хъыбарыр сэ къызжефIэ_** - _tell me the news_
 
 . (Ш. А.) – «Двери кузни Дабеча всегда были открыты для всех
 - **_Дэбэч и кIыщыбжэр сытым дежи хэт щхьэкIи зэIухат_** - _dabech's forge doors were always open for all_
@@ -76,26 +75,20 @@
 - **_xajjəɬtʃʼa jəʔaːxa fəj ʔa tʃʼəħər kəwɬtəwram jə ɬər zəʁadəjɕ_** - _your long arms, who_
 
 
-- **_qəbgʷərəʔʷaː ʒəsʔaːr_** - _did you understand what I said?_
-
-- **_ЖесIар аркъудей къыгурыIуакъым_** - He didn't even understand what I said
-
- - **_aːdəɣa waradxar, psawm xʷamədaw qajmat ʒəjʔa qaradəʑxar, vaːsəjɮ tamaməw qəgʷərəʔʷartaqəm_**- _Adyghe songs, especially the old songs sung by Kaymet were not intelligible to Vasilii_
 
 
-- **_жаIар ерагъыу абы къыгурыIуащ – ЖаIар ерагъыу абы и щхьэм къихьащ_** - _He could hardly understand the meaning of what was said - What was said hardly got through to him_	
 - **_сэри пасэу къызгурыIуагъэнщ ауэ сытми къызэрыгуэкI угъуэгу къудейуэ ущыт нэхърэ зэпэщIэха лъэныкъуитI зэзыпхыф лъэмыжу цIыхум ураIэныр зэрынэхъыфIыр_**- _I, too, probably realized early on that it was better to serve people as a bridge connecting two sides than to be just a (ordinary) road_
-- **_къемэт жиIэхэр зэхимыщIыкI хуэдэ, сурэ и щхьэр къиIэту и нэгу щIэплъакъым_** - _As if she didn't understand what Kemat was saying, Sura never looked him in the face_
+
 - **_Удзгъэгъам тхьэмпэхэр къыпидзащ_** - _Leaves appeared on a flower_
 - **_ЩIалэр уэшхым иуфэнщIащ._** - _A guy got soaked in the rain_
 - **_ДэIэпыкъуэгъу нэскIэ абы щыгугъыртэкъым, сыт щхьэкIэ жыпIэмэ абы и узыншагъэр щIагъуэтэкъым_** - _No real help was expected from him because his health was already weak_
 
-
+- **_колхозхэтхэр мэкъу щеуауэ щыта джабэ нэкIухэр щIэзыгъэна уэсым фIыцIагъэ Iуащхьэ гуэрхэр къызэпхощ_**
 
 # Own phrases
-_I looked for my keys_ - **_sa ʔʷəntʃʼəbzaʔʷəxəm sajɬəχʷaː_**
+_I looked for my keys_ - **_сэ IункIыбзэIухым селъыхъуащ_**
 
-**_ʔʷəntʃʼəbzaʔʷəx_** - _key_
+**_IункIыбзэIух_** - _key_
 
 # Own attempts for expressions
 - _forests burn and glaciers melt_ - **_mazxam jasra məɮaɕxar matkʷʼəra_** (мэзхэм есрэ мылэщxэр мэткIурэ)

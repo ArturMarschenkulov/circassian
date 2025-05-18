@@ -1,26 +1,22 @@
 ### And
-**_jətʃʼəj_**
+**_икIи_**
 
-Жыгхэм я лъэдий абрагъуэхэр жыжьэу зэпэщIэхауэ зэхэтт икIи жыгыщхьэ къудамабэ зэхэлъэрыхъахэр абыхэм щIаIыгъэрт
-**_ʒəɣxam jaːm ɬadəj aːbraːʁʷaxar ʒəʑaw zapaɕʼaxawa zaxatt jətʃʼəj ʒəɣəɕħa kʷədaːmaːba zaxaɬarəχaːxar aːbəxam ɕʼaːʔəʁart_** - _The powerful trunks of age-old trees grew at a distance and they supported the swollen branches of their tops_
 
-А хъыджэбзыр икIи лъагъугъуафIэт икIи Iущт
-**_aː χədʒabzər jətʃʼəj ɬaːʁʷəʁʷaːfʼat jətʃʼəj ʔʷəɕt_** - _This girl was pretty and smart_
+**_Жыгхэм я лъэдий абрагъуэхэр жыжьэу зэпэщIэхауэ зэхэтт икIи жыгыщхьэ къудамабэ зэхэлъэрыхъахэр абыхэм щIаIыгъэрт_** - _The powerful trunks of age-old trees grew at a distance and they supported the swollen branches of their tops_
 
-**_Мазагъуэр пшэхэм яуфыхьри, дунейр зэуэ кIыфI хъуат_**
-**_maːzaʁʷar pʃaxam jaːwəfəħrəj, dəwnajr zawa tʃʼəfʼ χʷaːt_** - _The clouds covered the moon and the whole world became dark at once_
+**_А хъыджэбзыр икIи лъагъугъуафIэт икIи Iущт_** - _This girl was pretty and smart_
 
-Къуршхэри, мэзхэри, тафэри — псори нэщхъейт
-**_qʷərʃxarəj, mazxarəj, tafarəj - psawrəj naɕχajt_** - _All were gloomy that day: the mountains, the forests, the plains_
+**_Мазагъуэр пшэхэм яуфыхьри, дунейр зэуэ кIыфI хъуат_** - _The clouds covered the moon and the whole world became dark at once_
 
-ИнжыджышхуикI Инжыдж ЦIыкIуикI Псыжь холъэдэж
-**_jənʒədʒəʃxʷəjtʃʼ jənʒədʒ tsʼəkʷʼəjtʃʼ psəʑ xawɬadaʒ_** - _Bolshoy Zelenchuk and Maly Zelenchuk flow into the Kuban_
+**_Къуршхэри, мэзхэри, тафэри — псори нэщхъейт_** - _All were gloomy that day: the mountains, the forests, the plains_
+
+**_ИнжыджышхуикI Инжыдж ЦIыкIуикI Псыжь холъэдэж_** - _Bolshoy Zelenchuk and Maly Zelenchuk flow into the Kuban_
 ### Or
-**_ħamara_**,
-**_ja_**
+**_хьэмэрэ_**,
+**_е_**
 
 ### Contrasting
-**_aːrɕħatʃʼa_** - _but_
-**_aːtʼa_** - _but_
-**_aːwa_** - _but_
+**_арщхьэкIэ_** - _but_
+**_атIэ_** - _but_
+**_ауэ_** - _but_
 

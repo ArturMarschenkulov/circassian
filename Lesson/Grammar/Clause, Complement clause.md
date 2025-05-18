@@ -70,8 +70,7 @@ The order is very much fixed
 #### to begin 
 **_щIэдзэн хуежьэн егъэжьэн_**
 
-ГущхьэIыгъ лIыжьым шыхэм я жьэм шхуэIур жьэдихын щIидзащ – «Старик-извозчик начал разнуздывать лошадей»; 
-**_gʷəɕħaʔəʁ ɬʼəʑəm [ʃəxam jaː ʑam ʃxʷaʔʷər ʑadəjħən] ɕʼəjdzaːɕ_** - _The old man-driver began [to unbridle the horses]_
+**_ГущхьэIыгъ лIыжьым [шыхэм я жьэм шхуэIур жьэдихын] щIидзащ_** - _The old man-driver began [to unbridle the horses]_
 
 **_тхьэмадэм [макъ щабэ гуакIуэкIэ псэлъэн] иригъэжьащ_** - _The Tkhamada began [to speak in a soft and pleasant voice]_
 

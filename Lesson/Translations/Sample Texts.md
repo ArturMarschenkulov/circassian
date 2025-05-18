@@ -7,6 +7,8 @@ The North Wind and the Sun disputed as to which was the most powerful, and agree
 The North Wind first tried his power and blew with all his might, but the keener his blasts, the closer the Traveler wrapped his cloak around him, until at last, resigning all hope of victory, the Wind called upon the Sun to see what he could do. 
 The Sun suddenly shone out with all his warmth. The Traveler no sooner felt his genial rays than he took off one garment after another, and at last, fairly overcome with heat, undressed and bathed in a stream that lay in his path.
 
+
+Ахэр зэгурыӀуащ, гъуэгурыкӀуэм и джэдыгур япэу зытезыхыфыр нэхъ лъэщу къыщӀэкӀыну.
 **__**
 
 # Babel Tex

@@ -1,4 +1,4 @@
-
+Somewhat related to [[Lesson/Grammar/Correlatives|Correlatives]].
 
 - **_сыт щыгъуи_** - _always_
 - **_зэзэмызэ_** - _sometimes_

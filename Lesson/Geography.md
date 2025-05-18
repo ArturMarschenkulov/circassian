@@ -1,0 +1,1 @@
+Gelendzhik - **_Хъулъыжъий_** _small pasture_ natukhai dialect.

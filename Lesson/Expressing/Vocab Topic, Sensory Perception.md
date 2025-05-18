@@ -33,11 +33,11 @@ To express two persons, one has to use the derived verb **_еплъын_** (**_�
 
 **__**
 
-- **_qapɬan_** - _to watch hither_
-- **_səqawpɬa_** - _I watch_
-- **_səqapɬaːɕ_** - _I watched_
-- **_qawpɬa_** - _he watches hither_
-- **_qapɬaːɕ_** - _he watched hither_
+- **_къэплъэн_** - _to watch hither_
+- **_сыкъоплъэ_** - _I watch_
+- **_сыкъэплъащ_** - _I watched_
+- **_къоплъэ_** - _he watches hither_
+- **_къэплъащ_** - _he watched hither_
 
 
 
@@ -46,14 +46,14 @@ To express two persons, one has to use the derived verb **_еплъын_** (**_�
 
 The passive seeing one, is as mentioned above, transitive and has two persons.
 
-- **_ɬaːʁʷən_** (**_jaɬaːʁʷ_**)
-- **_sawɬaːʁʷ_** - _I see him_
-- **_sajɬaːʁʷ_** - _he sees me_
+- **_лъагъун_** (**_елъагъу_**)
+- **_солъагъу_** - _I see him_
+- **_селъагъу_** - _he sees me_
 
-- **_sɬaːʁʷənəw_** - _I will see him_
-- **_səjɬaːʁʷənəw_** - _he will see me_
+- **_слъагъуну_** - _I will see him_
+- **_силъагъуну_** - _he will see me_
 
-- **_sɬaːʁʷaːɕ_** - _I saw him_
+- **_сsɬaːʁʷaːɕ_** - _I saw him_
 - **_səjɬaːʁʷaːɕ_** - _he saw me_
 
 
@@ -81,7 +81,7 @@ The passive seeing one, is as mentioned above, transitive and has two persons.
 # With nose /smell
 - **_paman_** (**_mapaːma_**), **_japamən_** (**_jawpam_**)
 
-- **_ħar tʃʼaɮam jawpam_** - _the dog smells the boy_
+- **_хьэр щIалэм йопэм_** - _the dog smells the boy_
 - **_maːfʼa jə ma sɕʼarqəm_** - _I can't smell fire_ (lit. _I don't know the smell of fire_)
 
 # With ears / hearing

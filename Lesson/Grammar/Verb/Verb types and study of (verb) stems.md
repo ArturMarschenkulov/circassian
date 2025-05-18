@@ -1,4 +1,4 @@
-It is useful to differentiate verbs depending on their smenatic content, because this can help out how the grammar works on it plus what types of derivation is possible, usually speaking.
+It is useful to differentiate verbs depending on their semenatic content, because this can help out how the grammar works on it plus what types of derivation is possible, usually speaking.
 
 Kabardian verbs are usually derived verbs, so I will try to only give the most sensible minimal roots.
 
@@ -8,8 +8,8 @@ On this page I will also try to gather all the "basic roots", mainly for verbs, 
 # Temp
 This is a temporary location for basic stems I have found.
 
-**_ɬaʔʷan_** - _to request_
-**_bɣan_** - _to curse_
+- **_лъэIуэн_** - _to request_
+- **_бгэн_** - _to curse_
 
 
 # Verbs of motion
@@ -18,17 +18,17 @@ Verbs of motion are:
 >- **_кIуэтэн_** - _to move_
 >- **_пщын_** - _to crawl_
 >- **_жэн_** - _to run_
->- **_tʃʼan_**
->- **_ɬadan_** - _to run fast_
->- **_ɬan_** - _to jump_
->- ?**_tsʼaftan_**
+>- **_кIэн_**
+>- **_лъэдэн_** - _to run fast_
+>- **_лъэн_** - _to jump_
+>- ?**_цIэфтэн_**
 >-  ==
->- **_ʃan_** - _to lead Y_
->- **_ɬafən_** - _to drag Y_
->- **dzən** - _to throw Y_
->- **_ħən_**
+>- **_шэн_** - _to lead Y_
+>- **_лъэфын_** - _to drag Y_
+>- **_дзын_** - _to throw Y_
+>- **_хьын_**
 
-Such verbs have the speciality that ablaut alteration leads to direction change. **_э_** refers to motion towards something, while **ы** refers to motion away from something.
+Such verbs have the specialty that ablaut alteration leads to direction change. **_э_** refers to motion towards something, while **_ы_** refers to motion away from something.
 
 # Bound stems
 Note: There is another term for that.
@@ -77,3 +77,23 @@ Verbs chose basic 1 to 2 valency change is done by changing transitivity + alter
 **_бгэн_** _to curse_
 **_бэнэн_** _to fight_
 **_Iэбэн_** _to touch_
+
+
+
+# Classes in terms of preverbs
+I am creating classes of verbs which determine the rules of how they get various preverbs.
+
+## Class A
+This class before getting a preverb it gets an ablaut change from **_ы_** to **_э_**.
+
+**_лагъун_** -> **_телъэгъуэн_**
+
+
+## Class B
+Before getting preverbs **_э_** to **_ы_**,
+
+
+## Class C
+Requires a directional suffix.
+
+- **_тхэн_** -> **_тетхыхьын_**

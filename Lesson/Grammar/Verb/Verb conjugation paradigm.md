@@ -81,12 +81,12 @@ Below is a short overview of the different conjugations:
 
 >- **_соплъ_** vs **_солъэгъу_** - _I look at Y_ vs _I see Y_
 >- **_сыплъащ_** vs **_слъэгъуащ_** - _I looked at Y_ vs _I saw Y_
->- **_къызоплъ_** vs **_sajɬaʁʷ_** - _X looks at me_ vs _X sees me_
->- **_къызэплъащ_** vs **_səjɬaʁʷaːɕ_** - _X looked at me_ vs _X saw me_
->- **_сыноплъ_** vs **_wəzawɬaʁʷ_** - _I look at you_ vs _I see you_
->- **_сыноплъащ_** vs **_wəsɬaʁʷaːɕ_** - _I looked at you_ vs _I saw you_
->- **_укъызоплъ_** vs **_səbawɬaʁʷ_** - _you look at me_ vs _you see me_
->- **_укъызэплъащ_** vs **_səpɬaʁʷaːɕ_** - _you looked at me_ vs _you saw me_
+>- **_къызоплъ_** vs **_селъэгъу_** - _X looks at me_ vs _X sees me_
+>- **_къызэплъащ_** vs **_силъэгъуащ_** - _X looked at me_ vs _X saw me_
+>- **_сыноплъ_** vs **_узолъэгъу_** - _I look at you_ vs _I see you_
+>- **_сыноплъащ_** vs **_услъэгъуащ_** - _I looked at you_ vs _I saw you_
+>- **_укъызоплъ_** vs **_сыболъэгъу_** - _you look at me_ vs _you see me_
+>- **_укъызэплъащ_** vs **_сыплъэгъуащ_** - _you looked at me_ vs _you saw me_
 
 As you might have noticed, it seems like the order has changed. In intransitive verbs the marker for the subject comes first and then the indirect object, while in intransitive verbs the marker for the direct object comes first and then subject. And this is true, however one can also regard it as having the same order, if you analyze it as (abs)-(erg as indirect object)-(erg as subject). 
 
@@ -235,14 +235,14 @@ Also, **_qaw-_** comes from the regular sound change from **_*qəwa-_**. The sam
 
 To get the positive present tense form, we add replace the last vowel/diphthong with **aw-**.
 
-|     |me   |you |him/her/it|us   |y'all |them|
-|-----|-----|----|----------|-----|------|----|
-|I    |(səzaw)|sənaw-|saw-|%|səvaw-|saw-|
-|you  |wəqəzaw-|(wəzaw)|waw-|wəqədaw-|%|waw-|
-|he   |qəzaw-|qaw-|jaw-(/zaw-)|qədaw-|qəvaw-|jaw-|
-|we   |%|dənaw-|daw-|(dəzaw-)|dəvaw-|daw-|
-|y'all|fəqəzaw-|%|faw-|fəqədaw-|(fəzaw)|faw-|
-|they |qəzaw-|qaw-|jaw-|qədaw-|qəvaw-|jaw-(/zaw-)|
+|       | me       | you     | him/her/it  | us       | y'all   | them        |
+| ----- | -------- | ------- | ----------- | -------- | ------- | ----------- |
+| I     | (səzaw)  | sənaw-  | saw-        | %        | səvaw-  | saw-        |
+| you   | wəqəzaw- | (wəzaw) | waw-        | wəqədaw- | %       | waw-        |
+| he    | qəzaw-   | qaw-    | jaw-(/zaw-) | qədaw-   | qəvaw-  | jaw-        |
+| we    | %        | dənaw-  | daw-        | (dəzaw-) | dəvaw-  | daw-        |
+| y'all | fəqəzaw- | %       | faw-        | fəqədaw- | (fəzaw) | faw-        |
+| they  | qəzaw-   | qaw-    | jaw-        | qədaw-   | qəvaw-  | jaw-(/zaw-) |
 
 Orginally **_saw-_**, **waw-** etc, probably came from **_s-jaw_**, **_w-jaw-_** but were simplified. **jaw** on the other hand seems to be the fusion of **_ja-_** and **aw-**.
 
@@ -262,10 +262,10 @@ For the reflexive, one uses **_za-_** plus frequently with the suffix **_-ʒə_*
 There are some verbs which morphologically look like 2-personal intransitive verbs, but actually are only 1-personal verbs, in the sense that they can only conjugate for the subject, which normally would require them to use the conjugation of 1-personal intransitive verbs.
 
 Those verbs are:
->- **_jasən_** (**_jaws_**) - _to swim_
->- **_jatʼəsaxən_** (**_jawtʼəsax_**) - _to sit down_
->- **_jaʃən_** (**_jawʃ_**) - _to get tired_
->- **_japɬatʃʼən_** (**_jawpɬatʃʼ_**) - _to look around_
+>- **_есын_** (**_йос_**) - _to swim_
+>- **_етIысэхын_** (**_йотIысэх_**) - _to sit down_
+>- **_ешын_** (**_йош_**) - _to get tired_
+>- **_еплъэкIын_** (**_йоплъэкI_**) - _to look around_
 
 
 
@@ -282,14 +282,17 @@ Verbs which use that conjugation are:
 - **_sərəjʔaɕ_** - _he has me_/_I belong to him_
 
 Intransitivie 2-person with prefix
-|     |me   |you |him/her/it|us   |y'all |them|
-|-----|-----|----|----------|-----|------|----|
-|I    |(zəz-P-)|səb-P-|sə-P-|%|səv-P-|saː-P-|
+|       |me    |you |him/her/it|us   |y'all |them|
+|---|-----|----|----------|-----|------|----|
+|I       | (zəz-P-)|səb-P-| sə-P- |%|səv-P-|saː-P-|
+
+
 |you  |wəz-P-|(wəz-P-)|wə-P-|wəd-P-|%|waː-P-|
-|he   |s-P-|p-P-|P-/zə-P-)|d-P-|f-P-|jaː-P-|
+|he    |s-P-|p-P-|P-/zə-P-)|d-P-|f-P-|jaː-P-|
 |we   |%|dəv-P-|də-P-|(dəz-P)|dəv-P-|daː-P-|
-|y'all|fəz-P-|%|fə-P-|fəd-P-|(fəz-P)|faː-P-|
-|they |s-P-|p-P-|P-|d-P-|f-P-|jaː-P-/%|
+|y'all |fəz-P-|%|fə-P-|fəd-P-|(fəz-P)|faː-P-|
+|they |s-P- |p-P- |P- |d-P-|f-P-|jaː-P-/%|
+
 
 The subject (absolutive -r) markers are: **_sə-_**, **_wə-_**, **_∅-_**, **_də-_**, **_fə-_**, **_∅-_**.
 

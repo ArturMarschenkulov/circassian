@@ -1,4 +1,4 @@
-This note is about giving an introduction to the verb system of Kabardian. The verb conjugation system of Kabardian is rather complicated, but as a start it should be enough.
+s
 
 # Ergativity
 

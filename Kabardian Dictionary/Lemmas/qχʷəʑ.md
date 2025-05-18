@@ -2,4 +2,4 @@
 # Noun
 1. pear 
 
-[[CAT.Plant]]
+[[CAT.Flora]]

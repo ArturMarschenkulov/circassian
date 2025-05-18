@@ -1,58 +1,57 @@
 
-||question|universal|negatory|existential|
-|-----|------------|----------|------------|-|
-|basic|**_sət_**, **_xat_**|**_psaw_**, **_psawrəj_**|**_zərəj_**, **_zəməj_**|**_gʷar_**, **_zəgʷar_**
-|temporal|**_sət ɕəʁʷa_**, **_daːpɕaɕ_**|**_sət ɕəʁʷəj_**, **_daːpɕaɕəj_**, **_sətəm dajʒəj_** |**_zajə(tʃʼ)_**|**_jənəqʷam_**|
-|local|**_dana_**|**_danəj_**|**_zəɕʼəpʼəj(tʃʼ)_**|**_zə ɕʼəpʼa gʷarəm_**|
-|amount|**_daːpɕa_**||**_zəmaːɕʼəjtʃʼ_**,  **_zətʼakʷʼəj_**|
+|          | question                       | universal                                             | negatory                              | existential              |
+| -------- | ------------------------------ | ----------------------------------------------------- | ------------------------------------- | ------------------------ |
+| basic    | **_сыт_**, **_хэт_**           | **_псо_**, **_псори_**                                | **_zərəj_**, **_zəməj_**              | **_gʷar_**, **_zəgʷar_** |
+| temporal | **_сыт щыгъуэ_**, **_дапщэщ_** | **_sət ɕəʁʷəj_**, **_daːpɕaɕəj_**, **_sətəm dajʒəj_** | **_zajə(tʃʼ)_**                       | **_jənəqʷam_**           |
+| local    | **_дэнэ_**                     | **_danəj_**                                           | **_zəɕʼəpʼəj(tʃʼ)_**                  | **_zə ɕʼəpʼa gʷarəm_**   |
+| amount   | **_дапщэ_**                    |                                                       | **_zəmaːɕʼəjtʃʼ_**,  **_zətʼakʷʼəj_** |                          |
 
 ### Temporal
-**_sət ɕəʁʷa_** - _where_
-**_daːpɕaɕ_** - _where_
+**_сыт щыгъуэ_** - _where_
+**_дапщэщ_** - _where_
 
-**_sət ɕəʁʷəj_** - _always_
-**_daːpɕaɕəj_** - _always_
-**_sətəm dajʒəj_** - _always_
+**_сыт щыгъуи_** - _always_
+**_дапщэщи_** - _always_
+**_сытым дежи_** - _always_
 
-**_jənəqʷam_** - _sometimes_
+**_иныкъуэм_** - _sometimes_
 
-**_zajə(tʃʼ)_** - _never_
+**_зэи(кI)_** - _never_
 
 ### Local
-**_dana_** - _where_
-**_danəj_** - _everywhere_
-**_zə ɕʼəpʼa gʷarəm_** - _somewhere_
-**_zəɕʼəpʼəj(tʃʼ)_** - _never_
+**_дэнэ_** - _where_
+**_дэни_** - _everywhere_
+**_зы щIыпIэ гуэрым_** - _somewhere_
+**_зыщIыпIи(кI)_** - _never_
 
 ### Amount
-**_daːpɕa_** - _how much_
-**_zəmaːɕʼəjtʃʼ_** - _not at all_
-**_zətʼakʷʼəj_** - _not at all_
+**_дапщэ_** - _how much_
+**_зымащIикI_** - _not at all_
+**_зытIэкIуи_** - _not at all_
 
 ### Reason
-**_sət_** - _why_
-**_sət ɕħatʃʼa_** - _why_
-**_sətəm qəxatʃʼəw_** - _why_
-**_sət xʷada ɕħawəsəʁʷatʃʼa_** - _why_
+**_сыт_** - _why_
+**_сыт щхьэкIэ_** - _why_
+**_сытым къыхэкIыу_** - _why_
+**_сыт хуэдэ щхьэусыгъуэкIэ_** - _why_
 
-трактористкэ цIэрыIуэм и хъыбар щхьэ зэхимыхыжрэ Софят?
-**_traːktawrəjstka tsʼarəʔwam jə χəbaːr ɕħa zaxəjməxəʒra sawfjaːt_** - _Why doesn't Sofyat already hear about this famous tractor driver?_ (lit. female tractorist famous its story head )
-**_ɕħa _** - _why didn't you talk to me?_
+**_трактористкэ цIэрыIуэм и хъыбар щхьэ зэхимыхыжрэ Софят?_** - _Why doesn't Sofyat already hear about this famous tractor driver?_ (lit. female tractorist famous its story head )
+**_щхьэ** - _why didn't you talk to me?_
 # Interrogative pronouns
 
-**_sət xʷada_**  - _what, which, wich kind of_ (cf. **_xʷada_** _like_)
-**_xat jaj_** - _whose_
-**_sətəm jaj_** - _which_
+**_сыт хуэдэ_**  - _what, which, wich kind of_ (cf. **_хуэдэ_** _like_)
+**_хэт ей_** - _whose_
+**_сытым ей_** - _which_
 
 
-**_sət aː fəzəm qəjɬxʷaːr?_** _what did the woman bore/gave birth to?_
+**_сыт а фызым къилъхуар?_** _what did the woman bore/gave birth to?_
 
 ## Phrases
-**_nawba sət xʷada maːxʷaməj sɕəʁʷəpɕaʒaːɕ_** - _I forgot which kind of day today is_
+**_нобэ сыт хуэдэ махуэми сщыгъупщэжащ_** - _I forgot which kind of day today is_
 
 # Derivation
-**_aːrɕħatʃʼa_** - _but_ (cf. **_aːr_** _that_ + **_ɕħatʃʼa_** _for_)
-**_aːpxʷadəjz_** - _that much_ (cf. **_abə_** + **_xʷadəjz_**)
-**_zəgʷar_** - _somebody_ (cf. **_zə_** _one_ + **_gʷar_** _some_)
-**_aːrqʷədaj_** - _even_ (cf. **_qʷədaj_** _only_)
+**_арщхьэкIэ_** - _but_ (cf. **_ар_** _that_ + **_щхьэкIэ_** _for_)
+**_апхуэдиз_** - _that much_ (cf. **_абы_** + **_хуэдиз_**)
+**_зыгуэр_** - _somebody_ (cf. **_зы_** _one_ + **_гуэр_** _some_)
+**_аркъудей_** - _even_ (cf. **_къудей_** _only_)
 

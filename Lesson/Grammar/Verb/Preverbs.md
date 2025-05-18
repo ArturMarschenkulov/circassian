@@ -1,48 +1,47 @@
 
 
 # **_хэ-_**, **_и-_** and **_дэ-_**
-The main 'inside' preverbs are **_xa-_**, **_jə-_** and **_da-_**. 
-**_xa-_** refers to being inside an entity, some sort of volume, like **_псы_** _water_, **_ятIэ_** _dirt_, **_уэс_** _snow_, **_мэз_** _forest_.
-**_псым хэкIэн_** _to pour into the water_
-**_псым хэсын_** _to sit in the water_
-**ятIэм хэнэн** _to get stuck in dirt_
-**_уэсым хэкуэн_** _to drop somebody into snow_
-**_уэсым хэтын_** _to stand in snow_
-**_мэзым хыхьэн_** _to enter the forest_
-**_мэзым хэсын_** _to sit in the forest_
+The main 'inside' preverbs are **_хэ-_**, **_и-_** and **_дэ-_**. 
+**_хэ-_** refers to being inside an entity, some sort of volume, like **_псы_** _water_, **_ятIэ_** _dirt_, **_уэс_** _snow_, **_мэз_** _forest_.
+- **_псым хэкIэн_** _to pour into the water_
+- **_псым хэсын_** _to sit in the water_
+- **_ятIэм хэнэн_** _to get stuck in dirt_
+- **_уэсым хэкуэн_** _to drop somebody into snow_
+- **_уэсым хэтын_** _to stand in snow_
+- **_мэзым хыхьэн_** _to enter the forest_
+- **_мэзым хэсын_** _to sit in the forest_
 
 **_и-_** refers to being inside some container, like **_жып_** _pocket_, **_бытулъкIэ_** _bottle_, **матэ** _basket_.
 **_дэ-_** refers to being inside some sort of flat landscape, like **_къалъ_** _city_, **_пщIантIэ_** _yard_.
 
 
-From those three, **_xa-_** is the most used and is the most generic, while **_da-_** is the least used one.
+From those three, **_хэ-_** is the most used and is the most generic, while **_дэ-_** is the least used one.
 
-
-Nounts usually going with **_xa-_** are:
-- **_psə_** _water_, 
-- **_ɮə_** _meat_, 
-- **_xʷəgʷ_** _millet_, 
-- **_naːrtəxʷ_** _corn_, 
-- **_prəwnʒ_** _rice_, 
-- **_gʷadz_** _wheat_, 
-- **_məʔarəsa_** _apple_, 
-- **_qχəʑ_** _pear_, 
-- **_bʑən_** _onion_, 
-- **_faw_** _honey_, 
-- **_ʃəʁʷ_** _salt_, 
-- **_fawʃəʁʷ_** _suger_, 
-- **_maːxsəma_** _makhsyma_, 
-- **_saːna_** _whine_, 
-- **_ʒəzəwm_** _grape_, 
-- **_ɕʼaːqχʷa_** _bread_, 
-- **_qχʷaj_** _cheese_, 
-- **_ʃa_** _milk_, 
-- **_ʁʷəɕʼ_** _metal_,
-- **_dəɕa_** _gold_,
-- **_ʑə_** _air_, 
-- **_naxʷ_** _light_, 
-- **_was_** _snow_, 
-- **_waʃx_** _rain_
+Nouns usually going with **_хэ-_** are:
+- **_псы_** _water_, 
+- **_лы_** _meat_, 
+- **_хугу_** _millet_, 
+- **_нартыху_** _corn_, 
+- **_прунж_** _rice_, 
+- **_гуэдз_** _wheat_, 
+- **_мыIэрысэ_** _apple_, 
+- **_кхъыжь_** _pear_, 
+- **_бжьын_** _onion_, 
+- **_фо_** _honey_, 
+- **_шыгъу_** _salt_, 
+- **_фошыгъу_** _suger_, 
+- **_махсымэ_** _makhsyma_, 
+- **_санэ_** _whine_, 
+- **_жызум_** _grape_, 
+- **_щIакхъуэ_** _bread_, 
+- **_кхъуей_** _cheese_, 
+- **_шэ_** _milk_, 
+- **_гъущI_** _metal_,
+- **_дыщэ_** _gold_,
+- **_жьы_** _air_, 
+- **_нэху_** _light_, 
+- **_уэс_** _snow_, 
+- **_уэшх_** _rain_
 
 **_gʷəqajwa_** _sorrow_, **_gʷəfʼaʁʷa_** _happiness_, **_gʷəpsəsa_** _thought_, **dəħaʃx** _laughter_, **_ɕʼəʔa_** _cold_, **_xʷaba_** _heat_, **_maːmərəʁa_** _peace_, _silence_, **_paʒ_** _truth_, **_ptsʼə_** _lie_
 
@@ -51,8 +50,22 @@ Nounts usually going with **_xa-_** are:
 Nouns usually going with **_jə-_** are:
 **_bətəwɬtʃʼa_** _bottle_, **_ʃaːqaːɬa_** _inkwell_, **_ʃəʁʷɬa_** _salt shaker_, **_fawʃəʁʷɬa_** _sugar bowl_, **_ʒəp_** _pocket_, **_wəna_** _house_, **_maːɕa_** _hole_, **ʁʷa** _burrow, den_, **_gʷə_** _arba_, **_maːʃəna_** _car_, **_qχʷəħ_** _steamship_, **_qχʷəħɬaːta_** _airplane_, **_tajba_** _frying pan_, **_pagʷən_** _bucket_, **_tajpɕatʃ_** _plate_, **_statʃan_** _glass_, **_maːta_** _basket_
 
-Noun usually going with **da-** are:
-**_qʷaʒa_** _village_, **_qaːɮa_** _city_, **_pɕʼantʼa_** _yard_, **_nədʒa_** _river floodplain, flood meadow_, **_psəχʷa_** _shore_, **_waraːm_** _street_, **_pχʷaːntʼa_** _trunk_, **_ʃkaːf_** _wardrobe_
+Noun usually going with **_дэ-_** are:
+- **_къуэжэ_** _village_, 
+- **_qaːɮa_** _city_, 
+- **_pɕʼantʼa_** _yard_, 
+- **_nədʒa_** _river floodplain, flood meadow_, 
+- **_psəχʷa_** _shore_, 
+- **_waraːm_** _street_, 
+- **_pχʷaːntʼa_** _trunk_, 
+- **_ʃkaːf_** _wardrobe
+
+## дэ-
+**_дэ-_** has two meanings. One meaning is the one described above. The other is comitative, that is it has the meaning of _with_. It seems to me that the distribution is mutually exclusive, that is verb by default verbs can only have one meaning of the two.
+
+- **_дэпсэун_** - _to live with Y_
+- **_дэлэжьэн_** - _to work with Y_
+- **_дэжэн_**- _to run with Y_
 
 # **_щIэ-_**
 It comes from the noun **_щIэ-_** _bottom_ and it means _under_, prototypically. However another meaning refers to action or being inside a room.
@@ -61,17 +74,20 @@ It comes from the noun **_щIэ-_** _bottom_ and it means _under_, prototypicall
 **_pχaɕħaməɕħar ɕʼəwənam ɕʼaːɬħaːɕ_** - _fruits are put in the cellar_
 **_щIалэр жыг щIагъым щIэсщ_** _the guy is sitting under a tree_
 **_pχar gʷaɕəm ɕʼaɬɕ_** - _the wood lies in the barn_
-# **_ɕə-_**
-**_ɕə-_** is is the 'general locative' preverb.
+# **_щы-_**
+**_щы-_** is is the 'general locative' preverb.
 
-**_ɕəxʷən_** (**_ɕawxʷ_**) intr. - _to fall down from a surface_
-**_ɕədzən_** (**_ɕajdz_**) tr. -_to throw down Y from a surface_
-**_ɕəχʷan_** (**_ɕajχʷa_**) tr. - _to rub Y against Z_
-**_ɕətsʼaɬən_** (**_ɕajtsʼaɬ_**) tr. - _to smear Y on Z_
-**_ɕətʼaʁan_** (**_ɕajtʼaːʁa_**) tr. - _to put on Y on Z_
-**_ɕətʃʼən_** (**_ɕawtʃʼ_**) intr. - _to become conceited_
-**_ɕəwan_** (**_ɕawwa_**) intr. - _to make a mistake_
+**_щыхун_** (**_щоху_**) intr. - _to fall down from a surface_
+**_щыдзын_** (**_щедз_**) tr. -_to throw down Y from a surface_
+**_щыхъуэн_** (**_щехъуэ_**) tr. - _to rub Y against Z_
+**_щыцIэлъын_** (**_щецIэлъ_**) tr. - _to smear Y on Z_
+**_щытIэгъэн_** (**_щетIагъэ_**) tr. - _to put on Y on Z_
+**_щыкIын_** (**_щокI_**) intr. - _to become conceited_
+**_щыуэн_** (**_щоуэ_**) intr. - _to make a mistake_
 
+
+- **_ар гуэщым щыIэщ_** - _he is in the barn_
+- **_ар и фызым щошына_** - _he is afraid of his wife_
 
 # **_fʼa-_**
 
@@ -206,11 +222,12 @@ This preverb denotes a position on the side, near something or an action connect
 In verbs of motions, it is frequently synanmous with the preverb **_bɮa-_**.
 
 ## **_tʃʼaɕʼa-_**
-## **_tʃʼarə-_**
+## **_кIэры-_**
 **_tʃʼarə-_**
-It's a compound preverb, consisting of **_tʃʼa_** _tail_, _end_ and **_rə-**.
+It's a compound preverb, consisting of **_кIэ_** _tail_, _end_ and **_ры-_**.
 
-
+- **_кIэрыгъэщIэн_** - _to lean Y against Z_
+- **_кIэрыкIэн_** - _to accrue to Y_
 ## **_tʃʼaɕʼa-_**
 
 ## **_bʁʷə-_**

@@ -20,21 +20,21 @@ To say actually use that in phrase, the verb **_хъун_** in the past is used,
 To ask for the time, one uses **_дапщэ_** _how many_.
 - **_сыхьэт дапщэ хъуа?_** - _what time is it?_, lit. _how many hours have become?_
 
-- **_səħatər bɮəm daqəjqəjtxʷətʃʼa jaʑaːɕ_**
+- **_сыхьэтыр блым дэкъикъитхукIэ ежьащ_**
 
-- **_pʃaddʒəʑər сыхьэтий хъуащ_** - _it's eight o'clock in the morning/a.m._
-- **_pɕəħaɕħar səħatəj χʷaːɕ_** - _it's eight o'clock in the evening/p.m._
+- **_пшэдджыжьыр сыхьэтий хъуащ_** - _it's eight o'clock in the morning/a.m._
+- **_пщыхьэщхьэр сыхьэтий хъуащ_** - _it's eight o'clock in the evening/p.m._
 
-- **_bɮam jə nəqʷaɕ_** - _half past six_ (lit. _seven's half_)
-- **_jəm jə nəqʷaɕ_** - _half past seven_ (lit. _eight's half_)
-- **_bʁʷəm jə nəqʷaɕ_** - _half past eight_ (lit. _nine's half_)
-- **_pɕʼəm jə nəqʷaɕ_** - _half past nine_ (lit. _ten's half_)
+- **_блэм и ныкъуэщ_** - _half past six_ (lit. _seven's half_)
+- **_им и ныкъуэщ_** - _half past seven_ (lit. _eight's half_)
+- **_бгъум и ныкъуэщ_** - _half past eight_ (lit. _nine's half_)
+- **_пщIым и ныкъуэщ_** - _half past nine_ (lit. _ten's half_)
 
 Сыхьэт пщыкӀутӀ хъуным дакъикъипщӀ хуеижщ.
 
 Expressing that it's a certain amount of time before a full hour.
-- **_səħat[X] χʷənəm daːqəjqa[Y] xʷajɕ** - it's Y to X, it's Y minutes before X
-- **_səħat pɕəkʷʼətʼ χʷənəm daːqəjqəjpɕʼ xʷajɕ_** - _it's ten to twelve_ (lit. _it's twelve o'clock wanting ten minutes_)
+- **_сыхьэт[X] хъуным дэкъикъи[Y] хуейщ_* - it's Y to X, it's Y minutes before X
+- **_сыхьэт пщыкIутI хъуным дэкъикъипщI хуейщ_** - _it's ten to twelve_ (lit. _it's twelve o'clock wanting ten minutes_)
 
 
 **_абы дакъикъипщI хуэдиз текIуэдэнущ_** - _it'll take about _

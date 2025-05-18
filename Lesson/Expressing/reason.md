@@ -20,7 +20,7 @@ postpositions:
 - **_[лIыхужьыгъэм къыхэкIыу] ар и гъусэхэм псынщIэу къэцIыхуащ_** - _[Because of his bravery] he was quickly recognized by his fellow travelers_
 - **_[псалъэреиным къыхэкIыу] ар и ныбжьэгъухэм фIы дыдэу къалъэгъуртэкъым_** - _[Because of his garrulity], friends didn’t like him that much_
 
-- **_[ʁʷagʷərəkʷʼaʁʷ ɕʼaːɮam jə fʼəʁatʃʼa] aːbə qəjɕʼaːɕ qəpaɕəɬ ʃənaːʁʷar_** - _[Due to the young fellow traveller] he got to know about the danger, awaiting for him_
+- **_[гʁʷagʷərəkʷʼaʁʷ ɕʼaːɮam jə fʼəʁatʃʼa] aːbə qəjɕʼaːɕ qəpaɕəɬ ʃənaːʁʷar_** - _[Due to the young fellow traveller] he got to know about the danger, awaiting for him_
 
 - абы и чысэм щхъэкIэ/папщIэ игъэзэжащ -  _He came back home, because of his pouch_
 
@@ -29,15 +29,15 @@ postpositions:
 ### зэры- participle + postposition
 If one wants to use the reason adverbial clause with verbs, then one uses the postpositions **_щхьэкIэ_**, **_къыхэкIкIэ_** or **_къыхэкIыу_** with the verb using the **_зэры-_** participle form in the ergative case.
 
-- **_[си ныбжьэгъур къызэрызэджам щхьэкIэ] сыкIуэн хуей хъуа_** - _[Because my friend called me], I had to go_
-- **_[фIыуэ зэреджам щхьэкIэ] ар мэзкуу икскурс ягъэкIуащ_** - _[Because he studied well] he was sent to an excursion to Moscow._
-- **_[укъызэрыкIуам щхьэкIэ] фIыщIэ пхузощI_** - _[Because you came] I thank you_
-- **_[жэщытI лъандэрэ сызэрымыжеям къыхэкIкIэ] си нэхэр сфIызэтепщIэрт_** - _[because I did not sleep since 2 nights] my eyes stick together_
-- **_[дызэрымащIэм къыхэкIкIэ] сыт щыгъуи дыкъофэ_** - _[because we are few] we always dance_
+- **_{си ныбжьэгъур къызэрызэджам щхьэкIэ} сыкIуэн хуей хъуа_** - _{Because my friend called me}, I had to go_
+- **_{фIыуэ зэреджам щхьэкIэ} ар мэзкуу икскурс ягъэкIуащ_** - _{Because he studied well} he was sent to an excursion to Moscow._
+- **_{укъызэрыкIуам щхьэкIэ} фIыщIэ пхузощI_** - _{Because you came} I thank you_
+- **_{жэщытI лъандэрэ сызэрымыжеям къыхэкIкIэ} си нэхэр сфIызэтепщIэрт_** - _{because I did not sleep since 2 nights} my eyes stick together_
+- **_{дызэрымащIэм къыхэкIкIэ} сыт щыгъуи дыкъофэ_** - _{because we are few} we always dance_
 
-- **_[уэс къызэресам щхьэкIэ] жэщ нэхущ_** - _[because it snows] the night is bright_
+- **_{уэс къызэресам щхьэкIэ} жэщ нэхущ_** - _{because it snows} the night is bright_
 
-- **_[сызэрысымаджам къыхэкIыу]_** - ...
+- **_{сызэрысымаджам къыхэкIыу}_** - ...
 
 
 ### infinite + postposition

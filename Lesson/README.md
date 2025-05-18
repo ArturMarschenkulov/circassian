@@ -17,6 +17,8 @@ https://blogs.transparent.com/
 	- https://russianenthusiast.com/russian-grammar/
 	- https://www.ruspeach.com/en/learning/
 	- http://duo-russian-grammar.s3-website-eu-west-1.amazonaws.com/
+- Croatian:
+	- https://www.easy-croatian.com/2014/11/93.html
 - Hebrew
 	- https://www.pealim.com/
 	- https://education.feedspot.com/hebrew_learning_blogs/
@@ -35,4 +37,12 @@ https://blogs.transparent.com/
 	- https://guidetojapanese.org
 	- https://www.japanesepod101.com/
 	- https://talkpal.ai/japanese-grammar/
-- Arabic
+	- https://www.tofugu.com/japanese-grammar/
+	- https://www.japanesewithanime.com/
+- Arabic:
+- Chinese:
+	- https://www.chineasy.com/
+- French:
+	- https://theperfectfrench.com/category/grammar/
+- Portuguese:
+	- https://www.youtube.com/@Portuguesewithadelina

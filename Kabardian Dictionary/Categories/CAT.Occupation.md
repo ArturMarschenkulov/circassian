@@ -1,2 +1,2 @@
 
-**_bdzaʑajjaːɕa_** - _fisher_ (cf. **_bdzaʑajj_** _fish_)
+- **_бдзэжьеящэ_** - _fisher_ (cf. **_бдзэжьей_** _fish_)
